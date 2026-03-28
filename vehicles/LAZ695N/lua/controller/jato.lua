@@ -7,6 +7,8 @@ M.type = "auxilliary"
 M.relevantDevice = nil
 M.defaultOrder = 1100
 
+M.fuelCoef = 1
+
 local max = math.max
 local min = math.min
 
@@ -32,7 +34,7 @@ local function updateGFX(dt)
     jatoInput = 1
   end
 
-  fuel = max(fuel - jatoInput * dt, 0)
+  fuel = max(fuel - jatoInput * dt * M.fuelCoef, 0)
 
   if fuel <= 0 then
     jatoInput = 0
@@ -51,6 +53,7 @@ local function updateGFX(dt)
     for i = 1, thrusterCount, 1 do
       local loop = thrusterLoops[i]
       obj:setVolume(loop, jatoInput)
+      obj:cutSFX(loop)
       obj:playSFX(loop)
     end
   end
@@ -114,7 +117,7 @@ local function initSounds()
   thrusterLoops = {}
   for i = 1, thrusterCount, 1 do
     local thruster = thrusterNodes[i]
-    local loop = obj:createSFXSource(thrusterLoopName, "AudioDefaultLoop3D", "jatoThrusterLoop", thruster[1])
+    local loop = obj:createSFXSource2(thrusterLoopName, "AudioDefaultLoop3D", "jatoThrusterLoop", thruster[1], 0)
     table.insert(thrusterLoops, loop)
   end
 end

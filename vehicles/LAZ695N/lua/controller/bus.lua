@@ -64,13 +64,10 @@ local function toggleKneel()
 end
 
 local function geCallback(event,data)
-  local pos = obj:getPosition()
-  local rot = obj:getRotation()
-
   data.event = event
   --transform userdata into table
-  data.pos = vec3(pos):toTable()
-  data.rot = quat(rot):toTable()
+  data.pos = vec3(obj:getPosition()):toTable()
+  data.rot = quat(obj:getRotation()):toTable()
   obj:queueGameEngineLua("if core_busRouteManager then core_busRouteManager.onBusUpdate("..dumps(data)..") end")
 end
 
