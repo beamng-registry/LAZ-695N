@@ -55,7 +55,12 @@
         "increaseRate": 30,
         "decreaseRate": 60,
         "pressuredBeams":"doorBeamData",
+        "groupSounds": "doorBeamSoundData",
     }
+    "doorBeamSoundData":[
+        ["groupName", "soundUp", "soundDown", "volumeUp", "volumeDown", "node:"]
+        ["frontDoors", "event:>Vehicle>Pneumatics>Door_Open", "event:>Vehicle>Pneumatics>Door_Close", 1.35, 1.35, "df3"],
+	]
     "airbrakes": {
         //"soundNode:": [""]
     }
