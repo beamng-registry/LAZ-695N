@@ -5,6 +5,8 @@ on:
 
 jobs:
   build-reference-package:
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     env:
       REFERENCE_ARCHIVE_URL: https://github.com/beamng-registry/LAZ-695N/releases/download/v0.0.0/LAZ695ref.7z
@@ -25,7 +27,12 @@ jobs:
           fi
 
           mkdir -p "$RUNNER_TEMP/reference-package"
-          7z x "$RUNNER_TEMP/LAZ695ref.7z" "-o$RUNNER_TEMP/reference-package" "-p$REFERENCE_PACKAGE_PASSWORD"
+
+          if ! 7z x "$RUNNER_TEMP/LAZ695ref.7z" "-o$RUNNER_TEMP/reference-package" "-p$REFERENCE_PACKAGE_PASSWORD" >"$RUNNER_TEMP/7z-extract.log" 2>&1; then
+            cat "$RUNNER_TEMP/7z-extract.log"
+            echo "Failed to extract archive - verify REFERENCE_PACKAGE_PASSWORD is correct" >&2
+            exit 1
+          fi
 
       - name: Replace LAZ695N Lua scripts
         run: |
