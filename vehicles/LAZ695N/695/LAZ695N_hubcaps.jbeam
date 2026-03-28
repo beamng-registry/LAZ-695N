@@ -1,0 +1,30 @@
+{
+"LAZ695N_hubcaps_F": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Hubcaps LAZ",
+        "value":400,
+    }
+    "slotType" : "LAZ695N_hubcaps_F",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //wheels
+         ["LAZ695N_hubcap", ["wheel_FR","wheelhub_FR"], [], {"pos":{"x":-1.0654, "y":-2.27956, "z":0.45}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+         ["LAZ695N_hubcap", ["wheel_FL","wheelhub_FL"], [], {"pos":{"x": 1.0654, "y":-2.27956, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+     ],
+},
+"LAZ695N_hubcaps_R": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Hubcaps LAZ",
+        "value":400,
+    }
+    "slotType" : "LAZ695N_hubcaps_R",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //wheels
+         ["LAZ695N_hubcap", ["wheel_RR_2","wheelhub_RR_2"], [], {"pos":{"x":-1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+         ["LAZ695N_hubcap", ["wheel_RL_2","wheelhub_RL_2"], [], {"pos":{"x": 1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+     ],
+}
+}

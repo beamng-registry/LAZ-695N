@@ -1,0 +1,252 @@
+{
+"LAZ695N_fascia_F_1980": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Fascia W/O Sanitary Door Rectangular Fog Lights",
+        "value":190,
+    },
+    "slotType" : "LAZ695N_fascia_F",
+    "slots": [
+        ["type", "default", "description"],
+		["LAZ695N_visor", "", "Windshield Visor"],
+		["LAZ695N_bumper_F", "LAZ695N_bumper_F", "Front Bumper"],
+		["LAZ695N_grille_F", "", "Front Facsia"],
+		["LAZ695N_handrails_F", "", "Handrails"],
+		["LAZ695N_emblem", "LAZ695N_emblem_black", "Emblem"],
+		["LAZ695N_tourist_F", "", "Front Lettering Tourist"],
+		["LAZ695N_fogs_F","LAZ695N_fogs_F", "Fog Lights"],
+		["LAZ695N_runninglights_F","LAZ695N_runninglights_F", "Front Running Lights"],
+		["LAZ695N_headlight_L","LAZ695N_headlight_L", "Left Headlight"],
+		["LAZ695N_headlight_R","LAZ695N_headlight_R", "Right Headlight"],
+		["LAZ695N_window_front", "LAZ695N_window_front", "Windshield"],
+		["LAZ695N_sparewheel_panel","LAZ695N_sparewheel_panel", "Spare Wheel Panel"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_fascia_F", ["LAZ695N_body_g"]],		
+		["LAZ695N_heaterhoses", ["LAZ695N_body_g"]],
+
+		{"deformGroup":"LAZ695N_windshield_R_alt_break", "deformMaterialBase":"glass_invisible", "deformMaterialDamaged":"invis"}
+		["LAZ695N_wiper_R", ["LAZ695N_body_g"]],
+		{"deformGroup":""}
+    ],
+},
+"LAZ695N_fascia_F_1980_round": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Fascia W/O Sanitary Door Round Fog Lights",
+        "value":190,
+    },
+    "slotType" : "LAZ695N_fascia_F",
+    "slots": [
+        ["type", "default", "description"],
+		["LAZ695N_visor", "", "Windshield Visor"],
+		["LAZ695N_bumper_F", "LAZ695N_bumper_F", "Front Bumper"],
+		["LAZ695N_grille_F", "", "Front Facsia"],
+		["LAZ695N_emblem", "LAZ695N_emblem_black", "Emblem"],
+		["LAZ695N_tourist_F", "", "Front Lettering Tourist"],
+		["LAZ695N_handrails_F", "", "Handrails"],
+		["LAZ695N_fogs_F_round","LAZ695N_fogs_F_round", "Fog Lights"],
+		["LAZ695N_runninglights_F","LAZ695N_runninglights_F", "Front Running Lights"],
+		["LAZ695N_headlight_L","LAZ695N_headlight_L", "Left Headlight"],
+		["LAZ695N_headlight_R","LAZ695N_headlight_R", "Right Headlight"],
+		["LAZ695N_window_front", "LAZ695N_window_front", "Windshield"],
+		["LAZ695N_sparewheel_panel","LAZ695N_sparewheel_panel", "Spare Wheel Panel"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_fascia_F_round", ["LAZ695N_body_g"]],		
+		["LAZ695N_fascia_F_round_bottom", ["LAZ695N_body_g"]],		
+		["LAZ695N_fascia_F_zagluha", ["LAZ695N_body_g"]],		
+		["LAZ695N_heaterhoses", ["LAZ695N_body_g"]],
+
+		{"deformGroup":"LAZ695N_windshield_R_alt_break", "deformMaterialBase":"glass_invisible", "deformMaterialDamaged":"invis"}
+		["LAZ695N_wiper_R", ["LAZ695N_body_g"]],
+		{"deformGroup":""}
+    ],
+},
+"LAZ695N_fascia_F_1980_wofoglights": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Fascia W/O Sanitary Door",
+        "value":190,
+    },
+    "slotType" : "LAZ695N_fascia_F",
+    "slots": [
+        ["type", "default", "description"],
+		["LAZ695N_visor", "", "Windshield Visor"],
+		["LAZ695N_bumper_F", "LAZ695N_bumper_F", "Front Bumper"],
+		["LAZ695N_grille_F", "", "Front Facsia"],
+		["LAZ695N_emblem", "LAZ695N_emblem_black", "Emblem"],
+		["LAZ695N_tourist_F", "", "Front Lettering Tourist"],
+		["LAZ695N_handrails_F", "", "Handrails"],
+		["LAZ695N_runninglights_F","LAZ695N_runninglights_F", "Front Running Lights"],
+		["LAZ695N_headlight_L","LAZ695N_headlight_L", "Left Headlight"],
+		["LAZ695N_headlight_R","LAZ695N_headlight_R", "Right Headlight"],
+		["LAZ695N_window_front", "LAZ695N_window_front", "Windshield"],
+		["LAZ695N_sparewheel_panel","LAZ695N_sparewheel_panel", "Spare Wheel Panel"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_fascia_F_pre", ["LAZ695N_body_g"]],		
+		["LAZ695N_fascia_F_zagluha", ["LAZ695N_body_g"]],		
+		["LAZ695N_underbody_covers", ["LAZ695N_body_g"]],		
+		["LAZ695N_heaterhoses", ["LAZ695N_body_g"]],
+
+		{"deformGroup":"LAZ695N_windshield_R_alt_break", "deformMaterialBase":"glass_invisible", "deformMaterialDamaged":"invis"}
+		["LAZ695N_wiper_R", ["LAZ695N_body_g"]],
+		{"deformGroup":""}
+    ],
+},
+"LAZ695N_fascia_F_1976_roundfog": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Fascia Sanitary Door Round Fog Lights",
+        "value":190,
+    },
+    "slotType" : "LAZ695N_fascia_F",
+    "slots": [
+        ["type", "default", "description"],
+		["LAZ695N_visor", "", "Windshield Visor"],
+		["LAZ695N_bumper_F", "LAZ695N_bumper_F", "Front Bumper"],
+		["LAZ695N_grille_F", "", "Front Facsia"],
+		["LAZ695N_emblem", "LAZ695N_emblem_black", "Emblem"],
+		["LAZ695N_tourist_F", "", "Front Lettering Tourist"],
+		["LAZ695N_handrails_F_luk", "", "Handrails"],
+		["LAZ695N_fogs_F_round","LAZ695N_fogs_F_round", "Fog Lights"],
+		["LAZ695N_runninglights_F_luk","LAZ695N_runninglights_F_luk", "Front Running Lights"],
+		["LAZ695N_headlight_L","LAZ695N_headlight_L", "Left Headlight"],
+		["LAZ695N_accessdoor_F", "LAZ695N_accessdoor_F", "Front Panel Door"],
+		["LAZ695N_window_front", "LAZ695N_window_front", "Windshield"],
+		["LAZ695N_sparewheel_panel","LAZ695N_sparewheel_panel", "Spare Wheel Panel"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_fascia_F_1976_pre", ["LAZ695N_body_g"]],		
+		["LAZ695N_heaterhoses", ["LAZ695N_body_g"]],
+    ],
+},
+"LAZ695N_fascia_F_1976_roundfog_dmg": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Damaged Front Fascia Sanitary Door Round Fog Lights",
+        "value":190,
+    },
+    "slotType" : "LAZ695N_fascia_F",
+    "slots": [
+        ["type", "default", "description"],
+		["LAZ695N_visor", "", "Windshield Visor"],
+		["LAZ695N_bumper_F", "LAZ695N_bumper_F", "Front Bumper"],
+		["LAZ695N_grille_F", "", "Front Facsia"],
+		["LAZ695N_emblem", "LAZ695N_emblem_black", "Emblem"],
+		["LAZ695N_tourist_F", "", "Front Lettering Tourist"],
+		["LAZ695N_handrails_F_luk", "", "Handrails"],
+		["LAZ695N_fogs_F_round","LAZ695N_fogs_F_round", "Fog Lights"],
+		["LAZ695N_runninglights_F_luk","LAZ695N_runninglights_F_luk", "Front Running Lights"],
+		["LAZ695N_headlight_L","LAZ695N_headlight_L", "Left Headlight"],
+		["LAZ695N_accessdoor_F", "LAZ695N_accessdoor_F", "Front Panel Door"],
+		["LAZ695N_window_front", "LAZ695N_window_front", "Windshield"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_fascia_F_1976_pre_dmg", ["LAZ695N_body_g"]],		
+    ],
+},
+"LAZ695N_fascia_F_1976_rectfog": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Fascia Sanitary Door Rectangular Fog Lights",
+        "value":190,
+    },
+    "slotType" : "LAZ695N_fascia_F",
+    "slots": [
+        ["type", "default", "description"],
+		["LAZ695N_visor", "", "Windshield Visor"],
+		["LAZ695N_bumper_F", "LAZ695N_bumper_F", "Front Bumper"],
+		["LAZ695N_grille_F", "", "Front Facsia"],
+		["LAZ695N_emblem", "LAZ695N_emblem_black", "Emblem"],
+		["LAZ695N_tourist_F", "", "Front Lettering Tourist"],
+		["LAZ695N_handrails_F_luk", "", "Handrails"],
+		["LAZ695N_fogs_F","LAZ695N_fogs_F", "Fog Lights"],
+		["LAZ695N_runninglights_F_luk","LAZ695N_runninglights_F_luk", "Front Running Lights"],
+		["LAZ695N_headlight_L","LAZ695N_headlight_L", "Left Headlight"],
+		["LAZ695N_accessdoor_F", "LAZ695N_accessdoor_F", "Front Panel Door"],
+		["LAZ695N_window_front", "LAZ695N_window_front", "Windshield"],
+		["LAZ695N_sparewheel_panel","LAZ695N_sparewheel_panel", "Spare Wheel Panel"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_fascia_F_1976", ["LAZ695N_body_g"]],		
+		["LAZ695N_heaterhoses", ["LAZ695N_body_g"]],		
+    ],
+},
+"LAZ695N_fascia_F_1976_gluh": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Fascia Sanitary Door",
+        "value":190,
+    },
+    "slotType" : "LAZ695N_fascia_F",
+    "slots": [
+        ["type", "default", "description"],
+		["LAZ695N_visor", "", "Windshield Visor"],
+		["LAZ695N_bumper_F", "LAZ695N_bumper_F", "Front Bumper"],
+		["LAZ695N_grille_F", "", "Front Facsia"],
+		["LAZ695N_emblem", "LAZ695N_emblem_black", "Emblem"],
+		["LAZ695N_tourist_F", "", "Front Lettering Tourist"],
+		["LAZ695N_handrails_F_luk", "", "Handrails"],
+		["LAZ695N_runninglights_F_luk","LAZ695N_runninglights_F_luk", "Front Running Lights"],
+		["LAZ695N_headlight_L","LAZ695N_headlight_L", "Left Headlight"],
+		["LAZ695N_accessdoor_F", "LAZ695N_accessdoor_F", "Front Panel Door"],
+		["LAZ695N_window_front", "LAZ695N_window_front", "Windshield"],
+		["LAZ695N_sparewheel_panel","LAZ695N_sparewheel_panel", "Spare Wheel Panel"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_fascia_F_1976_gluh", ["LAZ695N_body_g"]],		
+		["LAZ695N_heaterhoses", ["LAZ695N_body_g"]],		
+    ],
+},
+"LAZ695N_bumper_F": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Front Bumper Colored", 
+    }
+       "slotType" : "LAZ695N_bumper_F", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_fasciarubbers", ["LAZ695N_body_g"]],		
+		["LAZ695N_bumper_F", ["LAZ695N_body_g"]],
+                ["LAZ695N_sparewheelpanel_bumper", ["LAZ695N_sparewheelpanel"]],
+		
+	],
+ },
+"LAZ695N_bumper_F_black": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Front Bumper Black", 
+    }
+       "slotType" : "LAZ695N_bumper_F", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_fasciarubbers", ["LAZ695N_body_g"]],		
+		["LAZ695N_bumper_F_black", ["LAZ695N_body_g"]],
+                ["LAZ695N_sparewheelpanel_bumper_black", ["LAZ695N_sparewheelpanel"]],
+		
+	],
+ },
+"LAZ695N_bumper_F_chrome": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Front Bumper Chrome", 
+    }
+       "slotType" : "LAZ695N_bumper_F", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_fasciarubbers", ["LAZ695N_body_g"]],		
+		["LAZ695N_bumper_F_chrome", ["LAZ695N_body_g"]],
+                ["LAZ695N_sparewheelpanel_bumper_chrome", ["LAZ695N_sparewheelpanel"]],
+		
+	],
+ },
+}

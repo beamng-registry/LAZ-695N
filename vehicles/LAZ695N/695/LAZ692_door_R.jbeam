@@ -1,0 +1,166 @@
+{
+"LAZ695N_door_R":{
+	"information":{
+	"authors":"Bagusik",
+	"name":"Passenger Door",
+	},
+    "slotType":"LAZ695N_door_R",
+    "flexbodies":[
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["LAZ695N_door_R_692", ["LAZ695N_driver_door"]], 
+    ],
+    "controller": [
+        ["fileName"],
+        ["advancedCouplerControl", {"name":"DoorPassengerCoupler"}],
+    ]
+    "DoorPassengerCoupler":{
+        "groupType": "autoCoupling",
+        "couplerNodes":[
+            ["cid1",    "cid2",     "autoCouplingStrength",    "autoCouplingRadius",   "autoCouplingLockRadius",   "autoCouplingSpedrp"]
+            ["z201r",    "latch_drp",    45000,                  0.05,                   0.010,                      0.2]
+        ]
+        "attachSoundVolume":3,
+        "detachSoundVolume":3,
+        "soundNode":["z301rr"]
+        "attachSoundEvent": "event:>Vehicle>Latches>Hood>modern_03_close",
+        "detachSoundEvent": "event:>Vehicle>Latches>Hood>modern_02_open_lever",
+        "breakSoundEvent":""
+        "openForceMagnitude": 50,
+        "openForceDuration": 0.1,
+        "closeForceMagnitude": 300,
+        "closeForceDuration": 4.1
+    }
+    "triggers":[
+        ["id", "label", "idRef:", "idX:", "idY:", "type", "size", "baseRotation", "rotation", "translation", "baseTranslation"],
+        //["door_Passenger_int", "", "drp5","drp2","drp4", "box", {"x":0.13, "y":0.025, "z":0.03}, {"x":0, "y":13, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0.615, "y":0.054, "z":0.025}],
+        ["door_Passenger_ext", "", "drp5","drp2","drp4", "box", {"x":0.13, "y":0.025, "z":0.03}, {"x":0, "y":25, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0.63, "y":0.39, "z":0.015}],
+    ],
+    "triggerEventLinks":[
+        ["triggerId:triggers", "action", "targetEventId:events"],
+        ["door_Passenger_int", "action0", "doorLatch_Passenger"],
+        ["door_Passenger_ext", "action0", "doorLatch_Passenger"],
+    ],
+    "events":[
+        ["id", "title", "desc"],
+        ["doorLatch_Passenger", "", "", {"onUp":"controller.getControllerSafe('DoorPassengerCoupler').toggleGroup()"}],
+    ],
+	"nodes":[
+	["id", "posX", "posY", "posZ"],
+        {"frictionCoef":0.5},
+        {"nodeMaterial":"|NM_METAL"},
+        {"nodeWeight":2.5},
+	{"group":"LAZ695N_driver_door"},
+        {"collision":true},
+        {"selfCollision":false},
+	["drp1", -1.27792, -2.92608, 2.24551],
+	["drp2", -1.29222, -2.92608, 0.96510],
+	["drp3", -1.24866, -2.92608, 0.28746],
+	["drp4", -1.27792, -3.70314, 2.24551],
+	["drp5", -1.29222, -3.70314, 0.96510],
+	["drp6", -1.24866, -3.70314, 0.28746],
+	{"group":""},
+	["drpm1", -1.29141, -3.72995, 1.53283],
+	["drpm2", -1.28182, -3.72714, 0.57946],
+        //latch
+	["latch_drp", -0.52216, -2.87191, 0.95000 {"couplerTag":"doorLatch_Passenger","couplerLock":true,"couplerStrength":45000,"couplerRadius":1.35,"couplerStartRadius":0.5,"couplerLockRadius":0.1,"couplerLatchSpeed":0.8, "breakGroup":""}],
+	["drpr1", -1.08659, -3.31528, 1.16603],
+	{"group":""},
+    ],
+	"beams":[
+		["id1:", "id2:"],
+        	{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        	{"deformLimitExpansion":1.1},
+        	{"beamSpring":2501000,"beamDamp":200},
+        	{"beamDeform":20000,"beamStrength":"FLT_MAX"},
+        	{"deformGroup":"passengerdoor_glass_break","deformationTriggerRatio":0.005},
+		["drp1", "drp2"],
+		["drp2", "drp3"],
+		["drp4", "drp5"],
+		["drp5", "drp6"],
+		["drp6", "drp3"],
+		["drp5", "drp2"],
+		["drp4", "drp1"],
+		["drp1", "drp5"],
+		["drp2", "drp4"],
+		["drp2", "drp6"],
+		["drp3", "drp5"],
+		["drp4", "drp6"],
+		["drp1", "drp3"],
+		//rigidfires
+		["drpr1", "drp1"],
+		["drpr1", "drp4"],
+		["drpr1", "drp5"],
+		["drpr1", "drp2"],
+		["drpr1", "drp3"],
+		["drpr1", "drp6"],
+		["drpr1", "drpm2"],
+		["drpr1", "drpm1"],
+        	{"deformGroup":""},
+        	{"breakGroup":""},
+		//hinges
+		["drp5", "drpm1"],
+		["drpm1", "drp4"],
+		["drpm1", "drp1"],
+		["drpm1", "drp2"],
+		["drpm2", "drp5"],
+		["drpm2", "drp6"],
+		["drpm2", "drp2"],
+		["drpm2", "drp3"],
+		//latch mount
+        	{"beamDeform":10000},
+		["latch_drp", "drp1"],
+		["latch_drp", "drp4"],
+		["latch_drp", "drp5"],
+		["latch_drp", "drp2"],
+		["latch_drp", "drp3"],
+		["latch_drp", "drp6"],
+
+
+		//body attach
+        	{"beamDeform":50000,"beamStrength":90000},
+        	{"breakGroup":"passengerdoor_hinge_U"},
+		["drpm1", "z500rr"],
+		["drpm1", "z500arr"],
+		["drpm1", "z400rr"],
+		["drpm1", "z401rr"],
+		["drpm1", "z300rr"],
+		["drpm1", "z501rr"],
+        	{"breakGroup":"passengerdoor_hinge_L"},
+		["drpm2", "fc22r"],
+		["drpm2", "fc2r"],
+		["drpm2", "z100rr"],
+		["drpm2", "z200rr"],
+		["drpm2", "z301ll"],
+		["drpm2", "z201ll"],
+        	{"breakGroup":""},
+
+        	//pop door open front
+        	{"beamSpring":100,"beamDamp":45},
+        	{"beamDeform":5000,"beamStrength":60000},
+        	{"beamPrecompression":2.0},
+        	["z201r", "drp2",{"breakGroup":"passengerdoor_hinge_L", "beamPrecompressionTime":0.2}],
+        	["z201r", "drp1",{"breakGroup":"passengerdoor_hinge_U", "beamPrecompressionTime":0.2}],
+        	{"breakGroup":""},
+		//limiter
+        	{"beamPrecompression":1, "beamType":"|BOUNDdrp", "beamLongBound":0.01, "beamShortBound":0},
+        	{"beamDeform":3000,"beamStrength":10000},
+        	{"beamSpring":0,"beamDamp":400},
+        	{"beamLimitSpring":101000,"beamLimitDamp":100},
+        	["z205rr", "drp2",{"breakGroup":"passengerdoor_hinge_L"}],
+        	["z205r", "drp1",{"breakGroup":"passengerdoor_hinge_U"}],
+        	{"beamPrecompression":1, "beamType":"|NORMAL"},
+        	{"breakGroup":""},
+		],
+		"triangles":[
+        	{"dragCoef":0},
+        	{"groundModel":"metal"},
+        	//{"triangleType":"NONCOLLIDABLE"},
+		["id1:", "id2:", "id3:"],
+		["drp6", "drp5", "drp2"],
+		["drp2", "drp3", "drp6"],
+		["drp5", "drp4", "drp1"],
+		["drp1", "drp2", "drp5"],
+        	{"triangleType":"COLLIDABLE"},
+	],
+},
+}

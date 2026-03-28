@@ -1,0 +1,367 @@
+{
+"LAZ695N_engine_V6_236": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"V6 YaMZ-236 11.0L Diesel Engine",
+        "value":6000,
+    },
+    "slotType" : "LAZ695N_engine",
+    "slots": [
+        ["type", "default", "description"]
+        //engine
+        ["LAZ695N_transmission_yamz","LAZ695N_transmission_yamz_5M", "Transmission"],
+        ["LAZ695N_exhaust_yamz","LAZ695N_exhaust_yamz", "Exhaust"],
+        ["LAZ695N_air_compressor","LAZ695N_air_compressor", "Air Compressor"],
+    ],
+    "controller": [
+        ["fileName"],
+        ["compressionBrake", {}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        ["combustionEngine", "mainEngine", "dummy", 0],
+    ],
+    "mainEngine":{
+        "torque":[
+            ["rpm", "torque"],
+            [0,      0],
+            [200,  520],
+            [500,  610],
+            [750,  631],
+            [1700, 675],
+            [2100, 690],
+            [2500, 680],
+            [2800, 668],
+            [3300, 576],
+            [3500, 466],
+            [3700, 220],
+        ],
+        "torqueCompressionBrake":[
+            ["rpm", "torque"],
+            [0,      0],
+            [1000, 500],
+            [2500, 850],
+            [3000, 1500],
+        ],
+        "idleRPM":450,
+        "maxRPM":2100,
+        "revLimiterType":"none",
+        "inertia":6,
+        "friction":37,
+        "idleRPMRoughness":75,
+        "dynamicFriction":0.2,
+        "engineBrakeTorque":80,
+        "burnEfficiency":0.35
+
+        "torqueReactionNodes:":["rad1","en2l","en4r"]
+        "particulates":0.7,
+        "energyStorage": "mainTank",
+        "requiredEnergyType":"diesel",
+
+        //cooling and oil system
+        "thermalsEnabled":true,
+        "engineBlockMaterial":"iron",
+        "oilVolume":25,
+
+        //engine durability
+        "cylinderWallTemperatureDamageThreshold":160,
+        "headGasketDamageThreshold":1500000,
+        "pistonRingDamageThreshold":1500000,
+        "connectingRodDamageThreshold":1500000,
+        "maxTorqueRating": 4000,
+        "maxOverTorqueDamage": 1500,
+
+        //node beam interface
+        "waterDamage": {"[engineGroup]:":["LAZ695N_engine_intake"]}
+        "radiator": {"[engineGroup]:":["LAZ695N_radiator"]}
+        "engineBlock": {"[engineGroup]:":["LAZ695N_engine_block"]}
+        "breakTriggerBeam":"engine",
+
+        "soundConfig": "soundConfig",
+        "soundConfigExhaust": "soundConfigExhaust",
+
+        //starter motor
+        "starterSample":"event:>Engine>Starter>i6diesel_semi_eng",
+        "shutOffSampleEngine":"event:>Engine>Shutoff>i6diesel_semi_eng",
+        "starterVolume":3.56,
+        "shutOffVolumeEngine":1.06,
+        "starterThrottleKillTime":2.2,
+        "idleRPMStartRate":2,
+        "idleRPMStartCoef":0.8,
+
+        //PTO
+        "numberOfOutputPorts": 3,
+    },
+    "soundConfig": {
+        "sampleName": "LAZ695N_engine_236",
+
+        "mainGain": -5,
+        "onLoadGain":0.61,
+        "offLoadGain":0.42,
+
+        "maxLoadMix": 1.0,
+        "minLoadMix": 0,
+
+        "lowShelfGain":3,
+        "lowShelfFreq":100,
+
+        "highShelfGain":3,
+        "highShelfFreq":4500,
+
+        "eqLowGain": -5,
+        "eqLowFreq": 350,
+        "eqLowWidth": 0.25,
+
+        "eqHighGain": 0,
+        "eqHighFreq": 1400,
+        "eqHighWidth": 0.1,
+
+        "lowShelfGain":4,
+        "lowShelfFreq":100,
+
+        "highShelfGain":6,
+        "highShelfFreq":4500,
+
+        "fundamentalFrequencyCylinderCount":6,
+        "eqFundamentalGain": 0,
+    },
+    "soundConfigExhaust": {
+        "sampleName": "LAZ695N_exhaust_236",
+
+        "mainGain": -1,
+        "onLoadGain":0.14,
+        "offLoadGain":0.05,
+
+        "maxLoadMix": 0.5,
+        "minLoadMix": 0,
+
+        "lowShelfGain":2,
+        "lowShelfFreq":100,
+
+        "highShelfGain":7,
+        "highShelfFreq":2500,
+
+        "eqLowGain": 0,
+        "eqLowFreq": 100,
+        "eqLowWidth": 0.1,
+
+        "eqHighGain": 0,
+        "eqHighFreq": 2400,
+        "eqHighWidth": 0.1,
+
+        "lowShelfGain":2,
+        "lowShelfFreq":100,
+
+        "highShelfGain":5,
+        "highShelfFreq":2500,
+
+        "fundamentalFrequencyCylinderCount":6,
+        "eqFundamentalGain": 0,
+    },
+
+    "vehicleController": {
+        "clutchLaunchStartRPM":800,
+        "clutchLaunchTargetRPM":1500,
+        //**highShiftDown can be overwritten by automatic transmissions**
+        "highShiftDownRPM":1000,
+        //**highShiftUp can be overwritten by intake modifications**
+        "highShiftUpRPM":2000,
+    },
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_engine_236", ["LAZ695N_engine"]],
+	 ["LAZ695N_airintake_236", ["LAZ695N_airintake","LAZ695N_engine"]],
+         {"deformGroup":"radhosebreak", "deformMaterialBase":"LAZ695N_radiator", "deformMaterialDamaged":"invis"},
+         ["LAZ695N_radhose_L", ["LAZ695N_radiator", "LAZ695N_engine_L", "LAZ695N_radtube_L"]],
+         ["LAZ695N_belt_236", ["LAZ695N_radiator", "LAZ695N_engine", "LAZ695N_radtube_R"]],
+         {"deformGroup":""},
+
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]
+	["rpmspin"  , "LAZ695N_engine236_spin_1", "en2r","en2l","en4r",  {"x":0, "y":0, "z":0}, {"x":0, "y":1, "z":0}    , {"x":0, "y":0, "z":0}, -360, 360, 0, 1],
+	["rpmspin"  , "LAZ695N_engine236_spin_2", "en2r","en2l","en4r",  {"x":0, "y":0, "z":0}, {"x":0, "y":1, "z":0}    , {"x":0, "y":0, "z":0}, -360, 360, 0, 1],		
+        ["rpmspin"  , "LAZ695N_engine236_spin_3", "en2r","en2l","en4r",  {"x":0, "y":0, "z":0}, {"x":0, "y":1, "z":0}    , {"x":0, "y":0, "z":0}, -360, 360, 0, 1],
+	["rpmspin"  , "LAZ695N_engine236_spin_4", "en2r","en2l","en4r",  {"x":0, "y":0, "z":0}, {"x":0, "y":1, "z":0}    , {"x":0, "y":0, "z":0}, -360, 360, 0, 1],
+	["rpmspin"  , "LAZ695N_engine236_spin_5", "en2r","en2l","en4r",  {"x":0, "y":0, "z":0}, {"x":0, "y":1, "z":0}    , {"x":0, "y":0, "z":0}, -360, 360, 0, 1],
+	["rpmspin"  , "LAZ695N_spin_6", "en2r","en2l","en4r",  {"x":0, "y":0, "z":0}, {"x":0, "y":1, "z":0}    , {"x":0, "y":0, "z":0}, -360, 360, 0, 1],
+	["rpmspin"  , "LAZ695N_spin_7", "rad1l","rad1","rad2",  {"x":5, "y":0, "z":0}, {"x":0, "y":1, "z":0}    , {"x":0, "y":0, "z":0}, -360, 360, 0, 1],
+	["rpmspin"  , "LAZ695N_engine236_spin_8", "en2r","en2l","en4r",  {"x":0, "y":0, "z":0}, {"x":0, "y":1, "z":0}    , {"x":0, "y":0, "z":0}, -360, 360, 0, 1],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":false}
+         {"collision":true}
+         //--ENGINE CUBE--
+         {"nodeWeight":263.8},
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"LAZ695N_engine"},
+         {"engineGroup":"LAZ695N_engine_block"}
+         ["en1r", -0.20241, 4.76295, 0.58954,{"isExhaust":true,"chemEnergy":1000,"burnRate":0.39,"flashPoint":700,"specHeat": 0.1,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":"thermals","conductionRadius":0.21}],
+         ["en1l", 0.20241, 4.76295, 0.58954],
+         {"engineGroup":["LAZ695N_engine_block","LAZ695N_exhaust_manifold"]},
+         ["en2r", -0.20241, 3.82471, 0.50719,{"chemEnergy":1000,"burnRate":0.39,"flashPoint":700,"specHeat": 0.1,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":"thermals","conductionRadius":0.21}],
+         {"engineGroup":"LAZ695N_engine_block"},
+         ["en2l", 0.20241, 3.82471, 0.50719],
+         ["en3r", -0.41148, 4.76295, 1.14566,{"chemEnergy":1000,"burnRate":0.39,"flashPoint":700,"specHeat": 0.1,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":"thermals","conductionRadius":0.21}],
+         ["en3l", 0.41148, 4.76295, 1.14566],
+         ["en4r", -0.41148, 3.82471, 1.14566,{"chemEnergy":1000,"burnRate":0.39,"flashPoint":700,"specHeat": 0.1,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":"thermals","conductionRadius":0.21}],
+         ["en4l", 0.41148, 3.82471, 1.14566],
+         {"engineGroup":""},
+         //belt connection
+		{"selfCollision":false},
+		{"group":"LAZ695N_belt"},
+		{"nodeWeight":5},
+		["belt1", -0.00425, 4.60859, 0.98259],
+		["belt3", 0.03273, 4.65839, 1.01168],
+		["belt5", -0.08836, 4.65839, 0.97782],
+		["belt7", 0.03796, 4.65839, 0.94735],
+		{"group":""},
+
+    ],
+    "beams": [
+		["id1:", "id2:"],
+		//--ENGINE CUBE--
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		{"beamSpring":32000800,"beamDamp":1600},
+		{"beamDeform":1500000,"beamStrength":"FLT_MAX"},
+		["en1r","en1l"],
+		["en1r","en1l"],
+		["en1r","en2r"{"isExhaust":true}],
+		["en1r","en2l"],
+		["en1r","en3r"],
+		["en1r","en3l"],
+		["en1r","en4r"],
+		["en1r","en4l"],
+		["en1l","en2r"],
+		["en1l","en2l"],
+		["en1l","en3r"],
+		["en1l","en3l"],
+		["en1l","en4r"],
+		["en1l","en4l"],
+		["en2r","en2l"],
+		["en2r","en3r"],
+		["en2r","en3l"],
+		["en2r","en4r"],
+		["en2r","en4l"],
+		["en2l","en3r"],
+		["en2l","en3l"],
+		["en2l","en4r"],
+		["en2l","en4l"],
+		["en3r","en3l"],
+		["en3r","en4r"],
+		["en3r","en4l"],
+		["en3l","en4r"],
+		["en3l","en4l"],
+		["en4r","en4l"],
+		{"beamDeform":25000,"beamStrength":"FLT_MAX"}
+		{"beamSpring":320800,"beamDamp":400},
+		//air filter piping attach
+		{"optional":true},
+		//rad pipe node
+		{"beamSpring":3200800,"beamDamp":160},
+		{"beamDeform":35000,"beamStrength":45000}
+		//right
+		["en3r","en5r"],
+		["en4r","en5r"],
+		["en1r","en5r"],
+		["en2r","en5r"],
+		//left
+		["en3l","en5l"],
+		["en4l","en5l"],
+		["en1l","en5l"],
+		["en2l","en5l"],
+		{"breakGroup":""},
+		{"beamSpring":4000800,"beamDamp":1600},
+		{"beamDeform":100000,"beamStrength":295000},
+		//engine mounts
+		["en1l","f30l"],
+		["en1l","f40l"],
+		["en1l","f30r"],
+		["en1l","f40r"],		  
+		["en1r","f40r"],
+		["en1r","f40r"],
+		["en1r","f40r"],
+		["en1r","f40r"],		  
+		["en2l","f40l"],
+		["en2l","f30l"],
+		["en2l","f10l"],
+		["en2l","f20l"],		  
+		["en2r","f40l"],
+		["en2r","f30l"],
+		["en2r","f10l"],
+		["en2r","f20l"],		  
+		["en2l","f40r"],
+		["en2l","f30r"],
+		["en2l","f10r"],
+		["en2l","f20r"],		  
+		["en2r","f40r"],
+		["en2r","f30r"],
+		["en2r","f10r"],
+		["en2r","f20r"], 
+		["en2r","f20ar"], 
+		["en2l","f20al"], 
+		["en1r","f20ar"], 
+		["en1l","f20al"], 
+		["en4r","f20ar"], 
+		["en4l","f20al"], 
+		["en3r","f20ar"], 
+		["en3l","f20al"], 
+		["en4r","f40r"], 
+		["en4l","f40l"], 
+		["en3r","f40r"], 
+		["en3l","f40l"], 
+		//belt engine side
+		["belt3","en1l"],
+		["belt3","en1r"],
+		["belt3","en2r"],
+		["belt3","en2l"],
+		["belt3","en3r"],
+		["belt3","en3l"],
+		["belt3","en4r"],
+		["belt3","en4l"],
+		["belt5","en1l"],
+		["belt5","en1r"],
+		["belt5","en2r"],
+		["belt5","en2l"],
+		["belt5","en3r"],
+		["belt5","en3l"],
+		["belt5","en4r"],
+		["belt5","en4l"],
+		["belt7","en1l"],
+		["belt7","en1r"],
+		["belt7","en2r"],
+		["belt7","en2l"],
+		["belt7","en3r"],
+		["belt7","en3l"],
+		["belt7","en4r"],
+		["belt7","en4l"],
+		["belt1","belt3"],
+		["belt3","belt5"],
+		["belt1","belt5"],
+		["belt1","belt7"],
+		["belt3","belt7"],
+		
+	],
+    "triangles": [
+		["id1:","id2:","id3:"],
+		{"dragCoef":3},
+		{"groundModel":"metal"},
+		{"group":"LAZ695N_engine"},
+		["en2r","en4r","en1r"],
+		["en3r","en1r","en4r"],
+		["en1l","en1r","en3r"],
+		["en1l","en3r","en3l"],
+		["en2l","en1l","en3l"],
+		["en2l","en3l","en4l"],
+		["en2r","en2l","en4l"],
+		["en2r","en4l","en4r"],
+		["en4r","en4l","en3l"],
+		["en4r","en3l","en3r"],
+		["en2l","en2r","en1l"],
+		["en2r","en1r","en1l"],
+		{"group":""},
+    ],
+}
+}

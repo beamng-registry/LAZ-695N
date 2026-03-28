@@ -1,0 +1,180 @@
+{
+"LAZ695N_shifter_M": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Manual Shifter",
+        "value":50,
+    },
+    "slotType" : "LAZ695N_shifter",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_shifter_M", ["LAZ695N_body_g","LAZ695N_shifterboot_M","LAZ695N_shifterknob_M","LAZ695N_shifterbase_M"]],
+         ["LAZ695N_shifter_base", ["LAZ695N_body_g"]],
+    ],
+    "controller": [
+        ["fileName"],
+        ["propAnimation/hPattern", {"name":"hPattern"}],
+
+    ]
+    "hPattern": {
+        "gearCoordinates": [
+            ["gearIndex",   "x",      "y"]
+            [-1,            -1.0,        -0.5]
+            [0,             0.0,        0]
+            [1,            -1.0,        0.5]
+            [2,            1.0,       -0.5]
+            [3,             1.0,        0.5]
+            [4,             0.0,       -0.5]
+            [5,             0.0,        0.5]
+        ]
+        "shiftSoundNode:":["frn1a"]
+        "shiftSoundEventHPatternGearIn": "event:>Vehicle>Interior>Handbrake_Lever>Vintage_01_Unlock",
+        //"shiftSoundEventHPatternGearOut": "event:>Vehicle>Interior>Handbrake_Lever>Vintage_07_Lock",
+        "shiftSoundVolumeHPatternGearIn": 1.0,
+        "shiftSoundVolumeHPatternGearOut": 1.0,
+    },
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"collision":true},
+         {"selfCollision":false},
+         //--SHIFTER---  has to be jbeamed to allow for realistic movement
+         {"group":"LAZ695N_shifterbase_M"},
+         {"nodeWeight":0.45}
+         ["sh_b1l", 0.34109, -3.97296, 0.90667],
+         ["sh_b1r", 0.18909, -3.97296, 0.90667],
+         ["sh_b2l", 0.34109, -3.79596, 0.91213],
+         ["sh_b2r", 0.18909, -3.79596, 0.91213],
+
+         ["sh_b3", 0.26509, -3.87930, 0.85483],
+         {"selfCollision":true},
+         {"group":["LAZ695N_shifterboot_M","LAZ695N_shifterknob_M"]},
+         {"nodeWeight":1.5}
+         ["sh_l3", 0.25896, -3.64836, 1.55115],
+
+         {"selfCollision":false},
+         {"nodeWeight":0.30}
+         {"group":["LAZ695N_shifterboot_M","LAZ695N_shifterknob_M"]},
+         ["sh_l1l", 0.29709, -3.76739, 1.21028],
+         ["sh_l1r", 0.23309, -3.76739, 1.21028],
+         ["sh_l2l", 0.29709, -3.68709, 1.21028],
+         ["sh_l2r", 0.23309, -3.68709, 1.21028],
+         {"selfCollision":false},
+         {"collision":true},
+         {"group":""},
+    ],
+    "beams":[
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+        //main shape
+        {"beamSpring":401000,"beamDamp":85},
+        {"beamDeform":259000,"beamStrength":"FLT_MAX"},
+        {"deformLimitExpansion":1.1},
+        ["sh_b1l", "sh_b1r"],
+        ["sh_b1l", "sh_b2l"],
+        ["sh_b1l", "sh_b2r"],
+        ["sh_b1r", "sh_b2l"],
+        ["sh_b1r", "sh_b2r"],
+        ["sh_b2l", "sh_b2r"],
+
+        ["sh_b1l", "sh_b3"],
+        ["sh_b1r", "sh_b3"],
+        ["sh_b2l", "sh_b3"],
+        ["sh_b2r", "sh_b3"],
+
+        //lever
+        {"beamSpring":121000,"beamDamp":95},
+        ["sh_l3", "sh_l1l"],
+        ["sh_l3", "sh_l1r"],
+        ["sh_l3", "sh_l2l"],
+        ["sh_l3", "sh_l2r"],
+
+        ["sh_l1l", "sh_l1r"],
+        ["sh_l1l", "sh_l2l"],
+        ["sh_l1l", "sh_l2r"],
+
+        ["sh_l1r", "sh_l2l"],
+        ["sh_l1r", "sh_l2r"],
+        ["sh_l2l", "sh_l2r"],
+        //hinge
+        {"beamSpring":121000,"beamDamp":125},
+        ["sh_b3", "sh_l3"],
+        ["sh_b3", "sh_l1l"],
+        ["sh_b3", "sh_l1r"],
+        ["sh_b3", "sh_l2l"],
+        ["sh_b3", "sh_l2r"],
+
+        //stabilize the shifter
+        {"beamSpring":0,"beamDamp":405},
+        ["sh_b1l", "sh_l3"],
+        ["sh_b1r", "sh_l3"],
+        ["sh_b2l", "sh_l3"],
+        ["sh_b2r", "sh_l3"],
+        {"breakGroup":""},
+        //attach to body
+        {"beamSpring":300000,"beamDamp":70},
+        {"beamDeform":1400,"beamStrength":"FLT_MAX"},
+        ["sh_b1l", "z200r"],
+        ["sh_b1r", "z200r"],
+        ["sh_b2l", "z200r"],
+        ["sh_b2r", "z200r"],
+        ["sh_b3",  "z200r"],
+
+        ["sh_b1l", "z200l"],
+        ["sh_b1r", "z200l"],
+        ["sh_b2l", "z200l"],
+        ["sh_b2r", "z200l"],
+        ["sh_b3",  "z200l"],
+
+        ["sh_b1l", "DA12",{"beamDeform":12400}],
+        ["sh_b1r", "DA12",{"beamDeform":12400}],
+        ["sh_b2l", "DA12",{"beamDeform":12400}],
+        ["sh_b2r", "DA12",{"beamDeform":12400}],
+        ["sh_b3",  "DA12",{"beamDeform":12400}],
+
+        ["sh_b1l", "z201r"],
+        ["sh_b1r", "z201r"],
+        ["sh_b2l", "z201r"],
+        ["sh_b2r", "z201r"],
+        ["sh_b3",  "z201r"],
+
+        ["sh_b1l", "z201l"],
+        ["sh_b1r", "z201l"],
+        ["sh_b2l", "z201l"],
+        ["sh_b2r", "z201l"],
+        ["sh_b3",  "z201l"],
+        //support beams
+        {"beamType":"|SUPPORT","beamPrecompression":0.895,"beamLongBound":2},
+        {"beamSpring":201000,"beamDamp":50},
+        {"beamDeform":16000,"beamStrength":"FLT_MAX"},
+        ["sh_l1r", "sh_b2l"],
+        ["sh_l2r", "sh_b1l"],
+        ["sh_l2l", "sh_b1r"],
+        ["sh_l1l", "sh_b2r"],
+        {"beamPrecompression":0.905}
+        ["sh_l3", "sh_b1l"],
+        ["sh_l3", "sh_b1r"],
+        ["sh_l3", "sh_b2l"],
+        ["sh_l3", "sh_b2r"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+    "torsionHydros": [
+        ["id1:","id2:","id3:","id4:"],
+        {"spring":200, "damp":1, "deform":"FLT_MAX", "strength":1000},
+        ["sh_b2l","sh_b1l","sh_b1r","sh_l3",  {"inputSource":"hPatternAxisY","factor":-0.20}],
+        ["sh_b1r","sh_b1l","sh_b2l","sh_l3",  {"inputSource":"hPatternAxisX","factor":-0.15}],
+        ["sh_b1r","sh_b2r","sh_b2l","sh_l3",  {"inputSource":"hPatternAxisY","factor":0.20}],
+        ["sh_b2l","sh_b2r","sh_b1r","sh_l3",  {"inputSource":"hPatternAxisX","factor":0.15}],
+    ],
+    "torsionbars": [
+        ["id1:", "id2:", "id3:", "id4:"],
+        {"spring":100, "damp":0.2, "deform":30000, "strength":1000},
+        ["sh_b1r", "sh_b3", "sh_l3", "sh_l1r"],
+        ["sh_b2r", "sh_b3", "sh_l3", "sh_l2r"],
+        ["sh_b2l", "sh_b3", "sh_l3", "sh_l2l"],
+        ["sh_b1l", "sh_b3", "sh_l3", "sh_l1l"],
+
+    ],
+},
+}

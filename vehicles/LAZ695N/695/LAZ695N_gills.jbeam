@@ -1,0 +1,26 @@
+{
+"LAZ695N_gills": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Gills Late", 
+    }
+       "slotType" : "LAZ695N_gills", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_gill_L", ["LAZ695N_body_g"]],
+		["LAZ695N_gill_R", ["LAZ695N_body_g"]],	
+	],
+ },
+"LAZ695N_gills_early": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Gills Early", 
+    }
+       "slotType" : "LAZ695N_gills", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_gill_L_early", ["LAZ695N_body_g"]],
+		["LAZ695N_gill_R_early", ["LAZ695N_body_g"]],	
+	],
+ },
+}

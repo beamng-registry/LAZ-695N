@@ -1,0 +1,774 @@
+{
+"LAZ695N_runninglights_F": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Running Lights Late",
+        "value":600,
+    },
+
+    "slotType" : "LAZ695N_runninglights_F",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         {"deformGroup":"running_light_FL_break", "deformMaterialBase":"generic_halogen", "deformMaterialDamaged":"LAZ695N_chrome"},
+         ["LAZ695N_runninglight_FL", ["running_light_FL"]],
+         {"deformGroup":"running_light_FL_break", "deformMaterialBase":"generic_halogen_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         ["LAZ695N_runninglass_FL", ["running_light_FL"],[], {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.5}],
+         ["LAZ695N_signalglass_FL", ["running_light_FL"],[], {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.5}],
+
+         {"deformGroup":"running_light_FR_break", "deformMaterialBase":"generic_halogen", "deformMaterialDamaged":"LAZ695N_chrome"},
+         ["LAZ695N_runninglight_FR", ["running_light_FR"]],
+         {"deformGroup":"running_light_FR_break", "deformMaterialBase":"generic_halogen_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         ["LAZ695N_runninglass_FR", ["running_light_FR"],[], {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.5}],
+         ["LAZ695N_signalglass_FR", ["running_light_FR"],[], {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.5}],
+         {"deformGroup":""},
+         {"deformSound":false, "deformVolume":false},
+         ["LAZ695N_runninglightframe_FL", ["running_light_FL"]],
+         ["LAZ695N_runninglightframe_FR", ["running_light_FR"]],
+         ["LAZ695N_runninglight_L", ["running_light_FL"]],
+         ["LAZ695N_runninglight_R", ["running_light_FR"]],
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]
+        {
+            "lightInnerAngle":0
+            "lightOuterAngle":160
+            "lightBrightness":0.15
+            "lightRange":5
+            "lightColor":{"r":255, "g":155, "b":010, "a":255}
+            "lightAttenuation":{"x":0, "y":1, "z":1}
+            "lightCastShadows":true
+            "flareName":"vehicleHeadLightFlare"
+            "flareScale":0.03
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512
+            "shadowSoftness":0.5
+        }
+        ["signal_L"    , "SPOTLIGHT"        , "rnll_1l", "rnll_2l", "rnll_4l", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.05, "y":0.3, "z":0},"deformGroup":"running_light_FL_break"}],
+        ["signal_R"    , "SPOTLIGHT"        , "rnll_1r", "rnll_2r", "rnll_4r", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.05, "y":0.3, "z":0},"deformGroup":"running_light_FR_break"}],
+        {
+            "lightColor":{"r":255, "g":195, "b":070, "a":255}
+        }
+        ["lowhighbeam"    , "SPOTLIGHT"        , "rnll_1l", "rnll_2l", "rnll_4l", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.2, "y":0.8, "z":0},"deformGroup":"running_light_FL_break"}],
+        ["lowhighbeam"    , "SPOTLIGHT"        , "rnll_1r", "rnll_2r", "rnll_4r", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.2, "y":0.8, "z":0},"deformGroup":"running_light_FR_break"}],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"collision":true},
+         {"selfCollision":true},
+         {"nodeWeight":0.35},
+         {"group":"running_light_FL"},
+         ["rnll_1l", 0.79735, -4.31687, 1.12900],
+         ["rnll_2l", 0.90226, -4.31194, 1.12900],
+         ["rnll_3l", 0.79735, -4.31687, 1.30137],
+         ["rnll_4l", 0.90226, -4.31194, 1.30137],
+         ["rnll_5l", 0.84635, -4.27976, 1.21518],
+
+         {"group":"running_light_FR"},
+         ["rnll_1r", -0.79735, -4.31687, 1.12900],
+         ["rnll_2r", -0.90226, -4.31194, 1.12900],
+         ["rnll_3r", -0.79735, -4.31687, 1.30137],
+         ["rnll_4r", -0.90226, -4.31194, 1.30137],
+         ["rnll_5r", -0.84635, -4.27976, 1.21518],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":301000,"beamDamp":30},
+          {"beamDeform":15000,"beamStrength":"FLT_MAX"},
+          //left_light
+          {"deformationTriggerRatio":0.03},
+          {"deformGroup":"running_light_FL_break"},
+          ["rnll_1l","rnll_2l"],
+          ["rnll_3l","rnll_4l"],
+          ["rnll_1l","rnll_3l"],
+          ["rnll_2l","rnll_4l"],
+
+          ["rnll_1l","rnll_4l"],
+          ["rnll_2l","rnll_3l"],
+
+          ["rnll_1l","rnll_5l"],
+          ["rnll_2l","rnll_5l"],
+          ["rnll_3l","rnll_5l"],
+          ["rnll_4l","rnll_5l"],
+
+          {"deformGroup":"running_light_FR_break"},
+          ["rnll_1r","rnll_2r"],
+          ["rnll_3r","rnll_4r"],
+          ["rnll_1r","rnll_3r"],
+          ["rnll_2r","rnll_4r"],
+
+          ["rnll_1r","rnll_4r"],
+          ["rnll_2r","rnll_3r"],
+
+          ["rnll_1r","rnll_5r"],
+          ["rnll_2r","rnll_5r"],
+          ["rnll_3r","rnll_5r"],
+          ["rnll_4r","rnll_5r"],
+          {"deformGroup":""},
+
+          //attach
+          {"beamSpring":301000,"beamDamp":50},
+          {"beamDeform":3500,"beamStrength":22000},
+          {"deformationTriggerRatio":0.05},
+          {"deformGroup":"running_light_FL_break"},
+          {"breakGroup":"running_light_FL_attach"},
+          ["rnll_3l", "z300l"],
+          ["rnll_4l", "z300ll"],
+          ["rnll_3l", "z200l"],
+          ["rnll_4l", "z200ll"],
+          ["rnll_3l", "z400l"],
+          ["rnll_4l", "z400ll"],
+          ["rnll_3l", "z200"],
+          ["rnll_3l", "z300"],
+          ["rnll_3l", "z400"],
+          ["rnll_3l", "z401ell"],
+          ["rnll_3l", "z201ell"],
+          {"beamDeform":250},
+          ["rnll_1l", "z300l"],
+          ["rnll_2l", "z300ll"],
+          ["rnll_1l", "z20l"],
+          ["rnll_2l", "z200ll"],
+          ["rnll_1l", "z400"],
+          ["rnll_1l", "z300"],
+          ["rnll_2l", "z200"],
+          ["rnll_1l", "z400ll"],
+          ["rnll_1l", "z301ell"],
+          {"breakGroup":"running_light_FR_attach"},
+          {"deformGroup":"running_light_FR_break"},
+          ["rnll_3r", "z300r"],
+          ["rnll_4r", "z300rr"],
+          ["rnll_3r", "z200r"],
+          ["rnll_4r", "z200rr"],
+          ["rnll_3r", "z400r"],
+          ["rnll_4r", "z400rr"],
+          ["rnll_3r", "z200"],
+          ["rnll_3r", "z300"],
+          ["rnll_3r", "z400"],
+          ["rnll_3r", "z400rr"],
+          ["rnll_3r", "z200rr"],
+          {"beamDeform":250},
+          ["rnll_1r", "z300r"],
+          ["rnll_2r", "z300rr"],
+          ["rnll_1r", "z200r"],
+          ["rnll_2r", "z200rr"],
+          ["rnll_1r", "z400"],
+          ["rnll_1r", "z300"],
+          ["rnll_2r", "z200"],
+          ["rnll_1r", "z400rr"],
+          ["rnll_1r", "z300rr"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"dragCoef":6},
+            {"triangleType":"NORMALTYPE"},
+            {"externalCollisionBias":"out"}
+            ["rnll_5r", "rnll_4r", "rnll_3r"],
+            ["rnll_1r", "rnll_5r", "rnll_3r"],
+            ["rnll_2r", "rnll_5r", "rnll_1r"],
+            ["rnll_4r", "rnll_5r", "rnll_2r"],
+
+            ["rnll_4l", "rnll_5l", "rnll_3l"],
+            ["rnll_5l", "rnll_1l", "rnll_3l"],
+            ["rnll_5l", "rnll_2l", "rnll_1l"],
+            ["rnll_5l", "rnll_4l", "rnll_2l"],
+           {"dragCoef":8},
+            {"triangleType":"NORMALTYPE"},
+    ],
+    "quads": [
+           ["id1:","id2:","id3:", "id4:"],
+           {"dragCoef":6},
+           {"externalCollisionBias":"out"}
+           ["rnll_2l","rnll_4l","rnll_3l""rnll_1l"],
+           ["rnll_3r","rnll_4r","rnll_2r""rnll_1r"],
+          {"dragCoef":8},
+           {"group":""},
+    ],
+},
+"LAZ695N_runninglights_F_early": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Running Lights Early",
+        "value":600,
+    },
+
+    "slotType" : "LAZ695N_runninglights_F",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_signal_FFR_pre_frame", ["LAZ695N_body_g"]],
+         ["LAZ695N_signal_FFL_pre_frame", ["LAZ695N_body_g"]],
+         {"deformGroup":"headlightglass_R_break", "deformMaterialBase":"LAZ695N_chrome", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         ["LAZ695N_signal_FFR_pre", ["LAZ695N_body_g"]],
+         {"deformGroup":"headlightglass_L_break", "deformMaterialBase":"LAZ695N_chrome", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         ["LAZ695N_signal_FFL_pre", ["LAZ695N_body_g"]],
+         {"deformGroup":""},
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]
+        {
+            "lightInnerAngle":0
+            "lightOuterAngle":160
+            "lightBrightness":0.15
+            "lightRange":5
+            "lightColor":{"r":255, "g":195, "b":070, "a":255}
+            "lightAttenuation":{"x":0, "y":1, "z":1}
+            "lightCastShadows":true
+            "flareName":"vehicleHeadLightFlare"
+            "flareScale":0.02
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512
+            "shadowSoftness":0.5
+        }
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z300ll", "z300l", "z200ll", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.02, "y":0.52, "z":0},"deformGroup":"headlightglass_L_break"}],
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z300rr", "z300r", "z200rr", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.03, "y":0.52, "z":-0.0},"deformGroup":"headlightglass_R_break"}],
+        ["signal_L"    , "SPOTLIGHT"        , "z300ll", "z300l", "z200ll", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.02, "y":0.52, "z":0},"deformGroup":"headlightglass_L_break"}],
+        ["signal_R"    , "SPOTLIGHT"        , "z300rr", "z300r", "z200rr", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.03, "y":0.52, "z":-0.0},"deformGroup":"headlightglass_R_break"}],
+    ],
+},
+"LAZ695N_runninglights_F_luk": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Running Lights Late",
+        "value":600,
+    },
+
+    "slotType" : "LAZ695N_runninglights_F_luk",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         {"deformGroup":"running_light_FL_break", "deformMaterialBase":"generic_halogen", "deformMaterialDamaged":"LAZ695N_chrome"},
+         ["LAZ695N_runninglight_FL", ["running_light_FL"]],
+         {"deformGroup":"running_light_FL_break", "deformMaterialBase":"generic_halogen_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         ["LAZ695N_runninglass_FL", ["running_light_FL"],[], {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.5}],
+         ["LAZ695N_signalglass_FL", ["running_light_FL"],[], {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.5}],
+
+         {"deformGroup":"running_light_FR_break", "deformMaterialBase":"generic_halogen", "deformMaterialDamaged":"LAZ695N_chrome"},
+         ["LAZ695N_runninglight_FR", ["running_light_FR"]],
+         {"deformGroup":"running_light_FR_break", "deformMaterialBase":"generic_halogen_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         ["LAZ695N_runninglass_FR", ["running_light_FR"],[], {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.5}],
+         ["LAZ695N_signalglass_FR", ["running_light_FR"],[], {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.5}],
+         {"deformGroup":""},
+         {"deformSound":false, "deformVolume":false},
+         ["LAZ695N_runninglightframe_FL", ["running_light_FL"]],
+         ["LAZ695N_runninglightframe_FR", ["running_light_FR"]],
+         ["LAZ695N_runninglight_L", ["running_light_FL"]],
+         ["LAZ695N_runninglight_R", ["running_light_FR"]],
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]
+        {
+            "lightInnerAngle":0
+            "lightOuterAngle":160
+            "lightBrightness":0.15
+            "lightRange":5
+            "lightColor":{"r":255, "g":155, "b":010, "a":255}
+            "lightAttenuation":{"x":0, "y":1, "z":1}
+            "lightCastShadows":true
+            "flareName":"vehicleHeadLightFlare"
+            "flareScale":0.03
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512
+            "shadowSoftness":0.5
+        }
+        ["signal_L"    , "SPOTLIGHT"        , "rnll_1l", "rnll_2l", "rnll_4l", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.05, "y":0.3, "z":0},"deformGroup":"running_light_FL_break"}],
+        ["signal_R"    , "SPOTLIGHT"        , "rnll_1r", "rnll_2r", "rnll_4r", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.05, "y":0.3, "z":0},"deformGroup":"running_light_FR_break"}],
+        {
+            "lightColor":{"r":255, "g":195, "b":070, "a":255}
+        }
+        ["lowhighbeam"    , "SPOTLIGHT"        , "rnll_1l", "rnll_2l", "rnll_4l", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.2, "y":0.8, "z":0},"deformGroup":"running_light_FL_break"}],
+        ["lowhighbeam"    , "SPOTLIGHT"        , "rnll_1r", "rnll_2r", "rnll_4r", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.2, "y":0.8, "z":0},"deformGroup":"running_light_FR_break"}],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"collision":true},
+         {"selfCollision":true},
+         {"nodeWeight":0.35},
+         {"group":"running_light_FL"},
+         ["rnll_1l", 0.79735, -4.31687, 1.12900],
+         ["rnll_2l", 0.90226, -4.31194, 1.12900],
+         ["rnll_3l", 0.79735, -4.31687, 1.30137],
+         ["rnll_4l", 0.90226, -4.31194, 1.30137],
+         ["rnll_5l", 0.84635, -4.27976, 1.21518],
+
+         {"group":"running_light_FR"},
+         ["rnll_1r", -0.79735, -4.31687, 1.12900],
+         ["rnll_2r", -0.90226, -4.31194, 1.12900],
+         ["rnll_3r", -0.79735, -4.31687, 1.30137],
+         ["rnll_4r", -0.90226, -4.31194, 1.30137],
+         ["rnll_5r", -0.84635, -4.27976, 1.21518],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":901000,"beamDamp":30},
+          {"beamDeform":15000,"beamStrength":"FLT_MAX"},
+          //left_light
+          {"deformationTriggerRatio":0.03},
+          {"deformGroup":"running_light_FL_break"},
+          ["rnll_1l","rnll_2l"],
+          ["rnll_3l","rnll_4l"],
+          ["rnll_1l","rnll_3l"],
+          ["rnll_2l","rnll_4l"],
+
+          ["rnll_1l","rnll_4l"],
+          ["rnll_2l","rnll_3l"],
+
+          ["rnll_1l","rnll_5l"],
+          ["rnll_2l","rnll_5l"],
+          ["rnll_3l","rnll_5l"],
+          ["rnll_4l","rnll_5l"],
+
+          {"deformGroup":"running_light_FR_break"},
+          ["rnll_1r","rnll_2r"],
+          ["rnll_3r","rnll_4r"],
+          ["rnll_1r","rnll_3r"],
+          ["rnll_2r","rnll_4r"],
+
+          ["rnll_1r","rnll_4r"],
+          ["rnll_2r","rnll_3r"],
+
+          ["rnll_1r","rnll_5r"],
+          ["rnll_2r","rnll_5r"],
+          ["rnll_3r","rnll_5r"],
+          ["rnll_4r","rnll_5r"],
+          {"deformGroup":""},
+
+          //attach
+          {"beamSpring":301000,"beamDamp":50},
+          {"beamDeform":3500,"beamStrength":22000},
+          {"deformationTriggerRatio":0.05},
+          {"deformGroup":"running_light_FL_break"},
+          {"breakGroup":"running_light_FL_attach"},
+          ["rnll_3l", "z300l"],
+          ["rnll_4l", "z300ll"],
+          ["rnll_3l", "z200l"],
+          ["rnll_4l", "z200ll"],
+          ["rnll_3l", "z400l"],
+          ["rnll_4l", "z400ll"],
+          ["rnll_3l", "z200"],
+          ["rnll_3l", "z300"],
+          ["rnll_3l", "z400"],
+          ["rnll_3l", "z401ell"],
+          ["rnll_3l", "z201ell"],
+          {"beamDeform":250},
+          ["rnll_1l", "z300l"],
+          ["rnll_2l", "z300ll"],
+          ["rnll_1l", "z20l"],
+          ["rnll_2l", "z200ll"],
+          ["rnll_1l", "z400"],
+          ["rnll_1l", "z300"],
+          ["rnll_2l", "z200"],
+          ["rnll_1l", "z400ll"],
+          ["rnll_1l", "z301ell"],
+          {"breakGroup":"running_light_FR_attach"},
+          {"deformGroup":"running_light_FR_break"},
+          ["rnll_3r", "acs23"],
+          ["rnll_4r", "acs25"],
+          ["rnll_3r", "acs22"],
+          ["rnll_4r", "acs26"],
+          ["rnll_3r", "acs23"],
+          ["rnll_4r", "acs25"],
+          ["rnll_3r", "acs22"],
+          ["rnll_3r", "acs24"],
+          ["rnll_3r", "acs21"],
+          ["rnll_3r", "acs25"],
+          ["rnll_3r", "acs26"],
+          {"beamDeform":250},
+          ["rnll_1r", "acs23"],
+          ["rnll_2r", "acs25"],
+          ["rnll_1r", "acs22"],
+          ["rnll_2r", "acs26"],
+          ["rnll_1r", "acs21"],
+          ["rnll_1r", "acs24"],
+          ["rnll_2r", "acs22"],
+          ["rnll_1r", "acs25"],
+          ["rnll_1r", "acs22"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"dragCoef":6},
+            {"triangleType":"NORMALTYPE"},
+            {"externalCollisionBias":"out"}
+            ["rnll_5r", "rnll_4r", "rnll_3r"],
+            ["rnll_1r", "rnll_5r", "rnll_3r"],
+            ["rnll_2r", "rnll_5r", "rnll_1r"],
+            ["rnll_4r", "rnll_5r", "rnll_2r"],
+
+            ["rnll_4l", "rnll_5l", "rnll_3l"],
+            ["rnll_5l", "rnll_1l", "rnll_3l"],
+            ["rnll_5l", "rnll_2l", "rnll_1l"],
+            ["rnll_5l", "rnll_4l", "rnll_2l"],
+           {"dragCoef":8},
+            {"triangleType":"NORMALTYPE"},
+    ],
+    "quads": [
+           ["id1:","id2:","id3:", "id4:"],
+           {"dragCoef":6},
+           {"externalCollisionBias":"out"}
+           ["rnll_2l","rnll_4l","rnll_3l""rnll_1l"],
+           ["rnll_3r","rnll_4r","rnll_2r""rnll_1r"],
+          {"dragCoef":8},
+           {"group":""},
+    ],
+},
+"LAZ695N_runninglights_F_early_luk": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Running Lights Early",
+        "value":600,
+    },
+
+    "slotType" : "LAZ695N_runninglights_F_luk",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_signal_FFR_pre_frame", ["LAZ695N_accessdoor_F"]],
+         ["LAZ695N_signal_FFL_pre_frame", ["LAZ695N_body_g"]],
+         {"deformGroup":"headlightglass_R_break", "deformMaterialBase":"LAZ695N_chrome", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         ["LAZ695N_signal_FFR_pre", ["LAZ695N_accessdoor_F"]],
+         {"deformGroup":"headlightglass_L_break", "deformMaterialBase":"LAZ695N_chrome", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         ["LAZ695N_signal_FFL_pre", ["LAZ695N_body_g"]],
+         {"deformGroup":""},
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]
+        {
+            "lightInnerAngle":0
+            "lightOuterAngle":160
+            "lightBrightness":0.15
+            "lightRange":5
+            "lightColor":{"r":255, "g":195, "b":070, "a":255}
+            "lightAttenuation":{"x":0, "y":1, "z":1}
+            "lightCastShadows":true
+            "flareName":"vehicleHeadLightFlare"
+            "flareScale":0.02
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512
+            "shadowSoftness":0.5
+        }
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z300ll", "z300l", "z200ll", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.02, "y":0.52, "z":0},"deformGroup":"headlightglass_L_break"}],
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z300rr", "z300r", "z200rr", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.03, "y":0.52, "z":-0.0},"deformGroup":"headlightglass_R_break"}],
+        ["signal_L"    , "SPOTLIGHT"        , "z300ll", "z300l", "z200ll", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.02, "y":0.52, "z":0},"deformGroup":"headlightglass_L_break"}],
+        ["signal_R"    , "SPOTLIGHT"        , "z300rr", "z300r", "z200rr", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.03, "y":0.52, "z":-0.0},"deformGroup":"headlightglass_R_break"}],
+    ],
+},
+"LAZ695N_runninglights_F_dmg": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Running Lights Late Damaged",
+        "value":600,
+    },
+
+    "slotType" : "LAZ695N_runninglights_F",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_runninglightframe_FL", ["running_light_FL"]],
+         ["LAZ695N_runninglightframe_FR", ["running_light_FR"]],
+         ["LAZ695N_runninglight_L_dmg", ["running_light_FL"]],
+         ["LAZ695N_signalglass_FL_dmg", ["running_light_FL"]],
+         ["LAZ695N_runninglight_R_dmg", ["running_light_FR"]],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"collision":true},
+         {"selfCollision":true},
+         {"nodeWeight":0.35},
+         {"group":"running_light_FL"},
+         ["rnll_1l", 0.79735, -4.31687, 1.12900],
+         ["rnll_2l", 0.90226, -4.31194, 1.12900],
+         ["rnll_3l", 0.79735, -4.31687, 1.30137],
+         ["rnll_4l", 0.90226, -4.31194, 1.30137],
+         ["rnll_5l", 0.84635, -4.27976, 1.21518],
+
+         {"group":"running_light_FR"},
+         ["rnll_1r", -0.79735, -4.31687, 1.12900],
+         ["rnll_2r", -0.90226, -4.31194, 1.12900],
+         ["rnll_3r", -0.79735, -4.31687, 1.30137],
+         ["rnll_4r", -0.90226, -4.31194, 1.30137],
+         ["rnll_5r", -0.84635, -4.27976, 1.21518],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":301000,"beamDamp":30},
+          {"beamDeform":15000,"beamStrength":"FLT_MAX"},
+          //left_light
+          {"deformationTriggerRatio":0.03},
+          {"deformGroup":"running_light_FL_break"},
+          ["rnll_1l","rnll_2l"],
+          ["rnll_3l","rnll_4l"],
+          ["rnll_1l","rnll_3l"],
+          ["rnll_2l","rnll_4l"],
+
+          ["rnll_1l","rnll_4l"],
+          ["rnll_2l","rnll_3l"],
+
+          ["rnll_1l","rnll_5l"],
+          ["rnll_2l","rnll_5l"],
+          ["rnll_3l","rnll_5l"],
+          ["rnll_4l","rnll_5l"],
+
+          {"deformGroup":"running_light_FR_break"},
+          ["rnll_1r","rnll_2r"],
+          ["rnll_3r","rnll_4r"],
+          ["rnll_1r","rnll_3r"],
+          ["rnll_2r","rnll_4r"],
+
+          ["rnll_1r","rnll_4r"],
+          ["rnll_2r","rnll_3r"],
+
+          ["rnll_1r","rnll_5r"],
+          ["rnll_2r","rnll_5r"],
+          ["rnll_3r","rnll_5r"],
+          ["rnll_4r","rnll_5r"],
+          {"deformGroup":""},
+
+          //attach
+          {"beamSpring":301000,"beamDamp":50},
+          {"beamDeform":3500,"beamStrength":22000},
+          {"deformationTriggerRatio":0.05},
+          {"deformGroup":"running_light_FL_break"},
+          {"breakGroup":"running_light_FL_attach"},
+          ["rnll_3l", "z300l"],
+          ["rnll_4l", "z300ll"],
+          ["rnll_3l", "z200l"],
+          ["rnll_4l", "z200ll"],
+          ["rnll_3l", "z400l"],
+          ["rnll_4l", "z400ll"],
+          ["rnll_3l", "z200"],
+          ["rnll_3l", "z300"],
+          ["rnll_3l", "z400"],
+          ["rnll_3l", "z401ell"],
+          ["rnll_3l", "z201ell"],
+          {"beamDeform":250},
+          ["rnll_1l", "z300l"],
+          ["rnll_2l", "z300ll"],
+          ["rnll_1l", "z20l"],
+          ["rnll_2l", "z200ll"],
+          ["rnll_1l", "z400"],
+          ["rnll_1l", "z300"],
+          ["rnll_2l", "z200"],
+          ["rnll_1l", "z400ll"],
+          ["rnll_1l", "z301ell"],
+          {"breakGroup":"running_light_FR_attach"},
+          {"deformGroup":"running_light_FR_break"},
+          ["rnll_3r", "z300r"],
+          ["rnll_4r", "z300rr"],
+          ["rnll_3r", "z200r"],
+          ["rnll_4r", "z200rr"],
+          ["rnll_3r", "z400r"],
+          ["rnll_4r", "z400rr"],
+          ["rnll_3r", "z200"],
+          ["rnll_3r", "z300"],
+          ["rnll_3r", "z400"],
+          ["rnll_3r", "z400rr"],
+          ["rnll_3r", "z200rr"],
+          {"beamDeform":250},
+          ["rnll_1r", "z300r"],
+          ["rnll_2r", "z300rr"],
+          ["rnll_1r", "z200r"],
+          ["rnll_2r", "z200rr"],
+          ["rnll_1r", "z400"],
+          ["rnll_1r", "z300"],
+          ["rnll_2r", "z200"],
+          ["rnll_1r", "z400rr"],
+          ["rnll_1r", "z300rr"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"dragCoef":6},
+            {"triangleType":"NORMALTYPE"},
+            {"externalCollisionBias":"out"}
+            ["rnll_5r", "rnll_4r", "rnll_3r"],
+            ["rnll_1r", "rnll_5r", "rnll_3r"],
+            ["rnll_2r", "rnll_5r", "rnll_1r"],
+            ["rnll_4r", "rnll_5r", "rnll_2r"],
+
+            ["rnll_4l", "rnll_5l", "rnll_3l"],
+            ["rnll_5l", "rnll_1l", "rnll_3l"],
+            ["rnll_5l", "rnll_2l", "rnll_1l"],
+            ["rnll_5l", "rnll_4l", "rnll_2l"],
+           {"dragCoef":8},
+            {"triangleType":"NORMALTYPE"},
+    ],
+    "quads": [
+           ["id1:","id2:","id3:", "id4:"],
+           {"dragCoef":6},
+           {"externalCollisionBias":"out"}
+           ["rnll_2l","rnll_4l","rnll_3l""rnll_1l"],
+           ["rnll_3r","rnll_4r","rnll_2r""rnll_1r"],
+          {"dragCoef":8},
+           {"group":""},
+    ],
+},
+"LAZ695N_runninglights_F_dmg_luk": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Running Lights Late Damaged",
+        "value":600,
+    },
+
+    "slotType" : "LAZ695N_runninglights_F_luk",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_runninglightframe_FL", ["running_light_FL"]],
+         ["LAZ695N_runninglightframe_FR", ["running_light_FR"]],
+         ["LAZ695N_runninglight_L_dmg", ["running_light_FL"]],
+         ["LAZ695N_signalglass_FL_dmg", ["running_light_FL"]],
+         ["LAZ695N_runninglight_R_dmg", ["running_light_FR"]],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"collision":true},
+         {"selfCollision":true},
+         {"nodeWeight":0.35},
+         {"group":"running_light_FL"},
+         ["rnll_1l", 0.79735, -4.31687, 1.12900],
+         ["rnll_2l", 0.90226, -4.31194, 1.12900],
+         ["rnll_3l", 0.79735, -4.31687, 1.30137],
+         ["rnll_4l", 0.90226, -4.31194, 1.30137],
+         ["rnll_5l", 0.84635, -4.27976, 1.21518],
+
+         {"group":"running_light_FR"},
+         ["rnll_1r", -0.79735, -4.31687, 1.12900],
+         ["rnll_2r", -0.90226, -4.31194, 1.12900],
+         ["rnll_3r", -0.79735, -4.31687, 1.30137],
+         ["rnll_4r", -0.90226, -4.31194, 1.30137],
+         ["rnll_5r", -0.84635, -4.27976, 1.21518],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":901000,"beamDamp":30},
+          {"beamDeform":15000,"beamStrength":"FLT_MAX"},
+          //left_light
+          {"deformationTriggerRatio":0.03},
+          {"deformGroup":"running_light_FL_break"},
+          ["rnll_1l","rnll_2l"],
+          ["rnll_3l","rnll_4l"],
+          ["rnll_1l","rnll_3l"],
+          ["rnll_2l","rnll_4l"],
+
+          ["rnll_1l","rnll_4l"],
+          ["rnll_2l","rnll_3l"],
+
+          ["rnll_1l","rnll_5l"],
+          ["rnll_2l","rnll_5l"],
+          ["rnll_3l","rnll_5l"],
+          ["rnll_4l","rnll_5l"],
+
+          {"deformGroup":"running_light_FR_break"},
+          ["rnll_1r","rnll_2r"],
+          ["rnll_3r","rnll_4r"],
+          ["rnll_1r","rnll_3r"],
+          ["rnll_2r","rnll_4r"],
+
+          ["rnll_1r","rnll_4r"],
+          ["rnll_2r","rnll_3r"],
+
+          ["rnll_1r","rnll_5r"],
+          ["rnll_2r","rnll_5r"],
+          ["rnll_3r","rnll_5r"],
+          ["rnll_4r","rnll_5r"],
+          {"deformGroup":""},
+
+          //attach
+          {"beamSpring":301000,"beamDamp":50},
+          {"beamDeform":3500,"beamStrength":22000},
+          {"deformationTriggerRatio":0.05},
+          {"deformGroup":"running_light_FL_break"},
+          {"breakGroup":"running_light_FL_attach"},
+          ["rnll_3l", "z300l"],
+          ["rnll_4l", "z300ll"],
+          ["rnll_3l", "z200l"],
+          ["rnll_4l", "z200ll"],
+          ["rnll_3l", "z400l"],
+          ["rnll_4l", "z400ll"],
+          ["rnll_3l", "z200"],
+          ["rnll_3l", "z300"],
+          ["rnll_3l", "z400"],
+          ["rnll_3l", "z401ell"],
+          ["rnll_3l", "z201ell"],
+          {"beamDeform":250},
+          ["rnll_1l", "z300l"],
+          ["rnll_2l", "z300ll"],
+          ["rnll_1l", "z20l"],
+          ["rnll_2l", "z200ll"],
+          ["rnll_1l", "z400"],
+          ["rnll_1l", "z300"],
+          ["rnll_2l", "z200"],
+          ["rnll_1l", "z400ll"],
+          ["rnll_1l", "z301ell"],
+          {"breakGroup":"running_light_FR_attach"},
+          {"deformGroup":"running_light_FR_break"},
+          ["rnll_3r", "acs23"],
+          ["rnll_4r", "acs25"],
+          ["rnll_3r", "acs22"],
+          ["rnll_4r", "acs26"],
+          ["rnll_3r", "acs23"],
+          ["rnll_4r", "acs25"],
+          ["rnll_3r", "acs22"],
+          ["rnll_3r", "acs24"],
+          ["rnll_3r", "acs21"],
+          ["rnll_3r", "acs25"],
+          ["rnll_3r", "acs26"],
+          {"beamDeform":250},
+          ["rnll_1r", "acs23"],
+          ["rnll_2r", "acs25"],
+          ["rnll_1r", "acs22"],
+          ["rnll_2r", "acs26"],
+          ["rnll_1r", "acs21"],
+          ["rnll_1r", "acs24"],
+          ["rnll_2r", "acs22"],
+          ["rnll_1r", "acs25"],
+          ["rnll_1r", "acs22"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"dragCoef":6},
+            {"triangleType":"NORMALTYPE"},
+            {"externalCollisionBias":"out"}
+            ["rnll_5r", "rnll_4r", "rnll_3r"],
+            ["rnll_1r", "rnll_5r", "rnll_3r"],
+            ["rnll_2r", "rnll_5r", "rnll_1r"],
+            ["rnll_4r", "rnll_5r", "rnll_2r"],
+
+            ["rnll_4l", "rnll_5l", "rnll_3l"],
+            ["rnll_5l", "rnll_1l", "rnll_3l"],
+            ["rnll_5l", "rnll_2l", "rnll_1l"],
+            ["rnll_5l", "rnll_4l", "rnll_2l"],
+           {"dragCoef":8},
+            {"triangleType":"NORMALTYPE"},
+    ],
+    "quads": [
+           ["id1:","id2:","id3:", "id4:"],
+           {"dragCoef":6},
+           {"externalCollisionBias":"out"}
+           ["rnll_2l","rnll_4l","rnll_3l""rnll_1l"],
+           ["rnll_3r","rnll_4r","rnll_2r""rnll_1r"],
+          {"dragCoef":8},
+           {"group":""},
+    ],
+},
+}

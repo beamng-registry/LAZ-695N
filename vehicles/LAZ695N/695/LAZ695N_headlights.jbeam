@@ -1,0 +1,1198 @@
+{
+"LAZ695N_headlight_R": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Right Headlight",
+        "value":190,
+    },
+    "slotType" : "LAZ695N_headlight_R",
+    "slots": [
+        ["type", "default", "description"],
+        ["LAZ695N_eyelid_R", "", "Right Eyelid"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_headlightframe_R", ["LAZ695N_headlight_R"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         ["LAZ695N_wiring_headlight_round", ["LAZ695N_accsessdoor_F"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":"headlightglass_R_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.6},
+         ["LAZ695N_headlightglass_R", ["LAZ695N_headlight_R"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":"headlightglass_R_break", "deformMaterialBase":"LAZ695N_chrome", "deformMaterialDamaged":"LAZ695N_chrome"},
+         ["LAZ695N_headlight_R", ["LAZ695N_headlight_R"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":""},
+
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"],
+        {
+            "lightInnerAngle":0,
+            "lightOuterAngle":120,
+            "lightColor":{"r":255, "g":195, "b":070, "a":255},
+            "lightAttenuation":{"x":0, "y":1, "z":1},
+            "lightCastShadows":true,
+            "flareName":"vehicleHeadLightFlare",
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512,
+            "shadowSoftness":0.5,
+        },
+        //low beams
+        ["lowbeam"    , "SPOTLIGHT"        , "he1r", "he2r", "he3r", {"x":-20, "y":0, "z":0} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.5, "y":0.0, "z":-0.0},"lightRange":50,"lightBrightness":0.25,"lightOuterAngle":95,"flareScale":0.04,"deformGroup":"headlightglass_R_break"}],
+        //high beams
+        ["highbeam" ,         "SPOTLIGHT"        , "he1r", "he2r", "he3r", {"x":-10, "y":0, "z":0} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.5, "y":0.0, "z":-0.0},"lightRange":80,"lightBrightness":0.58,"lightOuterAngle":80,"flareScale":0.06,"deformGroup":"headlightglass_R_break"}],
+     ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--HEADLIGHT--
+         //right
+         {"selfCollision":true},
+         {"collision":true},
+         {"nodeMaterial":"|NM_PLASTIC"},
+         {"frictionCoef":0.5},
+         {"nodeWeight":0.488},
+         {"group":"LAZ695N_headlight_R"},
+         ["he1r", -0.71280, -4.27154, 0.93849],
+         ["he3r", -0.84280, -4.27154, 1.05849],
+         ["he2r", -0.96280, -4.27154, 0.93849],
+         ["he4r", -0.84280, -4.27154, 0.80849],
+         {"selfCollision":false},
+         ["he5r", -0.84280, -4.19154, 0.93849],
+         {"group":""},
+    ],
+
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--HEADLIGHT--
+          {"beamSpring":975975,"beamDamp":97.5},
+          {"beamDeform":25210,"beamStrength":80840},
+          //headlight main shape
+          {"deformGroup":"headlightglass_R_break", "deformationTriggerRatio":0.01},
+          {"deformLimitExpansion":1.1},
+          //r
+          ["he1r","he2r"],
+          ["he3r","he4r"],
+          ["he1r","he3r"],
+          ["he2r","he4r"],
+
+          ["he1r","he4r"],
+          ["he2r","he3r"],
+
+          ["he1r","he5r"],
+          ["he2r","he5r"],
+          ["he3r","he5r"],
+          ["he4r","he5r"],
+          //attach
+          {"beamSpring":244725,"beamDamp":58.5},
+          {"deformLimitExpansion":""},
+          {"beamDeform":3281.5,"beamStrength":7563},
+          //r
+          {"breakGroup":"headlight_R"},
+          ["he1r","z300r"],
+          ["he1r","z300rr"],
+          ["he2r","z300r"],
+          ["he2r","z300rr"],
+          ["he3r","z200r"],
+          ["he3r","z200rr"],
+          ["he3r","z100rr"],
+          ["he4r","z200r"],
+          ["he4r","z200rr"],
+
+          ["he1r","z100rr"],
+          ["he2r","z100rr"],
+          ["he4r","z300r"],
+          ["he5r","z300r"],
+          ["he5r","z300rr"],
+          ["he5r","z200r"],
+          ["he5r","z200rr"],
+
+          //weak mounting further back
+          {"beamSpring":124725,"beamDamp":36},
+          {"beamDeform":740.75,"beamStrength":1742},
+          ["he3r", "fe18r"],
+          ["he3r", "fe4r"],
+          ["he2r", "fe9r"],
+          ["he2r", "fe4r"],
+          ["he4r", "fe9r"],
+          ["he1r", "fe18r"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+
+          //headlight support beams
+          {"beamType":"|SUPPORT", "beamLongBound":4},
+          {"beamSpring":810059.3,"beamDamp":122.85},
+          {"beamDeform":16731,"beamStrength":401544},
+          {"optional":true},
+          {"optional":false},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            //right headlight
+            {"group":"LAZ695N_headlight_R"},
+            {"dragCoef":6},
+            ["he1r","he3r","he2r"],
+            ["he1r","he2r","he4r"],
+            ["he1r","he2r","he5r"],
+            {"group":""},
+    ],
+},
+"LAZ695N_headlight_L": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Left Headlight",
+        "value":190,
+    },
+    "slotType" : "LAZ695N_headlight_L",
+    "slots": [
+        ["type", "default", "description"],
+        ["LAZ695N_eyelid_L", "", "Left Eyelid"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_headlightframe_L", ["LAZ695N_headlight_L"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":"headlightglass_L_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound4", "deformVolume":0.6},
+         ["LAZ695N_headlightglass_L", ["LAZ695N_headlight_L"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":"headlightglass_L_break", "deformMaterialBase":"LAZ695N_chrome", "deformMaterialDamaged":"LAZ695N_chrome"},
+         ["LAZ695N_headlight_L", ["LAZ695N_headlight_L"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":""},
+
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"],
+        {
+            "lightInnerAngle":0,
+            "lightOuterAngle":120,
+            "lightColor":{"r":255, "g":195, "b":070, "a":255},
+            "lightAttenuation":{"x":0, "y":1, "z":1},
+            "lightCastShadows":true,
+            "flareName":"vehicleHeadLightFlare",
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512,
+            "shadowSoftness":0.5,
+        },
+        //low beams angled right slightly to avoid blinding oncoming traffic
+        ["lowbeam"    , "SPOTLIGHT"        , "he1l", "he2l", "he3l", {"x":210, "y":-15, "z":5} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.5, "y":0.05, "z":-0.0},"lightRange":50,"lightBrightness":0.25,"lightOuterAngle":95,"flareScale":0.04,"deformGroup":"headlightglass_L_break"}],
+        //high beams
+        ["highbeam" ,         "SPOTLIGHT"        , "he1l", "he2l", "he3l", {"x":190, "y":0, "z":0} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.5, "y":0.0, "z":-0.0},"lightRange":80,"lightBrightness":0.58,"lightOuterAngle":80,"flareScale":0.06,"deformGroup":"headlightglass_L_break"}],
+     ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--HEADLIGHT--
+         //left
+         {"selfCollision":true},
+         {"collision":true},
+         {"nodeMaterial":"|NM_PLASTIC"},
+         {"frictionCoef":0.5},
+         {"nodeWeight":0.488},
+         {"group":"LAZ695N_headlight_L"},
+         ["he1l", 0.71303, -4.27154, 0.93849],
+         ["he3l", 0.84303, -4.27154, 1.05849],
+         ["he2l", 0.96303, -4.27154, 0.93849],
+         ["he4l", 0.84303, -4.27154, 0.80849],
+         {"selfCollision":false},
+         ["he5l", 0.84303, -4.19154, 0.93849],
+         {"group":""},
+
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--HEADLIGHT--
+          {"beamSpring":975975,"beamDamp":97.5},
+          {"beamDeform":25210,"beamStrength":80840},
+          //headlight main shape
+          {"deformGroup":"headlightglass_L_break", "deformationTriggerRatio":0.01},
+          {"deformLimitExpansion":1.1},
+          //l
+          ["he1l","he2l"],
+          ["he3l","he4l"],
+          ["he1l","he3l"],
+          ["he2l","he4l"],
+
+          ["he1l","he4l"],
+          ["he2l","he3l"],
+
+          ["he1l","he5l"],
+          ["he2l","he5l"],
+          ["he3l","he5l"],
+          ["he4l","he5l"],
+          //attach
+          {"beamSpring":244725,"beamDamp":58.5},
+          {"deformLimitExpansion":""},
+          {"beamDeform":3281.5,"beamStrength":7563},
+          //l
+          {"breakGroup":"headlight_L"},
+          ["he1l","z300l"],
+          ["he1l","z300ll"],
+          ["he2l","z300l"],
+          ["he2l","z300ll"],
+          ["he3l","z200l"],
+          ["he3l","z200ll"],
+          ["he3l","z100ll"],
+          ["he4l","z200l"],
+          ["he4l","z200ll"],
+
+          ["he1l","z100ll"],
+          ["he2l","z100ll"],
+          ["he4l","z300l"],
+          ["he5l","z300l"],
+          ["he5l","z300ll"],
+          ["he5l","z200l"],
+          ["he5l","z200ll"],
+
+          //weak mounting further back
+          {"beamSpring":124725,"beamDamp":36},
+          {"beamDeform":740.75,"beamStrength":1742},
+          ["he3l", "fe18l"],
+          ["he3l", "fe4l"],
+          ["he2l", "fe9l"],
+          ["he2l", "fe4l"],
+          ["he4l", "fe9l"],
+          ["he1l", "fe18l"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+
+          //headlight support beams
+          {"beamType":"|SUPPORT", "beamLongBound":4},
+          {"beamSpring":810059.3,"beamDamp":122.85},
+          {"beamDeform":16731,"beamStrength":401544},
+          {"optional":true},
+          {"optional":false},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            //left headlight
+            {"group":"LAZ695N_headlight_L"},
+            {"dragCoef":6},
+            ["he3l","he1l","he2l"],
+            ["he2l","he1l","he4l"],
+            ["he2l","he1l","he5l"],
+            {"group":""},
+    ],
+},
+"LAZ695N_headlight_R_ferr": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Right Headlight FER",
+        "value":190,
+    },
+    "slotType" : "LAZ695N_headlight_R",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_headlightframe_R_ferr", ["LAZ695N_headlight_R"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         ["LAZ695N_wiring_headlight", ["LAZ695N_accsessdoor_F"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":"headlightglass_R_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"invis"},
+         {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.6},
+         ["LAZ695N_headlightglass_R_ferr", ["LAZ695N_headlight_R"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":"headlightglass_R_break", "deformMaterialBase":"LAZ695N_chrome", "deformMaterialDamaged":"LAZ695N_chrome"},
+         ["LAZ695N_headlight_R_ferr", ["LAZ695N_headlight_R"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":""},
+
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"],
+        {
+            "lightInnerAngle":0,
+            "lightOuterAngle":120,
+            "lightColor":{"r":255, "g":195, "b":070, "a":255},
+            "lightAttenuation":{"x":0, "y":1, "z":1},
+            "lightCastShadows":true,
+            "flareName":"vehicleHeadLightFlare",
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512,
+            "shadowSoftness":0.5,
+        },
+        //low beams
+        ["lowbeam"    , "SPOTLIGHT"        , "he1r", "he2r", "he3r", {"x":-20, "y":0, "z":0} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.5, "y":0.0, "z":-0.0},"lightRange":50,"lightBrightness":0.25,"lightOuterAngle":95,"flareScale":0.04,"deformGroup":"headlightglass_R_break"}],
+        //high beams
+        ["highbeam" ,         "SPOTLIGHT"        , "he1r", "he2r", "he3r", {"x":-10, "y":0, "z":0} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.5, "y":0.0, "z":-0.0},"lightRange":80,"lightBrightness":0.58,"lightOuterAngle":80,"flareScale":0.06,"deformGroup":"headlightglass_R_break"}],
+     ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--HEADLIGHT--
+         //right
+         {"selfCollision":true},
+         {"collision":true},
+         {"nodeMaterial":"|NM_PLASTIC"},
+         {"frictionCoef":0.5},
+         {"nodeWeight":0.488},
+         {"group":"LAZ695N_headlight_R"},
+         ["he1r", -0.71280, -4.27154, 0.93849],
+         ["he3r", -0.84280, -4.27154, 1.05849],
+         ["he2r", -0.96280, -4.27154, 0.93849],
+         ["he4r", -0.84280, -4.27154, 0.80849],
+         {"selfCollision":false},
+         ["he5r", -0.84280, -4.19154, 0.93849],
+         {"group":""},
+    ],
+
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--HEADLIGHT--
+          {"beamSpring":975975,"beamDamp":97.5},
+          {"beamDeform":25210,"beamStrength":80840},
+          //headlight main shape
+          {"deformGroup":"headlightglass_R_break", "deformationTriggerRatio":0.01},
+          {"deformLimitExpansion":1.1},
+          //r
+          ["he1r","he2r"],
+          ["he3r","he4r"],
+          ["he1r","he3r"],
+          ["he2r","he4r"],
+
+          ["he1r","he4r"],
+          ["he2r","he3r"],
+
+          ["he1r","he5r"],
+          ["he2r","he5r"],
+          ["he3r","he5r"],
+          ["he4r","he5r"],
+          //attach
+          {"beamSpring":244725,"beamDamp":58.5},
+          {"deformLimitExpansion":""},
+          {"beamDeform":3281.5,"beamStrength":7563},
+          //r
+          {"breakGroup":"headlight_R"},
+          ["he1r","z300r"],
+          ["he1r","z300rr"],
+          ["he2r","z300r"],
+          ["he2r","z300rr"],
+          ["he3r","z200r"],
+          ["he3r","z200rr"],
+          ["he3r","z100rr"],
+          ["he4r","z200r"],
+          ["he4r","z200rr"],
+
+          ["he1r","z100rr"],
+          ["he2r","z100rr"],
+          ["he4r","z300r"],
+          ["he5r","z300r"],
+          ["he5r","z300rr"],
+          ["he5r","z200r"],
+          ["he5r","z200rr"],
+
+          //weak mounting further back
+          {"beamSpring":124725,"beamDamp":36},
+          {"beamDeform":740.75,"beamStrength":1742},
+          ["he3r", "fe18r"],
+          ["he3r", "fe4r"],
+          ["he2r", "fe9r"],
+          ["he2r", "fe4r"],
+          ["he4r", "fe9r"],
+          ["he1r", "fe18r"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+
+          //headlight support beams
+          {"beamType":"|SUPPORT", "beamLongBound":4},
+          {"beamSpring":810059.3,"beamDamp":122.85},
+          {"beamDeform":16731,"beamStrength":401544},
+          {"optional":true},
+          {"optional":false},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            //right headlight
+            {"group":"LAZ695N_headlight_R"},
+            {"dragCoef":6},
+            ["he1r","he3r","he2r"],
+            ["he1r","he2r","he4r"],
+            ["he1r","he2r","he5r"],
+            {"group":""},
+    ],
+},
+"LAZ695N_headlight_L_ferr": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Left Headlight FER",
+        "value":190,
+    },
+    "slotType" : "LAZ695N_headlight_L",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_headlightframe_L_ferr", ["LAZ695N_headlight_L"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":"headlightglass_L_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"invis"},
+         {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound4", "deformVolume":0.6},
+         ["LAZ695N_headlightglass_L_ferr", ["LAZ695N_headlight_L"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":"headlightglass_L_break", "deformMaterialBase":"LAZ695N_chrome", "deformMaterialDamaged":"LAZ695N_chrome"},
+         ["LAZ695N_headlight_L_ferr", ["LAZ695N_headlight_L"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":""},
+
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"],
+        {
+            "lightInnerAngle":0,
+            "lightOuterAngle":120,
+            "lightColor":{"r":255, "g":195, "b":070, "a":255},
+            "lightAttenuation":{"x":0, "y":1, "z":1},
+            "lightCastShadows":true,
+            "flareName":"vehicleHeadLightFlare",
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512,
+            "shadowSoftness":0.5,
+        },
+        //low beams angled right slightly to avoid blinding oncoming traffic
+        ["lowbeam"    , "SPOTLIGHT"        , "he1l", "he2l", "he3l", {"x":210, "y":-15, "z":5} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.5, "y":0.05, "z":-0.0},"lightRange":50,"lightBrightness":0.25,"lightOuterAngle":95,"flareScale":0.04,"deformGroup":"headlightglass_L_break"}],
+        //high beams
+        ["highbeam" ,         "SPOTLIGHT"        , "he1l", "he2l", "he3l", {"x":190, "y":0, "z":0} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.5, "y":0.0, "z":-0.0},"lightRange":80,"lightBrightness":0.58,"lightOuterAngle":80,"flareScale":0.06,"deformGroup":"headlightglass_L_break"}],
+     ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--HEADLIGHT--
+         //left
+         {"selfCollision":true},
+         {"collision":true},
+         {"nodeMaterial":"|NM_PLASTIC"},
+         {"frictionCoef":0.5},
+         {"nodeWeight":0.488},
+         {"group":"LAZ695N_headlight_L"},
+         ["he1l", 0.71303, -4.27154, 0.93849],
+         ["he3l", 0.84303, -4.27154, 1.05849],
+         ["he2l", 0.96303, -4.27154, 0.93849],
+         ["he4l", 0.84303, -4.27154, 0.80849],
+         {"selfCollision":false},
+         ["he5l", 0.84303, -4.19154, 0.93849],
+         {"group":""},
+
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--HEADLIGHT--
+          {"beamSpring":975975,"beamDamp":97.5},
+          {"beamDeform":25210,"beamStrength":80840},
+          //headlight main shape
+          {"deformGroup":"headlightglass_L_break", "deformationTriggerRatio":0.01},
+          {"deformLimitExpansion":1.1},
+          //l
+          ["he1l","he2l"],
+          ["he3l","he4l"],
+          ["he1l","he3l"],
+          ["he2l","he4l"],
+
+          ["he1l","he4l"],
+          ["he2l","he3l"],
+
+          ["he1l","he5l"],
+          ["he2l","he5l"],
+          ["he3l","he5l"],
+          ["he4l","he5l"],
+          //attach
+          {"beamSpring":244725,"beamDamp":58.5},
+          {"deformLimitExpansion":""},
+          {"beamDeform":3281.5,"beamStrength":7563},
+          //l
+          {"breakGroup":"headlight_L"},
+          ["he1l","z300l"],
+          ["he1l","z300ll"],
+          ["he2l","z300l"],
+          ["he2l","z300ll"],
+          ["he3l","z200l"],
+          ["he3l","z200ll"],
+          ["he3l","z100ll"],
+          ["he4l","z200l"],
+          ["he4l","z200ll"],
+
+          ["he1l","z100ll"],
+          ["he2l","z100ll"],
+          ["he4l","z300l"],
+          ["he5l","z300l"],
+          ["he5l","z300ll"],
+          ["he5l","z200l"],
+          ["he5l","z200ll"],
+
+          //weak mounting further back
+          {"beamSpring":124725,"beamDamp":36},
+          {"beamDeform":740.75,"beamStrength":1742},
+          ["he3l", "fe18l"],
+          ["he3l", "fe4l"],
+          ["he2l", "fe9l"],
+          ["he2l", "fe4l"],
+          ["he4l", "fe9l"],
+          ["he1l", "fe18l"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+
+          //headlight support beams
+          {"beamType":"|SUPPORT", "beamLongBound":4},
+          {"beamSpring":810059.3,"beamDamp":122.85},
+          {"beamDeform":16731,"beamStrength":401544},
+          {"optional":true},
+          {"optional":false},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            //left headlight
+            {"group":"LAZ695N_headlight_L"},
+            {"dragCoef":6},
+            ["he3l","he1l","he2l"],
+            ["he2l","he1l","he4l"],
+            ["he2l","he1l","he5l"],
+            {"group":""},
+    ],
+},
+"LAZ695N_headlight_R_luk": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Right Headlight",
+        "value":190,
+    },
+    "slotType" : "LAZ695N_headlight_R_luk",
+    "slots": [
+        ["type", "default", "description"],
+        ["LAZ695N_eyelid_R", "", "Right Eyelid"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_headlightframe_R", ["LAZ695N_headlight_R"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         ["LAZ695N_wiring_headlight", ["LAZ695N_accessdoor_F"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":"headlightglass_R_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.6},
+         ["LAZ695N_headlightglass_R", ["LAZ695N_headlight_R"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":"headlightglass_R_break", "deformMaterialBase":"LAZ695N_chrome", "deformMaterialDamaged":"LAZ695N_chrome"},
+         ["LAZ695N_headlight_R", ["LAZ695N_headlight_R"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":""},
+
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"],
+        {
+            "lightInnerAngle":0,
+            "lightOuterAngle":120,
+            "lightColor":{"r":255, "g":195, "b":070, "a":255},
+            "lightAttenuation":{"x":0, "y":1, "z":1},
+            "lightCastShadows":true,
+            "flareName":"vehicleHeadLightFlare",
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512,
+            "shadowSoftness":0.5,
+        },
+        //low beams
+        ["lowbeam"    , "SPOTLIGHT"        , "he1r", "he2r", "he3r", {"x":-20, "y":0, "z":0} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.5, "y":0.0, "z":-0.0},"lightRange":50,"lightBrightness":0.25,"lightOuterAngle":95,"flareScale":0.04,"deformGroup":"headlightglass_R_break"}],
+        //high beams
+        ["highbeam" ,         "SPOTLIGHT"        , "he1r", "he2r", "he3r", {"x":-10, "y":0, "z":0} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.5, "y":0.0, "z":-0.0},"lightRange":80,"lightBrightness":0.58,"lightOuterAngle":80,"flareScale":0.06,"deformGroup":"headlightglass_R_break"}],
+     ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--HEADLIGHT--
+         //right
+         {"selfCollision":false},
+         {"collision":true},
+         {"nodeMaterial":"|NM_PLASTIC"},
+         {"frictionCoef":0.5},
+         {"nodeWeight":0.488},
+         {"group":"LAZ695N_headlight_R"},
+         ["he1r", -0.71280, -4.27154, 0.93849],
+         ["he3r", -0.84280, -4.27154, 1.05849],
+         ["he2r", -0.96280, -4.27154, 0.93849],
+         ["he4r", -0.84280, -4.27154, 0.80849],
+         {"selfCollision":false},
+         ["he5r", -0.84280, -4.19154, 0.93849],
+         {"selfCollision":true},
+         {"group":""},
+    ],
+
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--HEADLIGHT--
+          {"beamSpring":975975,"beamDamp":97.5},
+          {"beamDeform":25210,"beamStrength":80840},
+          //headlight main shape
+          {"deformGroup":"headlightglass_R_break", "deformationTriggerRatio":0.01},
+          {"deformLimitExpansion":1.1},
+          //r
+          ["he1r","he2r"],
+          ["he3r","he4r"],
+          ["he1r","he3r"],
+          ["he2r","he4r"],
+
+          ["he1r","he4r"],
+          ["he2r","he3r"],
+
+          ["he1r","he5r"],
+          ["he2r","he5r"],
+          ["he3r","he5r"],
+          ["he4r","he5r"],
+          //attach
+          {"beamSpring":244725,"beamDamp":58.5},
+          {"deformLimitExpansion":""},
+          {"beamDeform":3281.5,"beamStrength":7563},
+          //r
+          {"breakGroup":"headlight_R"},
+          ["he1r","acs23"],
+          ["he1r","acs25"],
+          ["he1r","acs21"],
+          ["he1r","acs22"],
+          ["he2r","acs23"],
+          ["he2r","acs25"],
+          ["he2r","acs21"],
+          ["he2r","acs22"],
+          ["he3r","acs24"],
+          ["he3r","acs26"],
+          ["he3r","acs25"],
+          ["he3r","acs21"],
+          ["he3r","acs22"],
+          ["he4r","acs24"],
+          ["he4r","acs26"],
+          ["he4r","acs21"],
+          ["he4r","acs22"],
+
+          ["he1r","acs24"],
+          ["he2r","acs24"],
+          ["he4r","acs23"],
+          ["he5r","acs23"],
+          ["he5r","acs25"],
+          ["he5r","acs24"],
+          ["he5r","acs26"],
+          ["he5r","acs21"],
+          ["he5r","acs22"],
+
+          //weak mounting further back
+          {"beamSpring":124725,"beamDamp":36},
+          {"beamDeform":740.75,"beamStrength":1742},
+          ["he3r", "fe18r"],
+          ["he3r", "fe4r"],
+          ["he2r", "fe9r"],
+          ["he2r", "fe4r"],
+          ["he4r", "fe9r"],
+          ["he1r", "fe18r"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+
+          //headlight support beams
+          {"beamType":"|SUPPORT", "beamLongBound":4},
+          {"beamSpring":810059.3,"beamDamp":122.85},
+          {"beamDeform":16731,"beamStrength":401544},
+          {"optional":true},
+          {"optional":false},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            //right headlight
+            {"group":"LAZ695N_headlight_R"},
+            {"dragCoef":6},
+            ["he1r","he3r","he2r"],
+            ["he1r","he2r","he4r"],
+            ["he1r","he2r","he5r"],
+            {"group":""},
+    ],
+},
+"LAZ695N_headlight_R_ferr_luk": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Right Headlight FER",
+        "value":190,
+    },
+    "slotType" : "LAZ695N_headlight_R_luk",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_headlightframe_R_ferr", ["LAZ695N_headlight_R"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         ["LAZ695N_wiring_headlight", ["LAZ695N_accessdoor_F"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":"headlightglass_R_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.6},
+         ["LAZ695N_headlightglass_R_ferr", ["LAZ695N_headlight_R"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":"headlightglass_R_break", "deformMaterialBase":"LAZ695N_chrome", "deformMaterialDamaged":"LAZ695N_chrome"},
+         ["LAZ695N_headlight_R_ferr", ["LAZ695N_headlight_R"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         {"deformGroup":""},
+
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"],
+        {
+            "lightInnerAngle":0,
+            "lightOuterAngle":120,
+            "lightColor":{"r":255, "g":195, "b":070, "a":255},
+            "lightAttenuation":{"x":0, "y":1, "z":1},
+            "lightCastShadows":true,
+            "flareName":"vehicleHeadLightFlare",
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512,
+            "shadowSoftness":0.5,
+        },
+        //low beams
+        ["lowbeam"    , "SPOTLIGHT"        , "he1r", "he2r", "he3r", {"x":-20, "y":0, "z":0} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.5, "y":0.0, "z":-0.0},"lightRange":50,"lightBrightness":0.25,"lightOuterAngle":95,"flareScale":0.04,"deformGroup":"headlightglass_R_break"}],
+        //high beams
+        ["highbeam" ,         "SPOTLIGHT"        , "he1r", "he2r", "he3r", {"x":-10, "y":0, "z":0} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.5, "y":0.0, "z":-0.0},"lightRange":80,"lightBrightness":0.58,"lightOuterAngle":80,"flareScale":0.06,"deformGroup":"headlightglass_R_break"}],
+     ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--HEADLIGHT--
+         //right
+         {"selfCollision":false},
+         {"collision":true},
+         {"nodeMaterial":"|NM_PLASTIC"},
+         {"frictionCoef":0.5},
+         {"nodeWeight":0.488},
+         {"group":"LAZ695N_headlight_R"},
+         ["he1r", -0.71280, -4.27154, 0.93849],
+         ["he3r", -0.84280, -4.27154, 1.05849],
+         ["he2r", -0.96280, -4.27154, 0.93849],
+         ["he4r", -0.84280, -4.27154, 0.80849],
+         {"selfCollision":false},
+         ["he5r", -0.84280, -4.19154, 0.93849],
+         {"group":""},
+    ],
+
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--HEADLIGHT--
+          {"beamSpring":975975,"beamDamp":97.5},
+          {"beamDeform":25210,"beamStrength":80840},
+          //headlight main shape
+          {"deformGroup":"headlightglass_R_break", "deformationTriggerRatio":0.01},
+          {"deformLimitExpansion":1.1},
+          //r
+          ["he1r","he2r"],
+          ["he3r","he4r"],
+          ["he1r","he3r"],
+          ["he2r","he4r"],
+
+          ["he1r","he4r"],
+          ["he2r","he3r"],
+
+          ["he1r","he5r"],
+          ["he2r","he5r"],
+          ["he3r","he5r"],
+          ["he4r","he5r"],
+          //attach
+          {"beamSpring":244725,"beamDamp":58.5},
+          {"deformLimitExpansion":""},
+          {"beamDeform":3281.5,"beamStrength":7563},
+          //r
+          {"breakGroup":"headlight_R"},
+          ["he1r","acs23"],
+          ["he1r","acs25"],
+          ["he1r","acs21"],
+          ["he1r","acs22"],
+          ["he2r","acs23"],
+          ["he2r","acs25"],
+          ["he2r","acs21"],
+          ["he2r","acs22"],
+          ["he3r","acs24"],
+          ["he3r","acs26"],
+          ["he3r","acs25"],
+          ["he3r","acs21"],
+          ["he3r","acs22"],
+          ["he4r","acs24"],
+          ["he4r","acs26"],
+          ["he4r","acs21"],
+          ["he4r","acs22"],
+
+          ["he1r","acs24"],
+          ["he2r","acs24"],
+          ["he4r","acs23"],
+          ["he5r","acs23"],
+          ["he5r","acs25"],
+          ["he5r","acs24"],
+          ["he5r","acs26"],
+          ["he5r","acs21"],
+          ["he5r","acs22"],
+
+          //weak mounting further back
+          {"beamSpring":124725,"beamDamp":36},
+          {"beamDeform":740.75,"beamStrength":1742},
+          ["he3r", "fe18r"],
+          ["he3r", "fe4r"],
+          ["he2r", "fe9r"],
+          ["he2r", "fe4r"],
+          ["he4r", "fe9r"],
+          ["he1r", "fe18r"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+
+          //headlight support beams
+          {"beamType":"|SUPPORT", "beamLongBound":4},
+          {"beamSpring":810059.3,"beamDamp":122.85},
+          {"beamDeform":16731,"beamStrength":401544},
+          {"optional":true},
+          {"optional":false},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            //right headlight
+            {"group":"LAZ695N_headlight_R"},
+            {"dragCoef":6},
+            ["he1r","he3r","he2r"],
+            ["he1r","he2r","he4r"],
+            ["he1r","he2r","he5r"],
+            {"group":""},
+    ],
+},
+"LAZ695N_headlight_R_dmg": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Right Headlight Damaged",
+        "value":190,
+    },
+    "slotType" : "LAZ695N_headlight_R",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_headlightframe_R_dmg", ["LAZ695N_headlight_R"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--HEADLIGHT--
+         //right
+         {"selfCollision":true},
+         {"collision":true},
+         {"nodeMaterial":"|NM_PLASTIC"},
+         {"frictionCoef":0.5},
+         {"nodeWeight":0.488},
+         {"group":"LAZ695N_headlight_R"},
+         ["he1r", -0.71280, -4.27154, 0.93849],
+         ["he3r", -0.84280, -4.27154, 1.05849],
+         ["he2r", -0.96280, -4.27154, 0.93849],
+         ["he4r", -0.84280, -4.27154, 0.80849],
+         {"selfCollision":false},
+         ["he5r", -0.84280, -4.19154, 0.93849],
+         {"group":""},
+    ],
+
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--HEADLIGHT--
+          {"beamSpring":975975,"beamDamp":97.5},
+          {"beamDeform":25210,"beamStrength":80840},
+          //headlight main shape
+          {"deformGroup":"headlightglass_R_break", "deformationTriggerRatio":0.01},
+          {"deformLimitExpansion":1.1},
+          //r
+          ["he1r","he2r"],
+          ["he3r","he4r"],
+          ["he1r","he3r"],
+          ["he2r","he4r"],
+
+          ["he1r","he4r"],
+          ["he2r","he3r"],
+
+          ["he1r","he5r"],
+          ["he2r","he5r"],
+          ["he3r","he5r"],
+          ["he4r","he5r"],
+          //attach
+          {"beamSpring":244725,"beamDamp":58.5},
+          {"deformLimitExpansion":""},
+          {"beamDeform":3281.5,"beamStrength":7563},
+          //r
+          {"breakGroup":"headlight_R"},
+          ["he1r","z300r"],
+          ["he1r","z300rr"],
+          ["he2r","z300r"],
+          ["he2r","z300rr"],
+          ["he3r","z200r"],
+          ["he3r","z200rr"],
+          ["he3r","z100rr"],
+          ["he4r","z200r"],
+          ["he4r","z200rr"],
+
+          ["he1r","z100rr"],
+          ["he2r","z100rr"],
+          ["he4r","z300r"],
+          ["he5r","z300r"],
+          ["he5r","z300rr"],
+          ["he5r","z200r"],
+          ["he5r","z200rr"],
+
+          //weak mounting further back
+          {"beamSpring":124725,"beamDamp":36},
+          {"beamDeform":740.75,"beamStrength":1742},
+          ["he3r", "fe18r"],
+          ["he3r", "fe4r"],
+          ["he2r", "fe9r"],
+          ["he2r", "fe4r"],
+          ["he4r", "fe9r"],
+          ["he1r", "fe18r"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+
+          //headlight support beams
+          {"beamType":"|SUPPORT", "beamLongBound":4},
+          {"beamSpring":810059.3,"beamDamp":122.85},
+          {"beamDeform":16731,"beamStrength":401544},
+          {"optional":true},
+          {"optional":false},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            //right headlight
+            {"group":"LAZ695N_headlight_R"},
+            {"dragCoef":6},
+            ["he1r","he3r","he2r"],
+            ["he1r","he2r","he4r"],
+            ["he1r","he2r","he5r"],
+            {"group":""},
+    ],
+},
+"LAZ695N_headlight_L_dmg": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Left Headlight Damaged",
+        "value":190,
+    },
+    "slotType" : "LAZ695N_headlight_L",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_headlightframe_L_dmg", ["LAZ695N_headlight_L"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--HEADLIGHT--
+         //left
+         {"selfCollision":true},
+         {"collision":true},
+         {"nodeMaterial":"|NM_PLASTIC"},
+         {"frictionCoef":0.5},
+         {"nodeWeight":0.488},
+         {"group":"LAZ695N_headlight_L"},
+         ["he1l", 0.71303, -4.27154, 0.93849],
+         ["he3l", 0.84303, -4.27154, 1.05849],
+         ["he2l", 0.96303, -4.27154, 0.93849],
+         ["he4l", 0.84303, -4.27154, 0.80849],
+         {"selfCollision":false},
+         ["he5l", 0.84303, -4.19154, 0.93849],
+         {"group":""},
+
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--HEADLIGHT--
+          {"beamSpring":975975,"beamDamp":97.5},
+          {"beamDeform":25210,"beamStrength":80840},
+          //headlight main shape
+          {"deformGroup":"headlightglass_L_break", "deformationTriggerRatio":0.01},
+          {"deformLimitExpansion":1.1},
+          //l
+          ["he1l","he2l"],
+          ["he3l","he4l"],
+          ["he1l","he3l"],
+          ["he2l","he4l"],
+
+          ["he1l","he4l"],
+          ["he2l","he3l"],
+
+          ["he1l","he5l"],
+          ["he2l","he5l"],
+          ["he3l","he5l"],
+          ["he4l","he5l"],
+          //attach
+          {"beamSpring":244725,"beamDamp":58.5},
+          {"deformLimitExpansion":""},
+          {"beamDeform":3281.5,"beamStrength":7563},
+          //l
+          {"breakGroup":"headlight_L"},
+          ["he1l","z300l"],
+          ["he1l","z300ll"],
+          ["he2l","z300l"],
+          ["he2l","z300ll"],
+          ["he3l","z200l"],
+          ["he3l","z200ll"],
+          ["he3l","z100ll"],
+          ["he4l","z200l"],
+          ["he4l","z200ll"],
+
+          ["he1l","z100ll"],
+          ["he2l","z100ll"],
+          ["he4l","z300l"],
+          ["he5l","z300l"],
+          ["he5l","z300ll"],
+          ["he5l","z200l"],
+          ["he5l","z200ll"],
+
+          //weak mounting further back
+          {"beamSpring":124725,"beamDamp":36},
+          {"beamDeform":740.75,"beamStrength":1742},
+          ["he3l", "fe18l"],
+          ["he3l", "fe4l"],
+          ["he2l", "fe9l"],
+          ["he2l", "fe4l"],
+          ["he4l", "fe9l"],
+          ["he1l", "fe18l"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+
+          //headlight support beams
+          {"beamType":"|SUPPORT", "beamLongBound":4},
+          {"beamSpring":810059.3,"beamDamp":122.85},
+          {"beamDeform":16731,"beamStrength":401544},
+          {"optional":true},
+          {"optional":false},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            //left headlight
+            {"group":"LAZ695N_headlight_L"},
+            {"dragCoef":6},
+            ["he3l","he1l","he2l"],
+            ["he2l","he1l","he4l"],
+            ["he2l","he1l","he5l"],
+            {"group":""},
+    ],
+},
+"LAZ695N_headlight_R_dmg_luk": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Right Headlight Damaged",
+        "value":190,
+    },
+    "slotType" : "LAZ695N_headlight_R_luk",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_headlightframe_R_dmg", ["LAZ695N_headlight_R"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+         ["LAZ695N_wiring_headlight", ["LAZ695N_accsessdoor_F"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //--HEADLIGHT--
+         //right
+         {"selfCollision":false},
+         {"collision":true},
+         {"nodeMaterial":"|NM_PLASTIC"},
+         {"frictionCoef":0.5},
+         {"nodeWeight":0.488},
+         {"group":"LAZ695N_headlight_R"},
+         ["he1r", -0.71280, -4.27154, 0.93849],
+         ["he3r", -0.84280, -4.27154, 1.05849],
+         ["he2r", -0.96280, -4.27154, 0.93849],
+         ["he4r", -0.84280, -4.27154, 0.80849],
+         {"selfCollision":false},
+         ["he5r", -0.84280, -4.19154, 0.93849],
+         {"selfCollision":true},
+         {"group":""},
+    ],
+
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          //--HEADLIGHT--
+          {"beamSpring":975975,"beamDamp":97.5},
+          {"beamDeform":25210,"beamStrength":80840},
+          //headlight main shape
+          {"deformGroup":"headlightglass_R_break", "deformationTriggerRatio":0.01},
+          {"deformLimitExpansion":1.1},
+          //r
+          ["he1r","he2r"],
+          ["he3r","he4r"],
+          ["he1r","he3r"],
+          ["he2r","he4r"],
+
+          ["he1r","he4r"],
+          ["he2r","he3r"],
+
+          ["he1r","he5r"],
+          ["he2r","he5r"],
+          ["he3r","he5r"],
+          ["he4r","he5r"],
+          //attach
+          {"beamSpring":244725,"beamDamp":58.5},
+          {"deformLimitExpansion":""},
+          {"beamDeform":3281.5,"beamStrength":7563},
+          //r
+          {"breakGroup":"headlight_R"},
+          ["he1r","acs23"],
+          ["he1r","acs25"],
+          ["he1r","acs21"],
+          ["he1r","acs22"],
+          ["he2r","acs23"],
+          ["he2r","acs25"],
+          ["he2r","acs21"],
+          ["he2r","acs22"],
+          ["he3r","acs24"],
+          ["he3r","acs26"],
+          ["he3r","acs25"],
+          ["he3r","acs21"],
+          ["he3r","acs22"],
+          ["he4r","acs24"],
+          ["he4r","acs26"],
+          ["he4r","acs21"],
+          ["he4r","acs22"],
+
+          ["he1r","acs24"],
+          ["he2r","acs24"],
+          ["he4r","acs23"],
+          ["he5r","acs23"],
+          ["he5r","acs25"],
+          ["he5r","acs24"],
+          ["he5r","acs26"],
+          ["he5r","acs21"],
+          ["he5r","acs22"],
+
+          //weak mounting further back
+          {"beamSpring":124725,"beamDamp":36},
+          {"beamDeform":740.75,"beamStrength":1742},
+          ["he3r", "fe18r"],
+          ["he3r", "fe4r"],
+          ["he2r", "fe9r"],
+          ["he2r", "fe4r"],
+          ["he4r", "fe9r"],
+          ["he1r", "fe18r"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+
+          //headlight support beams
+          {"beamType":"|SUPPORT", "beamLongBound":4},
+          {"beamSpring":810059.3,"beamDamp":122.85},
+          {"beamDeform":16731,"beamStrength":401544},
+          {"optional":true},
+          {"optional":false},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            //right headlight
+            {"group":"LAZ695N_headlight_R"},
+            {"dragCoef":6},
+            ["he1r","he3r","he2r"],
+            ["he1r","he2r","he4r"],
+            ["he1r","he2r","he5r"],
+            {"group":""},
+    ],
+},
+"LAZ695N_edging_R": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Right Edging Chrome",
+        "value":30,
+    },
+    "slotType" : "LAZ695N_eyelid_R",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_edging_R", ["LAZ695N_headlight_R"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+
+    ],
+},
+"LAZ695N_edging_L": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Left Edging Chrome",
+        "value":30,
+    },
+    "slotType" : "LAZ695N_eyelid_L",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_edging_L", ["LAZ695N_headlight_L"],[],{"pos":{"x":0.0, "y":0.0, "z":0.0}}],
+
+    ],
+},
+}
