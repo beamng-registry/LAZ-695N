@@ -1,0 +1,346 @@
+{
+"LAZ695N_wheel_R_2": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"LAZ 695N Rear Wheels (Hubs RABA)",
+        "value":800,
+    }
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //inner
+         //["LAZ695N_rim_R", ["wheel_RR_2","wheelhub_RR_2"], [], {"pos":{"x":-0.739, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+         //["LAZ695N_rim_R", ["wheel_RL_2","wheelhub_RL_2"], [], {"pos":{"x": 0.739, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+         //outer
+         ["LAZ695N_rim_R", ["wheel_RR_2","wheelhub_RR_2"], [], {"pos":{"x":-1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+         ["LAZ695N_rim_R", ["wheel_RL_2","wheelhub_RL_2"], [], {"pos":{"x": 1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+     ],
+    "slotType" : "LAZ695N_wheel_R_2",
+    "slots": [
+        ["type", "default", "description"]
+        ["LAZ695N_tire_R_2","LAZ695N_tire_R_2", "Rear Tires"],
+        ["LAZ695N_hubcaps_R","", "Rear Hubcaps"],
+        ["LAZ695N_whitestrips_R","", "Rear Stripes"],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true}
+         {"collision":true}
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"wheelhub_RR_2"}
+         {"nodeWeight":30},
+         //rear hub 1
+         ["rh11r", -0.53, 4.062, 0.45],
+         ["rh11rr", -1.10, 4.062, 0.45],
+         {"group":"wheelhub_RL_2"}
+         ["rh11l", 0.53, 4.062, 0.45],
+         ["rh11ll", 1.10, 4.062, 0.45],
+    ],
+
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamDeform":150000,"beamStrength":"FLT_MAX"},
+          {"beamSpring":3001000,"beamDamp":12},
+          //wheel axis beams
+          ["rh11r","rh11rr"],
+          ["rh11l","rh11ll"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "pressureWheels": [
+            ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+            {"enableTireLbeams":true,"disableMeshBreaking":false,"disableHubMeshBreaking":false},
+
+            //general settings
+            {"hubRadius":0.30},
+            {"wheelOffset":-0.1},
+            {"hubWidth":0.3},
+            {"numRays":16},
+            {"brakeSpring":200},//define higher value than hubs
+
+            //hub options
+            {"hubTreadBeamSpring":5001000, "hubTreadBeamDamp":25},
+            {"hubPeripheryBeamSpring":5001000, "hubPeripheryBeamDamp":25},
+            {"hubSideBeamSpring":8001000, "hubSideBeamDamp":25},
+            {"hubBeamDeform":170000, "hubBeamStrength":670000},
+            {"hubNodeWeight":3.0},
+            {"hubNodeMaterial":"|NM_METAL","hasTire":false},
+            {"hubFrictionCoef":0.5},
+    ],
+},
+"LAZ695N_wheel_R_zilhub": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"LAZ 695N Rear Wheels (Hubs ZIL)",
+        "value":800,
+    }
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //inner
+         //["LAZ695N_rim_R_hubzil", ["wheel_RR_2","wheelhub_RR_2"], [], {"pos":{"x":-0.739, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+         //["LAZ695N_rim_R_hubzil", ["wheel_RL_2","wheelhub_RL_2"], [], {"pos":{"x": 0.739, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+         //outer
+         ["LAZ695N_rim_R_hubzil", ["wheel_RR_2","wheelhub_RR_2"], [], {"pos":{"x":-1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+         ["LAZ695N_rim_R_hubzil", ["wheel_RL_2","wheelhub_RL_2"], [], {"pos":{"x": 1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+     ],
+    "slotType" : "LAZ695N_wheel_R_2",
+    "slots": [
+        ["type", "default", "description"]
+        ["LAZ695N_tire_R_2","LAZ695N_tire_R_2", "Rear Tires"],
+        ["LAZ695N_hubcaps_R","", "Rear Hubcaps"],
+        ["LAZ695N_whitestrips_R","", "Rear Stripes"],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true}
+         {"collision":true}
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"wheelhub_RR_2"}
+         {"nodeWeight":30},
+         //rear hub 1
+         ["rh11r", -0.53, 4.062, 0.45],
+         ["rh11rr", -1.10, 4.062, 0.45],
+         {"group":"wheelhub_RL_2"}
+         ["rh11l", 0.53, 4.062, 0.45],
+         ["rh11ll", 1.10, 4.062, 0.45],
+    ],
+
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamDeform":150000,"beamStrength":"FLT_MAX"},
+          {"beamSpring":3001000,"beamDamp":12},
+          //wheel axis beams
+          ["rh11r","rh11rr"],
+          ["rh11l","rh11ll"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "pressureWheels": [
+            ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+            {"enableTireLbeams":true,"disableMeshBreaking":false,"disableHubMeshBreaking":false},
+
+            //general settings
+            {"hubRadius":0.30},
+            {"wheelOffset":-0.1},
+            {"hubWidth":0.3},
+            {"numRays":16},
+            {"brakeSpring":200},//define higher value than hubs
+
+            //hub options
+            {"hubTreadBeamSpring":5001000, "hubTreadBeamDamp":25},
+            {"hubPeripheryBeamSpring":5001000, "hubPeripheryBeamDamp":25},
+            {"hubSideBeamSpring":8001000, "hubSideBeamDamp":25},
+            {"hubBeamDeform":170000, "hubBeamStrength":670000},
+            {"hubNodeWeight":3.0},
+            {"hubNodeMaterial":"|NM_METAL","hasTire":false},
+            {"hubFrictionCoef":0.5},
+    ],
+},
+"LAZ695N_wheel_R_2_colored": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"LAZ 695N Colored Rear Wheels (Hubs RABA)",
+        "value":800,
+    }
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //inner
+         //["LAZ695N_rim_R_colored", ["wheel_RR_2","wheelhub_RR_2"], [], {"pos":{"x":-0.739, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+         //["LAZ695N_rim_R_colored", ["wheel_RL_2","wheelhub_RL_2"], [], {"pos":{"x": 0.739, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+         //outer
+         ["LAZ695N_rim_R_colored", ["wheel_RR_2","wheelhub_RR_2"], [], {"pos":{"x":-1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+         ["LAZ695N_rim_R_colored", ["wheel_RL_2","wheelhub_RL_2"], [], {"pos":{"x": 1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+     ],
+    "slotType" : "LAZ695N_wheel_R_2",
+    "slots": [
+        ["type", "default", "description"]
+        ["LAZ695N_tire_R_2","LAZ695N_tire_R_2", "Rear Tires"],
+        ["LAZ695N_hubcaps_R","", "Rear Hubcaps"],
+        ["LAZ695N_whitestrips_R","", "Rear Stripes"],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true}
+         {"collision":true}
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"wheelhub_RR_2"}
+         {"nodeWeight":30},
+         //rear hub 1
+         ["rh11r", -0.53, 4.062, 0.45],
+         ["rh11rr", -1.10, 4.062, 0.45],
+         {"group":"wheelhub_RL_2"}
+         ["rh11l", 0.53, 4.062, 0.45],
+         ["rh11ll", 1.10, 4.062, 0.45],
+    ],
+
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamDeform":150000,"beamStrength":"FLT_MAX"},
+          {"beamSpring":3001000,"beamDamp":12},
+          //wheel axis beams
+          ["rh11r","rh11rr"],
+          ["rh11l","rh11ll"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "pressureWheels": [
+            ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+            {"enableTireLbeams":true,"disableMeshBreaking":false,"disableHubMeshBreaking":false},
+
+            //general settings
+            {"hubRadius":0.30},
+            {"wheelOffset":-0.1},
+            {"hubWidth":0.3},
+            {"numRays":16},
+            {"brakeSpring":200},//define higher value than hubs
+
+            //hub options
+            {"hubTreadBeamSpring":5001000, "hubTreadBeamDamp":25},
+            {"hubPeripheryBeamSpring":5001000, "hubPeripheryBeamDamp":25},
+            {"hubSideBeamSpring":8001000, "hubSideBeamDamp":25},
+            {"hubBeamDeform":170000, "hubBeamStrength":670000},
+            {"hubNodeWeight":3.0},
+            {"hubNodeMaterial":"|NM_METAL","hasTire":false},
+            {"hubFrictionCoef":0.5},
+    ],
+},
+"LAZ695N_wheel_R_zilhub_colored": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"LAZ 695N Colored Rear Wheels (Hubs ZIL)",
+        "value":800,
+    }
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //inner
+         //["LAZ695N_rim_R_hubzil_colored", ["wheel_RR_2","wheelhub_RR_2"], [], {"pos":{"x":-0.739, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+         //["LAZ695N_rim_R_hubzil_colored", ["wheel_RL_2","wheelhub_RL_2"], [], {"pos":{"x": 0.739, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+         //outer
+         ["LAZ695N_rim_R_hubzil_colored", ["wheel_RR_2","wheelhub_RR_2"], [], {"pos":{"x":-1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+         ["LAZ695N_rim_R_hubzil_colored", ["wheel_RL_2","wheelhub_RL_2"], [], {"pos":{"x": 1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+     ],
+    "slotType" : "LAZ695N_wheel_R_2",
+    "slots": [
+        ["type", "default", "description"]
+        ["LAZ695N_tire_R_2","LAZ695N_tire_R_2", "Rear Tires"],
+        ["LAZ695N_hubcaps_R","", "Rear Hubcaps"],
+        ["LAZ695N_whitestrips_R","", "Rear Stripes"],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true}
+         {"collision":true}
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"wheelhub_RR_2"}
+         {"nodeWeight":30},
+         //rear hub 1
+         ["rh11r", -0.53, 4.062, 0.45],
+         ["rh11rr", -1.10, 4.062, 0.45],
+         {"group":"wheelhub_RL_2"}
+         ["rh11l", 0.53, 4.062, 0.45],
+         ["rh11ll", 1.10, 4.062, 0.45],
+    ],
+
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamDeform":150000,"beamStrength":"FLT_MAX"},
+          {"beamSpring":3001000,"beamDamp":12},
+          //wheel axis beams
+          ["rh11r","rh11rr"],
+          ["rh11l","rh11ll"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "pressureWheels": [
+            ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+            {"enableTireLbeams":true,"disableMeshBreaking":false,"disableHubMeshBreaking":false},
+
+            //general settings
+            {"hubRadius":0.30},
+            {"wheelOffset":-0.1},
+            {"hubWidth":0.3},
+            {"numRays":16},
+            {"brakeSpring":200},//define higher value than hubs
+
+            //hub options
+            {"hubTreadBeamSpring":5001000, "hubTreadBeamDamp":25},
+            {"hubPeripheryBeamSpring":5001000, "hubPeripheryBeamDamp":25},
+            {"hubSideBeamSpring":8001000, "hubSideBeamDamp":25},
+            {"hubBeamDeform":170000, "hubBeamStrength":670000},
+            {"hubNodeWeight":3.0},
+            {"hubNodeMaterial":"|NM_METAL","hasTire":false},
+            {"hubFrictionCoef":0.5},
+    ],
+},
+"LAZ699R_wheel_R_2": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"LAZ 699R Rear Wheels",
+        "value":800,
+    }
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //inner
+         //["LAZ699R_rim_R", ["wheel_RR_2","wheelhub_RR_2"], [], {"pos":{"x":-0.739, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+         //["LAZ699R_rim_R", ["wheel_RL_2","wheelhub_RL_2"], [], {"pos":{"x": 0.739, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+         //outer
+         ["LAZ699R_rim_R", ["wheel_RR_2","wheelhub_RR_2"], [], {"pos":{"x":-1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+         ["LAZ699R_rim_R", ["wheel_RL_2","wheelhub_RL_2"], [], {"pos":{"x": 1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+     ],
+    "slotType" : "LAZ695N_wheel_R_2",
+    "slots": [
+        ["type", "default", "description"]
+        ["LAZ695N_tire_R_2","LAZ695N_tire_R_2", "Rear Tires"],
+        ["LAZ695N_hubcaps_R","", "Rear Hubcaps"],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true}
+         {"collision":true}
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"wheelhub_RR_2"}
+         {"nodeWeight":30},
+         //rear hub 1
+         ["rh11r", -0.53, 4.062, 0.45],
+         ["rh11rr", -1.10, 4.062, 0.45],
+         {"group":"wheelhub_RL_2"}
+         ["rh11l", 0.53, 4.062, 0.45],
+         ["rh11ll", 1.10, 4.062, 0.45],
+    ],
+
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamDeform":150000,"beamStrength":"FLT_MAX"},
+          {"beamSpring":3001000,"beamDamp":12},
+          //wheel axis beams
+          ["rh11r","rh11rr"],
+          ["rh11l","rh11ll"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "pressureWheels": [
+            ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+            {"enableTireLbeams":true,"disableMeshBreaking":false,"disableHubMeshBreaking":false},
+
+            //general settings
+            {"hubRadius":0.30},
+            {"wheelOffset":-0.1},
+            {"hubWidth":0.3},
+            {"numRays":16},
+            {"brakeSpring":200},//define higher value than hubs
+
+            //hub options
+            {"hubTreadBeamSpring":5001000, "hubTreadBeamDamp":25},
+            {"hubPeripheryBeamSpring":5001000, "hubPeripheryBeamDamp":25},
+            {"hubSideBeamSpring":8001000, "hubSideBeamDamp":25},
+            {"hubBeamDeform":170000, "hubBeamStrength":670000},
+            {"hubNodeWeight":3.0},
+            {"hubNodeMaterial":"|NM_METAL","hasTire":false},
+            {"hubFrictionCoef":0.5},
+    ],
+}
+}

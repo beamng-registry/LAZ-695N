@@ -1,0 +1,57 @@
+{
+"urbinoiv_adcarriers": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Ad Carriers",
+        "value":250,
+    },
+    "slotType" : "urbinoiv_adcarriers",
+    "slots": [
+        ["type", "default", "description"],
+        ["skin_taxi_ad","taxi_ad_burger","Advertisement"],
+        ["urbinoiv_adcarrier_FL","urbinoiv_adcarrier_FL","Left Advertisement"],
+        ["urbinoiv_adcarrier_FR","urbinoiv_adcarrier_FR","Right Advertisement"],
+        ["urbinoiv_adcarrier_R","urbinoiv_adcarrier_R","Rear Advertisement"],
+    ],
+    "flexbodies":[
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["urbinoiv_adcarrier_queen_L", ["urbinoiv_side_L"]],
+    ],
+},
+"urbinoiv_adcarrier_FL": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Left Advertisement",
+        "value":250,
+    },
+    "slotType" : "urbinoiv_adcarrier_FL",
+    "flexbodies":[
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["urbinoiv_adcarrier_queen_L", ["urbinoiv_side_L"]],
+    ],
+},
+"urbinoiv_adcarrier_FR": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Right Advertisement",
+        "value":250,
+    },
+    "slotType" : "urbinoiv_adcarrier_FR",
+    "flexbodies":[
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["urbinoiv_adcarrier_queen_R", ["urbinoiv_side_R"]],
+    ],
+},
+"urbinoiv_adcarrier_R": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Advertisement",
+        "value":250,
+    },
+    "slotType" : "urbinoiv_adcarrier_R",
+    "flexbodies":[
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["urbinoiv_adcarrier_tail", ["urbinoiv_enginedoor"]],
+    ],
+},
+}

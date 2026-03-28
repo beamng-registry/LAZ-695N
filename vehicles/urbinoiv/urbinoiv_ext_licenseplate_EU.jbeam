@@ -1,0 +1,15 @@
+{
+"urbinoiv_ext_licenseplate_R_EU": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear EU License Plate",
+        "value":0,
+    }
+    "slotType" : "urbinoiv_ext_licenseplate_R",
+    "licenseplateFormat": "52-11",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["licenseplate-52-11", ["urbinoiv_ext_enginedoor"],[],{"pos":{"x":0.0, "y":5.97, "z":0.608}, "rot":{"x":5, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+    ],
+}
+}

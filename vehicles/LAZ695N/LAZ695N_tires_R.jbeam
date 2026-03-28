@@ -1,0 +1,164 @@
+{
+"LAZ695N_tire_R_2": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Heavy Duty Rear Tires",
+        "value":1000,
+    }
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+		 ["tire_02a_22x10_41", ["wheel_RR_1","tire_RR_1"], [], {"pos":{"x":-0.739, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+         ["tire_02a_22x10_41", ["wheel_RL_1","tire_RL_1"], [], {"pos":{"x": 0.739, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+		 ["tire_02a_22x10_41", ["wheel_RR_2","tire_RR_2"], [], {"pos":{"x":-1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+         ["tire_02a_22x10_41", ["wheel_RL_2","tire_RL_2"], [], {"pos":{"x": 1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+     ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"]
+        ["$tirepressure_RR", "range", "psi", "Tires", 80, 0, 120, "Rear Tire Pressure", "Relative to atmospheric pressure"]
+    ],
+    "slotType" : "LAZ695N_tire_R_2",
+    "pressureWheels": [
+            ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+            {"enableTireLbeams":true,"disableMeshBreaking":false,"disableHubMeshBreaking":false},
+
+            //general settings
+            {"radius":0.53},
+            {"tireWidth":0.25},
+
+             //tire options
+            {"wheelSideBeamSpring":101000,"wheelSideBeamDamp":50},
+            {"wheelSideBeamSpringExpansion":3501000,"wheelSideBeamDampExpansion":150},
+            {"wheelSideTransitionZone":0.02,"wheelSideBeamPrecompression":1.0},
+            {"wheelReinfBeamSpring":151000,"wheelReinfBeamDamp":100},
+            {"wheelTreadBeamSpring":601000,"wheelTreadBeamDamp":200},
+            {"wheelPeripheryBeamSpring":501000,"wheelPeripheryBeamDamp":50},
+            //deform values
+            {"wheelSideBeamDeform":78000,"wheelSideBeamStrength":82000},
+            {"wheelReinfBeamDeform":78000,"wheelReinfBeamStrength":82000},
+            {"wheelTreadBeamDeform":78000,"wheelTreadBeamStrength":96000},
+            {"wheelPeripheryBeamDeform":78000,"wheelPeripheryBeamStrength":96000},
+            //general tire values
+            {"nodeWeight":1.4},
+            {"nodeMaterial":"|NM_RUBBER","hasTire":true},
+            {"frictionCoef":1},
+            {"slidingFrictionCoef":1},
+            {"noLoadCoef":1.12},
+            {"loadSensitivitySlope":0.000004},
+            {"fullLoadCoef":0.25},
+            {"softnessCoef":0.3},
+            {"treadCoef":0.6},
+            {"triangleCollision":false},
+            {"pressurePSI":"$tirepressure_RR"},
+            {"dragCoef":5},
+    ],
+	
+}
+"LAZ695N_tire_R_2_kama": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"KAMA-310 Rear Tires",
+        "value":1000,
+    }
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_tire", ["wheel_RR_1","tire_RR_1"], [], {"pos":{"x":-0.739, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+         ["LAZ695N_tire", ["wheel_RL_1","tire_RL_1"], [], {"pos":{"x": 0.739, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+	 ["LAZ695N_tire", ["wheel_RR_2","tire_RR_2"], [], {"pos":{"x":-1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+         ["LAZ695N_tire", ["wheel_RL_2","tire_RL_2"], [], {"pos":{"x": 1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+     ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"]
+        ["$tirepressure_RR", "range", "psi", "Tires", 80, 0, 120, "Rear Tire Pressure", "Relative to atmospheric pressure"]
+    ],
+    "slotType" : "LAZ695N_tire_R_2",
+    "pressureWheels": [
+            ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+            {"enableTireLbeams":true,"disableMeshBreaking":false,"disableHubMeshBreaking":false},
+
+            //general settings
+            {"radius":0.545},
+            {"tireWidth":0.25},
+
+             //tire options
+            {"wheelSideBeamSpring":101000,"wheelSideBeamDamp":50},
+            {"wheelSideBeamSpringExpansion":3501000,"wheelSideBeamDampExpansion":150},
+            {"wheelSideTransitionZone":0.02,"wheelSideBeamPrecompression":1.0},
+            {"wheelReinfBeamSpring":151000,"wheelReinfBeamDamp":100},
+            {"wheelTreadBeamSpring":601000,"wheelTreadBeamDamp":200},
+            {"wheelPeripheryBeamSpring":501000,"wheelPeripheryBeamDamp":50},
+            //deform values
+            {"wheelSideBeamDeform":78000,"wheelSideBeamStrength":82000},
+            {"wheelReinfBeamDeform":78000,"wheelReinfBeamStrength":82000},
+            {"wheelTreadBeamDeform":78000,"wheelTreadBeamStrength":96000},
+            {"wheelPeripheryBeamDeform":78000,"wheelPeripheryBeamStrength":96000},
+            //general tire values
+            {"nodeWeight":1.4},
+            {"nodeMaterial":"|NM_RUBBER","hasTire":true},
+            {"frictionCoef":1},
+            {"slidingFrictionCoef":1},
+            {"noLoadCoef":1.12},
+            {"loadSensitivitySlope":0.000004},
+            {"fullLoadCoef":0.25},
+            {"softnessCoef":0.3},
+            {"treadCoef":0.6},
+            {"triangleCollision":false},
+            {"pressurePSI":"$tirepressure_RR"},
+            {"dragCoef":5},
+    ],
+	
+}
+"LAZ695N_tire_R_2_omsk": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"OMSKSHINA Rear Tires",
+        "value":1000,
+    }
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_tire_omsk", ["wheel_RR_1","tire_RR_1"], [], {"pos":{"x":-0.739, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+         ["LAZ695N_tire_omsk", ["wheel_RL_1","tire_RL_1"], [], {"pos":{"x": 0.739, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+	 ["LAZ695N_tire_omsk", ["wheel_RR_2","tire_RR_2"], [], {"pos":{"x":-1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+         ["LAZ695N_tire_omsk", ["wheel_RL_2","tire_RL_2"], [], {"pos":{"x": 1.069, "y":4.062, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+     ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"]
+        ["$tirepressure_RR", "range", "psi", "Tires", 80, 0, 120, "Rear Tire Pressure", "Relative to atmospheric pressure"]
+    ],
+    "slotType" : "LAZ695N_tire_R_2",
+    "pressureWheels": [
+            ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+            {"enableTireLbeams":true,"disableMeshBreaking":false,"disableHubMeshBreaking":false},
+
+            //general settings
+            {"radius":0.545},
+            {"tireWidth":0.25},
+
+             //tire options
+            {"wheelSideBeamSpring":101000,"wheelSideBeamDamp":50},
+            {"wheelSideBeamSpringExpansion":3501000,"wheelSideBeamDampExpansion":150},
+            {"wheelSideTransitionZone":0.02,"wheelSideBeamPrecompression":1.0},
+            {"wheelReinfBeamSpring":151000,"wheelReinfBeamDamp":100},
+            {"wheelTreadBeamSpring":601000,"wheelTreadBeamDamp":200},
+            {"wheelPeripheryBeamSpring":501000,"wheelPeripheryBeamDamp":50},
+            //deform values
+            {"wheelSideBeamDeform":78000,"wheelSideBeamStrength":82000},
+            {"wheelReinfBeamDeform":78000,"wheelReinfBeamStrength":82000},
+            {"wheelTreadBeamDeform":78000,"wheelTreadBeamStrength":96000},
+            {"wheelPeripheryBeamDeform":78000,"wheelPeripheryBeamStrength":96000},
+            //general tire values
+            {"nodeWeight":1.4},
+            {"nodeMaterial":"|NM_RUBBER","hasTire":true},
+            {"frictionCoef":1},
+            {"slidingFrictionCoef":1},
+            {"noLoadCoef":1.12},
+            {"loadSensitivitySlope":0.000004},
+            {"fullLoadCoef":0.25},
+            {"softnessCoef":0.3},
+            {"treadCoef":0.6},
+            {"triangleCollision":false},
+            {"pressurePSI":"$tirepressure_RR"},
+            {"dragCoef":5},
+    ],
+	
+}
+}

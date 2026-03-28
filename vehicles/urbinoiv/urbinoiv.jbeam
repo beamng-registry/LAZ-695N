@@ -1,0 +1,128 @@
+{
+"urbinoiv": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Solaris Urbino IV 12",
+    },
+    "slotType" : "main",
+
+    "scaledragCoef":1.5,
+
+    "slots": [
+        ["type", "default", "description"],
+        ["urbinoiv_frame","urbinoiv_frame","Frame", {"coreSlot":true}],
+        ["paint_design","","Paint Design"],
+        ["licenseplate_design_2_1","","License Plate Design"],
+        ["urbinoiv_mod", "", "Additional Modification"],
+        ["skin_signtype","urbinoiv_skin_signtype_flipdot","Destination Signs Type", {"coreSlot":true}],
+    ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$brakestrength", "range", "", "Brakes", 1, 0.6, 1.0, "Brake Force", "Scales the overall brake torque for this car", {"minDis":60, "maxDis":100}],
+        ["$ffbstrength", "range", "", "Chassis", 1, 0.5, 2, "Force Feedback", "Scales the force feedback strength for this car", {"minDis":50, "maxDis":200}],
+    ],
+    "controller": [
+        ["fileName"],
+        ["vehicleController"],
+        ["bus", {"nextStopNode":"nextstop", "destinationSignNode":"destsign"}],
+        ["reverseWarn", {"beepLoopName":"event:>Vehicle>Electrics>Reverse>Beep_04"}],
+        ["pneumatics", {"name":"airbags"}],
+        ["pneumatics", {"name":"doors"}],
+        ["airbrakes"],
+    ],
+    "airbags": {
+        "pressureLevels":[
+            ["name", "pressure"],
+            ["minPressure", 10],
+            ["maxPressure", 200],
+            ["kneelPressure", 30],
+        ],
+        "increaseRate": 20,
+        "decreaseRate": 40,
+        "pressuredBeams":"airbagBeamData",
+        "groupSounds": "airbagBeamSoundData",
+    },
+    "airbagBeamSoundData":[
+        ["groupName", "soundUp", "soundDown", "volumeUp", "volumeDown"],
+        ["leftAxle", "event:>Vehicle>Pneumatics>Suspension_Up", "event:>Vehicle>Pneumatics>Suspension_Down", 1, 1],
+        ["rightAxle", "event:>Vehicle>Pneumatics>Suspension_Up", "event:>Vehicle>Pneumatics>Suspension_Down", 1, 1],
+    ],
+    "doors": {
+        "pressureLevels":[
+            ["name", "pressure"],
+            ["minPressure", 0],
+            ["maxPressure", 150],
+        ],
+        "increaseRate": 30,
+        "decreaseRate": 60,
+        "pressuredBeams":"doorBeamData",
+        "groupSounds": "doorBeamSoundData",
+    },
+    "doorBeamSoundData":[
+        ["groupName", "soundUp", "soundDown", "volumeUp", "volumeDown", "node:"],
+        ["frontDoors", "event:>Vehicle>Pneumatics>Door_Open", "event:>Vehicle>Pneumatics>Door_Close", 0.35, 0.35, "st3rr"],
+        ["rearDoors", "event:>Vehicle>Pneumatics>Door_Open", "event:>Vehicle>Pneumatics>Door_Close", 0.35, 0.35, "st11rr"],
+    ],
+    "airbrakes": {
+        "soundNode:": ["fm2l"],
+    },
+    "reverseWarn": {
+        "soundNode:": ["ac1r"],
+    },
+},
+"urbinoiv_skin_signtype_flipdot": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Yellow Flip-Dot Display",
+        "value":150,
+    },
+    "slotType" : "skin_signtype",
+    "skinName" : "flipdot",
+  },
+  "urbinoiv_skin_signtype_led_orange": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Orange LED Display",
+        "value":500,
+    },
+    "slotType" : "skin_signtype",
+    "skinName" : "led_orange",
+  },
+  "urbinoiv_skin_swik": {
+      "information":{
+          "authors":"BeamNG",
+          "name":"Swik",
+          "value":10200,
+      },
+      "slotType" : "paint_design",
+      "globalSkin" : "swik",
+  },
+  "urbinoiv_skin_ver": {
+      "information":{
+          "authors":"BeamNG",
+          "name":"VER",
+          "value":15600,
+      },
+      "slotType" : "paint_design",
+      "globalSkin" : "ver",
+  },
+  "urbinoiv_skin_vestische": {
+      "information":{
+          "authors":"BeamNG",
+          "name":"Vestische",
+          "value":16500,
+      },
+      "slotType" : "paint_design",
+      "globalSkin" : "vestische",
+  },
+    "urbinoiv_skin_stoag": {
+      "information":{
+          "authors":"BeamNG",
+          "name":"Stoag",
+          "value":32000,
+      },
+      "slotType" : "paint_design",
+      "globalSkin" : "stoag",
+    },
+},
+}

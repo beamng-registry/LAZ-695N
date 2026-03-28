@@ -1,0 +1,26 @@
+{
+    "fileversion": 2,
+        //Compression brake
+        "toggleCompressionBrake":           {"order":   20, "onDown":"controller.getControllerSafe('compressionBrake').toggleCompressionBrakeState()", "title": "vehicle.interaction.engine.compressionBrake.toggle.title", "desc": "vehicle.interaction.engine.compressionBrake.toggle.desc" },
+        "increaseCompressionBrakeLevel":    {"order":   21, "onDown":"controller.getControllerSafe('compressionBrake').changeCompressionBrakeLevel(1)", "title": "vehicle.interaction.engine.compressionBrake.increaseLevel.title", "desc": "vehicle.interaction.engine.compressionBrake.increaseLevel.desc" },
+        "decreaseCompressionBrakeLevel":    {"order":   22, "onDown":"controller.getControllerSafe('compressionBrake').changeCompressionBrakeLevel(-1)", "title": "vehicle.interaction.engine.compressionBrake.decreaseLevel.title", "desc": "vehicle.interaction.engine.compressionBrake.decreaseLevel.desc" },
+        "setCompressionBrakeLevel":         {"order":   23, "onDown":"controller.getControllerSafe('compressionBrake').setCompressionBrakeLevel(VALUE)", "title": "vehicle.interaction.engine.compressionBrake.setLevel.title", "desc": "vehicle.interaction.engine.compressionBrake.setLevel.desc" },
+        "setCompressionBrakeCoef":          {"order":   24, "onChange":"controller.getControllerSafe('compressionBrake').setCompressionBrakeCoef(VALUE)", "title": "vehicle.interaction.engine.compressionBrake.setCoef.title", "desc": "vehicle.interaction.engine.compressionBrake.setCoef.desc" },
+
+        //PTO & Air
+        "toggleTrailerAirSupply":  {"order":   30.1, "onDown":"energyStorage.getStorageSafe('mainAirTank'):toggleConsumerPressureCoef()", "title": "vehicle.interaction.pneumatics.trailerAirSupply.toggle.title", "desc": "vehicle.interaction.pneumatics.trailerAirSupply.toggle.desc" },
+        "enableTrailerAirSupply":  {"order":   30.2, "onDown":"energyStorage.getStorageSafe('mainAirTank'):setConsumerPressureCoef(1)", "title": "vehicle.interaction.pneumatics.trailerAirSupply.enable.title", "desc": "vehicle.interaction.pneumatics.trailerAirSupply.enable.desc" },
+        "disableTrailerAirSupply":  {"order":   30.3, "onDown":"energyStorage.getStorageSafe('mainAirTank'):setConsumerPressureCoef(0)", "title": "vehicle.interaction.pneumatics.trailerAirSupply.disable.title", "desc": "vehicle.interaction.pneumatics.trailerAirSupply.disable.desc" },
+        "setTrailerAirSupplyCoef":  {"order":   30.4, "onDown":"energyStorage.getStorageSafe('mainAirTank'):setConsumerPressureCoef(VALUE)", "title": "vehicle.interaction.pneumatics.trailerAirSupply.setCoef.title", "desc": "vehicle.interaction.pneumatics.trailerAirSupply.setCoef.desc" },
+
+        "PTOPlus":  {"order":   31.1, "onChange":"electrics.values.hydraulicPTOControl = VALUE", "title": "vehicle.interaction.hydraulics.PTO.positive.title", "desc": "vehicle.interaction.hydraulics.PTO.positive.desc" },
+        "PTOMinus": {"order":   31.2, "onChange":"electrics.values.hydraulicPTOControl = -VALUE", "title": "vehicle.interaction.hydraulics.PTO.negative.title", "desc": "vehicle.interaction.hydraulics.PTO.negative.desc" },
+
+        "toggleManualIdleRaise":        {"order":   32.1, "onDown":"controller.getControllerSafe('hydraulicsControl').toggleIdleRaise()", "title": "vehicle.interaction.hydraulics.idleRaise.toggle.title", "desc": "vehicle.interaction.hydraulics.idleRaise.toggle.desc" },
+        "enableManualIdleRaise":        {"order":   32.2, "onDown":"controller.getControllerSafe('hydraulicsControl').setIdleRaise(true)", "title": "vehicle.interaction.hydraulics.idleRaise.enable.title", "desc": "vehicle.interaction.hydraulics.idleRaise.enable.desc" },
+        "disableManualIdleRaise":       {"order":   32.3, "onDown":"controller.getControllerSafe('hydraulicsControl').setIdleRaise(false)", "title": "vehicle.interaction.hydraulics.idleRaise.disable.title", "desc": "vehicle.interaction.hydraulics.idleRaise.disable.desc" },
+        "setMomentaryManualIdleRaise":  {"order":   32.4, "onDown":"controller.getControllerSafe('hydraulicsControl').setIdleRaise(true)","onUp":"controller.getControllerSafe('hydraulicsControl').setIdleRaise(false)", "title": "vehicle.interaction.hydraulics.idleRaise.set.title", "desc": "vehicle.interaction.hydraulics.idleRaise.set.desc" },
+
+       "TriggerDebugAction": {"order":   0, "onDown":"print('Trigger debug action onDown executed! Value: '..VALUE)", "onUp":"print('Trigger debug action onUp executed! Value: '..VALUE)", "title": "Trigger Debug Action", "desc": "" },
+    }
+}

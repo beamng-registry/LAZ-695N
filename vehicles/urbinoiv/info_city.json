@@ -1,0 +1,22 @@
+{
+"Config Type":"Service",
+"default_color":"Pearl White",
+"Value":165000,
+"Transmission":"Automatic",
+"Population":5000,
+"Power":350,
+"Weight/Power":35.0857143,
+"Drivetrain":"Other",
+"Weight":12280,
+"Propulsion":"ICE",
+"Induction Type":"Turbo",
+"Fuel Type":"Diesel",
+"Off-Road Score":22,
+"Torque":1475,
+"Configuration":"12 City",
+"PowerPeakRPM":1900,
+"default_color_2":"Aquamarine",
+"TorquePeakRPM":1200,
+"Description":"Equipped with a 4 speed automatic and short final drive, better suited to use in the city",
+"Top Speed":25.671833
+}

@@ -1,0 +1,126 @@
+{
+"urbinoiv_wheel_F": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Aluminum Front Wheels",
+        "value":600,
+    },
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //wheels
+         ["steelwheel_06a_22x10", ["wheel_FR","wheelhub_FR"], [], {"pos":{"x":-1.102, "y":-3.53, "z":0.447}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+         ["steelwheel_06a_22x10", ["wheel_FL","wheelhub_FL"], [], {"pos":{"x": 1.102, "y":-3.53, "z":0.447}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+     ],
+    "slotType" : "urbinoiv_wheel_F",
+    "slots": [
+        ["type", "default", "description"],
+        ["urbinoiv_tire_F","urbinoiv_tire_F", "Front Tires"],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true},
+         {"collision":true},
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"wheelhub_FR"},
+         {"nodeWeight":25},
+         //front hub 1
+         ["fw1r", -0.80000, -3.52627, 0.44700],
+         ["fw1rr", -1.28000, -3.52627, 0.44700],
+         {"group":"wheelhub_FL"},
+         ["fw1l", 0.80000, -3.52627, 0.44700],
+         ["fw1ll", 1.28000, -3.52627, 0.44700],
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //--FRONT WHEELS--
+          {"beamSpring":2501000,"beamDamp":25},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamDeform":200000,"beamStrength":"FLT_MAX"},
+          ["fw1r","fw1rr"],
+          ["fw1l","fw1ll"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "pressureWheels": [
+            ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+            {"enableTireLbeams":true,"disableMeshBreaking":false,"disableHubMeshBreaking":false},
+
+            //general settings
+            {"hubRadius":0.30},
+            {"wheelOffset":-0.062},
+            {"hubWidth":0.255},
+            {"numRays":20},
+
+            //hub options
+            {"hubTreadBeamSpring":4501000, "hubTreadBeamDamp":50},
+            {"hubPeripheryBeamSpring":4501000, "hubPeripheryBeamDamp":50},
+            {"hubSideBeamSpring":6001000, "hubSideBeamDamp":50},
+            {"hubBeamDeform":150000, "hubBeamStrength":420000},
+            {"hubNodeWeight":1.75},
+            {"hubNodeMaterial":"|NM_METAL","hasTire":false},
+            {"hubFrictionCoef":0.5},
+    ],
+},
+"urbinoiv_wheel_F_steel": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Steel Front Wheels",
+        "value":400,
+    },
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //wheels
+         ["urbinoiv_wheel_F", ["wheel_FR","wheelhub_FR"], [], {"pos":{"x":-1.102, "y":-3.53, "z":0.447}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+         ["urbinoiv_wheel_F", ["wheel_FL","wheelhub_FL"], [], {"pos":{"x": 1.102, "y":-3.53, "z":0.447}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+     ],
+    "slotType" : "urbinoiv_wheel_F",
+    "slots": [
+        ["type", "default", "description"],
+        ["urbinoiv_tire_F","urbinoiv_tire_F", "Front Tires"],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true},
+         {"collision":true},
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"wheelhub_FR"},
+         {"nodeWeight":25},
+         //front hub 1
+         ["fw1r", -0.80000, -3.52627, 0.44700],
+         ["fw1rr", -1.28000, -3.52627, 0.44700],
+         {"group":"wheelhub_FL"},
+         ["fw1l", 0.80000, -3.52627, 0.44700],
+         ["fw1ll", 1.28000, -3.52627, 0.44700],
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //--FRONT WHEELS--
+          {"beamSpring":2501000,"beamDamp":25},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamDeform":200000,"beamStrength":"FLT_MAX"},
+          ["fw1r","fw1rr"],
+          ["fw1l","fw1ll"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "pressureWheels": [
+            ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+            {"enableTireLbeams":true,"disableMeshBreaking":false,"disableHubMeshBreaking":false},
+
+            //general settings
+            {"hubRadius":0.30},
+            {"wheelOffset":-0.062},
+            {"hubWidth":0.255},
+            {"numRays":20},
+
+            //hub options
+            {"hubTreadBeamSpring":4501000, "hubTreadBeamDamp":50},
+            {"hubPeripheryBeamSpring":4501000, "hubPeripheryBeamDamp":50},
+            {"hubSideBeamSpring":6001000, "hubSideBeamDamp":50},
+            {"hubBeamDeform":110000, "hubBeamStrength":420000},
+            {"hubNodeWeight":1.75},
+            {"hubNodeMaterial":"|NM_METAL","hasTire":false},
+            {"hubFrictionCoef":0.5},
+    ],
+},
+}
