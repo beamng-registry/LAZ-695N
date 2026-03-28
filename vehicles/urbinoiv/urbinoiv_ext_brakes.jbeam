@@ -1,0 +1,72 @@
+{
+"urbinoiv_ext_brake_R": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Brakes",
+        "value":2200,
+    }
+    "slotType" : "urbinoiv_ext_brake_R",
+    "slots": [
+        ["type", "default", "description"]
+        ["brakepad_RR","brakepad_RR_premium", "Front Brake Pads"{"coreSlot":true}],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //brake drums
+         ["urbinoiv_ext_brakedrum_R", ["wheel_RL","wheel_RR","wheelhub_RR","wheelhub_RL"]],
+    ],
+    "pressureWheels": [
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        //brake properties
+        {"brakeTorque":16000},
+        {"parkingTorque":16000},
+        {"brakeSpring":200},
+
+        //brake thermals
+        {"enableBrakeThermals":true},
+        {"brakeDiameter":0.35},
+        {"brakeMass":55},
+        {"brakeType":"drum"},
+        {"rotorMaterial":"steel"},
+        {"brakeVentingCoef":1.0},
+    ],
+    "engine":{
+        "brakePressureDelay":0.6,
+    },
+}
+"urbinoiv_ext_brake_M": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Middle Brakes",
+        "value":2200,
+    }
+    "slotType" : "urbinoiv_ext_brake_M",
+    "slots": [
+        ["type", "default", "description"]
+        ["brakepad_R","brakepad_R_premium", "Middle Brake Pads"{"coreSlot":true}],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //brake drums
+         ["urbinoiv_ext_brakedrum_M", ["wheel_ML2","wheel_MR2","wheelhub_MR1","wheelhub_ML1"]],
+    ],
+    "pressureWheels": [
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        //brake properties
+        {"brakeTorque":16000},
+        {"parkingTorque":16000},
+        {"brakeSpring":200},
+
+        //brake thermals
+        {"enableBrakeThermals":true},
+        {"brakeDiameter":0.35},
+        {"brakeMass":55},
+        {"brakeType":"drum"},
+        {"rotorMaterial":"steel"},
+        {"brakeVentingCoef":1.0},
+    ],
+    "engine":{
+        "brakePressureDelay":0.6,
+    },
+}
+}

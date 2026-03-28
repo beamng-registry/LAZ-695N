@@ -1,0 +1,109 @@
+{
+"LAZ695N_brakeValve_R": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Brake Valve",
+        "value":900,
+    },
+    "slotType" : "LAZ695N_brakeValve_R",
+    "controller": [
+        ["fileName"],
+        ["pneumatics/airbrakes", { "name": "airbrakes_R" }],
+    ],
+    "airbrakes_R": {
+        "brakedWheels":["R_RL", "R_RR"],
+        "brakeTorque": [
+            ["pressure", "torqueCoef"],
+            [21000, 0],
+            [1213685, 1],
+        ],
+        "springBrakeTorque": [
+            ["pressure", "torqueCoef"],
+            [0,      1],
+            [413685, 0],
+        ]
+    },
+},
+"LAZ695N_brake_F": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Brakes",
+        "value":1000,
+    }
+    "slotType" : "LAZ695N_brake_F",
+    "slots": [
+        ["type", "default", "description"]
+        ["brakepad_F","brakepad_F", "Front Brake Shoes"{"coreSlot":true}],
+    ],
+    "controller": [
+        ["fileName"],
+        ["pneumatics/airbrakes", { "name": "airbrakes_F" }],
+    ],
+    "airbrakes_F": {
+        "brakedWheels":["FL", "FR"],
+        "brakeTorque": [
+            ["pressure", "torqueCoef"],
+            [21000, 0],
+            [1213685, 1],
+        ],
+    "springBrakeTorque": [
+            ["pressure", "torqueCoef"],
+            [200000, 0],
+            [240000, 0],
+        ]
+    },
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //brake drums
+         ["LAZ695N_brakedrum_F", ["wheel_FL","wheel_FR","wheelhub_FR","wheelhub_FL"]],
+    ],
+    "pressureWheels": [
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        //brake properties
+        {"brakeTorque":"$=$brakestrength*20000"},
+        {"useDefaultBrakeInput":false},
+        {"parkingTorque":0},
+        //{"brakeSpring":150},//define in hubs/wheels instead
+
+        //brake thermals
+        {"enableBrakeThermals":true},
+        {"brakeDiameter":0.42},
+        {"brakeMass":45.0},
+        {"brakeType":"drum"},
+        {"rotorMaterial":"steel"},
+        {"brakeVentingCoef":0.7},
+    ],
+}
+"LAZ695N_brake_R_2": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Brakes",
+        "value":900,
+    }
+    "slotType" : "LAZ695N_brake_R_2",
+    "slots": [
+        ["type", "default", "description"]
+        ["brakepad_RR","brakepad_RR", "Rear Brake Shoes"{"coreSlot":true}],
+    ],
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        //brake drums
+        ["LAZ695N_brakedrum_R_2", ["wheel_RR_2","wheel_RL_2","wheelhub_RR_2","wheelhub_RL_2"]],
+    ],
+    "pressureWheels": [
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        {"brakeTorque":"$=$brakestrength*23000"},
+        {"useDefaultBrakeInput":false},
+        {"parkingTorque":0},
+        //{"brakeSpring":200},//define in hubs/wheels instead
+
+        //brake thermals
+        {"enableBrakeThermals":true},
+        {"brakeDiameter":0.42},
+        {"brakeMass":54.0},
+        {"brakeType":"drum"},
+        {"rotorMaterial":"steel"},
+        {"brakeVentingCoef":0.7},
+    ],
+}
+}

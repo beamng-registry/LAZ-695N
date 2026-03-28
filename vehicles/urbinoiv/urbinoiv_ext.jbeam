@@ -1,0 +1,119 @@
+{
+"urbinoiv_ext": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Wentward Bus",
+        "value":0,
+    }
+    "slotType" : "main",
+    "controller": [
+        ["fileName"],
+        ["vehicleController"],
+        ["bus", {"nextStopNode":"nextstop", "destinationSignNode":"destsign"}],
+        ["reverseWarn", {"beepLoopName":"event:>Vehicle>Electrics>Reverse>Beep_04"}],
+        ["pneumatics", {"name":"airbags"}],
+        ["pneumatics", {"name":"doors"}],
+        ["airbrakes"]
+    ],
+    "airbags": {
+        "pressureLevels":[
+            ["name", "pressure"]
+            ["minPressure", 10],
+            ["maxPressure", 180],
+            ["kneelPressure", 20],
+        ]
+        "increaseRate": 20,
+        "decreaseRate": 40,
+        "pressuredBeams":"airbagBeamData",
+        "groupSounds": "airbagBeamSoundData",
+    }
+    "airbagBeamSoundData":[
+        ["groupName", "soundUp", "soundDown", "volumeUp", "volumeDown"]
+        ["leftAxle", "event:>Vehicle>Pneumatics>Suspension_Up", "event:>Vehicle>Pneumatics>Suspension_Down", 1, 1],
+        ["rightAxle", "event:>Vehicle>Pneumatics>Suspension_Up", "event:>Vehicle>Pneumatics>Suspension_Down", 1, 1]
+    ]
+    "doors": {
+        "pressureLevels":[
+            ["name", "pressure"]
+            ["minPressure", 0],
+            ["maxPressure", 150],
+        ]
+        "increaseRate": 30,
+        "decreaseRate": 60,
+        "pressuredBeams":"doorBeamData",
+        "groupSounds": "doorBeamSoundData",
+    }
+    "doorBeamSoundData":[
+        ["groupName", "soundUp", "soundDown", "volumeUp", "volumeDown", "node:"]
+        ["frontDoors", "event:>Vehicle>Pneumatics>Door_Open", "event:>Vehicle>Pneumatics>Door_Close", 0.35, 0.35, "st3rr"],
+        ["middleDoors", "event:>Vehicle>Pneumatics>Door_Open", "event:>Vehicle>Pneumatics>Door_Close", 0.35, 0.35, "st11rr"]
+		["rearDoors", "event:>Vehicle>Pneumatics>Door_Open", "event:>Vehicle>Pneumatics>Door_Close", 0.35, 0.35, "2st11rr"]
+    ]
+    "airbrakes": {
+        "soundNode:": ["fm2l"]
+    }
+    "reverseWarn": {
+        "soundNode:": ["ac1r"]
+    }
+	"variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"]
+        ["$brakestrength", "range", "", "Brakes", 1, 0.6, 1.0, "Brake Force", "Scales the overall brake torque for this car", {"minDis":60, "maxDis":100}]
+        ["$ffbstrength", "range", "", "Chassis", 1, 0.5, 2, "Force Feedback", "Scales the force feedback strength for this car", {"minDis":50, "maxDis":200}]
+    ],
+    "scaledragCoef":0.75
+    "slots": [
+        ["type", "default", "description"]
+        ["urbinoiv_ext_frame","urbinoiv_ext_frame","Frame",{"coreSlot":true}],
+		["paint_design","","Paint Design"],
+        ["licenseplate_design_2_1","","License Plate Design"],
+        ["urbinoiv_ext_mod", "", "Additional Modification"],
+        ["skin_ai_signtype","citybus_ai_skin_signtype_flipdot","Destination Signs Type",{"coreSlot":true}],
+    ],
+}
+
+ "urbinoiv_ext_skin_transit": {
+      "information":{
+          "authors":"BeamNG",
+          "name":"Transit",
+          "value":10200
+      },
+      "slotType" : "paint_design",
+      "globalSkin" : "transit_60"
+  },
+  "urbinoiv_ext_skin_metro": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Metro",
+        "value":11000
+    },
+    "slotType" : "paint_design",
+    "globalSkin" : "metro_60"
+},
+  "urbinoiv_ext_skin_safari": {
+      "information":{
+          "authors":"BeamNG",
+          "name":"Safari",
+          "value":15600
+      },
+      "slotType" : "paint_design",
+      "globalSkin" : "safari"
+  },
+  "urbinoiv_ext_skin_zebra": {
+      "information":{
+          "authors":"BeamNG",
+          "name":"Zebra",
+          "value":16500
+      },
+      "slotType" : "paint_design",
+      "globalSkin" : "zebra"
+  },
+    "urbinoiv_ext_skin_hero": {
+      "information":{
+          "authors":"BeamNG",
+          "name":"Hero",
+          "value":32000
+      },
+      "slotType" : "paint_design",
+      "globalSkin" : "hero"
+    }
+}

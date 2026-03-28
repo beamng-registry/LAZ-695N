@@ -1,0 +1,55 @@
+{
+"urbinoiv_ext_adcarriers": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Ad Carriers",
+        "value":250,
+    }
+    "slotType" : "urbinoiv_ext_adcarriers",
+    "slots": [
+        ["type", "default", "description"]
+        ["skin_taxi_ad","taxi_ad_burger","Advertisement"]
+		["urbinoiv_ext_adcarrier_FL","urbinoiv_ext_adcarrier_FL","Left Advertisement"]
+		["urbinoiv_ext_adcarrier_FR","urbinoiv_ext_adcarrier_FR","Right Advertisement"]
+		["urbinoiv_ext_adcarrier_R","urbinoiv_ext_adcarrier_R","Rear Advertisement"],
+    ],
+},
+"urbinoiv_ext_adcarrier_FL": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Left Advertisement",
+        "value":250,
+    }
+    "slotType" : "urbinoiv_ext_adcarrier_FL",
+    "flexbodies":[
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["urbinoiv_adcarrier_queen_L", ["urbinoiv_ext_side_L"]],
+		["urbinoiv_adcarrier_queen_L", ["urbinoiv_ext_R_side_L"], [], {"pos":{"x":0,"y":7.045,"z":0}}],
+    ],
+},
+"urbinoiv_ext_adcarrier_FR": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Right Advertisement",
+        "value":250,
+    }
+    "slotType" : "urbinoiv_ext_adcarrier_FR",
+    "flexbodies":[
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["urbinoiv_adcarrier_queen_R", ["urbinoiv_ext_side_R"], [], {"pos":{"x":0,"y":-0.652,"z":0},"scale":{"x":1,"y":0.9,"z":1}}],
+		["urbinoiv_adcarrier_queen_R", ["urbinoiv_ext_R_side_R"], [], {"pos":{"x":0,"y":7.045,"z":0},"scale":{"x":1,"y":0.9,"z":1}}],
+    ],
+},
+"urbinoiv_ext_adcarrier_R": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Advertisement",
+        "value":250,
+    }
+    "slotType" : "urbinoiv_ext_adcarrier_R",
+    "flexbodies":[
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["urbinoiv_adcarrier_tail", ["urbinoiv_ext_enginedoor"], [], {"pos":{"x":0,"y":6.045,"z":0}}],
+    ],
+},
+}

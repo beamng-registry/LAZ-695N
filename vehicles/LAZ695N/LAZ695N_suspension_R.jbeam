@@ -1,0 +1,448 @@
+{
+"LAZ695N_axle_R_2": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Axle",
+        "value":1200,
+    }
+    "slots": [
+        ["type", "default", "description"]
+        ["LAZ695N_brakeValve_R","LAZ695N_brakeValve_R", "Rear Air Brake control Valve"],
+        ["LAZ695N_spring_R_2","LAZ695N_spring_R_2", "Rear Leaf Springs"],
+        ["LAZ695N_shock_R_2","LAZ695N_shock_R_2", "Rear Shocks"],
+        ["LAZ695N_brake_R_2","LAZ695N_brake_R_2", "Rear Brakes"],
+        ["LAZ695N_driveshaft_long","", "Driveshaft"],
+        ["LAZ695N_differential_R_2","LAZ695N_differential_R_2", "Rear Differential"],
+        ["LAZ695N_wheel_R_2","LAZ695N_wheel_R_2", "Rear Wheels"],
+        ["LAZ695N_wheeldata_R_2","LAZ695N_wheeldata_R_2", "Rear Spindles"{"coreSlot":true}],
+    ],
+    "slotType" : "LAZ695N_axle_R_2",
+    "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_axle_R_2", ["LAZ695N_axle_R_2", "LAZ695N_driveshaft_2"],[],{"pos":{"x":0,"y":2.02,"z":0}}],
+		["LAZ695N_panhard_2", ["LAZ695N_panhard_2"],[],{"pos":{"x":0,"y":2.02,"z":0}}],
+		["LAZ695N_panhard_axis_R", ["LAZ695N_frame","LAZ695N_panhard_axis"],[],{"pos":{"x":0,"y":2.02,"z":0}}],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"group":"LAZ695N_axle_R_2"}
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         //--REAR RUNNING GEAR--
+         {"nodeWeight":32.7},
+         //driveshaft frontward-most node
+         {"group":"LAZ695N_driveshaft_2"}
+         {"selfCollision":true}
+         {"collision":true}
+         ["ra11", 0, 3.76, 0.50{"selfCollision":false}],
+         ["ra12", 0, 4.472, 0.50],
+         ["ra14", 0, 4.092, 0.21{"group":["LAZ695N_driveshaft_2","LAZ695N_panhard_2"]}]
+         {"selfCollision":false}
+         {"group":"LAZ695N_panhard_2"}
+         ["ra13", 0.3, 4.092, 0.73],
+         //leaf base 2
+         {"selfCollision":true}
+         {"group":"LAZ695N_leafbase_R_2"}
+         ["ra16r",-0.55, 4.437, 0.27],
+         ["ra16l", 0.55, 4.437, 0.27],
+         {"group":"LAZ695N_panhard_2"}
+         //panhard rod on frame 2
+         {"selfCollision":false}
+         ["ph2", -0.335, 4.092, 0.8],
+         {"selfCollision":true}
+         {"group":"LAZ695N_axle_R_2"}
+         //axle upper
+         ["ra12l", 0.55, 4.092, 0.68],
+         ["ra12r", -0.55, 4.092, 0.68],
+         {"nodeWeight":25.7},
+         {"group":"LAZ695N_leaftop_R_2"},
+         {"selfCollision":false}
+         //rear leaf nodes 2
+         ["rl2r",-0.53, 3.402, 0.53],
+         ["rl2l", 0.53, 3.402, 0.53],
+         {"group":"LAZ695N_airbagtop_R_2"},
+         //airbag top nodes 2
+         ["ab11r",-0.55, 4.437, 0.68],
+         ["ab11l", 0.55, 4.437, 0.68],
+         //refnode
+         {"group":""},
+         ["ra11ref", 0, 4.36031, 0.5,{"collision":false,"selfCollision":false,"nodeWeight":5.1}],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //--REAR RUNNING GEAR--
+          //rear hub to axle
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":28001000,"beamDamp":1000},
+          {"beamDeform":250000,"beamStrength":"FLT_MAX"},
+          //left
+          //{"breakGroup":"wheel_RL_2"},
+          ["rh11l","ra12l"],
+          ["rh11l","ra16l"],
+          ["rh11l","ra12r"],
+          ["rh11l","ra16r"],
+          ["ra11","rh11l", {"name":"axle_RL_2"}],
+          ["ra11","rh11ll"],
+          ["ra12","rh11l"],
+          ["ra12","rh11ll"],
+          ["ra14","rh11l"],
+          ["ra14","rh11ll"],
+          ["rh11ll","rl2l"],
+          ["rh11l","rl2l"],
+          //right
+          //{"breakGroup":"wheel_RR_2"},
+          ["rh11r","ra12r"],
+          ["rh11r","ra16r"],
+          ["rh11r","ra12l"],
+          ["rh11r","ra16l"],
+          ["rh11ll","ra16l"],
+          ["rh11ll","ra12l"],
+          ["rh11rr","ra12r"],
+          ["rh11rr","ra16r"],
+          ["ra11","rh11r", {"name":"axle_RR_2"}],
+          ["ra11","rh11rr"],
+          ["ra12","rh11r"],
+          ["ra12","rh11rr"],
+          ["ra14","rh11r"],
+          ["ra14","rh11rr"],
+          ["rh11rr","rl2r"],
+          ["rh11r","rl2r"],
+          {"breakGroup":""},
+          {"beamSpring":66001000,"beamDamp":1400},
+          {"beamDeform":"FLT_MAX","beamStrength":"FLT_MAX"},
+          //rigid parts
+          ["ra12r","ra12l"],
+          ["ra16r","ra16l"],
+          //center
+          ["ra11","ra12l"],
+          ["ra11","ra12r"],
+          ["ra12","ra12l"],
+          ["ra12","ra12r"],
+          ["ra13","ra12l"],
+          ["ra13","ra12r"],
+          ["ra14","ra12l"],
+          ["ra14","ra12r"],
+          ["ra14","ra13"],
+          ["ra13","ra12"],
+          ["ra13","ra11"],
+          ["ra14","ra12"],
+          ["ra14","ra11"],
+          //axle attach to springs
+          ["ra12l","rl2l"],
+          ["ra12r","rl2r"],
+          ["ra16r","rl2r"],
+          ["ra16l","rl2l"],
+          //lateral
+          ["ra12r","rl2l"],
+          ["ra12l","rl2r"],
+          {"beamDeform":60000,"beamStrength":"FLT_MAX"},
+          //left
+          ["ra12l","ra16l"],
+          ["ra12r","ra16l"],
+          ["ra11","ra16l"],
+          ["ra12","ra16l"],
+          ["ra14","ra16l"],
+          //right
+          ["ra12l","ra16r"],
+          ["ra12r","ra16r"],
+          ["ra11","ra16r"],
+          ["ra12","ra16r"],
+          ["ra14","ra16r"],
+          {"beamSpring":16000800,"beamDamp":1400},
+          {"beamDeform":200000,"beamStrength":"FLT_MAX"},
+          //airbag attachment to frame
+          ["ab11r","f9r"],
+          ["ab11l","f9l"],
+          ["ab11r","f19r"],
+          ["ab11l","f19l"],
+          ["ab11r","f10ar"],
+          ["ab11l","f10al"],
+          ["ab11r","f20ar"],
+          ["ab11l","f20al"],
+          //crossing
+          ["ab11r","f9l"],
+          ["ab11l","f9r"],
+          ["ab11r","f19l"],
+          ["ab11l","f19r"],
+          ["ab11r","f10al"],
+          ["ab11l","f10ar"],
+          ["ab11r","f20al"],
+          ["ab11l","f20ar"],
+          //rear leaf attachment 2
+          {"beamDeform":250000,"beamStrength":"FLT_MAX"},
+          ["rl2l","rl2r"],
+          ["rl2l","f8l"],
+          ["rl2l","f8r"],
+          ["rl2l","f9l"],
+          ["rl2l","f9r"],
+          ["rl2l","f18l"],
+          ["rl2l","f18r"],
+          ["rl2l","f19l"],
+          ["rl2l","f19r"],
+          ["rl2r","f8l"],
+          ["rl2r","f8r"],
+          ["rl2r","f9l"],
+          ["rl2r","f9r"],
+          ["rl2r","f18l"],
+          ["rl2r","f18r"],
+          ["rl2r","f19l"],
+          ["rl2r","f19r"],
+          //panhard attachment
+          ["ph2","f9r"],
+          ["ph2","f19r"],
+          ["ph2","ab11r"],
+          {"beamDeform":1000,"beamStrength":"FLT_MAX"},
+          {"beamSpring":4000,"beamDamp":100},
+          //panhard rod
+          ["ra13","ph2"],
+          //ref node
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":8000800,"beamDamp":80},
+          {"beamDeform":300000,"beamStrength":"FLT_MAX"}
+          ["ra12l","ra11ref"],
+          ["ra12r","ra11ref"],
+          ["ra11","ra11ref"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "pressureWheels": [
+			["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+			//cancel out brake properties
+			{"brakeTorque":9000},
+			{"parkingTorque":20000},
+			{"enableBrakeThermals":true},
+			{"brakeDiameter":0.42},
+			{"brakeMass":45.0},
+			{"brakeType":"drum"},
+			{"rotorMaterial":"steel"},
+			{"brakeVentingCoef":1.0},
+    ],
+	
+	
+//DATA REGULAR
+},
+"LAZ695N_wheeldata_R_2": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Spindles",
+        "value":0,
+    }
+    "slotType" : "LAZ695N_wheeldata_R_2",
+    "pressureWheels": [
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        //rear
+        {"selfCollision":false},
+        {"collision":true},
+		
+		{"wheelOffset":0.076},
+        {"axleBeams":["axle_RR_1"]}
+        ["R_RR", "wheel_RR_1", "tire_RR_1", "rh11rr", "rh11r", 9999, "ra12r", 1, {"torqueCoupling:":"ra2", "torqueArm:":"ra1", "torqueArm2:":"rh1rr","wheelAngle":7.5}],
+        {"axleBeams":["axle_RL_1"]}
+        ["R_RL", "wheel_RL_1", "tire_RL_1", "rh11ll", "rh11l", 9999, "ra12l", -1, {"torqueCoupling:":"ra2", "torqueArm:":"ra1", "torqueArm2:":"rh1ll","wheelAngle":7.5}],
+		
+		{"wheelOffset":-0.253},
+        {"axleBeams":["axle_RR_1"]}
+        ["R_RR2", "wheel_RR_2", "tire_RR_2", "rh11rr", "rh11r", 9999, "ra12r", 1, {"speedo":true, "torqueCoupling:":"ra12", "torqueArm:":"ra11"}],
+        {"axleBeams":["axle_RL_1"]}
+        ["R_RL2", "wheel_RL_2", "tire_RL_2", "rh11ll", "rh11l", 9999, "ra12l", -1,{"torqueCoupling:":"ra12", "torqueArm:":"ra11"}],
+		
+		{"brakeTorque":0},
+        {"parkingTorque":0},
+        {"triangleCollision":false},
+        {"selfCollision":true},
+        {"axleBeams":[]},{"disableMeshBreaking":false,"disableTriangleBreaking":false},
+        {"enableHubcaps":false},
+        {"enableTireLbeams":false},
+        {"enableTreadReinfBeams":false},
+        {"enableTireReinfBeams":false},
+        {"enableTreadReinfBeams":false},
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+		["differential", "differential_R_RL", "differential_R_2", 1, {"diffType":"locked", "gearRatio":1, "lockTorque":1000000, "friction":15, "uiName":"Rear Differential","defaultVirtualInertia":2}]
+        ["differential", "differential_R_RR", "differential_R_2", 2, {"diffType":"locked", "gearRatio":1, "lockTorque":1000000, "friction":15, "uiName":"Rear Differential","defaultVirtualInertia":2}]
+		["shaft", "wheelaxle_RL_1", "differential_R_RL", 1, {"connectedWheel":"R_RL", "breakTriggerBeam":"axle_RL_2", "friction":6}]
+		["shaft", "wheelaxle_RR_1", "differential_R_RR", 1, {"connectedWheel":"R_RR", "breakTriggerBeam":"axle_RR_2", "friction":6}]
+		["shaft", "wheelaxle_RL_2", "differential_R_RL", 2, {"connectedWheel":"R_RL2", "breakTriggerBeam":"axle_RL_2", "friction":6}]
+		["shaft", "wheelaxle_RR_2", "differential_R_RR", 2, {"connectedWheel":"R_RR2", "breakTriggerBeam":"axle_RR_2", "friction":6}]
+    ],
+},
+"LAZ695N_driveshaft_long": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Driveshaft",
+        "value":700,
+    }
+    "slotType" : "LAZ695N_driveshaft_long",
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"]
+        //driveshaft
+        ["shaft", "intershaft", "gearbox", 1, {"breakTriggerBeam":"driveshaft", "electricsName":"driveshaft", "friction":2}]
+    ],
+    "props": [
+        ["func", "mesh"                , "idRef:", "idX:", "idY:", "baseRotation"        , "rotation"               , "translation"        , "min", "max", "offset", "multiplier"]
+        ["driveshaft", "LAZ695N_driveshaft", "ra11ref","tra1","ra11",  {"x":0.5, "y":13, "z":92}, {"x":0, "y":1, "z":0}    , {"x":0, "y":0, "z":0}, -360, 360, 0, 1,{"breakGroup":"driveshaft","deformGroup":"driveshaft"}],
+        ["driveshaft", "LAZ695N_cross_shaft_transmission", "tra1","tra2r","tra2l",  {"x":-20, "y":180, "z":100}, {"x":0, "y":-1, "z":0}    , {"x":0, "y":0, "z":0}, -360, 360, 0, 1,{"breakGroup":"driveshaft","deformGroup":"driveshaft"}],
+        ["driveshaft", "LAZ695N_cross_shaft_axle", "ra11ref","ra14","ra11",  {"x":-40, "y":0, "z":90}, {"x":0, "y":-1, "z":0}    , {"x":0, "y":0, "z":0}, -360, 360, 0, 1,{"breakGroup":"driveshaft","deformGroup":"driveshaft"}],
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //long driveshaft
+          {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":0.01, "beamShortBound":0.01},
+          {"beamSpring":0,"beamDamp":0,"beamDeform":3000,"beamStrength":"FLT_MAX"},
+          {"beamLimitSpring":10001000,"beamLimitDamp":1000},
+          ["ra11","tra1", {"name":"driveshaft","optional":true,"breakGroup":"","deformGroup":""}],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+}
+"LAZ695N_differential_R_2": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Differential LAZ-695",
+        "value":900,
+    }
+    "slotType" : "LAZ695N_differential_R_2",
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"]
+        //rear diff
+        ["differential", "differential_R_2", "intershaft", 1, {"diffType":"open", "gearRatio":7.52, "friction":15}]
+    ],
+}
+"LAZ695N_differential_R_2_6.32": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Differential ZIL-130",
+        "value":900,
+    }
+    "slotType" : "LAZ695N_differential_R_2",
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"]
+        //rear diff
+        ["differential", "differential_R_2", "intershaft", 1, {"diffType":"open", "gearRatio":6.32, "friction":15}]
+    ],
+}
+"LAZ695N_differential_R_2_locking": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Locking Rear Differential",
+        "value":1800,
+    }
+    "slotType" : "LAZ695N_differential_R_2",
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"]
+        //rear diff
+        ["differential", "differential_R_2", "intershaft", 1, {"diffType":["open","locked"], "gearRatio":3.0, "lockTorque":5000000, "friction":15}]
+    ],
+	
+}
+"LAZ695N_spring_R_2": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Leaf Springs",
+        "value":300,
+    }
+    "slotType" : "LAZ695N_spring_R_2",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_leaf_R_2", ["LAZ695N_leafbase_R_2","LAZ695N_leaftop_R_2"],[],{"pos":{"x":0,"y":2.02,"z":0}}],
+         ["LAZ695N_airbag_R_2", ["LAZ695N_airbagtop_R_2","LAZ695N_leafbase_R_2"],[],{"pos":{"x":0,"y":2.02,"z":0}}],
+		 
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        //--Rear AIRBAGS--
+        {"beamPrecompression":1.0, "beamType":"|PRESSURED"},
+        {"beamSpring":500,"beamDamp":0,"beamDeform":100000,"beamStrength":"FLT_MAX"},
+        {"beamLimitSpring":0,"beamLimitDamp":0},
+        //airbags
+        {"breakGroup":""},
+        {"breakGroupType":1},
+        ["ra16r","ab11r",{"pressurePSI":"$airbag_R2_pressure","surface":0.024,"volumeCoef":3.5,"name":"airbag_RL2",
+            "soundFile":"event:>Vehicle>Suspension>bus_01>spring_compress_01","colorFactor":0.5,"attackFactor":10,"volumeFactor":1.0,"decayFactor":12.0,"pitchFactor":1.5,"maxStress":50}],
+        ["ra16l","ab11l",{"pressurePSI":"$airbag_R2_pressure","surface":0.024,"volumeCoef":3.5,"name":"airbag_RR2",
+            "soundFile":"event:>Vehicle>Suspension>bus_01>spring_compress_01","colorFactor":0.5,"attackFactor":10,"volumeFactor":1.0,"decayFactor":12.0,"pitchFactor":1.5,"maxStress":50}],
+        {"breakGroupType":0},
+        {"breakGroup":""},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+}
+"LAZ695N_shock_R_2": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Shocks",
+        "value":900,
+    }
+    "slotType" : "LAZ695N_shock_R_2",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_shock_R_2", ["LAZ695N_leafbase_R_2","LAZ695N_leaftop_R_2","LAZ695N_airbagtop_R_2"],[],{"pos":{"x":0,"y":2.02,"z":0}}],
+    ],
+
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+    ],
+    "beams": [
+         ["id1:", "id2:"],
+         //--REAR SHOCKS--
+         {"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":1, "beamShortBound":1},
+         {"beamSpring":0,"beamDeform":200000,"beamStrength":"FLT_MAX"},
+         {"beamLimitSpring":0,"beamLimitDamp":0},
+         //rear shocks
+         {"breakGroup":""},
+         ["ra16r","ab11r"{"beamDamp":10000,"beamDampFast":5500,"beamDampRebound":33000,"beamDampReboundFast":11000,"beamDampVelocitySplit":0.25,"dampCutoffHz":250}],
+         ["ra16l","ab11l"{"beamDamp":10000,"beamDampFast":5500,"beamDampRebound":33000,"beamDampReboundFast":11000,"beamDampVelocitySplit":0.25,"dampCutoffHz":250}],
+         //shock and suspension friction
+         {"beamSpring":0,"beamDamp":4000000},
+         ["ra16r","ab11r",{"beamDampFast":0,"beamDampRebound":4000000,"beamDampReboundFast":0,"beamDampVelocitySplit":0.0001}],
+         ["ra16l","ab11l",{"beamDampFast":0,"beamDampRebound":4000000,"beamDampReboundFast":0,"beamDampVelocitySplit":0.0001}],
+         {"breakGroup":""},
+         {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+}
+"LAZ695N_spring_R_2_lifted": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Lifted Rear Leaf Springs",
+        "value":1000,
+    }
+    "slotType" : "LAZ695N_spring_R_2",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_leaf_R_2", ["LAZ695N_leafbase_R_2","LAZ695N_leaftop_R_2"]],
+         ["LAZ695N_airbag_R_2", ["LAZ695N_airbagtop_R_2","LAZ695N_leafbase_R_2"]],
+    ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"]
+        ["$airbag_R2_pressure", "range", "psi", "Suspension", 25, 0, 120, "Airbag Pressure", "Starting Pressure of the Airbag", {"stepDis":0.5, "subCategory":"Rear"}]
+    ],
+    "airbagBeamData": [
+        ["beamName", "groupName"]
+        ["airbag_RL2", "rearAxle"],
+        ["airbag_RR2", "rearAxle"],
+		 
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        //--Rear AIRBAGS--
+        {"beamPrecompression":1.0, "beamType":"|PRESSURED"},
+        {"beamSpring":100,"beamDamp":0,"beamDeform":100000,"beamStrength":"FLT_MAX"},
+        {"beamLimitSpring":0,"beamLimitDamp":0},
+        //airbags
+        {"breakGroup":""},
+        {"breakGroupType":1},
+        ["ra16r","ab11r",{"pressurePSI":"$airbag_R2_pressure","surface":0.024,"volumeCoef":3.5,"name":"airbag_RL2",
+            "soundFile":"event:>Vehicle>Suspension>LAZ695N_01>spring_compress_01","colorFactor":0.7,"attackFactor":10,"volumeFactor":5,"decayMode":0,"decayFactor":3.5,"pitchFactor":1,"maxStress":20}],
+        ["ra16l","ab11l",{"pressurePSI":"$airbag_R2_pressure","surface":0.024,"volumeCoef":3.5,"name":"airbag_RR2",
+            "soundFile":"event:>Vehicle>Suspension>LAZ695N_01>spring_compress_01","colorFactor":0.7,"attackFactor":10,"volumeFactor":5,"decayMode":0,"decayFactor":3.5,"pitchFactor":1,"maxStress":20}],
+        {"breakGroupType":0},
+        {"breakGroup":""},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+}
+}

@@ -1,0 +1,40 @@
+{
+"urbinoiv_ext_airfilter": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Air Filter",
+        "value":250,
+    }
+    "slotType" : "urbinoiv_ext_airfilter",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["citybus6_ai_airfilter", ["citybus_ai_frame_upper"]],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true},
+         {"collision":true},
+         //--Air Filter-
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"nodeWeight":2.0},
+         {"group":"citybus_ai_airfilter"},
+         ["in0",-1.2, 5.85, 2.1, {"engineGroup":"intake"}],
+         {"group":""},
+    ],
+
+    "beams": [
+          ["id1:", "id2:"],
+          //--AIR FILTER--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"deformLimitExpansion":1.1},
+          {"beamSpring":51000,"beamDamp":250},
+          {"beamDeform":10000,"beamStrength":"FLT_MAX"},
+          ["in0", "2sp17rr"],
+          ["in0", "2st17rr"],
+          ["in0", "2st18rr"],
+          ["in0", "2sp18rr"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+},
+}

@@ -1,0 +1,191 @@
+{
+"LAZ695N": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"LAZ 695N",
+	"value":0,
+    }
+    "slotType" : "main",
+    "slots": [
+        ["type", "default", "description"]
+        ["LAZ695N_skin_rims", "LAZ695N_skin_rims_clean", "Skin Wheels", {"coreSlot":true}],
+        ["LAZ695N_frame","LAZ695N_frame_695", "Frame"],
+	["paint_design","", "Skin Body"],
+	["skin_interior","", "Interior Color"],
+	["licenseplate_design_2_1","","License Plate Design"],
+	["LAZ695N_mod","","Additional Modification"],
+        ["soundscape_horn", "soundscape_horn_7", "Horn"],
+	 ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$brakestrength", "range", "", "Brakes", 1, 0.6, 1.0, "Brake Force Multiplier", "Scales the overall brake torque for this setup", {"minDis":60, "maxDis":100}],
+        ["$ffbstrength", "range", "", "Chassis", 1, 0.5, 1.5, "Setup-Specific Force Feedback Multiplier", "Scales the force feedback strength for THIS SETUP ONLY", {"minDis":50, "maxDis":150}]
+    ],
+    "controller": [
+        ["fileName"],
+        ["vehicleController", {}],
+        ["pneumatics", {"name":"doors"}],
+        ["pneumatics", {"name":"airbags"}],
+        ["airbrakes"]
+    ],
+    "airbags": {
+        "pressureLevels":[
+            ["name", "pressure"]
+            ["minPressure", 10],
+            ["maxPressure", 200],
+            ["kneelPressure", 30],
+        ]
+        "increaseRate": 20,
+        "decreaseRate": 40,
+        "pressuredBeams":"airbagBeamData",
+        "groupSounds": "airbagBeamSoundData",
+    }
+    "airbagBeamSoundData":[
+        ["groupName", "soundUp", "soundDown", "volumeUp", "volumeDown"]
+        ["rearAxle", "event:>Vehicle>Pneumatics>Suspension_Up", "event:>Vehicle>Pneumatics>Suspension_Down", 1, 1],
+    
+	]
+    "doors": {
+        "pressureLevels":[
+            ["name", "pressure"]
+            ["minPressure", 0],
+            ["maxPressure", 150],
+        ]
+        "increaseRate": 30,
+        "decreaseRate": 60,
+        "pressuredBeams":"doorBeamData",
+        "groupSounds": "doorBeamSoundData",
+    }
+    "doorBeamSoundData":[
+        ["groupName", "soundUp", "soundDown", "volumeUp", "volumeDown", "node:"]
+        ["frontDoors", "event:>Vehicle>Pneumatics>Door_Open", "event:>Vehicle>Pneumatics>Door_Close", 1.35, 1.35, "df3"],
+	]
+    "airbrakes": {
+        //"soundNode:": [""]
+    }
+    "scaledragCoef":0.75,
+    "scalenodeWeight":1.02,
+    "scalebeamSpring":0.80,
+    "scalebeamDamp":0.80,
+    "refNodes":[
+        ["ref:", "back:", "left:", "up:", "leftCorner:", "rightCorner:"]
+        ["f17r", "f18r", "f17l", "f7r", "f11l", "f11r"]
+        ],
+    "glowMap":{
+		"LAZ695N_runninglight":{"simpleFunction":{"lowhighbeam":100}, "off":"LAZ695N_lights", "on":"LAZ695N_lights_on", "on_intense":"LAZ695N_lights_on_intense"},
+		"LAZ695N_runninglight_L":{"simpleFunction":{"lowhighbeam":0.35, "signal_L":100}, "off":"LAZ695N_lights", "on":"LAZ695N_lights_on", "on_intense":"LAZ695N_lights_on_intense"},
+		"LAZ695N_runninglight_R":{"simpleFunction":{"lowhighbeam":0.35, "signal_R":100}, "off":"LAZ695N_lights", "on":"LAZ695N_lights_on", "on_intense":"LAZ695N_lights_on_intense"},
+		"LAZ699R_runninglight":{"simpleFunction":{"lowhighbeam":100}, "off":"LAZ699R_lights", "on":"LAZ699R_lights_on", "on_intense":"LAZ699R_lights_on_intense"},
+		"LAZ695N_signal_L":{"simpleFunction":{"signal_L":0.49}, "off":"LAZ695N_lights", "on":"LAZ695N_lights_on", "on_intense":"LAZ695N_lights_on_intense"},
+		"LAZ695N_signal_R":{"simpleFunction":{"signal_R":0.49}, "off":"LAZ695N_lights", "on":"LAZ695N_lights_on", "on_intense":"LAZ695N_lights_on_intense"},
+		"LAZ695N_signal_L_early":{"simpleFunction":{"signal_L":0.49}, "off":"LAZ695N_lights_early", "on":"LAZ695N_lights_early_on", "on_intense":"LAZ695N_lights_early_on_intense"},
+		"LAZ695N_signal_R_early":{"simpleFunction":{"signal_R":0.49}, "off":"LAZ695N_lights_early", "on":"LAZ695N_lights_early_on", "on_intense":"LAZ695N_lights_early_on_intense"},
+		"LAZ695N_taillight":{"simpleFunction":{"brake":0.50}, "off":"LAZ695N_lights", "on":"LAZ695N_lights_on", "on_intense":"LAZ695N_lights_on_intense"},
+		"LAZ695N_taillight_early":{"simpleFunction":{"lowhighbeam":0.40, "brake":100}, "off":"LAZ695N_lights_early", "on":"LAZ695N_lights_early_on", "on_intense":"LAZ695N_lights_early_on_intense"},
+		"LAZ695N_lowbeam":{"simpleFunction":{"lowbeam":0.50, "highbeam":1}, "off":"LAZ695N_lights", "on":"LAZ695N_lights_on", "on_intense":"LAZ695N_lights_on_intense"},
+		"LAZ695N_highbeam":{"simpleFunction":{"highbeam":1}, "off":"LAZ695N_lights", "on":"LAZ695N_lights_on", "on_intense":"LAZ695N_lights_on_intense"},
+		"LAZ695N_lights_ferr":{"simpleFunction":{"lowbeam":0.50, "highbeam":1}, "off":"LAZ695N_lights_ferr", "on":"LAZ695N_lights_ferr_on", "on_intense":"LAZ695N_lights_ferr_on_intense"},
+		"LAZ695N_foglight":{"simpleFunction":{"fog":1}, "off":"LAZ695N_lights", "on":"LAZ695N_lights_on", "on_intense":"LAZ695N_lights_on_intense"},
+		"LAZ695N_osvarfog":{"simpleFunction":{"fog":1}, "off":"LAZ695N_osvarfog", "on":"LAZ695N_osvarfog_on", "on_intense":"LAZ695N_osvarfog_on_intense"},
+		"LAZ695N_hellawhite":{"simpleFunction":{"fog":1}, "off":"LAZ695N_hellawhite", "on":"LAZ695N_hellawhite_on", "on_intense":"LAZ695N_hellawhite_on"},
+		"LAZ695N_hellayellow":{"simpleFunction":{"fog":1}, "off":"LAZ695N_hellayellow", "on":"LAZ695N_hellayellow_on", "on_intense":"LAZ695N_hellayellow_on"},
+		"LAZ695N_foglight_button":{"simpleFunction":{"fog":1}, "off":"LAZ695N_gaugepod", "on":"invis"},
+		"LAZ695N_foglight_button_on":{"simpleFunction":{"fog":1}, "off":"invis", "on":"LAZ695N_gaugepod"},
+		"LAZ695N_reverselight":{"simpleFunction":{"reverse":1}, "off":"LAZ695N_lights", "on":"LAZ695N_lights_on", "on_intense":"LAZ695N_lights_on_intense"},
+		"LAZ695N_engbaylight":{"simpleFunction":{"engbaylight":1}, "off":"LAZ695N_lights", "on":"LAZ695N_lights_on"},
+		"LAZ695N_englamp":{"simpleFunction":{"engbaylight":1}, "off":"LAZ695N_englamp", "on":"LAZ695N_englamp_on"},
+		"LAZ695N_intlights":{"simpleFunction":{"intlight":1}, "off":"LAZ695N_intlights", "on":"LAZ695N_intlights_on"},
+		"LAZ695N_intlights_button":{"simpleFunction":{"intlight":1}, "off":"LAZ695N_gaugepod", "on":"invis"},
+		"LAZ695N_intlights_button_on":{"simpleFunction":{"intlight":1}, "off":"invis", "on":"LAZ695N_gaugepod"},
+		"LAZ695N_introof":{"simpleFunction":{"intlight":1}, "off":"LAZ695N_intfloor", "on":"LAZ695N_intfloor_on"},
+		"LAZ695N_driverlight":{"simpleFunction":{"driverlight":1}, "off":"LAZ695N_lights", "on":"LAZ695N_lights_on"},
+		"LAZ695N_driverlight_button":{"simpleFunction":{"driverlight":1}, "off":"LAZ695N_gaugepod", "on":"invis"},
+		"LAZ695N_driverlight_button_on":{"simpleFunction":{"driverlight":1}, "off":"invis", "on":"LAZ695N_gaugepod"},
+		"LAZ695N_driverroof":{"simpleFunction":{"driverlight":1}, "off":"LAZ695N_intfloor", "on":"LAZ695N_intfloor_on"},
+                "LAZ695N_wiper_black":{"simpleFunction":{"Door_ACSCoupler_notAttached":1}, "off":"LAZ695N_black", "on":"invis"},
+                "LAZ695N_wiper_chrome":{"simpleFunction":{"Door_ACSCoupler_notAttached":1}, "off":"LAZ695N_chrome", "on":"invis"},
+                "LAZ695N_wiper":{"simpleFunction":{"Door_ACSCoupler_notAttached":1}, "off":"LAZ695N_grille", "on":"invis"},
+                "LAZ695N_wiper_black_luk":{"simpleFunction":{"Door_ACSCoupler_notAttached":1}, "off":"invis", "on":"LAZ695N_black"},
+                "LAZ695N_wiper_chrome_luk":{"simpleFunction":{"Door_ACSCoupler_notAttached":1}, "off":"invis", "on":"LAZ695N_chrome"},
+                "LAZ695N_wiper_luk":{"simpleFunction":{"Door_ACSCoupler_notAttached":1}, "off":"invis", "on":"LAZ695N_grille"},
+
+                "LAZ695N_ventilator":{"simpleFunction":{"ventilator":1}, "off":"invis", "on":"LAZ695N_black"},
+                "LAZ695N_ventilator_off":{"simpleFunction":{"ventilator":1}, "off":"LAZ695N_black", "on":"invis"},
+                "LAZ695N_ventilator_button":{"simpleFunction":{"ventilator":1}, "off":"LAZ695N_gaugepod", "on":"invis"},
+                "LAZ695N_ventilator_button_on":{"simpleFunction":{"ventilator":1}, "off":"invis", "on":"LAZ695N_gaugepod"},
+
+		"LAZ695N_gauges":{"simpleFunction":{"lowhighbeam":1}, "off":"LAZ695N_gaugepod", "on":"LAZ695N_gaugepod_on"},
+		"LAZ695N_gauges_DAZ":{"simpleFunction":{"lowhighbeam":1}, "off":"LAZ695N_gauges_DAZ", "on":"LAZ695N_gauges_DAZ_on"},
+		"LAZ695N_blinkers_DAZ":{"simpleFunction":{"signal_L":0.49, "signal_R":1}, "off":"LAZ695N_gauges_DAZ", "on":"LAZ695N_gauges_DAZ_on_intense", "on_intense":"LAZ695N_gauges_DAZ_on_intense"},
+		"LAZ695N_parkingbrake_DAZ":{"simpleFunction":{"parkingbrake":1}, "off":"LAZ695N_gauges_DAZ", "on":"LAZ695N_gauges_DAZ_on_intense", "on_intense":"LAZ695N_gauges_DAZ_on_intense"},
+		"LAZ695N_stop_DAZ":{"simpleFunction":{"brake":1}, "off":"LAZ695N_gauges_DAZ", "on":"LAZ695N_gauges_DAZ_on_intense", "on_intense":"LAZ695N_gauges_DAZ_on_intense"},
+		"LAZ695N_highbeam_DAZ":{"simpleFunction":{"highbeam":1}, "off":"LAZ695N_gauges_DAZ", "on":"LAZ695N_gauges_DAZ_on_intense", "on_intense":"LAZ695N_gauges_DAZ_on_intense"},
+		"LAZ695N_lowfuel_DAZ":{"simpleFunction":{"lowfuel":1}, "off":"LAZ695N_gauges_DAZ", "on":"LAZ695N_gauges_DAZ_on_intense", "on_intense":"LAZ695N_gauges_DAZ_on_intense"},
+		"LAZ695N_hazard_off":{"simpleFunction":{"hazard":1}, "off":"LAZ695N_gaugepod", "on":"invis"},
+		"LAZ695N_hazard_on":{"simpleFunction":{"hazard":1}, "off":"invis", "on":"LAZ695N_hazard"},
+		"LAZ695N_hazard":{"simpleFunction":{"hazard":1}, "off":"LAZ695N_gaugepod", "on":"LAZ695N_gaugepod_on_intense"},
+		"LAZ695N_blinkers":{"simpleFunction":{"signal_L":0.49, "signal_R":0.49}, "off":"LAZ695N_lights", "on":"LAZ695N_lights_on", "on_intense":"LAZ695N_lights_on_intense"},
+		"LAZ695N_parkingbrake":{"simpleFunction":{"parkingbrake":0.49}, "off":"LAZ695N_lights", "on":"LAZ695N_lights_on", "on_intense":"LAZ695N_lights_on_intense"},
+                "LAZ695N_doorwarn":{"simpleFunction":{"Door_RRCoupler_notAttached":1}, "off":"LAZ695N_lights", "on":"LAZ695N_lights_on"},
+                "LAZ695N_oil":{"simpleFunction":{"oilwarn":1}, "off":"LAZ695N_lights", "on":"LAZ695N_lights_on"},
+                "LAZ695N_lowair":{"simpleFunction":{"Door_RRCoupler_notAttached":1}, "off":"LAZ695N_lights", "on":"LAZ695N_lights_on"},
+		//gauge lights
+		"signal_L":{"simpleFunction":"signal_L", "off":"invis", "on":"decals_gauges"},
+		"signal_R":{"simpleFunction":"signal_R", "off":"invis", "on":"decals_gauges"},
+		"checkengine":{"simpleFunction":"checkengine", "off":"invis", "on":"decals_gauges"},
+		"hazard":{"simpleFunction":"hazard", "off":"invis", "on":"decals_gauges"},
+		"battery":{"simpleFunction":"battery", "off":"invis", "on":"decals_gauges"},
+		"highbeam":{"simpleFunction":"highbeam", "off":"invis", "on":"decals_gauges"},
+		"parkingbrake":{"simpleFunction":"parkingbrake", "off":"invis", "on":"decals_gauges"},
+		"lowfuel":{"simpleFunction":"lowfuel", "off":"invis", "on":"decals_gauges"},
+			
+        },
+     "camerasInternal":[
+        ["type", "x", "y", "z", "fov", "id1:", "id2:", "id3:", "id4:", "id5:", "id6:"],
+        {"nodeWeight":2},
+        {"selfCollision":false}
+        {"collision":false}
+        {"beamSpring":100000,"beamDamp":500},
+        {"nodeWeight":5},
+        {"beamSpring":100000,"beamDamp":1000},
+		
+
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":false}
+         {"collision":true}
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"groundModel":"metal"},
+            {"dragCoef":12},
+		],
+	
+	},
+"LAZ695N_thruster": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"SLOW TRHUSTER", 
+    }
+       "slotType" : "LAZ695N_mod", 
+	"thrusters": [       
+		["id1:", "id2:", "factor", "thrustLimit", "control"],
+		["f1", "f30", 400000, 100000, "throttle"],
+    ],
+ },
+"LAZ695N_thruster_fast": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"FAST TRHUSTER", 
+    }
+       "slotType" : "LAZ695N_mod", 
+	"thrusters": [       
+		["id1:", "id2:", "factor", "thrustLimit", "control"],
+		["f1", "f30", 400000, 5100000, "throttle"],
+    ],
+ },
+}

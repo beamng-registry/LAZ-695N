@@ -1,0 +1,235 @@
+{
+"us_semi_brakeValve_R": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Brake Valve",
+        "value":900,
+    },
+    "slotType" : "us_semi_brakeValve_R",
+    "controller": [
+        ["fileName"],
+        ["pneumatics/airbrakes", { "name": "airbrakes_R" }],
+    ],
+    "airbrakes_R": {
+        "brakedWheels":["DW0L", "DW0LL","DW0R","DW0RR","DW1L", "DW1LL","DW1R","DW1RR","DW2L", "DW2LL","DW2R","DW2RR"],
+        "brakeTorque": [
+            ["pressure", "torqueCoef"],
+            [21000, 0],
+            [413685, 1],
+        ],
+        "springBrakeTorque": [
+            ["pressure", "torqueCoef"],
+            [0,      1],
+            [413685, 0],
+        ]
+    },
+},
+"us_semi_brake_F": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Drum Brakes",
+        "value":1000,
+    },
+    "slotType" : "us_semi_brake_F",
+    "slots": [
+        ["type", "default", "description"],
+        ["brakepad_F","brakepad_F", "Front Brake Shoes", {"coreSlot":true}],
+    ],
+    "controller": [
+        ["fileName"],
+        ["pneumatics/airbrakes", { "name": "airbrakes_F" }],
+    ],
+    "airbrakes_F": {
+        "brakedWheels":["FL", "FR"],
+        "brakeTorque": [
+            ["pressure", "torqueCoef"],
+            [21000, 0],
+            [413685, 1],
+        ],
+    "springBrakeTorque": [
+            ["pressure", "torqueCoef"],
+            [200000, 0],
+            [240000, 0],
+        ]
+    },
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //brake drums
+         ["us_semi_brakedrum_F", ["wheel_FR","wheelhub_FR"], [], {"pos":{"x":-1.0654, "y":-3.25, "z":0.45}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+         ["us_semi_brakedrum_F", ["wheel_FL","wheelhub_FL"], [], {"pos":{"x": 1.0654, "y":-3.25, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+         ["us_semi_axle_brakes_F", ["us_semi_hub_a_FR","us_semi_hub_b_FR","us_semi_hub_a_FL","us_semi_hub_b_FL"]],
+    ],
+    "pressureWheels": [
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        //brake properties
+        {"brakeTorque":"$=$brakestrength*20000"},
+        {"useDefaultBrakeInput":false},
+        {"parkingTorque":0},
+        //{"brakeSpring":150},//define in hubs/wheels instead
+
+        //brake thermals
+        {"enableBrakeThermals":true},
+        {"brakeDiameter":0.42},
+        {"brakeMass":45.0},
+        {"brakeType":"drum"},
+        {"rotorMaterial":"steel"},
+        {"brakeVentingCoef":0.7},
+    ],
+},
+"us_semi_brake_F_split": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Drum Brakes",
+        "value":1000,
+    },
+    "slotType" : "us_semi_brake_F_split",
+    "slots": [
+        ["type", "default", "description"],
+        ["brakepad_F","brakepad_F", "Front Brake Shoes", {"coreSlot":true}],
+    ],
+    "controller": [
+        ["fileName"],
+        ["pneumatics/airbrakes", { "name": "airbrakes_F" }],
+    ],
+    "airbrakes_F": {
+        "brakedWheels":["FL", "FR"],
+        "brakeTorque": [
+            ["pressure", "torqueCoef"],
+            [21000, 0],
+            [413685, 1],
+        ],
+        "springBrakeTorque": [
+            ["pressure", "torqueCoef"],
+            [200000, 0],
+            [240000, 0],
+        ]
+    },
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //brake drums
+         ["semi_wheel_split_F_brakedrum", ["wheel_FR","wheelhub_FR"], [], {"pos":{"x":-1.0304, "y":-3.25, "z":0.45}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+         ["semi_wheel_split_F_brakedrum", ["wheel_FL","wheelhub_FL"], [], {"pos":{"x": 1.0304, "y":-3.25, "z":0.45}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+         ["us_semi_axle_brakes_F", ["us_semi_hub_a_FR","us_semi_hub_b_FR","us_semi_hub_a_FL","us_semi_hub_b_FL"]],
+    ],
+    "pressureWheels": [
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        //brake properties
+        {"brakeTorque":"$=$brakestrength*20000"},
+        {"useDefaultBrakeInput":false},
+        {"parkingTorque":0},
+        //{"brakeSpring":150},//define in hubs/wheels instead
+
+        //brake thermals
+        {"enableBrakeThermals":true},
+        {"brakeDiameter":0.42},
+        {"brakeMass":45.0},
+        {"brakeType":"drum"},
+        {"rotorMaterial":"steel"},
+        {"brakeVentingCoef":0.7},
+    ],
+},
+"us_semi_brake_DX0": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Rear Drum Brakes",
+        "value":900,
+    },
+    "slotType" : "us_semi_brake_DX0",
+    "slots": [
+        ["type", "default", "description"],
+        ["brakepad_RF","brakepad_RF", "Front Rear Brake Shoes", {"coreSlot":true}],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //brake drums
+         ["us_semi_brakedrum_R", ["wheel_DW0RR","wheelhub_DW0RR"], [], {"pos":{"x":-0.748,"y":2.004, "z":0.449}, "scale":{"x":1.0,"y":1.0,"z":1.0}, "rot":{"x":0,"y":0,"z":180}}],
+         ["us_semi_brakedrum_R", ["wheel_DW0LL","wheelhub_DW0LL"], [], {"pos":{"x": 0.748,"y":2.004, "z":0.449}, "scale":{"x":1.0,"y":1.0,"z":1.0}, "rot":{"x":0,"y":0,"z":0}}],
+         ["us_semi_axle_brakes_R_2", ["us_semi_axle_R_1"], [],{"pos":{"x":0.0, "y":-2.658, "z":0.0}}],
+    ],
+    "pressureWheels": [
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        //brakes
+        {"brakeTorque":"$=$brakestrength*23000"},
+        {"useDefaultBrakeInput":false},
+        {"parkingTorque":0},
+        //{"brakeSpring":200},//define in hubs/wheels instead
+
+        //brake thermals
+        {"enableBrakeThermals":true},
+        {"brakeDiameter":0.42},
+        {"brakeMass":54.0},
+        {"brakeType":"drum"},
+        {"rotorMaterial":"steel"},
+        {"brakeVentingCoef":0.7},
+    ],
+},
+"us_semi_brake_DX1": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Drum Brakes",
+        "value":900,
+    },
+    "slotType" : "us_semi_brake_DX1",
+    "slots": [
+        ["type", "default", "description"],
+        ["brakepad_R","brakepad_R", "Rear Brake Shoes", {"coreSlot":true}],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //brake drums
+         ["us_semi_brakedrum_R", ["wheel_DW1RR","wheelhub_DW1RR"], [], {"pos":{"x":-0.748,"y":3.333, "z":0.449}, "scale":{"x":1.0,"y":1.0,"z":1.0}, "rot":{"x":0,"y":0,"z":180}}],
+         ["us_semi_brakedrum_R", ["wheel_DW1LL","wheelhub_DW1LL"], [], {"pos":{"x": 0.748,"y":3.333, "z":0.449}, "scale":{"x":1.0,"y":1.0,"z":1.0}, "rot":{"x":0,"y":0,"z":0}}],
+         ["us_semi_axle_brakes_R_2", ["us_semi_axle_R_1"], [],{"pos":{"x":0.0, "y":-1.329, "z":0.0}}],
+    ],
+    "pressureWheels": [
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        //brakes
+        {"brakeTorque":"$=$brakestrength*23000"},
+        {"useDefaultBrakeInput":false},
+        {"parkingTorque":0},
+        //{"brakeSpring":200},//define in hubs/wheels instead
+
+        //brake thermals
+        {"enableBrakeThermals":true},
+        {"brakeDiameter":0.42},
+        {"brakeMass":54.0},
+        {"brakeType":"drum"},
+        {"rotorMaterial":"steel"},
+        {"brakeVentingCoef":0.7},
+    ],
+},
+"us_semi_brake_DX2": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Rear Drum Brakes",
+        "value":900,
+    },
+    "slotType" : "us_semi_brake_DX2",
+    "slots": [
+        ["type", "default", "description"],
+        ["brakepad_RR","brakepad_RR", "Rear Rear Brake Shoes", {"coreSlot":true}],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //brake drums
+         ["us_semi_brakedrum_R", ["wheel_DW2RR","wheelhub_DW2RR"], [], {"pos":{"x":-0.733,"y":4.663, "z":0.449}, "scale":{"x":1.0,"y":1.0,"z":1.0}, "rot":{"x":0,"y":0,"z":180}}],
+         ["us_semi_brakedrum_R", ["wheel_DW2LL","wheelhub_DW2LL"], [], {"pos":{"x": 0.733,"y":4.663, "z":0.449}, "scale":{"x":1.0,"y":1.0,"z":1.0}, "rot":{"x":0,"y":0,"z":0}}],
+         ["us_semi_axle_brakes_R_2", ["us_semi_axle_R_2"]],
+    ],
+    "pressureWheels": [
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        {"brakeTorque":"$=$brakestrength*23000"},
+        {"useDefaultBrakeInput":false},
+        {"parkingTorque":0},
+        //{"brakeSpring":200},//define in hubs/wheels instead
+
+        //brake thermals
+        {"enableBrakeThermals":true},
+        {"brakeDiameter":0.42},
+        {"brakeMass":54.0},
+        {"brakeType":"drum"},
+        {"rotorMaterial":"steel"},
+        {"brakeVentingCoef":0.7},
+    ],
+}
+}

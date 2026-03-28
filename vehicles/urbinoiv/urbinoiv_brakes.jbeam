@@ -1,0 +1,72 @@
+{
+"urbinoiv_brake_F": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Drum Brakes",
+        "value":1300,
+    },
+    "slotType" : "urbinoiv_brake_F",
+    "slots": [
+        ["type", "default", "description"],
+        ["brakepad_F","brakepad_F_premium", "Front Brake Shoes", {"coreSlot":true}],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //brake drums
+         ["urbinoiv_brakedrum_F", ["wheel_FL","wheel_FR","wheelhub_FR","wheelhub_FL"]],
+    ],
+    "pressureWheels": [
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        //brake properties
+        {"brakeTorque":"$=$brakestrength*12000"},
+        {"parkingTorque":0},
+        {"brakeSpring":200},
+
+        //brake thermals
+        {"enableBrakeThermals":true},
+        {"brakeDiameter":0.35},
+        {"brakeMass":45.0},
+        {"brakeType":"drum"},
+        {"rotorMaterial":"steel"},
+        {"brakeVentingCoef":1.0},
+    ],
+    "engine":{
+        "brakePressureDelay":0.6,
+    },
+},
+"urbinoiv_brake_R": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Drum Brakes",
+        "value":2100,
+    },
+    "slotType" : "urbinoiv_brake_R",
+    "slots": [
+        ["type", "default", "description"],
+        ["brakepad_R","brakepad_R_premium", "Rear Brake Shoes", {"coreSlot":true}],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //brake drums
+         ["urbinoiv_brakedrum_R", ["wheel_RL","wheel_RR","wheelhub_RR","wheelhub_RL"]],
+    ],
+    "pressureWheels": [
+        ["name","hubGroup","group","node1:","node2:","nodeS","nodeArm:","wheelDir"],
+        //brake properties
+        {"brakeTorque":"$=$brakestrength*16000"},
+        {"parkingTorque":16000},
+        {"brakeSpring":200},
+
+        //brake thermals
+        {"enableBrakeThermals":true},
+        {"brakeDiameter":0.35},
+        {"brakeMass":55},
+        {"brakeType":"drum"},
+        {"rotorMaterial":"steel"},
+        {"brakeVentingCoef":1.0},
+    ],
+    "engine":{
+        "brakePressureDelay":0.6,
+    },
+},
+}

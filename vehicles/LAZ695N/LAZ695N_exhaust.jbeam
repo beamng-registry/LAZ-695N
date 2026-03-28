@@ -1,0 +1,140 @@
+{
+"LAZ695N_exhaust": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Exhasut 1",
+        "value":800,
+    }
+    "slotType" : "LAZ695N_exhaust",
+    "slots": [
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_exhaust", ["LAZ695N_engine","LAZ695N_exhaust"]],
+         ["LAZ695N_muffler", ["LAZ695N_engine"]],
+    ],
+    "nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"selfCollision":false}
+		{"collision":true}
+		{"nodeWeight":14},
+		{"group":"LAZ695N_exhaust"},
+		["exht1r", -0.69, 4.92, 0.49],
+		{"group":""},
+    ],
+    "beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		{"beamSpring":1001000,"beamDamp":150},
+		{"beamDeform":45000,"beamStrength":"FLT_MAX"},
+		//right exhaust
+		["en2r","exht1r"{"isExhaust":true}],
+		["z109rr","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["en1r","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["f40r","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["enbr3","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["enbr4","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["f20r","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["z603r","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+          ["id1:","id2:","id3:"],
+    ],	
+},
+"LAZ695N_exhaust_tun": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Exhasut 1 Modified",
+        "value":800,
+    }
+    "slotType" : "LAZ695N_exhaust",
+    "slots": [
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_exhaust_tun", ["LAZ695N_engine","LAZ695N_exhaust"]],
+         ["LAZ695N_muffler", ["LAZ695N_engine"]],
+    ],
+    "nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"selfCollision":false}
+		{"collision":true}
+		{"nodeWeight":14},
+		{"group":"LAZ695N_exhaust"},
+		["exht1r", -0.69, 4.92, 0.49],
+		{"group":""},
+    ],
+    "beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		{"beamSpring":1001000,"beamDamp":150},
+		{"beamDeform":45000,"beamStrength":"FLT_MAX"},
+		//right exhaust
+		["en2r","exht1r"{"isExhaust":true}],
+		["z109rr","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["en1r","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["f40r","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["enbr3","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["enbr4","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["f20r","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["z603r","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+          ["id1:","id2:","id3:"],
+    ],	
+},
+"LAZ695N_exhaust_2": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Exhasut 2",
+        "value":800,
+    }
+    "slotType" : "LAZ695N_exhaust",
+    "slots": [
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_exhaust_2", ["LAZ695N_engine","LAZ695N_exhaust"]],
+         ["LAZ695N_muffler", ["LAZ695N_engine"]],
+    ],
+    "nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"selfCollision":false}
+		{"collision":true}
+		{"nodeWeight":14},
+		{"group":"LAZ695N_exhaust"},
+		["exht1r", -0.63, 4.94, 0.44],
+		["exht2r", -0.38, 4.75, 0.55],
+		{"group":""},
+    ],
+    "beams": [
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		{"beamSpring":1001000,"beamDamp":150},
+		{"beamDeform":45000,"beamStrength":"FLT_MAX"},
+		//right exhaust
+		["en2r","exht2r"{"isExhaust":true}],
+		["z109rr","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["en1r","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["f40r","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["enbr3","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["enbr4","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["f20r","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+ 
+		["exht1r","exht2r"{"isExhaust":true}],
+		["z109rr","exht2r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["en1r","exht2r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["f40r","exht2r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["enbr3","exht2r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["enbr4","exht2r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["f20r","exht2r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		["z603r","exht1r"{"highlight":{"radius":0.005, "col":"#ff0000ff" }}],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+          ["id1:","id2:","id3:"],
+    ],	
+},
+}

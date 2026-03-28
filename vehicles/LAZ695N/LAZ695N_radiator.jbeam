@@ -1,0 +1,213 @@
+{
+"LAZ695N_radiator": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Radiator",
+    }
+    "slotType" : "LAZ695N_radiator",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_radiator", ["LAZ695N_radiator"]],
+	],
+    "mainEngine":{
+        //cooling system
+        "radiatorArea":0.5,
+        "radiatorEffectiveness":10000,
+        "coolantVolume":2,
+        "radiatorFanType":"mechanical",
+        "radiatorFanMaxAirSpeed":5,
+        "thermostatTemperature":90	
+
+        "oilRadiatorArea":0.4,
+        "oilRadiatorEffectiveness":2000,
+        "oilThermostatTemperature":90 
+    },
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true}
+         {"collision":true}
+         //--RADIATOR--
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"LAZ695N_radiator"},
+         {"nodeWeight":6},
+         ["rad1r", 1.19736, 4.40550, 0.66594],
+         ["rad1", 0.93313, 4.40550, 0.66594],
+         ["rad1l", 0.65840, 4.40550, 0.66594],
+         ["rad2r", 1.20453, 4.44014, 1.02837],
+         ["rad2", 0.93788, 4.44014, 1.02837{"engineGroup":"LAZ695N_radiator"}],
+         ["rad2l", 0.65123, 4.44014, 1.02837],
+         ["rad3r", 1.20453, 4.44014, 1.40591],
+         ["rad3", 0.93788, 4.44014, 1.40591{"engineGroup":"LAZ695N_radiator"}],
+         ["rad3l", 0.65123, 4.44014, 1.40591],
+         {"nodeWeight":3.06},
+         {"group":"LAZ695N_radtube_R"},
+         ["rdt1r", 1.20303, 4.27549, 1.42101],
+         {"group":"LAZ695N_radtube_L"},
+         ["rdt1l", 0.67273, 4.27549, 1.42101],
+         {"selfCollision":false}
+         {"collision":false}
+         //rigidifier
+         {"group":""},
+         ["rad7", 0.93788, 4.20510, 1.02837],
+		 
+	],
+    "beams": [
+          ["id1:", "id2:"],
+          //--RADIATOR--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":3200800,"beamDamp":160},
+          {"beamDeform":150000,"beamStrength":"FLT_MAX"},
+          {"deformGroup":"radiator_damage","deformationTriggerRatio":0.0002}
+          //main shape widthwise
+          ["rad1r","rad1"],
+          ["rad1l","rad1"],
+          ["rad2r","rad2"],
+          ["rad2l","rad2"],
+          ["rad3r","rad3"],
+          ["rad3l","rad3"],
+          //vertical
+          ["rad1r","rad2r"],
+          ["rad1","rad2"],
+          ["rad1l","rad2l"],
+          ["rad2r","rad3r"],
+          ["rad2","rad3"],
+          ["rad2l","rad3l"],
+          //surficial crossing
+          {"beamDeform":70000,"beamStrength":"FLT_MAX"},
+          ["rad1r","rad2"],
+          ["rad1l","rad2"],
+          ["rad2r","rad1"],
+          ["rad2l","rad1"],
+          ["rad2r","rad3"],
+          ["rad2l","rad3"],
+          ["rad3r","rad2"],
+          ["rad3l","rad2"],
+          //rigidifier
+          {"beamSpring":3200800,"beamDamp":360},
+          {"beamDeform":35000,"beamStrength":"FLT_MAX"},
+          ["rad7","rad1r"],
+          ["rad7","rad1"],
+          ["rad7","rad1l"],
+          ["rad7","rad2r"],
+          ["rad7","rad2"],
+          ["rad7","rad2l"],
+          ["rad7","rad3r"],
+          ["rad7","rad3"],
+          ["rad7","rad3l"],
+
+          //attach
+          {"beamSpring":3200800,"beamDamp":140},
+          {"beamDeform":35000,"beamStrength":60000},
+          {"breakGroup":"radiator_R"},
+          {"disableMeshBreaking":true},
+
+          ["rad3r", "z409ll"],
+          ["rad3r", "z408ll"],
+          ["rad3r", "z409l"],
+          ["rad3r", "z309ll"],
+          
+          ["rad2r", "z208ll"],
+          ["rad2r", "z207ll"],
+          ["rad2r", "z409ll"],
+          ["rad2r", "z409l"],
+
+          ["rad1r", "rz108l"],
+          ["rad1r", "f20l"],
+          ["rad1r", "f30l"],
+          ["rad1r", "f40l"],
+          
+          {"breakGroup":"radiator_L"},
+          
+          ["rad3l", "rz408l"],
+          ["rad3l", "rz400l"],
+          ["rad3l", "rz108l"],
+          ["rad3l", "rz208"],
+          
+          ["rad2l", "rz108l"],
+          ["rad2l", "z108l"],
+          ["rad2l", "z602l"],
+          ["rad2l", "rz208l"],
+
+          ["rad1l", "z108ll"],
+          ["rad1l", "z109ll"],
+          ["rad1l", "z603l"],
+          ["rad1l", "rz108l"],
+
+          {"breakGroup":""},
+
+          //rad pipes to engine
+          {"beamSpring":100800,"beamDamp":160},
+          {"disableMeshBreaking":false},
+          {"beamDeform":65000,"beamStrength":25000},
+          {"breakGroup":"radiator_eng_L"},
+          ["rdt1l", "en4l"],
+          ["rdt1r", "en4r"],
+          
+          //
+          {"breakGroupType":1}
+          {"beamSpring":3200800,"beamDamp":160},
+          {"beamDeform":65000,"beamStrength":15000},
+          {"deformGroup":"radhosebreak", "deformationTriggerRatio":0.1}
+          //["rad3", "bdftrr"],
+          //["rad3", "bdftr"],
+          {"deformGroup":"", "deformationTriggerRatio":0.01}
+          {"breakGroupType":0}
+          {"breakGroup":""},
+          
+          //rad pipes
+          {"beamSpring":1600800,"beamDamp":200},
+          {"beamDeform":40000,"beamStrength":"FLT_MAX"},
+          ["rad3r","rdt1r"],
+          ["rad3l","rdt1l"],
+          ["rad3l","rdt1r"],
+          ["rad3r","rdt1l"],
+          ["rdt1r","rdt1l"],
+          ["rad2r","rdt1r"],
+          ["rad2l","rdt1l"],
+          ["rad2l","rdt1r"],
+          ["rad2r","rdt1l"],
+          {"deformGroup":""}
+          //support beams
+          {"beamSpring":3200800,"beamDamp":160,"beamDeform":50000,"beamStrength":"FLT_MAX"},
+          {"beamPrecompression":0.85, "beamType":"|SUPPORT", "beamLongBound":1},
+          {"deformGroup":"radhosebreak", "deformationTriggerRatio":0.01}
+          ["rad1","en1l"],
+          ["rad1","en1r"],
+          ["rad1l","en1l"],
+          ["rad1r","en1r"],
+          {"deformGroup":"", "deformationTriggerRatio":0.01}
+
+          ["rad2l","en3l"],
+          ["rad2r","en3r"],
+
+          ["rad3","en3l"],
+          ["rad3","en3r"],
+          ["rad3l","en3l"],
+          ["rad3r","en3r"],
+          
+          ["rad2","en3l"],
+          ["rad2","en3r"],
+          ["rad2","en1l"],
+          ["rad2","en1r"],
+          {"deformGroup":""}
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"group":"LAZ695N_radiator"},
+            {"groundModel":"metal"},
+            {"dragCoef":4},
+            //front face
+            ["rad3r","rad2r","rad2"],
+            ["rad3r","rad2","rad3"],
+            ["rad2r","rad1r","rad1"],
+            ["rad2r","rad1","rad2"],
+            ["rad3l","rad2","rad2l"],
+            ["rad3l","rad3","rad2"],
+            ["rad2l","rad1","rad1l"],
+            ["rad2l","rad2","rad1"],
+            {"group":""},
+    ],
+}
+}

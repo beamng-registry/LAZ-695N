@@ -1,0 +1,146 @@
+{
+"urbinoiv_ext_fueltank": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Fuel Tank",
+        "value":600,
+    },
+    "slotType" : "urbinoiv_ext_fueltank",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["urbinoiv_ext_fueltank", ["urbinoiv_ext_frame_R"]],
+    ],
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"],
+        ["$fuel", "range", "L", "Chassis", 470, 0, 470, "Fuel Volume", "Initial fuel volume", {"stepDis":10}],
+    ],
+    "energyStorage": [
+        ["type", "name"],
+        ["fuelTank", "mainTank"],
+    ],
+    "mainTank": {
+        "energyType":"diesel",
+        "fuelCapacity": 470,
+        "startingFuelCapacity": "$fuel",
+        "fuel": {"[engineGroup]:":["fuel"]},
+        "breakTriggerBeam": "fuelTank",
+    },
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         //fuel tank particles
+         {"frictionCoef":0.7},
+         {"collision":true},
+         {"selfCollision":true},
+         {"group":""},
+         {"nodeWeight":0.5},
+         {"nodeMaterial":"|NM_PLASTIC"},
+         {"engineGroup":["fuel"]}
+         {"chemEnergy":50,"burnRate":1.2,"flashPoint":220,"vaporPoint":95,"specHeat":0.03,"selfIgnitionCoef":0.2,"smokePoint":220,"containerBeam":"fuelTank"},
+		 ["ft1", 0.00, 8.125, 0.50],
+         ["ft1l", 0.81, 8.125, 0.50],
+         ["ft2r", -0.81, 8.325, 0.50],
+         ["ft3", 0.00, 7.925, 0.50],
+         {"chemEnergy":50,"burnRate":1.2,"flashPoint":220,"vaporPoint":40,"specHeat":0.03,"selfIgnitionCoef":0.0,"smokePoint":220,"containerBeam":"fuelTank"},
+         ["ft1r", -0.81, 8.125, 0.50],
+         ["ft2", 0.00, 8.325, 0.50],
+         ["ft2l", 0.81, 8.325, 0.50],
+         ["ft3l", 0.81, 7.925, 0.50],
+         ["ft3r", -0.81, 7.925, 0.50],
+         {"engineGroup":""}
+         {"chemEnergy":false,"burnRate":false,"flashPoint":false,"vaporPoint":false,"specHeat":false,"selfIgnitionCoef":false,"smokePoint":false,"containerBeam":false},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"disableMeshBreaking":true,"disableTriangleBreaking":true},
+          //connect fuel particles to tank
+          {"beamSpring":100000,"beamDamp":200},
+          {"breakGroup":""},
+          {"breakGroupType":1},
+          {"deformLimitExpansion":""},
+          //these stay put
+          ["ft1l", "2fm13l"],
+          ["ft1l", "2fm13ll"],
+
+          ["ft2r", "2fm13r"],
+          ["ft2r", "2fm13rr"],
+          
+
+          ["ft3", "2fm13l"],
+          ["ft3", "2fm13r"],
+          
+
+          ["ft1", "2fm13l"],
+          ["ft1", "2fm13r"],
+          
+          //break for limited motion
+          ["ft1l", "2fm11ll"],
+          ["ft1l", "2fm11l"],
+          ["ft1l", "2fs13l"],
+          
+          ["ft2r", "2fm11rr"],
+          ["ft2r", "2fm11r"],
+          ["ft2r", "2fs13r"],
+          
+          ["ft3", "2fm11r"],
+          ["ft3", "2fm11l"],
+          ["ft3", "2fs11l"],
+          ["ft3", "2fs11r"],
+          
+          ["ft1", "2fm11r"],
+          ["ft1", "2fm11l"],
+          ["ft1", "2fs13l"],
+          ["ft1", "2fs13r"],
+          
+          //these can fall out
+          {"breakGroup":"fueltank"},
+          ["ft2l", "2fm13l"],
+          ["ft2l", "2fm13ll"],
+          ["ft2l", "2fm11ll"],
+          ["ft2l", "2fm11l"],
+          ["ft2l", "2fs13l"],
+
+          ["ft3l", "2fm13l"],
+          ["ft3l", "2fm13ll"],
+          ["ft3l", "2fm11ll"],
+          ["ft3l", "2fm11l"],
+          ["ft3l", "2fs11l"],
+
+          ["ft1r", "2fm13r"],
+          ["ft1r", "2fm13rr"],
+          ["ft1r", "2fm11rr"],
+          ["ft1r", "2fm11r"],
+          ["ft1r", "2fs13r"],
+
+          ["ft3r", "2fm13r"],
+          ["ft3r", "2fm13rr"],
+          ["ft3r", "2fm11rr"],
+          ["ft3r", "2fm11r"],
+          ["ft3r", "2fs11r"],
+
+          ["ft2", "2fm13l"],
+          ["ft2", "2fm13r"],
+          ["ft2", "2fm11r"],
+          ["ft2", "2fm11l"],
+          ["ft2", "2fs13l"],
+          ["ft2", "2fs13r"],
+          {"breakGroup":""},
+
+          {"breakGroupType":0},
+          {"beamSpring":200,"beamDamp":10},
+          {"beamDeform":60,"beamStrength":100},
+          {"breakGroup":"fueltank"},
+          ["2fm11ll","2fs13l",{"name":"fuelTank","containerBeam": "fuelTank"}],
+          ["2fs13ll","2fm11l"],
+          ["2fs13rr","2fm11r"],
+          ["2fm11rr","2fs13r"],
+
+          ["2fs11ll","2fm13l"],
+          ["2fm13ll","2fs11l"],
+          ["2fm13rr","2fs11r"],
+          ["2fs11rr","2fm13r"],
+          {"breakGroup":""},
+          {"disableMeshBreaking":false,"disableTriangleBreaking":false},
+    ],
+},
+}
