@@ -9,13 +9,4 @@
 "sunvisorRtoggle":     {"order":25, "onDown":"vehicle.toggle('sunvisorR')", "title":"Right Sunvisor", "desc":"Lowers the right sunvisor."},
 "toggle_kneel":{"order":  12,  "onUp":"controller.getControllerSafe('bus').toggleKneel()", "title": "ui.inputActions.citybus.toggle_kneel.title", "desc": "ui.inputActions.citybus.toggle_kneel.description" },
 "toggle_doors":{"order":  20,  "onUp":"controller.getControllerSafe('bus').toggleDoors()", "title": "ui.inputActions.citybus.toggle_doors.title", "desc": "ui.inputActions.citybus.toggle_doors.description" },
-
-//WINGS
-//"elevator":             {"order":  10, "onChange":"input.event('elevator', VALUE, FILTERTYPE)", "isCentered":true, "title": "Elevator", "desc": "Control the aircraft's elevator" },
-//"elevator_up":          {"order":  11, "onChange":"input.event('elevator', (VALUE*0.75), FILTERTYPE)",                          "title": "Elevators Up", "desc": "Pitch Up" },
-//"elevator_down":        {"order":  12, "onChange":"input.event('elevator', -(VALUE*0.75), FILTERTYPE)", "title": "Elevators Down", "desc": "Pitch Down" },
-//"aileron":              {"order":  20, "onChange":"input.event('aileron', VALUE, FILTERTYPE)", "isCentered":true, "title": "Ailerons", "desc": "Control the aircraft's ailerons" },
-//"aileron_left":         {"order":  21, "onChange":"input.event('aileron', -(VALUE*0.75), FILTERTYPE)", "title": "Ailerons Left", "desc": "Roll left." },
-//"aileron_right":        {"order":  22, "onChange":"input.event('aileron', (VALUE*0.75), FILTERTYPE)", "title": "Ailerons Right", "desc": "Roll right." },
-//"thruster":             {"order":  40, "onChange":"input.event('thruster', VALUE, FILTERTYPE)", "title": "thruster", "desc": "thruster" },
 }
