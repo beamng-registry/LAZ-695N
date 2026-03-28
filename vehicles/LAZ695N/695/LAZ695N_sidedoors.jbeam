@@ -126,10 +126,10 @@
 		{"beamStrength":"FLT_MAX"},			
 		//FRONT DOORS
 		//{"breakGroup":"front_doors_break_g"},
-		["dff20","df3",{"inputSource":"FrontDoors","inLimit":0,"outLimit":6.21,"inRate":5,"outRate":5,"inputFactor":1.1,"surface":0.002,"volumeCoef":8,"name":"door_FR1"}],
-		["dff20","df5",{"inputSource":"FrontDoors","inLimit":0,"outLimit":6.21,"inRate":5,"outRate":5,"inputFactor":1.1,"surface":0.002,"volumeCoef":8,"name":"door_FR2"}],
-		["dff21","df2",{"inputSource":"FrontDoors","inLimit":0,"outLimit":6.21,"inRate":5,"outRate":5,"inputFactor":1.1,"surface":0.002,"volumeCoef":8,"name":"door_FL1"}],
-		["dff21","df4",{"inputSource":"FrontDoors","inLimit":0,"outLimit":6.21,"inRate":5,"outRate":5,"inputFactor":1.1,"surface":0.002,"volumeCoef":8,"name":"door_FL2"}],
+		["dff20","df3",{"pressure":0,"targetPressure":0,"inputSource":"FrontDoors","inLimit":0,"outLimit":6.21,"inRate":5,"outRate":5,"inputFactor":1.1,"surface":0.002,"volumeCoef":8,"name":"door_FR1"}],
+		["dff20","df5",{"pressure":0,"targetPressure":0,"inputSource":"FrontDoors","inLimit":0,"outLimit":6.21,"inRate":5,"outRate":5,"inputFactor":1.1,"surface":0.002,"volumeCoef":8,"name":"door_FR2"}],
+		["dff21","df2",{"pressure":0,"targetPressure":0,"inputSource":"FrontDoors","inLimit":0,"outLimit":6.21,"inRate":5,"outRate":5,"inputFactor":1.1,"surface":0.002,"volumeCoef":8,"name":"door_FL1"}],
+		["dff21","df4",{"pressure":0,"targetPressure":0,"inputSource":"FrontDoors","inLimit":0,"outLimit":6.21,"inRate":5,"outRate":5,"inputFactor":1.1,"surface":0.002,"volumeCoef":8,"name":"door_FL2"}],
 		{"breakGroup":""},
 	],
 	"triangles": [

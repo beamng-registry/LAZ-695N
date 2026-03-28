@@ -55,24 +55,7 @@
         "increaseRate": 30,
         "decreaseRate": 60,
         "pressuredBeams":"doorBeamData",
-        "groupSounds": "doorBeamSoundData",
     }
-    "doorBeamSoundData":[
-        ["groupName", "soundUp", "soundDown", "volumeUp", "volumeDown", "node:"]
-        ["frontDoors", "event:>Vehicle>Pneumatics>Door_Open", "event:>Vehicle>Pneumatics>Door_Close", 1.35, 1.35, "df3"],
-        ["rearDoors", "event:>Vehicle>Pneumatics>Door_Open", "event:>Vehicle>Pneumatics>Door_Close", 1.35, 1.35, "df3"],
-	]
-    "doorBeamData": [
-        ["beamName", "groupName"]
-        ["door_FR1", "frontDoors"],
-        ["door_FR2", "frontDoors"],
-        ["door_FL1", "frontDoors"],
-        ["door_FL2", "frontDoors"],
-        ["door_RR1", "rearDoors"],
-        ["door_RR2", "rearDoors"],
-        ["door_RL1", "rearDoors"],
-        ["door_RL2", "rearDoors"],
-    ]
     "airbrakes": {
         //"soundNode:": [""]
     }
