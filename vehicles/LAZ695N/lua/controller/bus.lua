@@ -44,7 +44,13 @@ local function toggleDoors()
     doorLever = 1
   end
 
-  controller.getControllerSafe('doors').toggleBeamMinMax({'frontDoors', 'rearDoors'})
+  local doors = controller.getControllerSafe('doors')
+  if doors then
+    doors.toggleBeamMinMax({'frontDoors', 'rearDoors'})
+  else
+    M.doorsOpen = doorLever > 0
+    electrics.values.dooropen = M.doorsOpen and 1 or 0
+  end
 end
 
 local function kneel()
@@ -52,12 +58,24 @@ local function kneel()
     return
   end
 
-  controller.getControllerSafe('airbags').setBeamPressureLevel({'rightAxle'}, 'kneelPressure')
+  local airbags = controller.getControllerSafe('airbags')
+  if airbags then
+    airbags.setBeamPressureLevel({'rightAxle'}, 'kneelPressure')
+  else
+    M.isKneeling = true
+    electrics.values.kneel = 1
+  end
 end
 
 local function toggleKneel()
+  local airbags = controller.getControllerSafe('airbags')
   if M.isKneeling then
-    controller.getControllerSafe('airbags').setBeamDefault({'rightAxle', 'leftAxle'})
+    if airbags then
+      airbags.setBeamDefault({'rightAxle', 'leftAxle'})
+    else
+      M.isKneeling = false
+      electrics.values.kneel = 0
+    end
   else
     kneel()
   end
