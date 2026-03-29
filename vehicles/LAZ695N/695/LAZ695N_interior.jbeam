@@ -1,0 +1,702 @@
+{
+"LAZ695N_interior": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Interior", 
+    }
+       "slotType" : "LAZ695N_interior", 
+       "slots": [
+           ["type", "default", "description"]
+	   ["LAZ695N_dash", "LAZ695N_dash", "Dashboard"],
+	   ["LAZ695N_shifter", "LAZ695N_shifter_M", "Shifter"],
+	   ["LAZ695N_driverseat", "LAZ695N_driverseat", "Driver Seat"],
+	   ["LAZ695N_seats","LAZ695N_seats", "Seats"],
+           ["LAZ695N_skin_seats", "LAZ695N_skin_seats_brown", "Skin Seats", {"coreSlot":true}],
+           ["LAZ695N_skin_wood", "LAZ695N_skin_wood", "Trim Interior", {"coreSlot":true}],
+           ["LAZ695N_curtains", "", "Curtains"],
+           ["LAZ695N_route", "", "Routes"],
+           ["LAZ695N_calendar", "", "Calendar"],
+           ["LAZ695N_wunderbaum", "", "Mirror Accessories"],
+           ["LAZ695N_flags", "", "Windshield Accessories"],
+           ["LAZ695N_sunvisor", "LAZ695N_sunvisor", "Sunvisor"],
+       ],
+ },
+"LAZ695N_curtains": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Curtains", 
+    }
+       "slotType" : "LAZ695N_curtains", 
+       "slots": [
+           ["type", "default", "description"]
+           ["LAZ695N_skin_curtains", "LAZ695N_skin_curtains_white", "Skin Curtains", {"coreSlot":true}],
+           ["LAZ695N_curtains_passenger", "", "Passenger Curtains"],
+           ["LAZ695N_curtains_driver", "", "Driver Curtains"],
+           ["LAZ695N_curtains_windshield", "", "Windshield Curtains"],
+       ],
+ },
+"LAZ695N_curtains_passenger": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Curtains 1", 
+    }
+       "slotType" : "LAZ695N_curtains_passenger", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_curtains_1", ["LAZ695N_body_g", "LAZ695N_curtains"]],	
+	],
+    "nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		//flaps
+		{"nodeWeight":2.5},
+		{"nodeMaterial":"|NM_RUBBER"},
+		{"selfCollision":false}
+		{"collision":true}
+		{"group":"LAZ695N_curtains"},
+		["curt1r", -1.21515, -2.87191, 2.11700],
+		["curt2r", -1.21515, -1.51191, 2.11700],
+		["curt3r", -1.21515, -0.10991, 2.11700],
+		["curt4r", -1.21515, 1.277991, 2.11700],
+		["curt5r", -1.21515, 2.627991, 2.11700],
+		["curt6r", -1.21515, 3.907991, 2.11700],
+		["curt7r", -1.00515, 4.407991, 2.25700],
+
+		["curt1l", 1.21515, -2.87191, 2.11700],
+		["curt2l", 1.21515, -1.51191, 2.11700],
+		["curt3l", 1.21515, -0.10991, 2.11700],
+		["curt4l", 1.21515, 1.277991, 2.11700],
+		["curt5l", 1.21515, 2.627991, 2.11700],
+		["curt6l", 1.21515, 3.907991, 2.11700],
+		["curt7l", 1.00515, 4.407991, 2.25700],
+		{"selfCollision":false}
+		{"collision":false}
+		{"group":""},
+    ],
+    "beams": [
+		["id1:", "id2:", "options"],      
+		//mudflap
+		{"beamSpring":3000,"beamDamp":200},
+		{"beamDeform":65000,"beamStrength":65000},
+		//1r
+		["z501rr","curt1r"],       
+		["z501r","curt1r"],  
+		["z502r","curt1r"],  
+                //2r
+		["z502rr","curt2r"],       
+		["z502r","curt2r"],  
+		["z503r","curt2r"],   
+                //3r
+		["z504rr","curt3r"],   
+		["z505rr","curt3r"],       
+		["z504r","curt3r"],  
+		["z503r","curt3r"], 
+                //4r
+		["z505rr","curt4r"],  
+		["z506rr","curt4r"],       
+		["z505r","curt4r"],  
+		["z505r","curt4r"],   
+                //5r
+		["z507rr","curt5r"],       
+		["z507r","curt5r"],  
+		["z506r","curt5r"],  
+                //6r
+		["z508rr","curt6r"],       
+		["z508r","curt6r"],  
+		["z507r","curt6r"],  
+                //7r
+		["z509rr","curt7r"],       
+		["z509r","curt7r"],  
+		["z508","curt7r"],  
+
+		//1r
+		["z501ll","curt1l"],       
+		["z501l","curt1l"],  
+		["z502l","curt1l"],  
+                //2r
+		["z502ll","curt2l"],       
+		["z502l","curt2l"],  
+		["z503l","curt2l"],   
+                //3l
+		["z504ll","curt3l"],  
+		["z505ll","curt3l"],       
+		["z504l","curt3l"],  
+		["z503l","curt3l"], 
+                //4l
+		["z505ll","curt4l"],  
+		["z506ll","curt4l"],       
+		["z505l","curt4l"],  
+		["z505l","curt4l"],   
+                //5l
+		["z507ll","curt5l"],       
+		["z507l","curt5l"],  
+		["z506l","curt5l"],  
+                //6l
+		["z508ll","curt6l"],       
+		["z508l","curt6l"],  
+		["z507l","curt6l"],  
+                //7l
+		["z509ll","curt7l"],       
+		["z509l","curt7l"],  
+		["z508","curt7l"],        
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},    
+    ],
+    "triangles": [
+		["id1:","id2:","id3:"],
+		{"group":"LAZ695N_curtains"},
+		["fmff1l","fmff2l","fmff1ll"],
+		{"group":""},
+    ],
+ },
+"LAZ695N_curtains_passenger_two": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Curtains 2", 
+    }
+       "slotType" : "LAZ695N_curtains_passenger", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_curtains_2", ["LAZ695N_body_g", "LAZ695N_curtains"]],	
+	],
+    "nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		//flaps
+		{"nodeWeight":2.3},
+		{"nodeMaterial":"|NM_RUBBER"},
+		{"selfCollision":true}
+		{"collision":true}
+		{"group":"LAZ695N_curtains"},
+		["curt1r", -1.21515, -2.77191, 2.11700],
+		["curt2r", -1.21515, -0.87191, 2.11700],
+		["curt3r", -1.21515, 0.30191, 1.87700],
+		["curt4r", -1.21515, 0.95191, 1.97700],
+		["curt5r", -1.21515, 1.85191, 1.91700],
+		["curt6r", -1.21515, 3.75191, 1.91700],
+		["curt7r", -0.50515, 4.407991, 2.25700],
+
+		["curt1l", 1.24515, -2.57191, 1.85700],
+		["curt2l", 1.21515, -1.37191, 1.81700],
+		["curt3l", 1.21515, -0.70191, 1.87700],
+		["curt4l", 1.21515, 0.75191, 1.97700],
+		["curt5l", 1.21515, 2.05191, 1.86700],
+		["curt6l", 1.21515, 3.85191, 1.80700],
+		["curt7l", 0.50515, 4.407991, 2.25700],
+		["curt8", 0.0, 4.517991, 2.15700],
+		{"selfCollision":false}
+		{"collision":false}
+		{"group":""},
+    ],
+    "beams": [
+		["id1:", "id2:", "options"],      
+		//mudflap
+		{"beamSpring":3000,"beamDamp":200},
+		{"beamDeform":65000,"beamStrength":65000},
+                //1r
+		["z501rr","curt1r"],  
+		["z502","curt1r"],    
+                //2r
+		["z503rr","curt2r"], 
+		["z502r","curt2r"],    
+		["z503","curt2r"], 
+                //3r       
+		["z505rr","curt3r"], 
+		["z504r","curt3r"],    
+		["z505","curt3r"],  
+                //4r       
+		["z505rr","curt4r"], 
+		["z504","curt4r"],    
+		["z506","curt4r"],  
+                //5r       
+		["z506rr","curt5r"], 
+		["z506","curt5r"],    
+		["z507","curt5r"],  
+                //6r       
+		["z508rr","curt6r"], 
+		["z509","curt6r"],  
+                //7r       
+		["z509rr","curt7r"], 
+		["z509","curt7r"],  
+
+                //1l
+		["z501ll","curt1l"],  
+		["z502","curt1l"], 
+		["z502l","curt1l"],    
+                //2l
+		["z503ll","curt2l"], 
+		["z502l","curt2l"],    
+		["z503","curt2l"], 
+                //3l       
+		["z505ll","curt3l"], 
+		["z504l","curt3l"],    
+		["z505","curt3l"],  
+                //4l       
+		["z505ll","curt4l"], 
+		["z504","curt4l"],    
+		["z506","curt4l"],  
+                //5l       
+		["z506ll","curt5l"], 
+		["z506","curt5l"],    
+		["z507","curt5l"],  
+                //6l       
+		["z508ll","curt6l"], 
+		["z508","curt6l"], 
+		["z507","curt6l"],  
+                //7l       
+		["z509ll","curt7l"], 
+		["z509","curt7l"],   
+
+                //8       
+		["z509ll","curt8"],    
+		["z509rr","curt8"], 
+		["z509","curt8"], 
+		["curt7l","curt8"], 
+		["curt7r","curt8"], 
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},    
+    ],
+ },
+"LAZ695N_curtains_passenger_three": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Curtains 3", 
+    }
+       "slotType" : "LAZ695N_curtains_passenger", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_curtains_3", ["LAZ695N_body_g", "LAZ695N_curtains"]],	
+	],
+    "nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		//flaps
+		{"nodeWeight":2.9},
+		{"nodeMaterial":"|NM_RUBBER"},
+		{"selfCollision":true}
+		{"collision":true}
+		{"group":"LAZ695N_curtains"},
+		["curt1r", -1.21515, -2.77191, 2.28700],
+		["curt2r", -1.21515, -1.77191, 2.28700],
+		["curt3r", -1.21515, -1.37191, 2.28700],
+		["curt4r", -1.21515, -0.67191, 2.28700],
+		["curt5r", -1.21515, 0.11191, 2.28700],
+		["curt6r", -1.21515, 0.81191, 2.28700],
+		["curt7r", -1.21515, 1.50191, 2.28700],
+		["curt8r", -1.21515, 2.45191, 2.28700],
+
+		["curt1l", 1.21515, -2.77191, 2.28700],
+		["curt2l", 1.21515, -1.77191, 2.28700],
+		["curt3l", 1.21515, -1.37191, 2.28700],
+		["curt4l", 1.21515, -0.67191, 2.28700],
+		["curt5l", 1.21515, 0.11191, 2.28700],
+		["curt6l", 1.21515, 0.81191, 2.28700],
+		["curt7l", 1.21515, 1.50191, 2.28700],
+		["curt8l", 1.21515, 2.45191, 2.28700],
+		["curt9l", 1.21515, 3.15191, 2.28700],
+		["curt10l", 1.21515, 3.95191, 2.28700],
+		{"selfCollision":false}
+		{"collision":false}
+		{"group":""},
+    ],
+    "beams": [
+		["id1:", "id2:", "options"],      
+		//mudflap
+		{"beamSpring":3000,"beamDamp":200},
+		{"beamDeform":65000,"beamStrength":65000},
+                //1r
+		["z501rr","curt1r"],  
+		["z502rr","curt1r"],  
+		["z501r","curt1r"],  
+
+		["z501rr","curt2r"],  
+		["z502rr","curt2r"],  
+		["z502r","curt2r"],  
+                //2r
+		["z502rr","curt3r"],  
+		["z503rr","curt3r"],  
+
+		["z503rr","curt4r"],  
+		["z504rr","curt4r"],
+		["z503r","curt4r"],
+                ["z503r","curt3r"],
+		["curt2r","curt3r"],    
+		["curt3r","curt4r"],  
+                //3r
+		["z504rr","curt5r"],  
+		["z505rr","curt5r"],  
+		["z504r","curt5r"],  
+
+		["z504rr","curt6r"],  
+		["z505rr","curt6r"],  
+		["z505r","curt6r"],  
+                //4r
+		["z506rr","curt7r"],  
+		["z507rr","curt7r"],  
+		["z506r","curt7r"],  
+
+		["z506rr","curt8r"],  
+		["z507rr","curt8r"],  
+		["z507r","curt8r"], 
+
+                //1l
+		["z501ll","curt1l"],  
+		["z502ll","curt1l"],  
+		["z501l","curt1l"],  
+
+		["z501ll","curt2l"],  
+		["z502ll","curt2l"],  
+		["z502l","curt2l"],  
+                //2l
+		["z502ll","curt3l"],  
+		["z503ll","curt3l"],  
+
+		["z503ll","curt4l"],  
+		["z504ll","curt4l"],
+		["z503l","curt4l"],
+                ["z503l","curt3l"],
+		["curt2l","curt3l"],    
+		["curt3l","curt4l"],  
+                //3l
+		["z504ll","curt5l"],  
+		["z505ll","curt5l"],  
+		["z504l","curt5l"],  
+
+		["z504ll","curt6l"],  
+		["z505ll","curt6l"],  
+		["z505l","curt6l"],  
+                //4l
+		["z506ll","curt7l"],  
+		["z507ll","curt7l"],  
+		["z506l","curt7l"],  
+
+		["z506ll","curt8l"],  
+		["z507ll","curt8l"],  
+		["z507l","curt8l"],  
+                //5l
+		["z507ll","curt9l"],  
+		["z508ll","curt9l"],  
+		["z507l","curt9l"],  
+
+		["z507ll","curt10l"],  
+		["z508ll","curt10l"],  
+		["z508l","curt10l"],  
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},    
+    ],
+ },
+"LAZ695N_curtains_windshield": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Curtains Windshield", 
+    }
+       "slotType" : "LAZ695N_curtains_windshield", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+         {"deformGroup":"curtains_W_break", "deformMaterialBase":"LAZ695N_curtains_2", "deformMaterialDamaged":"invis"},
+	 ["LAZ695N_curtains_windshield", ["LAZ695N_body_g", "LAZ695N_curtains_wind"]],	
+         {"deformGroup":""},
+	],
+    "nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		//flaps
+		{"nodeWeight":1.5},
+		{"nodeMaterial":"|NM_RUBBER"},
+		{"selfCollision":true}
+		{"collision":true}
+		{"group":"LAZ695N_curtains_wind"},
+		["curtw1r", -1.11515, -3.87191, 2.3300],
+		["curtw2r", -0.81515, -4.04191, 2.3300],
+		["curtw3r", -0.30515, -4.11191, 2.3300],
+
+		["curtw1l", 1.11515, -3.87191, 2.3300],
+		["curtw2l", 0.81515, -4.04191, 2.3300],
+		["curtw3l", 0.30515, -4.11191, 2.3300],
+		{"selfCollision":false}
+		{"collision":false}
+		{"group":""},
+    ],
+    "beams": [
+		["id1:", "id2:", "options"],      
+		//mudflap
+		{"beamSpring":3000,"beamDamp":200},
+		{"beamDeform":200,"beamStrength":65000},
+		//main shape
+                {"deformGroup":"curtains_W_break", "deformationTriggerRatio":0.05},
+                {"deformLimitExpansion":1.2},
+		["curtw1r","curtw2r"],             
+		["curtw2r","curtw3r"], 
+		["curtw3r","curtw1r"],   
+
+		["curtw1l","curtw2l"],             
+		["curtw2l","curtw3l"], 
+		["curtw3l","curtw1l"],
+                {"deformLimitExpansion":""},
+                //attach
+                {"breakGroup":"curtains_W"},
+		["z500rr","curtw1r"],             
+		["z500r","curtw2r"],       
+		["z500","curtw3r"],       
+		["z501r","curtw1r"],             
+		["z501r","curtw2r"],  
+		["z501","curtw2r"],       
+		["z501","curtw3r"], 
+		["z501rr","curtw1r"], 
+		["z501ll","curtw3r"],  
+
+		["z500ll","curtw1l"],             
+		["z500l","curtw2l"],       
+		["z500","curtw3l"],       
+		["z501l","curtw1l"],             
+		["z501l","curtw2l"],  
+		["z501","curtw2l"],       
+		["z501","curtw3l"], 
+		["z501ll","curtw1l"],  
+		["z501rr","curtw3l"],   
+                {"breakGroup":""},
+                {"deformGroup":""},     
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},    
+                {"deformLimitExpansion":1.2},
+    ],
+ },
+"LAZ695N_curtains_driver": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Curtains Driver", 
+    }
+       "slotType" : "LAZ695N_curtains_driver", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_curtains_driver", ["LAZ695N_body_g"]],	
+	],
+ },
+"LAZ695N_mircrophone": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Microphone", 
+    }
+       "slotType" : "LAZ695N_microphone", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ699R_mikrofon", ["dash_g", "LAZ695N_body_g"]],	
+	 ["LAZ695N_dinamiki", ["LAZ695N_body_g"]],	
+	],
+ },
+"LAZ695N_intplakat_1": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Calendar (2022)", 
+    }
+       "slotType" : "LAZ695N_calendar", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_intplakat", ["LAZ695N_body_g", "seatB_L_1"]],	
+	],
+ },
+"LAZ695N_intplakat_92": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Calendar (1992)", 
+    }
+       "slotType" : "LAZ695N_calendar", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_intplakat_92", ["LAZ695N_body_g", "seatB_L_1"]],	
+	],
+ },
+"LAZ695N_intplakat_90": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Calendar (1990)", 
+    }
+       "slotType" : "LAZ695N_calendar", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_intplakat_90", ["LAZ695N_body_g", "seatB_L_1"]],	
+	],
+ },
+"LAZ695N_intplakat_89": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Calendar (1989)", 
+    }
+       "slotType" : "LAZ695N_calendar", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_intplakat_89", ["LAZ695N_body_g", "seatB_L_1"]],	
+	],
+ },
+"LAZ695N_intplakat_86": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Calendar (1986)", 
+    }
+       "slotType" : "LAZ695N_calendar", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_intplakat_86", ["LAZ695N_body_g", "seatB_L_1"]],	
+	],
+ },
+"LAZ695N_route_dejurni": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Service", 
+    }
+       "slotType" : "LAZ695N_route", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_route_F_dejurni", ["LAZ695N_body_g"]],	
+	 ["LAZ695N_route_R_dejurni", ["LAZ695N_body_g"]],	
+	],
+ },
+"LAZ695N_route_8": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Route 8", 
+    }
+       "slotType" : "LAZ695N_route", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_route_F_8", ["LAZ695N_body_g"]],	
+	 ["LAZ695N_route_R_8", ["LAZ695N_body_g"]],	
+	],
+ },
+"LAZ695N_route_specatom": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"SpetsAtom", 
+    }
+       "slotType" : "LAZ695N_route", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_route_F_specatom", ["LAZ695N_body_g"]],	
+	 ["LAZ695N_route_R_specatom", ["LAZ695N_body_g"]],	
+	],
+ },
+"LAZ695N_carpass": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Car Pass", 
+    }
+       "slotType" : "LAZ695N_carpass", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_carpass", ["LAZ695N_body_g"]],	
+	],
+ },
+"LAZ695N_specatompass": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"SpetsAtom Pass", 
+    }
+       "slotType" : "LAZ695N_specatompass", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_specatompass", ["LAZ695N_body_g"]],	
+	],
+ },
+"LAZ695N_route_73": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Route 73", 
+    }
+       "slotType" : "LAZ695N_route", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_route_F_73", ["LAZ695N_body_g"]],	
+	 ["LAZ695N_route_R_73", ["LAZ695N_body_g"]],	
+	],
+ },
+"LAZ695N_route_120": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Route 120", 
+    }
+       "slotType" : "LAZ695N_route", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_route_F_120", ["LAZ695N_body_g"]],	
+	 ["LAZ695N_route_R_120", ["LAZ695N_body_g"]],	
+	],
+ },
+"LAZ695N_route_empty": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Route Empty", 
+    }
+       "slotType" : "LAZ695N_route", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_route_F_empty", ["LAZ695N_windshield_R_g"]],	
+	 ["LAZ695N_route_R_empty", ["LAZ695N_body_g"]],	
+	],
+ },
+"LAZ695N_route_dejurni_omsk": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Service Omsk", 
+    }
+       "slotType" : "LAZ695N_route", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_route_F_dejurni_omsk", ["LAZ695N_windshield_R_g"]],	
+	],
+ },
+"LAZ695N_route_zakaznoy": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Orderly", 
+    }
+       "slotType" : "LAZ695N_route", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_route_F_zakaznoy", ["LAZ695N_body_g"]],	
+	 ["LAZ695N_route_R_school", ["LAZ695N_body_g"]],	
+	],
+ },
+"LAZ695N_route_152": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Route 152", 
+    }
+       "slotType" : "LAZ695N_route", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_route_F_zakaznoy_2", ["LAZ695N_windshield_R_g"]],	
+	 ["LAZ695N_route_F_152", ["LAZ695N_body_g"]],	
+	 ["LAZ695N_route_R_152", ["LAZ695N_body_g"]],	
+	],
+ },
+"LAZ695N_route_77": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Route 77", 
+    }
+       "slotType" : "LAZ695N_route", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_route_F_77", ["LAZ695N_body_g"]],	
+	 ["LAZ695N_route_R_77", ["LAZ695N_body_g"]],	
+	],
+ },
+"LAZ695N_route_excursion": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Excursion", 
+    }
+       "slotType" : "LAZ695N_route", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_route_F_excursion", ["LAZ695N_windshield_R_g"]],	
+	],
+ },
+"LAZ695N_signentrexit": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Sign Entry Exit", 
+    }
+       "slotType" : "LAZ695N_sign", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_wall_R_tablichki", ["LAZ695N_body_g"]],	
+	],
+ },
+}

@@ -1,0 +1,266 @@
+{
+"LAZ695N_texosmotr": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Inspection Stickers", 
+    }
+       "slotType" : "LAZ695N_windstickers", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+		{"deformGroup":"LAZ695N_windshield_R_break", "deformMaterialBase":"LAZ695N_glass_windshield", "deformMaterialDamaged":"invis"}
+		["LAZ695N_texosmotr", ["LAZ695N_windshield_R_g"]],
+		{"deformGroup":""}
+	],
+ },
+"LAZ695N_wunderbaum": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Wunderbaum Tree Green",
+        "value":50,
+    }
+    "slotType" : "LAZ695N_wunderbaum",
+    "flexbodies": [
+	["mesh", "[group]:", "nonFlexMaterials"],
+	["LAZ695N_wunderbaum", ["LAZ695N_wunderbaum"]],
+	],
+	"nodes":[
+	["id", "posX", "posY", "posZ"],
+        {"selfCollision":true}
+        {"collision":true}
+        {"nodeWeight":0.76},
+        {"frictionCoef":0.7},
+        {"nodeMaterial":"|NM_METAL"},
+	{"group":"LAZ695N_wunderbaum"},
+	["wdbm0", -0.03909, -4.10120, 2.26629],
+	["wdbm1", -0.04009, -4.11239, 2.14137],
+	["wdbm2", -0.00209, -4.09291, 2.34129],
+	["wdbm3", 0.03091, -4.10839, 2.14137],
+	["wdbm4", 0.03091, -4.09720, 2.26629],
+	{"group":""},
+	],
+	"beams":[
+	["id1:", "id2:"],
+	{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	{"beamSpring":300000,"beamDamp":60},
+	{"beamDeform":30000,"beamStrength":"FLT_MAX"},
+	{"deformGroup":"LAZ695N_wunderbaum_deform"}
+        {"deformationTriggerRatio":0.1}
+	["wdbm4","wdbm0"],
+	["wdbm1","wdbm3"],
+	["wdbm0","wdbm1"],
+	["wdbm3","wdbm4"],
+	["wdbm0","wdbm3"],
+
+	//attach
+	["wdbm2","wdbm3"],
+	["wdbm2","wdbm4"],
+	["wdbm2","wdbm0"],
+	["wdbm2","wdbm1"],
+	["wdbm2","ws300l"],
+	["wdbm2","ws300r"],
+	["wdbm2","ws300ll"],
+	["wdbm2","ws300rr"],
+	["wdbm2","ws200l"],
+	["wdbm2","ws200r"],
+	{"deformGroup":""}
+	{"breakGroup":""},
+	{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+	"triangles":[
+        ["id1:","id2:","id3:"],
+	{"selfCollision":true},
+        {"collision":true},
+	{"groundModel":"metal"},
+        {"group":"LAZ695N_wunderbaum"},
+        {"dragCoef":3},
+	["wdbm3","wdbm0","wdbm1"],
+	["wdbm3","wdbm4","wdbm0"],
+    ],
+},
+"LAZ695N_wunderbaum_yellow": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Wunderbaum Tree Yellow",
+        "value":50,
+    }
+    "slotType" : "LAZ695N_wunderbaum",
+    "flexbodies": [
+	["mesh", "[group]:", "nonFlexMaterials"],
+	["LAZ695N_wunderbaum_yellow", ["LAZ695N_wunderbaum"]],
+	],
+	"nodes":[
+	["id", "posX", "posY", "posZ"],
+        {"selfCollision":true}
+        {"collision":true}
+        {"nodeWeight":0.76},
+        {"frictionCoef":0.7},
+        {"nodeMaterial":"|NM_METAL"},
+	{"group":"LAZ695N_wunderbaum"},
+	["wdbm0", -0.03909, -4.10120, 2.26629],
+	["wdbm1", -0.04009, -4.11239, 2.14137],
+	["wdbm2", -0.00209, -4.09291, 2.34129],
+	["wdbm3", 0.03091, -4.10839, 2.14137],
+	["wdbm4", 0.03091, -4.09720, 2.26629],
+	{"group":""},
+	],
+	"beams":[
+	["id1:", "id2:"],
+	{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	{"beamSpring":300000,"beamDamp":60},
+	{"beamDeform":30000,"beamStrength":"FLT_MAX"},
+	{"deformGroup":"LAZ695N_wunderbaum_deform"}
+        {"deformationTriggerRatio":0.1}
+	["wdbm4","wdbm0"],
+	["wdbm1","wdbm3"],
+	["wdbm0","wdbm1"],
+	["wdbm3","wdbm4"],
+	["wdbm0","wdbm3"],
+
+	//attach
+	["wdbm2","wdbm3"],
+	["wdbm2","wdbm4"],
+	["wdbm2","wdbm0"],
+	["wdbm2","wdbm1"],
+	["wdbm2","ws300l"],
+	["wdbm2","ws300r"],
+	["wdbm2","ws300ll"],
+	["wdbm2","ws300rr"],
+	["wdbm2","ws200l"],
+	["wdbm2","ws200r"],
+	{"deformGroup":""}
+	{"breakGroup":""},
+	{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+	],
+	"triangles":[
+        ["id1:","id2:","id3:"],
+	{"selfCollision":true},
+        {"collision":true},
+	{"groundModel":"metal"},
+        {"group":"LAZ695N_wunderbaum"},
+        {"dragCoef":3},
+	["wdbm3","wdbm0","wdbm1"],
+	["wdbm3","wdbm4","wdbm0"],
+    ],
+},
+"LAZ695N_flags": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Flags",
+        "value":50,
+    }
+    "slotType" : "LAZ695N_flags",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["LAZ695N_flags", ["LAZ695N_flags"], [],],
+	 ["LAZ695N_flags_R", ["LAZ695N_windshield_R_g"]],
+	 ["LAZ695N_flags_L", ["LAZ695N_windshield_L_g"]],
+		],	
+
+     "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true}
+         {"collision":true}
+         {"nodeWeight":0.8},
+         {"frictionCoef":0.7},
+         {"nodeMaterial":"|NM_METAL"},
+	 {"group":"LAZ695N_flags"},
+	 ["kolr2", -0.18076, -4.14000, 2.14889],
+	 ["kolr3", -0.29934, -4.09536, 2.50499],
+	 ["koll0", 0.18029, -4.14000, 2.14889],
+	 ["koll1", 0.29887, -4.09536, 2.50499],
+	 {"group":""},
+
+    ],
+
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":300000,"beamDamp":60},
+          {"beamDeform":30000,"beamStrength":"FLT_MAX"},
+		  //Main shape
+      {"deformGroup":"LAZ695N_flags_deform"}
+        {"deformationTriggerRatio":0.1}
+			
+			
+			
+			
+			["kolr2","koll0"],
+			
+			
+			["kolr3","kolr2"],
+			["koll0","koll1"],
+			["koll1","kolr3"],
+			
+			["kolr2","koll0"],
+			["koll0","koll1"],
+			["koll1","kolr3"],
+			["kolr3","kolr2"],
+			["kolr2","koll1"],
+			["koll0","kolr3"],
+			["kolr3","koll1"],
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+			
+            ["kolr3", "ws300rr"],
+            ["kolr3", "ws300r"],
+            ["kolr3", "ws200rr"],
+            ["koll1", "ws300ll"],
+            ["koll1", "ws300l"],
+            ["koll1", "ws200ll"],
+            
+	    ["koll0","kolr2"],
+	    ["koll1","koll0"],
+	    ["kolr2","kolr3"],
+			
+			
+				
+      {"deformGroup":""}
+
+
+          {"breakGroup":""},
+
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+
+    "triangles": [
+            ["id1:","id2:","id3:"],
+			{"selfCollision":true},
+            {"collision":true},
+			{"groundModel":"metal"},
+            {"group":"LAZ695N_flags"},
+            {"dragCoef":3},
+			["kolr2","kolr3","koll0"],
+			["kolr3","koll1","koll0"],
+
+
+	],
+},
+}

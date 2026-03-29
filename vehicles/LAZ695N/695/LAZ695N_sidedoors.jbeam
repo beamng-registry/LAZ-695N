@@ -1,0 +1,152 @@
+{
+"LAZ695N_sidedoors": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Side Doors",
+    }
+       "slotType" : "LAZ695N_sidedoors", 
+    "slots": [
+        ["type", "default", "description"]
+	],
+	"flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+
+    ],
+    "doorBeamData": [
+        ["beamName", "groupName"]
+        ["door_FR1", "frontDoors"],
+        ["door_FR2", "frontDoors"],
+        ["door_FL1", "frontDoors"],
+        ["door_FL2", "frontDoors"],
+	],
+	"nodes":[
+		["id", "posX", "posY", "posZ"],
+		{"selfCollision":true}
+		{"collision":true}
+		{"frictionCoef":0.5},
+		{"nodeMaterial":"|NM_METAL"},         
+		{"nodeWeight":3},
+		{"disableMeshBreaking":true},
+		{"group":"LAZ695N_front_door_L_g"}
+		["df0", -1.25428, -3.70360, 0.33488],
+		["df1", -1.25428, -3.70360, 2.29588],
+		["df2", -1.25428, -3.33560, 0.33488],
+		["df3", -1.25428, -3.33560, 2.29588],
+		{"group":"LAZ695N_front_door_R_g"}
+		["df4", -1.25428, -3.32260, 0.33488],
+		["df5", -1.25428, -3.32260, 2.29588],
+		["df6", -1.25428, -2.95460, 0.33488],
+		["df7", -1.25428, -2.95460, 2.29588],
+		{"group":""}
+		{"selfCollision":false}
+		{"collision":false}
+		["dff999", -0.86628, -3.13860, 1.20688],
+		["dff998", -0.86628, -3.51960, 1.20688],
+		["dff20", -1.15428, -3.32860, 2.29588],
+		["dff21", -1.15428, -3.32860, 0.33488],
+	],
+	"beams":[
+		["id1:", "id2:"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        	{"deformLimitExpansion":1.1},
+		{"beamSpring":2001000,"beamDamp":100},
+		{"beamDeform":50000,"beamStrength":"FLT_MAX"},
+		{"disableMeshBreaking":true},
+		//main shape
+		["df7","df6"],
+		["df5","df7"],
+		["df4","df5"],
+		["df3","df2"],
+		["df1","df3"],
+		["df0","df1"],
+		["df6","df4"],
+		["df2","df0"],
+		["df0","df1"],
+		["df1","df3"],
+		["df3","df2"],
+		["df2","df0"],
+		["df0","df3"],
+		["df1","df2"],
+		["df4","df5"],
+		["df5","df7"],
+		["df7","df6"],
+		["df6","df4"],
+		["df4","df7"],
+		["df5","df6"],
+		//rigid
+		["dff999","df4"],
+		["dff999","df5"],
+		["dff999","df6"],
+		["dff999","df7"],
+		["dff998","df0"],
+		["dff998","df1"],
+		["dff998","df2"],
+		["dff998","df3"],
+		//hinge
+        	{"beamDeform":50000,"beamStrength":90000},
+        	{"breakGroup":"sidedoor_hinge_a"},
+		["df7","z501drr"],
+		["df7","z401drr"],
+		["df7","z501arr"],
+		["df7","z401rr"],
+		["df1","z501err"],
+		["df1","z500arr"],
+		["df1","z400rr"],
+		["df1","z401err"],
+		["df6","z101drr"],
+		["df6","z101rr"],
+		["df6","z201drr"],
+		["df6","z201rr"],
+		["df6","rz100r"],
+		["df0","z101err"],
+		["df0","z100rr"],
+		["df0","z201err"],
+		["df0","z200rr"],
+		["df0","rz100r"],
+		//hydro node to body
+        	{"breakGroup":"sidedoor_hinge_b"},
+		["dff20","z500rr"],
+		["dff20","z501rr"],
+		["dff20","z501err"],
+		["dff20","z501drr"],
+		["dff20","df7"],
+		["dff20","df1"],
+		["dff21","z100rr"],
+		["dff21","z101rr"],
+		["dff21","z101err"],
+		["dff21","z101drr"],
+		["dff21","df6"],
+		["dff21","df0"],
+        	{"breakGroup":""},
+        {"beamPrecompression":0.25, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        {"beamSpring":1500,"beamDamp":0,"beamDeform":200000,"beamStrength":350000},
+		["dff20","df3",{"pressurePSI":150,"maxPressure":150,"surface":0.002,"volumeCoef":0.5,"name":"door_FR1"}],
+		["dff20","df5",{"pressurePSI":150,"maxPressure":150,"surface":0.002,"volumeCoef":0.5,"name":"door_FR2"}],
+		["dff21","df2",{"pressurePSI":150,"maxPressure":150,"surface":0.002,"volumeCoef":0.5,"name":"door_FL1"}],
+		["dff21","df4",{"pressurePSI":150,"maxPressure":150,"surface":0.002,"volumeCoef":0.5,"name":"door_FL2"}],
+		{"breakGroup":""},
+	],
+	"triangles": [
+		["id1:","id2:","id3:"],
+		{"group":"seat"},
+		{"dragCoef":6},
+		{"groundModel":"metal"}
+		["df1","df3","df0"],
+		["df3","df2","df0"],
+		["df5","df7","df4"],
+		["df7","df6","df4"],
+	],
+},
+"LAZ695N_doorvisors": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Rubber Visors", 
+    }
+       "slotType" : "LAZ695N_doorvisors", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_doorvisors", ["LAZ695N_body_g"]],
+		
+	],
+ },
+}

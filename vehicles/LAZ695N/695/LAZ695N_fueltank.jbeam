@@ -1,0 +1,890 @@
+{
+"LAZ695N_fueltank_l": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Gasoline Fuel Tank",
+        "value":12000,
+    },
+    "slotType" : "LAZ695N_fueltank",
+
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"]
+        ["$fuel", "range", "gal", "Chassis", 70, 0, 70, "Fuel Volume", "Initial fuel volume", {"stepDis":0.5}]
+    ],
+
+    "energyStorage": [
+        ["type", "name"],
+        ["fuelTank", "mainTank"],
+    ],
+    "mainTank": {
+        "energyType":"gasoline",
+        "fuelCapacity": 265,
+        "startingFuelCapacity": "$=$fuel*3.78541",
+        "fuel": {"[engineGroup]:":["fuel"]},
+        "breakTriggerBeam": "fuelTank",
+    }
+
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        {"rotation":{"x":0, "y":0, "z":0}, "translation":{"x":0, "y":0, "z":0}},
+        //frame
+        ["LAZ695N_fueltank_cage", ["fueltankcage"]],
+        ["LAZ695N_fueltank", ["fueltank"]],
+    ],
+
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"selfCollision":true}
+         {"nodeWeight":3},
+         {"collision":true}
+         
+        //cage
+        {"group":"fueltankcage"},
+        ["ftnkc0l", 1.13410, -0.03128, 0.53814],
+        ["ftnkc0r", 0.56385, -0.03128, 0.53814],
+        ["ftnkc0", 0.84898, -0.03128, 0.53814],
+
+        ["ftnkc1l", 1.13410, 0.47123, 0.53814],
+        ["ftnkc1r", 0.56385, 0.47123, 0.53814],
+        ["ftnkc1", 0.84898, 0.47123, 0.53814],
+
+        ["ftnkc2l", 1.13410, 0.97591, 0.53814],
+        ["ftnkc2r", 0.56385, 0.97591, 0.53814],
+        ["ftnkc2", 0.84898, 0.97591, 0.53814],
+
+        ["ftnkc3l", 1.13410, 1.02785, 0.61879],
+        ["ftnkc3r", 0.56385, 1.02785, 0.61879],
+        ["ftnkc3", 0.84898, 1.02785, 0.61879],
+        
+
+
+        //tank
+        {"group":"fueltank"},
+        {"nodeWeight":2.0},
+        ["ftnk0l", 1.13965, -0.03081, 0.59201],
+        ["ftnk0r", 0.55830, -0.03081, 0.59201],
+        ["ftnk1l", 1.13965, -0.03081, 0.90983],
+        ["ftnk1r", 0.55830, -0.03081, 0.90983],
+
+        ["ftnk2l", 1.13965, 0.47121, 0.59201],
+        ["ftnk2r", 0.55830, 0.47121, 0.59201],
+        ["ftnk3l", 1.13965, 0.47121, 0.90983],
+        ["ftnk3r", 0.55830, 0.47121, 0.90983],
+
+        ["ftnk4l", 1.13965, 0.97323, 0.59201],
+        ["ftnk4r", 0.55830, 0.97323, 0.59201],
+        ["ftnk5l", 1.13965, 0.97323, 0.90983],
+        ["ftnk5r", 0.55830, 0.97323, 0.90983],
+
+        //rigids
+        {"group":""},   
+        {"selfCollision":false}
+         {"collision":false}
+        {"nodeWeight":5},
+        ["ftnkcrgd", 0.84898, 0.69084, 0.85881],
+
+        //fuel
+       {"frictionCoef":1},
+       {"collision":true},
+       {"selfCollision":false},
+       {"group":""},
+       {"nodeMaterial":"|NM_PLASTIC"},
+       {"chemEnergy":50,"burnRate":1.2,"flashPoint":220,"vaporPoint":93,"specHeat":0.03,"selfIgnitionCoef":1,"smokePoint":220,"containerBeam":"fuelTank"},
+       {"nodeWeight":0.5},
+       {"engineGroup":["fuel"]},
+       ["fpx1", 0.84898, 0.24307, 0.76604],
+       ["fpx1l", 1.01695, 0.24307, 0.83098],
+       ["fpx1r", 0.68100, 0.24307, 0.81242],
+       {"selfIgnitionCoef":false},
+       ["fpx2", 0.84898, 0.53588, 0.76604],
+       ["fpx2l", 1.01695, 0.53588, 0.81242],
+       ["fpx2r", 0.68100, 0.53588, 0.83098],
+       ["fpx3", 0.84898, 0.82868, 0.83098],
+       ["fpx3l", 1.01695, 0.82868, 0.81242],
+       ["fpx3r", 0.68100, 0.82868, 0.76604],
+       {"engineGroup":""}
+       {"chemEnergy":false,"burnRate":false,"flashPoint":false,"vaporPoint":false,"specHeat":false,"selfIgnitionCoef":false,"smokePoint":false,"containerBeam":false}
+
+
+    ],
+
+    "beams": [
+          ["id1:", "id2:"],
+          //--EXPANSION DEFORM LIMIT DEFAULT--
+          {"deformLimitExpansion":1.1},
+
+          //connect fuel particles to tank
+          {"disableMeshBreaking":true,"disableTriangleBreaking":true},
+          {"breakGroup":"fueltank"},
+          {"breakGroupType":1},
+          {"beamSpring":200800,"beamDamp":160},
+          {"beamDeform":25000,"beamStrength":"FLT_MAX"},
+
+          ["ftnk0l", "fpx1l"],
+          ["ftnk0r", "fpx1l"],
+          ["ftnk2l", "fpx1l"],
+          ["ftnk2r", "fpx1l"],
+
+          ["ftnk0l", "fpx1"],
+          ["ftnk0r", "fpx1"],
+          ["ftnk2l", "fpx1"],
+          ["ftnk2r", "fpx1"],
+
+          ["ftnk0l", "fpx1r"],
+          ["ftnk0r", "fpx1r"],
+          ["ftnk2l", "fpx1r"],
+          ["ftnk2r", "fpx1r"],
+
+          ["ftnk0l", "fpx2l"],
+          ["ftnk0r", "fpx2l"],
+          ["ftnk2l", "fpx2l"],
+          ["ftnk2r", "fpx2l"],
+
+          ["ftnk0l", "fpx2"],
+          ["ftnk0r", "fpx2"],
+          ["ftnk2l", "fpx2"],
+          ["ftnk2r", "fpx2"],
+
+          ["ftnk0l", "fpx2r"],
+          ["ftnk0r", "fpx2r"],
+          ["ftnk2l", "fpx2r"],
+          ["ftnk2r", "fpx2r"],
+
+          ["ftnk2l", "fpx3l"],
+          ["ftnk2r", "fpx3l"],
+          ["ftnk4l", "fpx3l"],
+          ["ftnk4r", "fpx3l"],
+
+          ["ftnk2l", "fpx3"],
+          ["ftnk2r", "fpx3"],
+          ["ftnk4l", "fpx3"],
+          ["ftnk4r", "fpx3"],
+
+          ["ftnk2l", "fpx3r"],
+          ["ftnk2r", "fpx3r"],
+          ["ftnk4l", "fpx3r"],
+          ["ftnk4r", "fpx3r"],
+          
+           
+          {"breakGroup":""},
+          {"breakGroupType":0},
+          
+          //--FUELTANK CAGE--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":4001000,"beamDamp":100},
+          {"beamDeform":270000,"beamStrength":"FLT_MAX"},
+
+        //left to right
+        ["ftnkc0l", "ftnkc0"],
+        ["ftnkc0r", "ftnkc0"],
+        ["ftnkc1l", "ftnkc1"],
+        ["ftnkc1r", "ftnkc1"],
+        ["ftnkc2l", "ftnkc2"],
+        ["ftnkc2r", "ftnkc2"],
+        ["ftnkc3l", "ftnkc3"],
+        ["ftnkc3r", "ftnkc3"],
+
+
+          {"beamSpring":4001000,"beamDamp":100},
+          {"beamDeform":270000,"beamStrength":"FLT_MAX"},
+        //rigidifier
+        ["ftnkcrgd", "ftnkc0l"],
+        ["ftnkcrgd", "ftnkc0"],
+        ["ftnkcrgd", "ftnkc0r"],
+        ["ftnkcrgd", "ftnkc1l"],
+        ["ftnkcrgd", "ftnkc1"],
+        ["ftnkcrgd", "ftnkc1r"],
+        ["ftnkcrgd", "ftnkc2l"],
+        ["ftnkcrgd", "ftnkc2"],
+        ["ftnkcrgd", "ftnkc2r"],
+        ["ftnkcrgd", "ftnkc3l"],
+        ["ftnkcrgd", "ftnkc3"],
+        ["ftnkcrgd", "ftnkc3r"],
+
+        ["ftnkc1l", "ftnkc3l"],
+        ["ftnkc1l", "ftnkc3"],
+        ["ftnkc1r", "ftnkc3r"],
+        ["ftnkc1r", "ftnkc3"],
+
+        {"beamSpring":2001000,"beamDamp":100},
+        {"beamDeform":160000,"beamStrength":"FLT_MAX"},
+        //crosses 
+        ["ftnkc0l", "ftnkc1"],
+        ["ftnkc0r", "ftnkc1"],
+        ["ftnkc0", "ftnkc1r"],
+        ["ftnkc0", "ftnkc1l"],
+        ["ftnkc1l", "ftnkc2"],
+        ["ftnkc1r", "ftnkc2"],
+        ["ftnkc1", "ftnkc2r"],
+        ["ftnkc1", "ftnkc2l"],
+        ["ftnkc2l", "ftnkc3"],
+        ["ftnkc2r", "ftnkc3"],
+        ["ftnkc2", "ftnkc3r"],
+        ["ftnkc2", "ftnkc3l"],
+
+
+        //front to back
+//          {"beamDeform":70000,"beamStrength":"FLT_MAX"},
+          {"beamSpring":4001000,"beamDamp":100},
+          {"beamDeform":140000,"beamStrength":"FLT_MAX"},
+
+        ["ftnkc0l", "ftnkc1l"],
+        ["ftnkc0", "ftnkc1"],
+        ["ftnkc0r", "ftnkc1r"],
+        ["ftnkc1l", "ftnkc2l"],
+        ["ftnkc1", "ftnkc2"],
+        ["ftnkc1r", "ftnkc2r"],
+        ["ftnkc2l", "ftnkc3l"],
+        ["ftnkc2", "ftnkc3"],
+        ["ftnkc2r", "ftnkc3r"],
+
+        //--FUELTANK--
+          {"beamSpring":1001000,"beamDamp":100},
+          {"beamDeform":23333.3333333333,"beamStrength":"FLT_MAX"},
+
+        //left to right
+        ["ftnk0r", "ftnk0l"],
+        ["ftnk1r", "ftnk1l"],
+        ["ftnk2r", "ftnk2l"],
+        ["ftnk3r", "ftnk3l"],
+        ["ftnk4r", "ftnk4l"],
+        ["ftnk5r", "ftnk5l"],
+
+
+          {"beamSpring":1001000,"beamDamp":100},
+          {"beamDeform":23333.3333333333,"beamStrength":"FLT_MAX"},
+
+        //vertical
+        ["ftnk0r", "ftnk1r"],
+        ["ftnk0l", "ftnk1l"],
+        ["ftnk2r", "ftnk3r"],
+        ["ftnk2l", "ftnk3l"],
+        ["ftnk4r", "ftnk5r"],
+        ["ftnk4l", "ftnk5l"],
+        
+
+        {"beamSpring":1001000,"beamDamp":100},
+        {"beamDeform":13333.3333333333,"beamStrength":"FLT_MAX"},
+        //side crosses 
+        ["ftnk0l", "ftnk3l"],
+        ["ftnk1l", "ftnk2l"],
+        ["ftnk2l", "ftnk5l"],
+        ["ftnk3l", "ftnk4l"],
+        ["ftnk0r", "ftnk3r"],
+        ["ftnk1r", "ftnk2r"],
+        ["ftnk2r", "ftnk5r"],
+        ["ftnk3r", "ftnk4r"],
+
+        //top crosses
+        ["ftnk1r", "ftnk3l"],
+        ["ftnk3r", "ftnk1l"],
+        ["ftnk3r", "ftnk5l"],
+        ["ftnk3l", "ftnk5r"],
+
+        ["ftnk0r", "ftnk2l"],
+        ["ftnk2r", "ftnk0l"],
+        ["ftnk2r", "ftnk4l"],
+        ["ftnk2l", "ftnk4r"],
+
+        //front crosses
+        ["ftnk0r", "ftnk1l"],
+        ["ftnk1r", "ftnk0l"],
+
+        ["ftnk4r", "ftnk5l"],
+        ["ftnk5r", "ftnk4l"],
+        
+        //front to back
+          {"beamSpring":1001000,"beamDamp":100},
+          {"beamDeform":25000,"beamStrength":"FLT_MAX"},
+        ["ftnk0l", "ftnk2l"],
+        ["ftnk2l", "ftnk4l"],
+        ["ftnk0r", "ftnk2r"],
+        ["ftnk2r", "ftnk4r"],
+
+        ["ftnk1l", "ftnk3l"],
+        ["ftnk1r", "ftnk3r"],
+        ["ftnk3r", "ftnk5r"],
+        ["ftnk3l", "ftnk5l"],
+
+        {"breakGroup":""},
+        {"breakGroupType":0},
+
+
+        {"disableMeshBreaking":true,"disableTriangleBreaking":false}
+        //--TANK ATTACH TO CAGE--
+        {"beamSpring":401000,"beamDamp":100},
+        {"beamDeform":270000,"beamStrength":75000},
+        {"breakGroup":"fueltank"},
+        ["ftnkc0l", "ftnk3l",{"name":"fuelTank","containerBeam":"fuelTank"}],
+        ["ftnkc0", "ftnk3l"],
+        ["ftnkc0", "ftnk3r"],
+        ["ftnkc0r", "ftnk3r"],
+
+        ["fr4tl", "ftnk3r"],
+        ["fr4tl", "ftnk3l"],
+        ["fr4bl", "ftnk2r"],
+        ["fr4bl", "ftnk2l"],
+        
+        ["ftnkc0l", "ftnk1l"],
+        ["ftnkc0", "ftnk1l"],
+        ["ftnkc0", "ftnk1r"],
+        ["ftnkc0r", "ftnk1r"],
+
+        ["ftnkc1l", "ftnk3l"],
+        ["ftnkc1", "ftnk3l"],
+        ["ftnkc1", "ftnk3r"],
+        ["ftnkc1r", "ftnk3r"],
+        
+        ["ftnkc1l", "ftnk1l"],
+        ["ftnkc1", "ftnk1l"],
+        ["ftnkc1", "ftnk1r"],
+        ["ftnkc1r", "ftnk1r"],
+
+        ["ftnkc1l", "ftnk5l"],
+        ["ftnkc1", "ftnk5l"],
+        ["ftnkc1", "ftnk5r"],
+        ["ftnkc1r", "ftnk5r"],
+
+        ["ftnkc2l", "ftnk3l"],
+        ["ftnkc2", "ftnk3l"],
+        ["ftnkc2", "ftnk3r"],
+        ["ftnkc2r", "ftnk3r"],
+        
+        ["ftnkc2l", "ftnk5l"],
+        ["ftnkc2", "ftnk5l"],
+        ["ftnkc2", "ftnk5r"],
+        ["ftnkc2r", "ftnk5r"],
+
+        //--FUEL TANK CAGE ATTACH TO FRAME--
+        {"disableMeshBreaking":true,"disableTriangleBreaking":false},
+        {"beamSpring":4001000,"beamDamp":100},
+        {"beamDeform":270000,"beamStrength":175000},
+        {"breakGroup":"fuelcage0"},
+        ["ftnkc0l", "f17l"],
+        ["ftnkc0l", "f7l"],
+        ["ftnkc0", "f17l"],
+        ["ftnkc0", "f17r"],
+        ["ftnkc0r", "f17r"],
+        ["ftnkc0r", "f7r"],
+        
+        {"breakGroupType":1},
+        {"breakGroup":["fuelcage0", "fuelcage2"]},
+        ["ftnkc1l", "f17l"],
+        ["ftnkc1", "f17l"],
+        ["ftnkc1", "f17r"],
+        ["ftnkc1r", "f17r"],
+        {"breakGroupType":0},
+        
+        {"breakGroup":"fuelcage2"},
+        ["ftnkc2l", "f18l"],
+        ["ftnkc2l", "f8l"],
+        ["ftnkc2", "f18l"],
+        ["ftnkc2", "f18r"],
+        ["ftnkc2r", "f18r"],
+        ["ftnkc2r", "f8r"],
+        {"breakGroup":""},
+        {"breakGroup":""},
+        {"disableMeshBreaking":false,"disableTriangleBreaking":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+
+    "triangles":[
+        ["id1:", "id2:", "id3:"],
+            {"dragCoef": 10, "liftCoef": 10},
+
+            //tank top
+            ["ftnk5l",  "ftnk5r",  "ftnk3r"],
+            ["ftnk5l",  "ftnk3r",  "ftnk3l"],
+            ["ftnk3l",  "ftnk3r",  "ftnk1r"],
+            ["ftnk3l",  "ftnk1r",  "ftnk1l"],
+
+            //bottom
+            ["ftnk4r",  "ftnk4l",  "ftnk2l"],
+            ["ftnk4r",  "ftnk2l",  "ftnk2r"],
+            ["ftnk2r",  "ftnk2l",  "ftnk0l"],
+            ["ftnk2r",  "ftnk0l",  "ftnk0r"],
+
+            //back
+            ["ftnk4l",  "ftnk4r",  "ftnk5r"],
+            ["ftnk4l",  "ftnk5r",  "ftnk5l"],
+
+            //front
+            ["ftnk0r",  "ftnk0l",  "ftnk1l"],
+            ["ftnk0r",  "ftnk1l",  "ftnk1r"],
+
+            //left
+            ["ftnk0l",  "ftnk2l",  "ftnk3l"],
+            ["ftnk0l",  "ftnk3l",  "ftnk1l"],
+            ["ftnk2l",  "ftnk4l",  "ftnk5l"],
+            ["ftnk2l",  "ftnk5l",  "ftnk3l"],
+
+            //right
+            ["ftnk4r",  "ftnk2r",  "ftnk3r"],
+            ["ftnk4r",  "ftnk3r",  "ftnk5r"],
+            ["ftnk2r",  "ftnk0r",  "ftnk1r"],
+            ["ftnk2r",  "ftnk1r",  "ftnk3r"],
+
+            //cage
+            ["ftnkc3r",  "ftnkc3",  "ftnkc2"],
+            ["ftnkc3r",  "ftnkc2",  "ftnkc2r"],
+            ["ftnkc2r",  "ftnkc2",  "ftnkc1"],
+            ["ftnkc2r",  "ftnkc1",  "ftnkc1r"],
+            ["ftnkc1r",  "ftnkc1",  "ftnkc0"],
+            ["ftnkc1r",  "ftnkc0",  "ftnkc0r"],
+
+            ["ftnkc3",  "ftnkc3l",  "ftnkc2l"],
+            ["ftnkc3",  "ftnkc2l",  "ftnkc2"],
+            ["ftnkc2",  "ftnkc2l",  "ftnkc1l"],
+            ["ftnkc2",  "ftnkc1l",  "ftnkc1"],
+            ["ftnkc1",  "ftnkc1l",  "ftnkc0l"],
+            ["ftnkc1",  "ftnkc0l",  "ftnkc0"],
+    ],
+
+},
+"LAZ695N_fueltank_diesel": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Diesel Fuel Tank",
+        "value":12000,
+    },
+    "slotType" : "LAZ695N_fueltank",
+
+    "variables": [
+        ["name", "type", "unit", "category", "default", "min", "max", "title", "description"]
+        ["$fuel", "range", "gal", "Chassis", 70, 0, 70, "Fuel Volume", "Initial fuel volume", {"stepDis":0.5}]
+    ],
+
+    "energyStorage": [
+        ["type", "name"],
+        ["fuelTank", "mainTank"],
+    ],
+    "mainTank": {
+        "energyType":"diesel",
+        "fuelCapacity": 265,
+        "startingFuelCapacity": "$=$fuel*3.78541",
+        "fuel": {"[engineGroup]:":["fuel"]},
+        "breakTriggerBeam": "fuelTank",
+    }
+
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        {"rotation":{"x":0, "y":0, "z":0}, "translation":{"x":0, "y":0, "z":0}},
+        //frame
+        ["LAZ695N_fueltank_cage", ["fueltankcage"]],
+        ["LAZ695N_fueltank", ["fueltank"]],
+    ],
+
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"selfCollision":true}
+         {"nodeWeight":3},
+         {"collision":true}
+         
+        //cage
+        {"group":"fueltankcage"},
+        ["ftnkc0l", 1.13410, -0.03128, 0.53814],
+        ["ftnkc0r", 0.56385, -0.03128, 0.53814],
+        ["ftnkc0", 0.84898, -0.03128, 0.53814],
+
+        ["ftnkc1l", 1.13410, 0.47123, 0.53814],
+        ["ftnkc1r", 0.56385, 0.47123, 0.53814],
+        ["ftnkc1", 0.84898, 0.47123, 0.53814],
+
+        ["ftnkc2l", 1.13410, 0.97591, 0.53814],
+        ["ftnkc2r", 0.56385, 0.97591, 0.53814],
+        ["ftnkc2", 0.84898, 0.97591, 0.53814],
+
+        ["ftnkc3l", 1.13410, 1.02785, 0.61879],
+        ["ftnkc3r", 0.56385, 1.02785, 0.61879],
+        ["ftnkc3", 0.84898, 1.02785, 0.61879],
+        
+
+
+        //tank
+        {"group":"fueltank"},
+        {"nodeWeight":2.0},
+        ["ftnk0l", 1.13965, -0.03081, 0.59201],
+        ["ftnk0r", 0.55830, -0.03081, 0.59201],
+        ["ftnk1l", 1.13965, -0.03081, 0.90983],
+        ["ftnk1r", 0.55830, -0.03081, 0.90983],
+
+        ["ftnk2l", 1.13965, 0.47121, 0.59201],
+        ["ftnk2r", 0.55830, 0.47121, 0.59201],
+        ["ftnk3l", 1.13965, 0.47121, 0.90983],
+        ["ftnk3r", 0.55830, 0.47121, 0.90983],
+
+        ["ftnk4l", 1.13965, 0.97323, 0.59201],
+        ["ftnk4r", 0.55830, 0.97323, 0.59201],
+        ["ftnk5l", 1.13965, 0.97323, 0.90983],
+        ["ftnk5r", 0.55830, 0.97323, 0.90983],
+
+        //rigids
+        {"group":""},   
+        {"selfCollision":false}
+         {"collision":false}
+        {"nodeWeight":5},
+        ["ftnkcrgd", 0.84898, 0.69084, 0.85881],
+
+        //fuel
+       {"frictionCoef":1},
+       {"collision":true},
+       {"selfCollision":false},
+       {"group":""},
+       {"nodeMaterial":"|NM_PLASTIC"},
+       {"chemEnergy":50,"burnRate":1.2,"flashPoint":220,"vaporPoint":93,"specHeat":0.03,"selfIgnitionCoef":1,"smokePoint":220,"containerBeam":"fuelTank"},
+       {"nodeWeight":0.5},
+       {"engineGroup":["fuel"]},
+       ["fpx1", 0.84898, 0.24307, 0.76604],
+       ["fpx1l", 1.01695, 0.24307, 0.83098],
+       ["fpx1r", 0.68100, 0.24307, 0.81242],
+       {"selfIgnitionCoef":false},
+       ["fpx2", 0.84898, 0.53588, 0.76604],
+       ["fpx2l", 1.01695, 0.53588, 0.81242],
+       ["fpx2r", 0.68100, 0.53588, 0.83098],
+       ["fpx3", 0.84898, 0.82868, 0.83098],
+       ["fpx3l", 1.01695, 0.82868, 0.81242],
+       ["fpx3r", 0.68100, 0.82868, 0.76604],
+       {"engineGroup":""}
+       {"chemEnergy":false,"burnRate":false,"flashPoint":false,"vaporPoint":false,"specHeat":false,"selfIgnitionCoef":false,"smokePoint":false,"containerBeam":false}
+
+
+    ],
+
+    "beams": [
+          ["id1:", "id2:"],
+          //--EXPANSION DEFORM LIMIT DEFAULT--
+          {"deformLimitExpansion":1.1},
+
+          //connect fuel particles to tank
+          {"disableMeshBreaking":true,"disableTriangleBreaking":true},
+          {"breakGroup":"fueltank"},
+          {"breakGroupType":1},
+          {"beamSpring":200800,"beamDamp":160},
+          {"beamDeform":25000,"beamStrength":"FLT_MAX"},
+
+          ["ftnk0l", "fpx1l"],
+          ["ftnk0r", "fpx1l"],
+          ["ftnk2l", "fpx1l"],
+          ["ftnk2r", "fpx1l"],
+
+          ["ftnk0l", "fpx1"],
+          ["ftnk0r", "fpx1"],
+          ["ftnk2l", "fpx1"],
+          ["ftnk2r", "fpx1"],
+
+          ["ftnk0l", "fpx1r"],
+          ["ftnk0r", "fpx1r"],
+          ["ftnk2l", "fpx1r"],
+          ["ftnk2r", "fpx1r"],
+
+          ["ftnk0l", "fpx2l"],
+          ["ftnk0r", "fpx2l"],
+          ["ftnk2l", "fpx2l"],
+          ["ftnk2r", "fpx2l"],
+
+          ["ftnk0l", "fpx2"],
+          ["ftnk0r", "fpx2"],
+          ["ftnk2l", "fpx2"],
+          ["ftnk2r", "fpx2"],
+
+          ["ftnk0l", "fpx2r"],
+          ["ftnk0r", "fpx2r"],
+          ["ftnk2l", "fpx2r"],
+          ["ftnk2r", "fpx2r"],
+
+          ["ftnk2l", "fpx3l"],
+          ["ftnk2r", "fpx3l"],
+          ["ftnk4l", "fpx3l"],
+          ["ftnk4r", "fpx3l"],
+
+          ["ftnk2l", "fpx3"],
+          ["ftnk2r", "fpx3"],
+          ["ftnk4l", "fpx3"],
+          ["ftnk4r", "fpx3"],
+
+          ["ftnk2l", "fpx3r"],
+          ["ftnk2r", "fpx3r"],
+          ["ftnk4l", "fpx3r"],
+          ["ftnk4r", "fpx3r"],
+          
+           
+          {"breakGroup":""},
+          {"breakGroupType":0},
+          
+          //--FUELTANK CAGE--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":4001000,"beamDamp":100},
+          {"beamDeform":270000,"beamStrength":"FLT_MAX"},
+
+        //left to right
+        ["ftnkc0l", "ftnkc0"],
+        ["ftnkc0r", "ftnkc0"],
+        ["ftnkc1l", "ftnkc1"],
+        ["ftnkc1r", "ftnkc1"],
+        ["ftnkc2l", "ftnkc2"],
+        ["ftnkc2r", "ftnkc2"],
+        ["ftnkc3l", "ftnkc3"],
+        ["ftnkc3r", "ftnkc3"],
+
+
+          {"beamSpring":4001000,"beamDamp":100},
+          {"beamDeform":270000,"beamStrength":"FLT_MAX"},
+        //rigidifier
+        ["ftnkcrgd", "ftnkc0l"],
+        ["ftnkcrgd", "ftnkc0"],
+        ["ftnkcrgd", "ftnkc0r"],
+        ["ftnkcrgd", "ftnkc1l"],
+        ["ftnkcrgd", "ftnkc1"],
+        ["ftnkcrgd", "ftnkc1r"],
+        ["ftnkcrgd", "ftnkc2l"],
+        ["ftnkcrgd", "ftnkc2"],
+        ["ftnkcrgd", "ftnkc2r"],
+        ["ftnkcrgd", "ftnkc3l"],
+        ["ftnkcrgd", "ftnkc3"],
+        ["ftnkcrgd", "ftnkc3r"],
+
+        ["ftnkc1l", "ftnkc3l"],
+        ["ftnkc1l", "ftnkc3"],
+        ["ftnkc1r", "ftnkc3r"],
+        ["ftnkc1r", "ftnkc3"],
+
+        {"beamSpring":2001000,"beamDamp":100},
+        {"beamDeform":160000,"beamStrength":"FLT_MAX"},
+        //crosses 
+        ["ftnkc0l", "ftnkc1"],
+        ["ftnkc0r", "ftnkc1"],
+        ["ftnkc0", "ftnkc1r"],
+        ["ftnkc0", "ftnkc1l"],
+        ["ftnkc1l", "ftnkc2"],
+        ["ftnkc1r", "ftnkc2"],
+        ["ftnkc1", "ftnkc2r"],
+        ["ftnkc1", "ftnkc2l"],
+        ["ftnkc2l", "ftnkc3"],
+        ["ftnkc2r", "ftnkc3"],
+        ["ftnkc2", "ftnkc3r"],
+        ["ftnkc2", "ftnkc3l"],
+
+
+        //front to back
+//          {"beamDeform":70000,"beamStrength":"FLT_MAX"},
+          {"beamSpring":4001000,"beamDamp":100},
+          {"beamDeform":140000,"beamStrength":"FLT_MAX"},
+
+        ["ftnkc0l", "ftnkc1l"],
+        ["ftnkc0", "ftnkc1"],
+        ["ftnkc0r", "ftnkc1r"],
+        ["ftnkc1l", "ftnkc2l"],
+        ["ftnkc1", "ftnkc2"],
+        ["ftnkc1r", "ftnkc2r"],
+        ["ftnkc2l", "ftnkc3l"],
+        ["ftnkc2", "ftnkc3"],
+        ["ftnkc2r", "ftnkc3r"],
+
+        //--FUELTANK--
+          {"beamSpring":1001000,"beamDamp":100},
+          {"beamDeform":23333.3333333333,"beamStrength":"FLT_MAX"},
+
+        //left to right
+        ["ftnk0r", "ftnk0l"],
+        ["ftnk1r", "ftnk1l"],
+        ["ftnk2r", "ftnk2l"],
+        ["ftnk3r", "ftnk3l"],
+        ["ftnk4r", "ftnk4l"],
+        ["ftnk5r", "ftnk5l"],
+
+
+          {"beamSpring":1001000,"beamDamp":100},
+          {"beamDeform":23333.3333333333,"beamStrength":"FLT_MAX"},
+
+        //vertical
+        ["ftnk0r", "ftnk1r"],
+        ["ftnk0l", "ftnk1l"],
+        ["ftnk2r", "ftnk3r"],
+        ["ftnk2l", "ftnk3l"],
+        ["ftnk4r", "ftnk5r"],
+        ["ftnk4l", "ftnk5l"],
+        
+
+        {"beamSpring":1001000,"beamDamp":100},
+        {"beamDeform":13333.3333333333,"beamStrength":"FLT_MAX"},
+        //side crosses 
+        ["ftnk0l", "ftnk3l"],
+        ["ftnk1l", "ftnk2l"],
+        ["ftnk2l", "ftnk5l"],
+        ["ftnk3l", "ftnk4l"],
+        ["ftnk0r", "ftnk3r"],
+        ["ftnk1r", "ftnk2r"],
+        ["ftnk2r", "ftnk5r"],
+        ["ftnk3r", "ftnk4r"],
+
+        //top crosses
+        ["ftnk1r", "ftnk3l"],
+        ["ftnk3r", "ftnk1l"],
+        ["ftnk3r", "ftnk5l"],
+        ["ftnk3l", "ftnk5r"],
+
+        ["ftnk0r", "ftnk2l"],
+        ["ftnk2r", "ftnk0l"],
+        ["ftnk2r", "ftnk4l"],
+        ["ftnk2l", "ftnk4r"],
+
+        //front crosses
+        ["ftnk0r", "ftnk1l"],
+        ["ftnk1r", "ftnk0l"],
+
+        ["ftnk4r", "ftnk5l"],
+        ["ftnk5r", "ftnk4l"],
+        
+        //front to back
+          {"beamSpring":1001000,"beamDamp":100},
+          {"beamDeform":25000,"beamStrength":"FLT_MAX"},
+        ["ftnk0l", "ftnk2l"],
+        ["ftnk2l", "ftnk4l"],
+        ["ftnk0r", "ftnk2r"],
+        ["ftnk2r", "ftnk4r"],
+
+        ["ftnk1l", "ftnk3l"],
+        ["ftnk1r", "ftnk3r"],
+        ["ftnk3r", "ftnk5r"],
+        ["ftnk3l", "ftnk5l"],
+
+        {"breakGroup":""},
+        {"breakGroupType":0},
+
+
+        {"disableMeshBreaking":true,"disableTriangleBreaking":false}
+        //--TANK ATTACH TO CAGE--
+        {"beamSpring":401000,"beamDamp":100},
+        {"beamDeform":270000,"beamStrength":75000},
+        {"breakGroup":"fueltank"},
+        ["ftnkc0l", "ftnk3l",{"name":"fuelTank","containerBeam":"fuelTank"}],
+        ["ftnkc0", "ftnk3l"],
+        ["ftnkc0", "ftnk3r"],
+        ["ftnkc0r", "ftnk3r"],
+
+        ["fr4tl", "ftnk3r"],
+        ["fr4tl", "ftnk3l"],
+        ["fr4bl", "ftnk2r"],
+        ["fr4bl", "ftnk2l"],
+        
+        ["ftnkc0l", "ftnk1l"],
+        ["ftnkc0", "ftnk1l"],
+        ["ftnkc0", "ftnk1r"],
+        ["ftnkc0r", "ftnk1r"],
+
+        ["ftnkc1l", "ftnk3l"],
+        ["ftnkc1", "ftnk3l"],
+        ["ftnkc1", "ftnk3r"],
+        ["ftnkc1r", "ftnk3r"],
+        
+        ["ftnkc1l", "ftnk1l"],
+        ["ftnkc1", "ftnk1l"],
+        ["ftnkc1", "ftnk1r"],
+        ["ftnkc1r", "ftnk1r"],
+
+        ["ftnkc1l", "ftnk5l"],
+        ["ftnkc1", "ftnk5l"],
+        ["ftnkc1", "ftnk5r"],
+        ["ftnkc1r", "ftnk5r"],
+
+        ["ftnkc2l", "ftnk3l"],
+        ["ftnkc2", "ftnk3l"],
+        ["ftnkc2", "ftnk3r"],
+        ["ftnkc2r", "ftnk3r"],
+        
+        ["ftnkc2l", "ftnk5l"],
+        ["ftnkc2", "ftnk5l"],
+        ["ftnkc2", "ftnk5r"],
+        ["ftnkc2r", "ftnk5r"],
+
+        //--FUEL TANK CAGE ATTACH TO FRAME--
+        {"disableMeshBreaking":true,"disableTriangleBreaking":false},
+        {"beamSpring":4001000,"beamDamp":100},
+        {"beamDeform":270000,"beamStrength":175000},
+        {"breakGroup":"fuelcage0"},
+        ["ftnkc0l", "f17l"],
+        ["ftnkc0l", "f7l"],
+        ["ftnkc0", "f17l"],
+        ["ftnkc0", "f17r"],
+        ["ftnkc0r", "f17r"],
+        ["ftnkc0r", "f7r"],
+        
+        {"breakGroupType":1},
+        {"breakGroup":["fuelcage0", "fuelcage2"]},
+        ["ftnkc1l", "f17l"],
+        ["ftnkc1", "f17l"],
+        ["ftnkc1", "f17r"],
+        ["ftnkc1r", "f17r"],
+        {"breakGroupType":0},
+        
+        {"breakGroup":"fuelcage2"},
+        ["ftnkc2l", "f18l"],
+        ["ftnkc2l", "f8l"],
+        ["ftnkc2", "f18l"],
+        ["ftnkc2", "f18r"],
+        ["ftnkc2r", "f18r"],
+        ["ftnkc2r", "f8r"],
+        {"breakGroup":""},
+        {"breakGroup":""},
+        {"disableMeshBreaking":false,"disableTriangleBreaking":false},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+
+    "triangles":[
+        ["id1:", "id2:", "id3:"],
+            {"dragCoef": 10, "liftCoef": 10},
+
+            //tank top
+            ["ftnk5l",  "ftnk5r",  "ftnk3r"],
+            ["ftnk5l",  "ftnk3r",  "ftnk3l"],
+            ["ftnk3l",  "ftnk3r",  "ftnk1r"],
+            ["ftnk3l",  "ftnk1r",  "ftnk1l"],
+
+            //bottom
+            ["ftnk4r",  "ftnk4l",  "ftnk2l"],
+            ["ftnk4r",  "ftnk2l",  "ftnk2r"],
+            ["ftnk2r",  "ftnk2l",  "ftnk0l"],
+            ["ftnk2r",  "ftnk0l",  "ftnk0r"],
+
+            //back
+            ["ftnk4l",  "ftnk4r",  "ftnk5r"],
+            ["ftnk4l",  "ftnk5r",  "ftnk5l"],
+
+            //front
+            ["ftnk0r",  "ftnk0l",  "ftnk1l"],
+            ["ftnk0r",  "ftnk1l",  "ftnk1r"],
+
+            //left
+            ["ftnk0l",  "ftnk2l",  "ftnk3l"],
+            ["ftnk0l",  "ftnk3l",  "ftnk1l"],
+            ["ftnk2l",  "ftnk4l",  "ftnk5l"],
+            ["ftnk2l",  "ftnk5l",  "ftnk3l"],
+
+            //right
+            ["ftnk4r",  "ftnk2r",  "ftnk3r"],
+            ["ftnk4r",  "ftnk3r",  "ftnk5r"],
+            ["ftnk2r",  "ftnk0r",  "ftnk1r"],
+            ["ftnk2r",  "ftnk1r",  "ftnk3r"],
+
+            //cage
+            ["ftnkc3r",  "ftnkc3",  "ftnkc2"],
+            ["ftnkc3r",  "ftnkc2",  "ftnkc2r"],
+            ["ftnkc2r",  "ftnkc2",  "ftnkc1"],
+            ["ftnkc2r",  "ftnkc1",  "ftnkc1r"],
+            ["ftnkc1r",  "ftnkc1",  "ftnkc0"],
+            ["ftnkc1r",  "ftnkc0",  "ftnkc0r"],
+
+            ["ftnkc3",  "ftnkc3l",  "ftnkc2l"],
+            ["ftnkc3",  "ftnkc2l",  "ftnkc2"],
+            ["ftnkc2",  "ftnkc2l",  "ftnkc1l"],
+            ["ftnkc2",  "ftnkc1l",  "ftnkc1"],
+            ["ftnkc1",  "ftnkc1l",  "ftnkc0l"],
+            ["ftnkc1",  "ftnkc0l",  "ftnkc0"],
+    ],
+
+}
+}

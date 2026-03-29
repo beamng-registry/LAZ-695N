@@ -1,0 +1,135 @@
+{
+"LAZ695N_sunvisor": {
+	"information":{
+        "authors": "BeamNG",
+        "name": "Sunvisor",
+        "value": 50,
+    },
+    "slotType" : "LAZ695N_sunvisor",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+	 ["LAZ695N_sunvisor_frame", ["LAZ695N_body_g"]],		
+         ["LAZ695N_sunvisor", ["LAZ695N_sunvisor_L"]],
+         ["LAZ695N_sunvisor_R", ["LAZ695N_sunvisor_R"]],
+    ],
+    "triggers":[
+        ["id", "label", "idRef:", "idX:", "idY:", "type", "size", "baseRotation", "rotation", "translation", "baseTranslation"],
+        ["sunvisor_L", "", "sv4l","sv1l","sv3l", "box", {"x":0.15, "y":0.015, "z":0.015}, {"x":0, "y":19, "z":0}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, {"x":0.02, "y":0.18, "z":-0.012}],
+    ],
+    "triggerEventLinks":[
+        ["triggerId:triggers", "action", "targetEventId:events"],
+        ["sunvisor_L", "action0", "sunvisor_L_toggle"],   // default: left mouse btn
+        ["sunvisor_R", "action0", "sunvisor_R_toggle"],   // default: left mouse btn
+    ],
+    "events":[
+        ["id", "title", "desc"],
+        ["sunvisor_L_toggle", "Lower Sunvisor", "Lower Sun Visor", {"onDown": "electrics.values.sunvisorL = 1-(electrics.values.sunvisorL or 0)", "order": 1}]
+    ],
+    "hydros": [
+        ["id1:","id2:"],
+
+        {"beamPrecompression":1.0, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        {"beamSpring":8000,"beamDamp":50,"beamDeform":"FLT_MAX","beamStrength":4000},
+        {"breakGroup":"sunvisor_L"},
+        ["sv3l","DA13", {"inputSource":"sunvisorL", "inLimit":1.0, "outLimit":0.58, "inRate":0.8, "outRate":0.8, "inputFactor":0.9}],
+        ["sv4l","DA15", {"inputSource":"sunvisorL", "inLimit":1.0, "outLimit":0.63, "inRate":0.8, "outRate":0.8, "inputFactor":1.0}],
+        {"breakGroup":""},
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+
+        {"selfCollision":true},
+        {"collision" :true},
+        {"nodeMaterial":"|NM_CLOTH"},
+        {"frictionCoef":0.7},
+        {"nodeWeight":0.5},
+        {"group":"LAZ695N_sunvisor_L"},
+        ["sv1l", 0.92974, -3.95140, 2.46021],
+        ["sv2l", 0.40701, -4.03240, 2.46579],
+        ["sv3l", 0.92787, -3.95694, 2.64817],
+        ["sv4l", 0.40488, -4.03573, 2.64294],        
+        {"group":""},
+        ["sv5l", 0.66348, -3.93516, 2.50842, {"selfCollision":false, "collision" :false}],
+        
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+
+        // main
+        {"disableMeshBreaking":true},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        {"beamSpring":100100,"beamDamp":50},
+        {"beamDeform":1000,"beamStrength":"FLT_MAX"},
+        {"deformLimitExpansion":0},
+        // L
+        ["sv1l","sv2l"],
+        ["sv2l","sv3l"],
+        ["sv3l","sv4l"],
+        ["sv4l","sv1l"],
+        // cross
+        ["sv1l","sv3l"],
+        ["sv2l","sv4l"],
+        // rigdi
+        ["sv1l","sv5l"],
+        ["sv2l","sv5l"],
+        ["sv3l","sv5l"],
+        ["sv4l","sv5l"],
+
+        // sunvisor <> roof
+        {"beamDeform":1000,"beamStrength":4000},
+        {"breakGroup":"sunvisor_L"},
+        //L
+        ["sv1l","z500all"],
+        ["sv1l","z500al"],
+        ["sv1l","z500ll"],
+        ["sv1l","z500l"],
+
+        ["sv1l","z501ll"],
+        ["sv1l","z501l"],
+        ["sv1l","z501"],
+
+        ["sv2l","z500al"],
+        ["sv2l","z500a"],
+        ["sv2l","z500l"],
+        ["sv2l","z500"],
+
+        ["sv2l","z500ar"],
+        ["sv2l","z500a"],
+        ["sv2l","z500r"],
+        ["sv2l","z500"],
+
+        // Damp
+        {"beamSpring":500,"beamDamp":120},
+        {"breakGroup":"sunvisor_L"},
+        ["sv3l","z501l"],
+        ["sv4l","z501l"],
+        // support beams
+        {"beamType":"|SUPPORT", "beamLongBound":2},
+        {"beamSpring":6000,"beamDamp":30},
+        {"beamDeform":14000,"beamStrength":4000},
+        {"breakGroupType":1},
+        {"breakGroup":"sunvisor_L"},
+        // Open limit
+        {"beamPrecompression":0.516103},
+        ["sv3l", "z501l"],
+        
+        // Close limit
+        {"beamPrecompression":1.1},
+        //["sv3l", "z501l", {"beamLongBound":10}],
+       
+        {"beamPrecompression":1.0},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+        {"breakGroup":""},
+        {"breakGroupType":0}
+    ],
+    "triangles": [
+        ["id1:","id2:","id3:"],
+        {"group":"doorwindow_FL"},
+        {"groundModel":"metal"},
+        {"dragCoef":7},
+        ["sv4l", "sv3l", "sv1l"],
+        ["sv4l", "sv1l", "sv2l"],
+        {"group":""},
+    ]
+},
+}

@@ -1,0 +1,411 @@
+{
+"LAZ695N_mudflaps_front": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front Mud Flaps",
+    }
+    "slotType" : "LAZ695N_mudflaps_front",
+    "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_mudflap_frame_FR", ["LAZ695N_mudflap_frame_FRR"]],
+		["LAZ695N_mudflap_frame_FL", ["LAZ695N_mudflap_frame_FL"]],
+		["LAZ695N_mudflap_FR", ["LAZ695N_mudflap_FRR"]],
+		["LAZ695N_mudflap_FL", ["LAZ695N_mudflap_FL"]],
+		 
+     ],
+    "nodes": [
+		["id", "posX", "posY", "posZ"],
+		//mudflap frame
+		{"frictionCoef":0.5},
+		{"nodeMaterial":"|NM_METAL"},
+		{"nodeWeight":3},
+		//right
+		{"group":"LAZ695N_mudflap_frame_FRR"},
+		{"selfCollision":false}
+		{"collision":true}
+		["fmff1r", -0.83138, -1.65881, 0.39354{"group":["LAZ695N_mudflap_frame_FRR","LAZ695N_mudflap_FRR"]}]
+		["fmff1rr", -1.20503, -1.65881, 0.39354{"group":["LAZ695N_mudflap_frame_FRR","LAZ695N_mudflap_FRR"]}]
+		["fmff2r", -0.70691, -1.65881, 0.46257],
+		["fmff2rr", -1.20503, -1.65881, 0.43348],
+		{"selfCollision":false}
+		{"collision":false}
+		{"group":""},
+		["fmff3r", -0.70691, -2.01403, 0.39354],
+		{"group":""},
+		//left
+		{"group":"LAZ695N_mudflap_frame_FL"},
+		{"selfCollision":false}
+		{"collision":true}
+		["fmff1l", 0.83138, -1.65881, 0.39354{"group":["LAZ695N_mudflap_frame_FL","LAZ695N_mudflap_FL"]}]
+		["fmff1ll", 1.20503, -1.65881, 0.39354{"group":["LAZ695N_mudflap_frame_FL","LAZ695N_mudflap_FL"]}]
+		["fmff2l", 0.70691, -1.65881, 0.46257],//-1.63402
+		["fmff2ll", 1.20503, -1.65881, 0.43348],
+		{"selfCollision":false}
+		{"collision":false}
+		{"group":""},
+		["fmff3l", 0.70691, -2.01403, 0.39354],
+		{"group":""},
+
+		//flaps
+		{"nodeWeight":2},
+		{"nodeMaterial":"|NM_RUBBER"},
+		{"selfCollision":false}
+		{"collision":true}
+		{"group":"LAZ695N_mudflap_FRR"},
+		["fmf2rrr", -1.20503, -1.65881, 0.11190],         
+		["fmf2r", -0.83138, -1.65881, 0.11190],         
+		{"group":"LAZ695N_mudflap_FL"},    
+		["fmf2lll", 1.20503, -1.65881, 0.11190],         
+		["fmf2l", 0.83138, -1.65881, 0.11190],         
+		{"selfCollision":false}
+		{"collision":false}
+		{"group":""},
+    ],
+    "beams": [
+		["id1:", "id2:", "options"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		{"beamSpring":2001000,"beamDamp":100},
+		{"beamDeform":65000,"beamStrength":"FLT_MAX"},
+	//frame main shape
+		//r
+		["fmff2r","fmff3r"],          
+		["fmff1r","fmff2r"],
+		["fmff1rr","fmff2rr"],          
+		["fmff3r","fmff1r"],
+		["fmff3r","fmff1rr"],
+		["fmff1r","fmff1rr"],
+		["fmff2r","fmff2rr"],
+		//l
+		["fmff2l","fmff3l"],          
+		["fmff1l","fmff2l"],
+		["fmff1ll","fmff2ll"],          
+		["fmff3l","fmff1l"],
+		["fmff3l","fmff1ll"],
+		["fmff1l","fmff1ll"],
+		["fmff2l","fmff2ll"],          
+		{"beamDeform":35000,"beamStrength":"FLT_MAX"},
+		//crossing
+		//r
+		["fmff1r","fmff2rr"],
+		["fmff3r","fmff2rr"],
+		["fmff1rr", "fmff2r"],
+		//l
+		["fmff1l","fmff2ll"],
+		["fmff3l","fmff2ll"],
+		["fmff1ll", "fmff2l"],          
+	//mudflap swing damping
+		{"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.3, "beamShortBound":0.15},
+		{"beamSpring":0,"beamDamp":100},
+		{"beamLimitSpring":2001000,"beamLimitDamp":100},
+		{"breakGroup":"LAZ695N_mudflap_frame_FRR"},
+		["fmf2rrr","f16r"{"beamLongBound":0.3, "beamShortBound":0.12}],
+		["fmf2r","f16r"{"beamLongBound":0.35, "beamShortBound":0.15}],
+		{"breakGroup":"LAZ695N_mudflap_frame_FL"},
+		["fmf2l","f16l"{"beamLongBound":0.35, "beamShortBound":0.15}],
+		["fmf2lll","f16l"{"beamLongBound":0.3, "beamShortBound":0.12}],
+		{"breakGroup":""},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},          
+		//mudflap
+		{"beamSpring":25000,"beamDamp":200},
+		{"beamDeform":65000,"beamStrength":65000},
+		//r
+		["fmf2r","fmf2rrr"],
+		["fmf2r","fmff1r"],
+		["fmff1rr","fmf2rrr"],
+		//crossing    
+		["fmf2rrr","fmff1r"],
+		["fmf2r","fmff1rr"],
+		//l
+		["fmf2l","fmf2lll"],
+		["fmf2l","fmff1l"],
+		["fmf2lll","fmff1ll"],
+		//crossing          
+		["fmf2l","fmff1ll"],  
+		["fmf2lll","fmff1l"],          
+	//MUDFLAP TO FRRAME
+		{"beamSpring":2001000,"beamDamp":100},
+		{"beamDeform":65000,"beamStrength":"FLT_MAX"},
+		["fmff2l","f3l"],
+		["fmff2l","f13l"],
+		["fmff2l","f4l"],
+		["fmff2l","f14l"],
+		["fmff2l","f6l"],
+		["fmff2l","f16l"],
+		["fmff2l","f3r"],
+		["fmff2l","f13r"],
+		["fmff2l","f4r"],
+		["fmff2l","f14r"],
+		["fmff2l","f6r"],
+		["fmff2l","f16r"],
+		["fmff1l","f3l"],
+		["fmff1l","f13l"],
+		["fmff1l","f4l"],
+		["fmff1l","f14l"],
+		["fmff1l","f3r"],
+		["fmff1l","f13r"],
+		["fmff1l","f4r"],
+		["fmff1l","f14r"],
+		["fmff3l","f3l"],
+		["fmff3l","f13l"],
+		["fmff3l","f4l"],
+		["fmff3l","f14l"],
+		["fmff3l","f3r"],
+		["fmff3l","f13r"],
+		["fmff3l","f4r"],
+		["fmff3l","f14r"],
+		
+		["fmff2r","f3l"],
+		["fmff2r","f13l"],
+		["fmff2r","f4l"],
+		["fmff2r","f14l"],
+		["fmff2r","f6l"],
+		["fmff2r","f16l"],
+		["fmff2r","f3r"],
+		["fmff2r","f13r"],
+		["fmff2r","f4r"],
+		["fmff2r","f14r"],
+		["fmff2r","f6r"],
+		["fmff2r","f16r"],
+		["fmff1r","f3l"],
+		["fmff1r","f13l"],
+		["fmff1r","f4l"],
+		["fmff1r","f14l"],
+		["fmff1r","f6l"],
+		["fmff1r","f16l"],
+		["fmff1r","f3r"],
+		["fmff1r","f13r"],
+		["fmff1r","f4r"],
+		["fmff1r","f14r"],
+		["fmff1r","f6r"],
+		["fmff1r","f16r"],
+		["fmff3r","f3l"],
+		["fmff3r","f13l"],
+		["fmff3r","f4l"],
+		["fmff3r","f14l"],
+		["fmff3r","f6l"],
+		["fmff3r","f16l"],
+		["fmff3r","f3r"],
+		["fmff3r","f13r"],
+		["fmff3r","f4r"],
+		["fmff3r","f14r"],
+		["fmff3r","f6r"],
+		["fmff3r","f16r"],
+		
+		
+	//brea groups if needed
+		{"breakGroup":"LAZ695N_mudflap_frame_FRR"},          
+		{"breakGroup":"LAZ695N_mudflap_frame_FL"},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},    
+    ],
+    "triangles": [
+		["id1:","id2:","id3:"],
+		{"group":"LAZ695N_mudflap_FL"},
+		["fmff1l","fmff2l","fmff1ll"],
+		["fmff1ll","fmff2l","fmff2ll"],
+		["fmf2l","fmf2lll","fmff1ll",{"dragCoef":30}],
+		["fmf2l","fmff1ll","fmff1l",{"dragCoef":30}],
+		{"group":"LAZ695N_mudflap_FRR"},
+		["fmff1r","fmff1rr","fmff2rr"],
+		["fmff1r","fmff2rr","fmff2r"],
+		["fmf2rrr","fmf2r","fmff1r"{"dragCoef":30}],
+		["fmf2rrr","fmff1r","fmff1rr"{"dragCoef":30}],
+		{"group":""},
+    ],
+
+}
+"LAZ695N_mudflaps_rear": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Mud Flaps",
+    }
+    "slotType" : "LAZ695N_mudflaps_rear",
+    "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_mudflap_frame_RR", ["LAZ695N_mudflap_frame_RR"]],
+		["LAZ695N_mudflap_frame_RL", ["LAZ695N_mudflap_frame_RL"]],
+		["LAZ695N_mudflap_RR", ["LAZ695N_mudflap_RR"]],
+		["LAZ695N_mudflap_RL", ["LAZ695N_mudflap_RL"]],
+		 
+     ],
+    "nodes": [
+		["id", "posX", "posY", "posZ"],
+		//mudflap frame
+		{"frictionCoef":0.5},
+		{"nodeMaterial":"|NM_METAL"},
+		{"nodeWeight":3},
+		//right
+		{"group":"LAZ695N_mudflap_frame_RR"},
+		{"selfCollision":false}
+		{"collision":true}
+		["rmff1r", -0.64969, 2.66541, 0.34357{"group":["LAZ695N_mudflap_frame_RR","LAZ695N_mudflap_RR"]}]
+		["rmff1rr", -1.20503, 2.66541, 0.34357{"group":["LAZ695N_mudflap_frame_RR","LAZ695N_mudflap_RR"]}]
+		["rmff2r", -0.55243, 2.66541, 0.41260],
+		["rmff2rr", -1.20503, 2.66541, 0.38351],
+		{"selfCollision":false}
+		{"collision":false}
+		{"group":""},
+		["rmff3r", -0.55243, 2.31019, 0.34357],
+		{"group":""},
+		//left
+		{"group":"LAZ695N_mudflap_frame_RL"},
+		{"selfCollision":false}
+		{"collision":true}
+		["rmff1l", 0.64969, 2.66541, 0.34357{"group":["LAZ695N_mudflap_frame_RL","LAZ695N_mudflap_RL"]}]
+		["rmff1ll", 1.20503, 2.66541, 0.34357{"group":["LAZ695N_mudflap_frame_RL","LAZ695N_mudflap_RL"]}]
+		["rmff2l", 0.55243, 2.66541, 0.41260],//4.69959
+		["rmff2ll", 1.20503, 2.66541, 0.38351],
+		{"selfCollision":false}
+		{"collision":false}
+		{"group":""},
+		["rmff3l", 0.55243, 2.31019, 0.34357],
+		{"group":""},
+
+		//flaps
+		{"nodeWeight":2},
+		{"nodeMaterial":"|NM_RUBBER"},
+		{"selfCollision":false}
+		{"collision":true}
+		{"group":"LAZ695N_mudflap_RR"},
+		["rmf2rrr", -1.20503, 2.66541, 0.02196],         
+		["rmf2r", -0.64969, 2.66541, 0.02196],         
+		{"group":"LAZ695N_mudflap_RL"},    
+		["rmf2lll", 1.20503, 2.66541, 0.02196],         
+		["rmf2l", 0.64969, 2.66541, 0.02196],         
+		{"selfCollision":false}
+		{"collision":false}
+		{"group":""},
+    ],
+    "beams": [
+		["id1:", "id2:", "options"],
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+		{"beamSpring":2001000,"beamDamp":100},
+		{"beamDeform":65000,"beamStrength":"FLT_MAX"},
+	//frame main shape
+		//r
+		["rmff2r","rmff3r"],          
+		["rmff1r","rmff2r"],
+		["rmff1rr","rmff2rr"],          
+		["rmff3r","rmff1r"],
+		["rmff3r","rmff1rr"],
+		["rmff1r","rmff1rr"],
+		["rmff2r","rmff2rr"],
+		//l
+		["rmff2l","rmff3l"],          
+		["rmff1l","rmff2l"],
+		["rmff1ll","rmff2ll"],          
+		["rmff3l","rmff1l"],
+		["rmff3l","rmff1ll"],
+		["rmff1l","rmff1ll"],
+		["rmff2l","rmff2ll"],          
+		{"beamDeform":35000,"beamStrength":"FLT_MAX"},
+		//crossing
+		//r
+		["rmff1r","rmff2rr"],
+		["rmff3r","rmff2rr"],
+		["rmff1rr", "rmff2r"],
+		//l
+		["rmff1l","rmff2ll"],
+		["rmff3l","rmff2ll"],
+		["rmff1ll", "rmff2l"],          
+	//mudflap swing damping
+		{"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.3, "beamShortBound":0.15},
+		{"beamSpring":0,"beamDamp":100},
+		{"beamLimitSpring":2001000,"beamLimitDamp":100},
+		{"breakGroup":"LAZ695N_mudflap_frame_RR"},
+		["rmf2rrr","f20br"{"beamLongBound":0.3, "beamShortBound":0.12}],
+		["rmf2r","f20br"{"beamLongBound":0.35, "beamShortBound":0.15}],
+		{"breakGroup":"LAZ695N_mudflap_frame_RL"},
+		["rmf2l","f20bl"{"beamLongBound":0.35, "beamShortBound":0.15}],
+		["rmf2lll","f20bl"{"beamLongBound":0.3, "beamShortBound":0.12}],
+		{"breakGroup":""},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},          
+		//mudflap
+		{"beamSpring":25000,"beamDamp":200},
+		{"beamDeform":65000,"beamStrength":65000},
+		//r
+		["rmf2r","rmf2rrr"],
+		["rmf2r","rmff1r"],
+		["rmff1rr","rmf2rrr"],
+		//crossing    
+		["rmf2rrr","rmff1r"],
+		["rmf2r","rmff1rr"],
+		//l
+		["rmf2l","rmf2lll"],
+		["rmf2l","rmff1l"],
+		["rmf2lll","rmff1ll"],
+		//crossing          
+		["rmf2l","rmff1ll"],  
+		["rmf2lll","rmff1l"],          
+	//MUDFLAP TO FRRAME
+		{"beamSpring":2001000,"beamDamp":100},
+		{"beamDeform":65000,"beamStrength":"FLT_MAX"},
+		["rmff2l","f9l"],
+		["rmff2l","f19l"],
+		["rmff2l","f10al"],
+		["rmff2l","f20al"],
+		["rmff2l","f9r"],
+		["rmff2l","f19r"],
+		["rmff2l","f10ar"],
+		["rmff2l","f20ar"],
+		["rmff2r","f9r"],
+		["rmff2r","f19r"],
+		["rmff2r","f10ar"],
+		["rmff2r","f20ar"],
+		["rmff2r","f9l"],
+		["rmff2r","f19l"],
+		["rmff2r","f10al"],
+		["rmff2r","f20al"],
+		["rmff3l","f9l"],
+		["rmff3l","f19l"],
+		["rmff3l","f10al"],
+		["rmff3l","f20al"],
+		["rmff3l","f9r"],
+		["rmff3l","f19r"],
+		["rmff3l","f10ar"],
+		["rmff3l","f20ar"],
+		["rmff3r","f9r"],
+		["rmff3r","f19r"],
+		["rmff3r","f10ar"],
+		["rmff3r","f20ar"],
+		["rmff3r","f9l"],
+		["rmff3r","f19l"],
+		["rmff3r","f10al"],
+		["rmff3r","f20al"],
+		["rmff1l","f9l"],
+		["rmff1l","f19l"],
+		["rmff1l","f10al"],
+		["rmff1l","f20al"],
+		["rmff1l","f9r"],
+		["rmff1l","f19r"],
+		["rmff1l","f10ar"],
+		["rmff1l","f20ar"],
+		["rmff1r","f9r"],
+		["rmff1r","f19r"],
+		["rmff1r","f10ar"],
+		["rmff1r","f20ar"],
+		["rmff1r","f9l"],
+		["rmff1r","f19l"],
+		["rmff1r","f10al"],
+		["rmff1r","f20al"],
+	//brea groups if needed
+		{"breakGroup":"LAZ695N_mudflap_frame_RR"},          
+		{"breakGroup":"LAZ695N_mudflap_frame_RL"},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},    
+    ],
+    "triangles": [
+		["id1:","id2:","id3:"],
+		{"group":"LAZ695N_mudflap_RL"},
+		["rmff1l","rmff2l","rmff1ll"],
+		["rmff1ll","rmff2l","rmff2ll"],
+		["rmf2l","rmf2lll","rmff1ll",{"dragCoef":30}],
+		["rmf2l","rmff1ll","rmff1l",{"dragCoef":30}],
+		{"group":"LAZ695N_mudflap_RR"},
+		["rmff1r","rmff1rr","rmff2rr"],
+		["rmff1r","rmff2rr","rmff2r"],
+		["rmf2rrr","rmf2r","rmff1r"{"dragCoef":30}],
+		["rmf2rrr","rmff1r","rmff1rr"{"dragCoef":30}],
+		{"group":""},
+    ],	
+	
+}
+}

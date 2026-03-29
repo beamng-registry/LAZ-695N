@@ -1,0 +1,500 @@
+{
+"LAZ695N_fogs_F": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Fog Lights (Yellow)",
+        "value":600,
+    },
+
+    "slotType" : "LAZ695N_fogs_F",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         {"deformGroup":"fog_light_L_break", "deformMaterialBase":"generic_halogen", "deformMaterialDamaged":"LAZ695N_chrome"},
+         ["LAZ695N_foglight_L", ["fog_light_L"]],
+         {"deformGroup":"fog_light_L_break", "deformMaterialBase":"generic_halogen_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         ["LAZ695N_fogglass_L", ["fog_light_L"],[], {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.5}],
+
+         {"deformGroup":"fog_light_R_break", "deformMaterialBase":"generic_halogen", "deformMaterialDamaged":"LAZ695N_chrome"},
+         ["LAZ695N_foglight_R", ["fog_light_R"]],
+         {"deformGroup":"fog_light_R_break", "deformMaterialBase":"generic_halogen_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         ["LAZ695N_fogglass_R", ["fog_light_R"],[], {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.5}],
+         {"deformGroup":""},
+         {"deformSound":false, "deformVolume":false},
+         ["LAZ695N_foglightframe_L", ["fog_light_L"]],
+         ["LAZ695N_foglightframe_R", ["fog_light_R"]],
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]
+        {
+            "lightInnerAngle":0
+            "lightOuterAngle":120
+            "lightBrightness":0.35
+            "lightRange":30
+            "lightColor":{"r":255, "g":250, "b":50, "a":255}
+            "lightAttenuation":{"x":0, "y":1, "z":1}
+            "lightCastShadows":true
+            "flareName":"vehicleHeadLightFlare"
+            "flareScale":0.03
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512
+            "shadowSoftness":0.5
+        }
+        ["fog"    , "SPOTLIGHT"        , "fbl_1l", "fbl_2l", "fbl_4l", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.05, "y":0.5, "z":0},"deformGroup":"fog_light_L_break"}],
+        ["fog"    , "SPOTLIGHT"        , "fbl_1r", "fbl_2r", "fbl_4r", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.05, "y":0.5, "z":0},"deformGroup":"fog_light_R_break"}],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"collision":true},
+         {"selfCollision":true},
+         {"nodeWeight":0.35},
+         {"group":"fog_light_L"},
+         ["fbl_1l", 0.72423, -4.24410, 0.42679],
+         ["fbl_2l", 0.92784, -4.24410, 0.42679],
+         ["fbl_3l", 0.72423, -4.24410, 0.51479],
+         ["fbl_4l", 0.92784, -4.24410, 0.51479],
+         ["fbl_5l", 0.82135, -4.18210, 0.47079],
+
+         {"group":"fog_light_R"},
+         ["fbl_1r", -0.72423, -4.24410, 0.42679],
+         ["fbl_2r", -0.92784, -4.24410, 0.42679],
+         ["fbl_3r", -0.72423, -4.24410, 0.51479],
+         ["fbl_4r", -0.92784, -4.24410, 0.51479],
+         ["fbl_5r", -0.82135, -4.18210, 0.47079],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":301000,"beamDamp":30},
+          {"beamDeform":15000,"beamStrength":"FLT_MAX"},
+          //left_light
+          {"deformationTriggerRatio":0.02},
+          {"deformGroup":"fog_light_L_break"},
+          ["fbl_1l","fbl_2l"],
+          ["fbl_3l","fbl_4l"],
+          ["fbl_1l","fbl_3l"],
+          ["fbl_2l","fbl_4l"],
+
+          ["fbl_1l","fbl_4l"],
+          ["fbl_2l","fbl_3l"],
+
+          ["fbl_1l","fbl_5l"],
+          ["fbl_2l","fbl_5l"],
+          ["fbl_3l","fbl_5l"],
+          ["fbl_4l","fbl_5l"],
+
+          {"deformGroup":"fog_light_R_break"},
+          ["fbl_1r","fbl_2r"],
+          ["fbl_3r","fbl_4r"],
+          ["fbl_1r","fbl_3r"],
+          ["fbl_2r","fbl_4r"],
+
+          ["fbl_1r","fbl_4r"],
+          ["fbl_2r","fbl_3r"],
+
+          ["fbl_1r","fbl_5r"],
+          ["fbl_2r","fbl_5r"],
+          ["fbl_3r","fbl_5r"],
+          ["fbl_4r","fbl_5r"],
+          {"deformGroup":""},
+
+          //attach
+          {"beamSpring":301000,"beamDamp":50},
+          {"beamDeform":3500,"beamStrength":22000},
+          {"deformationTriggerRatio":0.05},
+          {"deformGroup":"fog_light_L_break"},
+          {"breakGroup":"fog_light_L_attach"},
+          ["fbl_3l", "z200l"],
+          ["fbl_4l", "z200ll"],
+          ["fbl_3l", "z199l"],
+          ["fbl_4l", "z100ll"],
+          ["fbl_3l", "z300l"],
+          ["fbl_4l", "z300ll"],
+          ["fbl_3l", "z200"],
+          {"beamDeform":250},
+          ["fbl_1l", "z200l"],
+          ["fbl_2l", "z200ll"],
+          ["fbl_1l", "z199l"],
+          ["fbl_2l", "z100ll"],
+          ["fbl_1l", "z200"],
+          {"breakGroup":"fog_light_R_attach"},
+          {"deformGroup":"fog_light_R_break"},
+          ["fbl_3r", "z200r"],
+          ["fbl_4r", "z200rr"],
+          ["fbl_3r", "z199r"],
+          ["fbl_4r", "z100rr"],
+          ["fbl_3r", "z300r"],
+          ["fbl_4r", "z300rr"],
+          ["fbl_3r", "z200"],
+          {"beamDeform":250},
+          ["fbl_1r", "z200r"],
+          ["fbl_2r", "z200rr"],
+          ["fbl_1r", "z199r"],
+          ["fbl_2r", "z100rr"],
+          ["fbl_1r", "z200"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"dragCoef":6},
+            {"triangleType":"NORMALTYPE"},
+            {"externalCollisionBias":"out"}
+            ["fbl_5r", "fbl_4r", "fbl_3r"],
+            ["fbl_1r", "fbl_5r", "fbl_3r"],
+            ["fbl_2r", "fbl_5r", "fbl_1r"],
+            ["fbl_4r", "fbl_5r", "fbl_2r"],
+
+            ["fbl_4l", "fbl_5l", "fbl_3l"],
+            ["fbl_5l", "fbl_1l", "fbl_3l"],
+            ["fbl_5l", "fbl_2l", "fbl_1l"],
+            ["fbl_5l", "fbl_4l", "fbl_2l"],
+           {"dragCoef":8},
+            {"triangleType":"NORMALTYPE"},
+    ],
+    "quads": [
+           ["id1:","id2:","id3:", "id4:"],
+           {"dragCoef":6},
+           {"externalCollisionBias":"out"}
+           ["fbl_2l","fbl_4l","fbl_3l""fbl_1l"],
+           ["fbl_3r","fbl_4r","fbl_2r""fbl_1r"],
+          {"dragCoef":8},
+           {"group":""},
+    ],
+},
+"LAZ695N_fogs_F_osvar": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Fog Lights (White)",
+        "value":600,
+    },
+
+    "slotType" : "LAZ695N_fogs_F",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         {"deformGroup":"fog_light_L_break", "deformMaterialBase":"generic_halogen", "deformMaterialDamaged":"LAZ695N_chrome"},
+         ["LAZ695N_foglight_L_osvar", ["fog_light_L"]],
+         {"deformGroup":"fog_light_L_break", "deformMaterialBase":"generic_halogen_glass", "deformMaterialDamaged":"LAZ695N_osvarfog_dmg"},
+         ["LAZ695N_fogglass_L_osvar", ["fog_light_L"],[], {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.5}],
+
+         {"deformGroup":"fog_light_R_break", "deformMaterialBase":"generic_halogen", "deformMaterialDamaged":"LAZ695N_chrome"},
+         ["LAZ695N_foglight_R_osvar", ["fog_light_R"]],
+         {"deformGroup":"fog_light_R_break", "deformMaterialBase":"generic_halogen_glass", "deformMaterialDamaged":"LAZ695N_osvarfog_dmg"},
+         ["LAZ695N_fogglass_R_osvar", ["fog_light_R"],[], {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.5}],
+         {"deformGroup":""},
+         {"deformSound":false, "deformVolume":false},
+         ["LAZ695N_foglightframe_L_osvar", ["fog_light_L"]],
+         ["LAZ695N_foglightframe_R_osvar", ["fog_light_R"]],
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]
+        {
+            "lightInnerAngle":0
+            "lightOuterAngle":120
+            "lightBrightness":0.35
+            "lightRange":30
+            "lightColor":{"r":255, "g":195, "b":070, "a":255},
+            "lightAttenuation":{"x":0, "y":1, "z":1}
+            "lightCastShadows":true
+            "flareName":"vehicleHeadLightFlare"
+            "flareScale":0.03
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512
+            "shadowSoftness":0.5
+        }
+        ["fog"    , "SPOTLIGHT"        , "fbl_1l", "fbl_2l", "fbl_4l", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.05, "y":0.5, "z":0},"deformGroup":"fog_light_L_break"}],
+        ["fog"    , "SPOTLIGHT"        , "fbl_1r", "fbl_2r", "fbl_4r", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.05, "y":0.5, "z":0},"deformGroup":"fog_light_R_break"}],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"collision":true},
+         {"selfCollision":true},
+         {"nodeWeight":0.35},
+         {"group":"fog_light_L"},
+         ["fbl_1l", 0.72423, -4.24410, 0.42679],
+         ["fbl_2l", 0.92784, -4.24410, 0.42679],
+         ["fbl_3l", 0.72423, -4.24410, 0.51479],
+         ["fbl_4l", 0.92784, -4.24410, 0.51479],
+         ["fbl_5l", 0.82135, -4.18210, 0.47079],
+
+         {"group":"fog_light_R"},
+         ["fbl_1r", -0.72423, -4.24410, 0.42679],
+         ["fbl_2r", -0.92784, -4.24410, 0.42679],
+         ["fbl_3r", -0.72423, -4.24410, 0.51479],
+         ["fbl_4r", -0.92784, -4.24410, 0.51479],
+         ["fbl_5r", -0.82135, -4.18210, 0.47079],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":301000,"beamDamp":30},
+          {"beamDeform":15000,"beamStrength":"FLT_MAX"},
+          //left_light
+          {"deformationTriggerRatio":0.02},
+          {"deformGroup":"fog_light_L_break"},
+          ["fbl_1l","fbl_2l"],
+          ["fbl_3l","fbl_4l"],
+          ["fbl_1l","fbl_3l"],
+          ["fbl_2l","fbl_4l"],
+
+          ["fbl_1l","fbl_4l"],
+          ["fbl_2l","fbl_3l"],
+
+          ["fbl_1l","fbl_5l"],
+          ["fbl_2l","fbl_5l"],
+          ["fbl_3l","fbl_5l"],
+          ["fbl_4l","fbl_5l"],
+
+          {"deformGroup":"fog_light_R_break"},
+          ["fbl_1r","fbl_2r"],
+          ["fbl_3r","fbl_4r"],
+          ["fbl_1r","fbl_3r"],
+          ["fbl_2r","fbl_4r"],
+
+          ["fbl_1r","fbl_4r"],
+          ["fbl_2r","fbl_3r"],
+
+          ["fbl_1r","fbl_5r"],
+          ["fbl_2r","fbl_5r"],
+          ["fbl_3r","fbl_5r"],
+          ["fbl_4r","fbl_5r"],
+          {"deformGroup":""},
+
+          //attach
+          {"beamSpring":301000,"beamDamp":50},
+          {"beamDeform":3500,"beamStrength":22000},
+          {"deformationTriggerRatio":0.05},
+          {"deformGroup":"fog_light_L_break"},
+          {"breakGroup":"fog_light_L_attach"},
+          ["fbl_3l", "z200l"],
+          ["fbl_4l", "z200ll"],
+          ["fbl_3l", "z199l"],
+          ["fbl_4l", "z100ll"],
+          ["fbl_3l", "z300l"],
+          ["fbl_4l", "z300ll"],
+          ["fbl_3l", "z200"],
+          {"beamDeform":250},
+          ["fbl_1l", "z200l"],
+          ["fbl_2l", "z200ll"],
+          ["fbl_1l", "z199l"],
+          ["fbl_2l", "z100ll"],
+          ["fbl_1l", "z200"],
+          {"breakGroup":"fog_light_R_attach"},
+          {"deformGroup":"fog_light_R_break"},
+          ["fbl_3r", "z200r"],
+          ["fbl_4r", "z200rr"],
+          ["fbl_3r", "z199r"],
+          ["fbl_4r", "z100rr"],
+          ["fbl_3r", "z300r"],
+          ["fbl_4r", "z300rr"],
+          ["fbl_3r", "z200"],
+          {"beamDeform":250},
+          ["fbl_1r", "z200r"],
+          ["fbl_2r", "z200rr"],
+          ["fbl_1r", "z199r"],
+          ["fbl_2r", "z100rr"],
+          ["fbl_1r", "z200"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"dragCoef":6},
+            {"triangleType":"NORMALTYPE"},
+            {"externalCollisionBias":"out"}
+            ["fbl_5r", "fbl_4r", "fbl_3r"],
+            ["fbl_1r", "fbl_5r", "fbl_3r"],
+            ["fbl_2r", "fbl_5r", "fbl_1r"],
+            ["fbl_4r", "fbl_5r", "fbl_2r"],
+
+            ["fbl_4l", "fbl_5l", "fbl_3l"],
+            ["fbl_5l", "fbl_1l", "fbl_3l"],
+            ["fbl_5l", "fbl_2l", "fbl_1l"],
+            ["fbl_5l", "fbl_4l", "fbl_2l"],
+           {"dragCoef":8},
+            {"triangleType":"NORMALTYPE"},
+    ],
+    "quads": [
+           ["id1:","id2:","id3:", "id4:"],
+           {"dragCoef":6},
+           {"externalCollisionBias":"out"}
+           ["fbl_2l","fbl_4l","fbl_3l""fbl_1l"],
+           ["fbl_3r","fbl_4r","fbl_2r""fbl_1r"],
+          {"dragCoef":8},
+           {"group":""},
+    ],
+},
+"LAZ695N_fogs_F_round": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Fog Lights Round (Yellow)",
+        "value":600,
+    },
+
+    "slotType" : "LAZ695N_fogs_F_round",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         {"deformGroup":"fog_light_L_break", "deformMaterialBase":"generic_halogen", "deformMaterialDamaged":"LAZ695N_chrome"},
+         ["LAZ695N_foglight_L_round", ["fog_light_L"]],
+         {"deformGroup":"fog_light_L_break", "deformMaterialBase":"generic_halogen_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         ["LAZ695N_fogglass_L_round", ["fog_light_L"],[], {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.5}],
+
+         {"deformGroup":"fog_light_R_break", "deformMaterialBase":"generic_halogen", "deformMaterialDamaged":"LAZ695N_chrome"},
+         ["LAZ695N_foglight_R_round", ["fog_light_R"]],
+         {"deformGroup":"fog_light_R_break", "deformMaterialBase":"generic_halogen_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         ["LAZ695N_fogglass_R_round", ["fog_light_R"],[], {"deformSound":"event:>Destruction>Vehicle>Glass>extglassbreaksound3", "deformVolume":0.5}],
+         {"deformGroup":""},
+         {"deformSound":false, "deformVolume":false},
+         ["LAZ695N_foglightframe_L_round", ["fog_light_L"]],
+         ["LAZ695N_foglightframe_R_round", ["fog_light_R"]],
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]
+        {
+            "lightInnerAngle":0
+            "lightOuterAngle":120
+            "lightBrightness":0.35
+            "lightRange":30
+            "lightColor":{"r":255, "g":250, "b":50, "a":255}
+            "lightAttenuation":{"x":0, "y":1, "z":1}
+            "lightCastShadows":true
+            "flareName":"vehicleHeadLightFlare"
+            "flareScale":0.03
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512
+            "shadowSoftness":0.5
+        }
+        ["fog"    , "SPOTLIGHT"        , "fbl_1l", "fbl_2l", "fbl_4l", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.05, "y":0.5, "z":0},"deformGroup":"fog_light_L_break"}],
+        ["fog"    , "SPOTLIGHT"        , "fbl_1r", "fbl_2r", "fbl_4r", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":-0.05, "y":0.5, "z":0},"deformGroup":"fog_light_R_break"}],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"collision":true},
+         {"selfCollision":true},
+         {"nodeWeight":0.35},
+         {"group":"fog_light_L"},
+         ["fbl_1l", 0.72423, -4.24410, 0.42679],
+         ["fbl_2l", 0.92784, -4.24410, 0.42679],
+         ["fbl_3l", 0.72423, -4.24410, 0.51479],
+         ["fbl_4l", 0.92784, -4.24410, 0.51479],
+         ["fbl_5l", 0.82135, -4.18210, 0.47079],
+
+         {"group":"fog_light_R"},
+         ["fbl_1r", -0.72423, -4.24410, 0.42679],
+         ["fbl_2r", -0.92784, -4.24410, 0.42679],
+         ["fbl_3r", -0.72423, -4.24410, 0.51479],
+         ["fbl_4r", -0.92784, -4.24410, 0.51479],
+         ["fbl_5r", -0.82135, -4.18210, 0.47079],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":301000,"beamDamp":30},
+          {"beamDeform":15000,"beamStrength":"FLT_MAX"},
+          //left_light
+          {"deformationTriggerRatio":0.02},
+          {"deformGroup":"fog_light_L_break"},
+          ["fbl_1l","fbl_2l"],
+          ["fbl_3l","fbl_4l"],
+          ["fbl_1l","fbl_3l"],
+          ["fbl_2l","fbl_4l"],
+
+          ["fbl_1l","fbl_4l"],
+          ["fbl_2l","fbl_3l"],
+
+          ["fbl_1l","fbl_5l"],
+          ["fbl_2l","fbl_5l"],
+          ["fbl_3l","fbl_5l"],
+          ["fbl_4l","fbl_5l"],
+
+          {"deformGroup":"fog_light_R_break"},
+          ["fbl_1r","fbl_2r"],
+          ["fbl_3r","fbl_4r"],
+          ["fbl_1r","fbl_3r"],
+          ["fbl_2r","fbl_4r"],
+
+          ["fbl_1r","fbl_4r"],
+          ["fbl_2r","fbl_3r"],
+
+          ["fbl_1r","fbl_5r"],
+          ["fbl_2r","fbl_5r"],
+          ["fbl_3r","fbl_5r"],
+          ["fbl_4r","fbl_5r"],
+          {"deformGroup":""},
+
+          //attach
+          {"beamSpring":301000,"beamDamp":50},
+          {"beamDeform":3500,"beamStrength":22000},
+          {"deformationTriggerRatio":0.05},
+          {"deformGroup":"fog_light_L_break"},
+          {"breakGroup":"fog_light_L_attach"},
+          ["fbl_3l", "z200l"],
+          ["fbl_4l", "z200ll"],
+          ["fbl_3l", "z199l"],
+          ["fbl_4l", "z100ll"],
+          ["fbl_3l", "z300l"],
+          ["fbl_4l", "z300ll"],
+          ["fbl_3l", "z200"],
+          {"beamDeform":250},
+          ["fbl_1l", "z200l"],
+          ["fbl_2l", "z200ll"],
+          ["fbl_1l", "z199l"],
+          ["fbl_2l", "z100ll"],
+          ["fbl_1l", "z200"],
+          {"breakGroup":"fog_light_R_attach"},
+          {"deformGroup":"fog_light_R_break"},
+          ["fbl_3r", "z200r"],
+          ["fbl_4r", "z200rr"],
+          ["fbl_3r", "z199r"],
+          ["fbl_4r", "z100rr"],
+          ["fbl_3r", "z300r"],
+          ["fbl_4r", "z300rr"],
+          ["fbl_3r", "z200"],
+          {"beamDeform":250},
+          ["fbl_1r", "z200r"],
+          ["fbl_2r", "z200rr"],
+          ["fbl_1r", "z199r"],
+          ["fbl_2r", "z100rr"],
+          ["fbl_1r", "z200"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"dragCoef":6},
+            {"triangleType":"NORMALTYPE"},
+            {"externalCollisionBias":"out"}
+            ["fbl_5r", "fbl_4r", "fbl_3r"],
+            ["fbl_1r", "fbl_5r", "fbl_3r"],
+            ["fbl_2r", "fbl_5r", "fbl_1r"],
+            ["fbl_4r", "fbl_5r", "fbl_2r"],
+
+            ["fbl_4l", "fbl_5l", "fbl_3l"],
+            ["fbl_5l", "fbl_1l", "fbl_3l"],
+            ["fbl_5l", "fbl_2l", "fbl_1l"],
+            ["fbl_5l", "fbl_4l", "fbl_2l"],
+           {"dragCoef":8},
+            {"triangleType":"NORMALTYPE"},
+    ],
+    "quads": [
+           ["id1:","id2:","id3:", "id4:"],
+           {"dragCoef":6},
+           {"externalCollisionBias":"out"}
+           ["fbl_2l","fbl_4l","fbl_3l""fbl_1l"],
+           ["fbl_3r","fbl_4r","fbl_2r""fbl_1r"],
+          {"dragCoef":8},
+           {"group":""},
+    ],
+},
+}

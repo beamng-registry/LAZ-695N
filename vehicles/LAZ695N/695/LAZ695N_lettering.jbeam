@@ -1,0 +1,160 @@
+{
+"LAZ695N_emblem_black": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Late Emblem Black", 
+    }
+       "slotType" : "LAZ695N_emblem", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_emblem_black", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_emblem_chrome": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Late Emblem Chrome", 
+    }
+       "slotType" : "LAZ695N_emblem", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_emblem_chrome", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_emblem_colored": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Late Emblem Colored", 
+    }
+       "slotType" : "LAZ695N_emblem", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_emblem_colored", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_emblem_early": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Early Emblem", 
+    }
+       "slotType" : "LAZ695N_emblem", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_emblem_early", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_emblem_preearly": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Pre-Early Emblem", 
+    }
+       "slotType" : "LAZ695N_emblem", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_emblem_old", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_handrails_F": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Handrails", 
+    }
+       "slotType" : "LAZ695N_handrails_F", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_handrail_FL", ["LAZ695N_body_g"]],
+		["LAZ695N_handrail_FR", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_handrails_F_luk": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Handrails", 
+    }
+       "slotType" : "LAZ695N_handrails_F_luk", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_handrail_FL", ["LAZ695N_body_g"]],
+		["LAZ695N_handrail_FR", ["LAZ695N_accessdoor_F"]],
+		
+	],
+ },
+"LAZ695N_lettering_engdoor": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Lettering Chrome LVIV", 
+    }
+       "slotType" : "LAZ695N_lettering_engdoor", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_lettering_engdoor", ["LAZ695N_enginedoor"]],
+		
+	],
+ },
+"LAZ695N_lettering_engdoor_colored": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Lettering Colored LVIV", 
+    }
+       "slotType" : "LAZ695N_lettering_engdoor", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_lettering_engdoor_colored", ["LAZ695N_enginedoor"]],
+		
+	],
+ },
+"LAZ695N_lettering_dmg_engdoor": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Lettering Damaged LVIV", 
+    }
+       "slotType" : "LAZ695N_lettering_engdoor", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_lettering_dmg_engdoor", ["LAZ695N_enginedoor"]],
+		
+	],
+ },
+"LAZ695N_side_lettering_tourist": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Lettering Tourist", 
+    }
+       "slotType" : "LAZ695N_side_lettering", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_tourist_side_lettering", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_side_lettering_tourist_F": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Lettering Tourist", 
+    }
+       "slotType" : "LAZ695N_tourist_F", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_tourist_F_lettering", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_handle_lettering": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Lettering LAZ", 
+    }
+       "slotType" : "LAZ695N_handle_lettering", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_handle_lettering", ["LAZ695N_enginedoor"]],
+		
+	],
+ },
+}

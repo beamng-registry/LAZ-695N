@@ -34,6 +34,7 @@ local curWaypoint = 1
 local lastApproach = -1
 
 local function toggleDoors()
+    log("I",logTag,"Toggling doors, currently open = "..tostring(M.doorsOpen))
   if wheelspeed > 2 and hasSafetyInterlock then
     return
   end
@@ -44,22 +45,22 @@ local function toggleDoors()
     doorLever = 1
   end
 
-  controller.getControllerSafe('doors').toggleBeamMinMax({'frontDoors', 'rearDoors'})
+  controller.getControllerSafe('doors').toggleBeamMinMax({'frontDoors'})
 end
 
 local function kneel()
   if wheelspeed >= 2 and hasSafetyInterlock then
     return
   end
-
-  controller.getControllerSafe('airbags').setBeamPressureLevel({'rightAxle'}, 'kneelPressure')
+  M.isKneeling = true
 end
 
 local function toggleKneel()
+  log("I",logTag,"Toggling kneel, currently kneeling = "..tostring(M.isKneeling))
   if M.isKneeling then
-    controller.getControllerSafe('airbags').setBeamDefault({'rightAxle', 'leftAxle'})
+    M.isKneeling = false
   else
-    kneel()
+    M.isKneeling = true
   end
 end
 
@@ -78,13 +79,10 @@ local function updateGFX(dt)
     M.doorsOpen = frontDoorOpen or rearDoorOpen
   end
 
-  if airbagController then
-    M.isKneeling = airbagController.isBeamGroupAtPressureLevel("rightAxle","kneelPressure")
-    M.isSupensionRaised = airbagController.isBeamGroupAtPressureLevel("rightAxle","maxPressure")
-  end
-
   wheelspeed = electrics.values.wheelspeed or 0
 
+  -- this bus do not support kneeling, so just kneel when doors open so bus can pass kneel checks in triggers, but not actually do anything
+  M.isKneeling = M.doorsOpen
   if (M.doorsOpen or M.isKneeling) and wheelspeed < 2 and hasSafetyInterlock then
     electrics.values.throttle = 0
     electrics.values.brake = 1

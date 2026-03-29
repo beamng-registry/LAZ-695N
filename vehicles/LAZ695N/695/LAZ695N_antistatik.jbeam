@@ -1,0 +1,71 @@
+{
+"LAZ695N_zazemlitel": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Antistatik", 
+    }
+       "slotType" : "LAZ695N_zazemlitel", 
+       "flexbodies": [
+	 ["mesh", "[group]:", "nonFlexMaterials"],
+         {"deformGroup":"zazemlitel_R_break", "deformMaterialBase":"generic_halogen_glass", "deformMaterialDamaged":"invis"},
+	 ["LAZ695N_zazemlitel_R", ["LAZ695N_body_g", "LAZ695N_antistatiks"]],	
+         {"deformGroup":"zazemlitel_L_break", "deformMaterialBase":"generic_halogen_glass", "deformMaterialDamaged":"invis"},
+	 ["LAZ695N_zazemlitel_L", ["LAZ695N_body_g", "LAZ695N_antistatiks"]],	
+         {"deformGroup":""},
+	],
+    "rails": {
+          "Railants2l":{"links:":["z603l", "z109ll"], "looped":false, "capped":true},
+          "Railants2r":{"links:":["z603r", "z109rr"], "looped":false, "capped":true},
+    },
+    "slidenodes": [
+         ["id:", "railName", "attached", "fixToRail", "tolerance", "spring", "strength", "capStrength"],
+         ["ants2r", "Railants2r", true, true, 0, 8001000, "FLT_MAX", "FLT_MAX"],
+         ["ants2l", "Railants2l", true, true, 0, 8001000, "FLT_MAX", "FLT_MAX"],
+    ],
+    "nodes": [
+		["id", "posX", "posY", "posZ"],
+		{"frictionCoef":0.5},
+		{"nodeWeight":3.0},
+		{"nodeMaterial":"|NM_RUBBER"},
+		{"selfCollision":true}
+		{"collision":true}
+		//["ants2r", -0.79465, 4.85453, 0.35000],
+		//["ants2l", 0.79465, 4.85453, 0.35000],
+		{"group":"LAZ695N_antistatiks"},
+		["ants1r", -0.79465, 4.86453, 0.01000],
+		["ants1l", 0.79465, 4.86453, 0.01000],
+		{"selfCollision":false}
+		{"collision":false}
+		{"group":""},
+    ],
+    "beams": [
+		["id1:", "id2:", "options"],      
+		//mudflap
+		{"beamSpring":3000,"beamDamp":200},
+		{"beamDeform":65000,"beamStrength":65000},
+		//right
+                {"deformationTriggerRatio":0.05},
+                {"deformGroup":"zazemlitel_R_break"},
+		["z603r","ants1r"],  
+		["z603","ants1r"],  
+		["z109rr","ants1r"],
+                //left
+                {"deformationTriggerRatio":0.05},
+                {"deformGroup":"zazemlitel_L_break"},
+		["z603l","ants1l"],  
+		["z603","ants1l"],  
+		["z109ll","ants1l"],
+                {"deformGroup":""},
+	        //swing damping
+		{"beamPrecompression":1, "beamType":"|BOUNDED", "beamLongBound":0.3, "beamShortBound":0.15},
+		{"beamSpring":0,"beamDamp":100},
+		{"beamLimitSpring":2001000,"beamLimitDamp":100},
+		{"breakGroup":"zazemlitel_R"},
+		["ants1r","z108rr"{"beamLongBound":0.35, "beamShortBound":0.15}],
+		{"breakGroup":"zazemlitel_L"},
+		["ants1l","z108ll"{"beamLongBound":0.35, "beamShortBound":0.15}],
+		{"breakGroup":""},
+		{"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},    
+    ],
+ },
+}

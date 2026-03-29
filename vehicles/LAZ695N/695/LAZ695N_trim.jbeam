@@ -1,0 +1,287 @@
+{
+"LAZ695N_sidetrim": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Side Trim Late", 
+    }
+       "slotType" : "LAZ695N_sidetrim", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_molding", ["LAZ695N_body_g"]],
+		["LAZ695N_molding_zad", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_sidetrim_colored": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Side Trim Late Colored", 
+    }
+       "slotType" : "LAZ695N_sidetrim", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_molding_colored", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_sidetrim_preearly": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Side Trim Pre-Early", 
+    }
+       "slotType" : "LAZ695N_sidetrim", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_molding_early", ["LAZ695N_body_g"]],
+		["LAZ695N_molding_zad_old", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_sidetrim_preearly_colored": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Side Trim Pre-Early Colored", 
+    }
+       "slotType" : "LAZ695N_sidetrim", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_molding_early_colored", ["LAZ695N_body_g"]],
+		["LAZ695N_molding_zad_colored", ["LAZ695N_body_g"]],
+		["LAZ695N_molding_engdoor_colored", ["LAZ695N_enginedoor"]],
+	],
+ },
+"LAZ695N_sidetrim_early": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Side Trim Early", 
+    }
+       "slotType" : "LAZ695N_sidetrim", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_molding_old", ["LAZ695N_body_g"]],
+		["LAZ695N_molding_zad_old", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_sidetrim_695T": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Side Trim", 
+    }
+       "slotType" : "LAZ695N_sidetrim_695T", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_molding_695T", ["LAZ695N_body_g"]],
+	],
+ },
+"LAZ695N_engdoorhandle_black": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Black Handle", 
+    }
+       "slotType" : "LAZ695N_engdoorhandle", 
+       "slots": [
+           ["type", "default", "description"],
+           ["LAZ695N_handle_lettering", "", "Lettering"],
+       ],
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_engdoor_handle_black", ["LAZ695N_enginedoor"]],
+         	{"deformGroup":"taillight_R_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         	["LAZ695N_handlelight_R", ["LAZ695N_enginedoor"],[]{"pos":{"x":0.0, "y":0.0, "z":0.0}, "deformSound":"event:>Destruction>Vehicle>Glass>glassbreaksound2", "deformVolume":0.5}],
+        	{"deformGroup":"taillight_L_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+        	["LAZ695N_handlelight_L", ["LAZ695N_enginedoor"],[]{"pos":{"x":0.0, "y":0.0, "z":0.0}, "deformSound":"event:>Destruction>Vehicle>Glass>glassbreaksound2", "deformVolume":0.5}],
+        	{"deformGroup":""},
+	],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"],
+        //license plate lights
+        {
+            "lightInnerAngle":80,
+            "lightOuterAngle":170,
+            "lightRange":0.45,
+            "lightColor":{"r":255, "g":195, "b":070, "a":255}
+            "lightAttenuation":{"x":0, "y":1, "z":1},
+            "lightCastShadows":false,
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+        },
+        ["lowhighbeam", "SPOTLIGHT", "ed3", "ed6", "ed5", {"x":-55, "y":30, "z":280}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.616, "y":0.05, "z":0.050},"flareScale":0.0005,"lightBrightness":1.2,"deformGroup":"taillight_L_break"}],
+        ["lowhighbeam", "SPOTLIGHT", "ed5", "ed4", "ed3", {"x":-55, "y":30, "z":280}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.616, "y":0.05, "z":-0.050},"flareScale":0.0005,"lightBrightness":1.2,"deformGroup":"taillight_R_break"}],
+     ],
+ },
+"LAZ695N_engdoorhandle_color": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Colored Handle", 
+    }
+       "slotType" : "LAZ695N_engdoorhandle", 
+       "slots": [
+           ["type", "default", "description"],
+           ["LAZ695N_handle_lettering", "", "Lettering"],
+       ],
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_engdoor_handle_color", ["LAZ695N_enginedoor"]],
+         	{"deformGroup":"taillight_R_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+         	["LAZ695N_handlelight_R", ["LAZ695N_enginedoor"],[]{"pos":{"x":0.0, "y":0.0, "z":0.0}, "deformSound":"event:>Destruction>Vehicle>Glass>glassbreaksound2", "deformVolume":0.5}],
+        	{"deformGroup":"taillight_L_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+        	["LAZ695N_handlelight_L", ["LAZ695N_enginedoor"],[]{"pos":{"x":0.0, "y":0.0, "z":0.0}, "deformSound":"event:>Destruction>Vehicle>Glass>glassbreaksound2", "deformVolume":0.5}],
+        	{"deformGroup":""},
+	],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"],
+        //license plate lights
+        {
+            "lightInnerAngle":80,
+            "lightOuterAngle":170,
+            "lightRange":0.45,
+            "lightColor":{"r":255, "g":195, "b":070, "a":255}
+            "lightAttenuation":{"x":0, "y":1, "z":1},
+            "lightCastShadows":false,
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+        },
+        ["lowhighbeam", "SPOTLIGHT", "ed3", "ed6", "ed5", {"x":-55, "y":30, "z":280}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.616, "y":0.05, "z":0.050},"flareScale":0.0005,"lightBrightness":1.2,"deformGroup":"taillight_L_break"}],
+        ["lowhighbeam", "SPOTLIGHT", "ed5", "ed4", "ed3", {"x":-55, "y":30, "z":280}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.616, "y":0.05, "z":-0.050},"flareScale":0.0005,"lightBrightness":1.2,"deformGroup":"taillight_R_break"}],
+     ],
+ },
+"LAZ695N_engdoorhandle_early": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Early Handle", 
+    }
+       "slotType" : "LAZ695N_engdoorhandle", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_engdoor_handle_early", ["LAZ695N_enginedoor"]],
+        	{"deformGroup":"taillight_L_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+        	["LAZ695N_handlelight_L_early", ["LAZ695N_enginedoor"],[]{"pos":{"x":0.0, "y":0.0, "z":0.0}, "deformSound":"event:>Destruction>Vehicle>Glass>glassbreaksound2", "deformVolume":0.5}],
+        	{"deformGroup":""},
+	],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"],
+        //license plate lights
+        {
+            "lightInnerAngle":80,
+            "lightOuterAngle":170,
+            "lightRange":0.45,
+            "lightColor":{"r":255, "g":195, "b":070, "a":255}
+            "lightAttenuation":{"x":0, "y":1, "z":1},
+            "lightCastShadows":false,
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+        },
+        ["lowhighbeam", "SPOTLIGHT", "ed3", "ed6", "ed5", {"x":-55, "y":30, "z":280}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.606, "y":-0.115, "z":0.050},"flareScale":0.0005,"lightBrightness":1.2,"deformGroup":"taillight_L_break"}],
+     ],
+ },
+"LAZ695N_engdoorhandle_gaz": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"License Plate Light", 
+    }
+       "slotType" : "LAZ695N_engdoorhandle", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_engdoor_handle_light", ["LAZ695N_enginedoor"]],
+        	{"deformGroup":"taillight_L_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"},
+        	["LAZ695N_handlelight_L_gaz", ["LAZ695N_enginedoor"],[]{"pos":{"x":0.0, "y":0.0, "z":0.0}, "deformSound":"event:>Destruction>Vehicle>Glass>glassbreaksound2", "deformVolume":0.5}],
+        	{"deformGroup":""},
+	],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"],
+        //license plate lights
+        {
+            "lightInnerAngle":80,
+            "lightOuterAngle":170,
+            "lightRange":0.45,
+            "lightColor":{"r":255, "g":195, "b":070, "a":255}
+            "lightAttenuation":{"x":0, "y":1, "z":1},
+            "lightCastShadows":false,
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+        },
+        ["lowhighbeam", "SPOTLIGHT", "ed3", "ed6", "ed5", {"x":-55, "y":30, "z":280}, {"x":0, "y":0, "z":0}, {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.606, "y":-0.115, "z":0.050},"flareScale":0.0005,"lightBrightness":1.2,"deformGroup":"taillight_L_break"}],
+     ],
+ },
+"LAZ695N_reflectors_R_red": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Rear Reflectors Red", 
+    }
+       "slotType" : "LAZ695N_reflectors_R", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_reflectors_R_red", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_reflectors_R_orange": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Rear Reflectors Orange", 
+    }
+       "slotType" : "LAZ695N_reflectors_R", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_reflectors_R_orange", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_side_reflectors_red": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Side Reflectors Red", 
+    }
+       "slotType" : "LAZ695N_side_reflectors", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_side_reflectors_red", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_side_reflectors_orange": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Side Reflectors Orange 1", 
+    }
+       "slotType" : "LAZ695N_side_reflectors", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_side_reflectors_orange", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_side_reflectors_orange_2": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Side Reflectors Orange 2", 
+    }
+       "slotType" : "LAZ695N_side_reflectors", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_side_reflectors_orange_2", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_reflectors_R_triangle": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Triangle Reflectors Light", 
+    }
+       "slotType" : "LAZ695N_reflectors_triangle", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_reflectors_triangle", ["LAZ695N_body_g"]],
+		
+	],
+ },
+"LAZ695N_reflectors_R_triangle_black": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Triangle Reflectors Dark", 
+    }
+       "slotType" : "LAZ695N_reflectors_triangle", 
+       "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_reflectors_triangle_black", ["LAZ695N_body_g"]],
+		
+	],
+ },
+}

@@ -1,0 +1,244 @@
+{
+"LAZ695N_sunroof_1": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Front Sunroof",
+        "value":200,
+    },
+    "slotType":"LAZ695N_sunroof_1",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        //body
+        ["LAZ695N_luk_1", ["LAZ695N_sunroof_1"]],
+        ["LAZ695N_luk_1_int", ["LAZ695N_sunroof_1"]],
+    ],
+    "hydros": [
+            ["id1:","id2:"],
+            {"beamSpring":1001000,"beamDamp":120},
+            {"beamDeform":20535,"beamStrength":11250},
+            {"beamPrecompression":1.0},
+            {"breakGroupType":1},
+            {"breakGroup":"sunroof_1"},
+            {"disableTriangleBreaking":true},
+            ["sr11","z502", {"inputSource":"sunroof_1Open","inLimit":0,"outLimit":0.55,"inRate":0.15,"outRate":0.15,"inputFactor":0.08, "optional":true}],
+            ["sr11","z502", {"inputSource":"sunroof_1Open","inLimit":0,"outLimit":0.55,"inRate":0.15,"outRate":0.15,"inputFactor":-0.05, "optional":true}],
+            {"disableTriangleBreaking":false},
+            {"beamPrecompression":1.0},
+            {"breakGroupType":0},
+            {"breakGroup":""},
+    ],
+	"nodes":[
+	["id", "posX", "posY", "posZ"],
+	{"frictionCoef":0.5},
+        {"nodeMaterial":"|NM_PLASTIC"},
+        {"selfCollision":false},
+        {"collision":true},
+        {"nodeWeight":1.0},
+        {"group":"LAZ695N_sunroof_1"},
+	["sr1l0", -0.63541, -1.86521, 2.92338],
+	["sr11", -0.00000, -1.86521, 3.03538, {"collision":false}],
+	["sr1r2", 0.63541, -1.86521, 2.92338],
+	["sr1l3", -0.63541, -2.43834, 2.92638],
+	["sr1r4", 0.63541, -2.43834, 2.92638],
+	["sr15", -0.00000, -2.14111, 2.68938, {"collision":false}],
+	{"group":""},
+	],
+		//--Beams--
+	"beams":[
+	["id1:", "id2:"],
+	{"deformLimitExpansion":1.1},
+        {"beamSpring":1501000,"beamDamp":120},
+        {"beamDeform":60000,"beamStrength":"FLT_MAX"},
+        {"deformationTriggerRatio":0.1},
+
+
+		["sr1l3","sr1l0"],
+		["sr1r2","sr1r4"],
+		["sr1l0","sr1r2"],
+		["sr1r4","sr1l3"],
+		["sr1r2","sr11"],
+		["sr1l0","sr11"],
+		["sr1l3","sr11"],
+		["sr1r2","sr1l3"],
+		["sr1r4","sr1l0"],
+		["sr1r4","sr11"],
+
+		["sr15","sr11"],
+		["sr15","sr1r2"],
+		["sr15","sr1l3"],
+		["sr15","sr1r4"],
+		["sr15","sr1l0"],
+
+	//attach
+	{"beamSpring":301000,"beamDamp":120},
+        {"beamDeform":5535,"beamStrength":11250},
+        {"disableTriangleBreaking":true},
+        {"breakGroup":"sunroof_1"},
+		["sr1l0","z502ll"],
+		["sr1l0","z502l"],
+		["sr1l0","z502"],
+		["sr1l0","z502r"],
+		["sr1l0","z502rr"],
+		["sr1l0","z503"],
+		//sort of necessary to have these going down to the floor because otherwise there is nothing directly below the pivot
+		["sr1l0","z501", {"breakGroupType":1}], //--breakGroupType 1 to avoid any random breakages
+
+		["sr1r2","z502rr"],
+		["sr1r2","z502r"],
+		["sr1r2","z502"],
+		["sr1r2","z502l"],
+		["sr1r2","z502ll"],
+		["sr1r2","z504"],
+		//ditto
+		["sr1r2","z501", {"breakGroupType":1}],
+
+		//damper
+		{"beamSpring":0,"beamDamp":500},
+		["sr1l3","z501l"],
+		["sr1r4","z501r"],
+
+	//trailing end support to not flip inside out
+	//hood support (anticlip)
+        {"beamSpring":10000800,"beamDamp":80,"beamDeform":505000,"beamStrength":"FLT_MAX"},
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10},
+        ["sr1l3","z501ll"],
+        ["sr1r4","z501rr"],
+
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        {"breakGroup":""},
+
+	],
+	//--Collision Triangles--
+	"triangles":[
+	["id1:", "id2:", "id3:"],
+	{"group":"LAZ695N_sunroof_1"},
+        {"dragCoef":3},
+        {"groundModel":"plastic"},
+	{"triangleType":"NONCOLLIDABLE"}
+        ["sr1l0","sr1l3","sr1r4"],
+        ["sr1l0","sr1r4","sr1r2"],
+	{"triangleType":""}
+	],
+},
+"LAZ695N_sunroof_2": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Rear Sunroof",
+        "value":200,
+    },
+    "slotType":"LAZ695N_sunroof_2",
+	"flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        //body
+        ["LAZ695N_luk_2", ["LAZ695N_sunroof_2"]],
+        ["LAZ695N_luk_2_int", ["LAZ695N_sunroof_2"]],
+    ],
+    "hydros": [
+            ["id1:","id2:"],
+            {"beamSpring":1001000,"beamDamp":120},
+            {"beamDeform":20535,"beamStrength":11250},
+            {"beamPrecompression":1.0},
+            {"breakGroupType":1},
+            {"breakGroup":"sunroof_2"},
+            {"disableTriangleBreaking":true},
+            ["sr21","z507", {"inputSource":"sunroof_2Open","inLimit":0,"outLimit":0.55,"inRate":0.15,"outRate":0.15,"inputFactor":0.08, "optional":true}],
+            ["sr21","z507", {"inputSource":"sunroof_2Open","inLimit":0,"outLimit":0.55,"inRate":0.15,"outRate":0.15,"inputFactor":-0.05, "optional":true}],
+            {"disableTriangleBreaking":false},
+            {"beamPrecompression":1.0},
+            {"breakGroupType":0},
+            {"breakGroup":""},
+    ],
+	"nodes":[
+	["id", "posX", "posY", "posZ"],
+	{"frictionCoef":0.5},
+        {"nodeMaterial":"|NM_PLASTIC"},
+        {"selfCollision":false},
+        {"collision":true},
+        {"nodeWeight":1.0},
+        {"group":"LAZ695N_sunroof_2"},
+	["sr2l0", -0.63541, 2.28479, 2.92338],
+	["sr21", 0.00000, 2.28479, 3.03538, {"collision":false}],
+	["sr2r2", 0.63541, 2.28479, 2.92338],
+	["sr2l3", -0.63541, 1.71166, 2.92638],
+	["sr2r4", 0.63541, 1.71166, 2.92638],
+	["sr25", 0.00000, 2.00889, 2.68938, {"collision":false}],
+	{"group":""},
+	],
+		//--Beams--
+	"beams":[
+	["id1:", "id2:"],
+	{"deformLimitExpansion":1.1},
+        {"beamSpring":1501000,"beamDamp":120},
+        {"beamDeform":60000,"beamStrength":"FLT_MAX"},
+        {"deformationTriggerRatio":0.1},
+
+
+		["sr2l3","sr2l0"],
+		["sr2r2","sr2r4"],
+		["sr2l0","sr2r2"],
+		["sr2r4","sr2l3"],
+		["sr2r2","sr21"],
+		["sr2l0","sr21"],
+		["sr2l3","sr21"],
+		["sr2r2","sr2l3"],
+		["sr2r4","sr2l0"],
+		["sr2r4","sr21"],
+
+		["sr25","sr21"],
+		["sr25","sr2r2"],
+		["sr25","sr2l3"],
+		["sr25","sr2r4"],
+		["sr25","sr2l0"],
+
+	//attach
+	{"beamSpring":301000,"beamDamp":120},
+        {"beamDeform":5535,"beamStrength":11250},
+        {"disableTriangleBreaking":true},
+        {"breakGroup":"sunroof_2"},
+		["sr2l0","z507ll"],
+		["sr2l0","z507l"],
+		["sr2l0","z507"],
+		["sr2l0","z507r"],
+		["sr2l0","z507rr"],
+		["sr2l0","z508"],
+		//sort of necessary to have these going down to the floor because otherwise there is nothing directly below the pivot
+		["sr2l0","z506", {"breakGroupType":1}], //--breakGroupType 1 to avoid any random breakages
+
+		["sr2r2","z507rr"],
+		["sr2r2","z507r"],
+		["sr2r2","z507"],
+		["sr2r2","z507l"],
+		["sr2r2","z507ll"],
+		["sr2r2","z508"],
+		//ditto
+		["sr2r2","z506", {"breakGroupType":1}],
+
+		//damper
+		{"beamSpring":0,"beamDamp":500},
+		["sr2l3","z506l"],
+		["sr2r4","z506r"],
+
+	//trailing end support to not flip inside out
+	//hood support (anticlip)
+        {"beamSpring":10000800,"beamDamp":80,"beamDeform":505000,"beamStrength":"FLT_MAX"},
+        {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":10},
+        ["sr2l3","z506ll"],
+        ["sr2r4","z506rr"],
+
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        {"breakGroup":""},
+
+	],
+	//--Collision Triangles--
+	"triangles":[
+	["id1:", "id2:", "id3:"],
+	{"group":"LAZ695N_sunroof_2"},
+        {"dragCoef":3},
+        {"groundModel":"plastic"},
+	{"triangleType":"NONCOLLIDABLE"}
+        ["sr2l0","sr2l3","sr2r4"],
+        ["sr2l0","sr2r4","sr2r2"],
+	{"triangleType":""}
+	],
+},
+}

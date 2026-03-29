@@ -24,6 +24,7 @@
     "controller": [
         ["fileName"],
         ["vehicleController", {}],
+        ["bus"],
         ["pneumatics", {"name":"doors"}],
         ["pneumatics", {"name":"airbags"}],
         ["airbrakes"]

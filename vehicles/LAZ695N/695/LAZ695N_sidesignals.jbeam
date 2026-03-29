@@ -1,0 +1,205 @@
+{
+"LAZ695N_sidesignals": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Side Signals Round",
+        "value":1500,
+    }
+    "slotType" : "LAZ695N_sidesignals",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"], 
+         ["LAZ695N_signalframe_L", ["LAZ695N_body_g"]],
+         ["LAZ695N_signalframe_R", ["LAZ695N_body_g"]],
+         ["LAZ695N_roofsignalfame", ["LAZ695N_body_g"]],
+
+	 {"deformGroup":"LAZ695N_window_2_L_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"}
+         ["LAZ695N_signal_L", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+         ["LAZ695N_roofsignal_FL", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+	 {"deformGroup":"LAZ695N_window_2_R_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"}
+         ["LAZ695N_signal_R", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+         ["LAZ695N_roofsignal_FR", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+
+	 {"deformGroup":"LAZ695N_backlight_R_deform", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"}
+         ["LAZ695N_roofsignal_RR", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+	 {"deformGroup":"LAZ695N_backlight_L_deform", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"}
+         ["LAZ695N_roofsignal_RL", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+	 {"deformGroup":""}
+         {"breakGroup":""},
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]
+        {
+            "lightInnerAngle":0
+            "lightOuterAngle":160
+            "lightBrightness":0.15
+            "lightRange":5
+            "lightColor":{"r":255, "g":195, "b":070, "a":255}
+            "lightAttenuation":{"x":0, "y":1, "z":1}
+            "lightCastShadows":true
+            "flareName":"vehicleHeadLightFlare"
+            "flareScale":0.03
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512
+            "shadowSoftness":0.5
+        }
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z500ll", "z501ll", "z501l", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.25, "y":0.08, "z":-0.07},"deformGroup":"LAZ695N_window_2_L_break"}],
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z500rr", "z501rr", "z501r", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.25, "y":0.08, "z":0.07},"deformGroup":"LAZ695N_window_2_R_break"}],
+        {
+            "lightColor":{"r":198, "g":0, "b":0, "a":255}
+        }
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z508ll", "z509ll", "z509l", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.25, "y":0.14, "z":-0.09},"deformGroup":"LAZ695N_backlight_L_deform"}],
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z508rr", "z509rr", "z509r", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.25, "y":0.14, "z":0.09},"deformGroup":"LAZ695N_backlight_R_deform"}],
+    ],
+ },
+"LAZ695N_sidesignals_early": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Side Signals Round Early",
+        "value":1500,
+    }
+    "slotType" : "LAZ695N_sidesignals",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"], 
+         ["LAZ695N_signalframe_L_early", ["LAZ695N_body_g"]],
+         ["LAZ695N_signalframe_R_early", ["LAZ695N_body_g"]],
+         ["LAZ695N_roofsignalfame", ["LAZ695N_body_g"]],
+
+	 {"deformGroup":"LAZ695N_window_2_L_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"}
+         ["LAZ695N_signal_L_early", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+         ["LAZ695N_roofsignal_FL", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+	 {"deformGroup":"LAZ695N_window_2_R_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"}
+         ["LAZ695N_signal_R_early", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+         ["LAZ695N_roofsignal_FR", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+
+	 {"deformGroup":"LAZ695N_backlight_R_deform", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"}
+         ["LAZ695N_roofsignal_RR", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+	 {"deformGroup":"LAZ695N_backlight_L_deform", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"}
+         ["LAZ695N_roofsignal_RL", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+	 {"deformGroup":""}
+         {"breakGroup":""},
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]
+        {
+            "lightInnerAngle":0
+            "lightOuterAngle":160
+            "lightBrightness":0.15
+            "lightRange":5
+            "lightColor":{"r":255, "g":195, "b":070, "a":255}
+            "lightAttenuation":{"x":0, "y":1, "z":1}
+            "lightCastShadows":true
+            "flareName":"vehicleHeadLightFlare"
+            "flareScale":0.03
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512
+            "shadowSoftness":0.5
+        }
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z500ll", "z501ll", "z501l", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.25, "y":0.08, "z":-0.07},"deformGroup":"LAZ695N_window_2_L_break"}],
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z500rr", "z501rr", "z501r", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.25, "y":0.08, "z":0.07},"deformGroup":"LAZ695N_window_2_R_break"}],
+        {
+            "lightColor":{"r":198, "g":0, "b":0, "a":255}
+        }
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z508ll", "z509ll", "z509l", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.25, "y":0.14, "z":-0.09},"deformGroup":"LAZ695N_backlight_L_deform"}],
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z508rr", "z509rr", "z509r", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.25, "y":0.14, "z":0.09},"deformGroup":"LAZ695N_backlight_R_deform"}],
+    ],
+ },
+"LAZ695N_sidesignals_square": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Side Signals Square",
+        "value":1500,
+    }
+    "slotType" : "LAZ695N_sidesignals",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"], 
+         ["LAZ695N_signalframe_L", ["LAZ695N_body_g"]],
+         ["LAZ695N_signalframe_R", ["LAZ695N_body_g"]],
+         ["LAZ695N_roofsignalfame_square", ["LAZ695N_body_g"]],
+
+	 {"deformGroup":"LAZ695N_window_2_L_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"}
+         ["LAZ695N_signal_L", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+         ["LAZ695N_roofsignal_FL_square", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+	 {"deformGroup":"LAZ695N_window_2_R_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"}
+         ["LAZ695N_signal_R", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+         ["LAZ695N_roofsignal_FR_square", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+
+	 {"deformGroup":"LAZ695N_backlight_R_deform", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"}
+         ["LAZ695N_roofsignal_RR_square", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+	 {"deformGroup":"LAZ695N_backlight_L_deform", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"}
+         ["LAZ695N_roofsignal_RL_square", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+	 {"deformGroup":""}
+         {"breakGroup":""},
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]
+        {
+            "lightInnerAngle":0
+            "lightOuterAngle":160
+            "lightBrightness":0.15
+            "lightRange":5
+            "lightColor":{"r":255, "g":195, "b":070, "a":255}
+            "lightAttenuation":{"x":0, "y":1, "z":1}
+            "lightCastShadows":true
+            "flareName":"vehicleHeadLightFlare"
+            "flareScale":0.03
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512
+            "shadowSoftness":0.5
+        }
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z500ll", "z501ll", "z501l", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.25, "y":0.08, "z":-0.07},"deformGroup":"LAZ695N_window_2_L_break"}],
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z500rr", "z501rr", "z501r", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.25, "y":0.08, "z":0.07},"deformGroup":"LAZ695N_window_2_R_break"}],
+        {
+            "lightColor":{"r":198, "g":0, "b":0, "a":255}
+        }
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z508ll", "z509ll", "z509l", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.25, "y":0.14, "z":-0.09},"deformGroup":"LAZ695N_backlight_L_deform"}],
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z508rr", "z509rr", "z509r", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.25, "y":0.14, "z":0.09},"deformGroup":"LAZ695N_backlight_R_deform"}],
+    ],
+ },
+"LAZ695N_sidesignals_dmg": {
+    "information":{
+        "authors":"Bagusik",
+        "name":"Side Signals Round Damaged",
+        "value":1500,
+    }
+    "slotType" : "LAZ695N_sidesignals",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"], 
+         ["LAZ695N_signalframe_L", ["LAZ695N_body_g"]],
+         ["LAZ695N_signalframe_R", ["LAZ695N_body_g"]],
+         ["LAZ695N_roofsignalfame", ["LAZ695N_body_g"]],
+
+	 {"deformGroup":"LAZ695N_window_2_L_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"}
+         ["LAZ695N_signal_L", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+	 {"deformGroup":"LAZ695N_window_2_R_break", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"}
+         ["LAZ695N_roofsignal_FR", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+
+	 {"deformGroup":"LAZ695N_backlight_R_deform", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"}
+	 {"deformGroup":"LAZ695N_backlight_L_deform", "deformMaterialBase":"LAZ695N_glass", "deformMaterialDamaged":"LAZ695N_lights_dmg"}
+         ["LAZ695N_roofsignal_RL", ["LAZ695N_body_g"],[]{"deformSound":"GlassBreakSound5", "deformVolume":0.3}],
+	 {"deformGroup":""}
+         {"breakGroup":""},
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"]
+        {
+            "lightInnerAngle":0
+            "lightOuterAngle":160
+            "lightBrightness":0.15
+            "lightRange":5
+            "lightColor":{"r":255, "g":195, "b":070, "a":255}
+            "lightAttenuation":{"x":0, "y":1, "z":1}
+            "lightCastShadows":true
+            "flareName":"vehicleHeadLightFlare"
+            "flareScale":0.03
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512
+            "shadowSoftness":0.5
+        }
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z500rr", "z501rr", "z501r", {"x":0, "y":0, "z":0},   {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.25, "y":0.08, "z":0.07},"deformGroup":"LAZ695N_window_2_R_break"}],
+        {
+            "lightColor":{"r":198, "g":0, "b":0, "a":255}
+        }
+        ["lowhighbeam"    , "SPOTLIGHT"        , "z508ll", "z509ll", "z509l", {"x":180, "y":0, "z":0}, {"x":0, "y":0, "z":0}  , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.25, "y":0.14, "z":-0.09},"deformGroup":"LAZ695N_backlight_L_deform"}],
+    ],
+ },
+}

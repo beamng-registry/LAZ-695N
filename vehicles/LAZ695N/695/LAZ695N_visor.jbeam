@@ -1,0 +1,154 @@
+{
+"LAZ695N_visor": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Visor",
+        "value":550,
+    },
+    "slotType" : "LAZ695N_visor",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["LAZ695N_visor", ["LAZ695N_visor"]],
+        {"deformGroup":""},
+    ],
+    "nodes": [
+        ["id", "posX", "posY", "posZ"],
+        {"selfCollision":true},
+        {"collision":true},
+        //--DAY CAB--
+        {"frictionCoef":0.5},
+        {"nodeMaterial":"|NM_METAL"},
+        {"group":"LAZ695N_visor"},
+        {"nodeWeight":1.5},
+        ["v1rr", -1.07327, -4.02551, 2.70885],
+        ["v1r", -0.60000, -4.12358, 2.71695],
+        ["v1", 0.00000, -4.14346, 2.72255],
+        ["v1l", 0.60000, -4.12358, 2.71695],
+        ["v1ll", 1.07327, -4.02551, 2.70885],
+
+        ["v2rr", -1.07327, -4.07550, 2.48434],
+        ["v2r", -0.60000, -4.19358, 2.48434],
+        ["v2", 0.00000, -4.22296, 2.48386],
+        ["v2l", 0.60000, -4.19358, 2.48434],
+        ["v2ll", 1.07327, -4.07550, 2.48434],
+
+        ["v3rr", -1.23187, -3.81596, 2.68275],
+        ["v3ll", 1.23187, -3.81596, 2.68275],
+        {"group":""},
+    ],
+    "beams": [
+        ["id1:", "id2:"],
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+        {"beamSpring":801000,"beamDamp":250},
+        {"beamDeform":15000,"beamStrength":"FLT_MAX"},
+        //main shape
+        //horizontal
+        ["v3rr","v1rr"],
+        ["v1rr","v1r"],
+        ["v1r","v1"],
+        ["v1","v1l"],
+        ["v1l","v1ll"],
+        ["v1ll","v3ll"],
+
+        ["v3rr","v2rr"],
+        ["v2rr","v2r"],
+        ["v2r","v2"],
+        ["v2","v2l"],
+        ["v2l","v2ll"],
+        ["v2ll","v3ll"],
+
+        //vertical
+        ["v1rr","v2rr"],
+        ["v1r","v2r"],
+        ["v1","v2"],
+        ["v1l","v2l"],
+        ["v1ll","v2ll"],
+
+        //surface crossing
+        ["v1rr","v2r"],
+        ["v2rr","v1r"],
+        ["v1r","v2"],
+        ["v2r","v1"],
+        ["v1","v2l"],
+        ["v2","v1l"],
+        ["v1l","v2ll"],
+        ["v2l","v1ll"],
+
+        //side
+        ["v3rr","v1r"],
+        ["v3rr","v2r"],
+        ["v3ll","v1l"],
+        ["v3ll","v2l"],
+
+        {"beamSpring":501000,"beamDamp":250},
+        {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+        //rigids
+        ["v1rr","v1"],
+        ["v2rr","v2"],
+        ["v1r","v1l"],
+        ["v2r","v2l"],
+        ["v1ll","v1"],
+        ["v2ll","v2"],
+        ["v3rr","v3ll"],
+
+        {"beamSpring":1001000,"beamDamp":250},
+        //attach
+        {"beamDeform":4000,"beamStrength":8000},
+        {"breakGroup":"visor_R"},
+        ["v3rr","z500rr"],
+        ["v3rr","z501r"],
+        ["v3rr","z500r"],
+
+        ["v1rr","z500rr"],
+        ["v1rr","z501r"],
+        ["v1rr","z500r"],
+
+        ["v2rr","z500rr"],
+        ["v2rr","z501r"],
+        ["v2rr","z500r"],
+        {"breakGroup":"visor_M"},
+        ["v1","z500"],
+        ["v1","z501"],
+        ["v1","z500r"],
+        ["v1","z500l"],
+
+        ["v2","z500"],
+        ["v2","z501"],
+        ["v2","z500r"],
+        ["v2","z500l"],
+
+        {"breakGroup":"visor_L"},
+        ["v3ll","z500ll"],
+        ["v3ll","z501l"],
+        ["v3ll","z500l"],
+
+        ["v1ll","z500ll"],
+        ["v1ll","z501l"],
+        ["v1ll","z500l"],
+
+        ["v2ll","z500ll"],
+        ["v2ll","z501l"],
+        ["v2ll","z500l"],
+        {"breakGroup":""},
+        {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+    ],
+    "triangles": [
+        ["id1:","id2:","id3:"],
+        {"group":"LAZ695N_visor"},
+        {"groundModel":"plastic"},
+        {"dragCoef":3},
+        ["v1","v2","v2l"],
+        ["v1","v2l","v1l"],
+        ["v1l","v2l","v2ll"],
+        ["v1l","v2ll","v1ll"],
+        ["v1ll","v2ll","v3ll"],
+
+        ["v1","v2r","v2"],
+        ["v1","v1r","v2r"],
+        ["v1r","v2rr","v2r"],
+        ["v1r","v1rr","v2rr"],
+        ["v1rr","v3rr","v2rr"],
+        {"group":""},
+    ],
+},
+}

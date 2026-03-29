@@ -1,0 +1,42 @@
+{
+"LAZ695N_licenseplate_F": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front EU License Plate",
+        "value":0,
+    },
+    "slotType" : "LAZ695N_licenseplate_F",
+    "licenseplateFormat": "52-11",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["licenseplate-52-11", ["LAZ695N_sparewheelpanel"],[],{"pos":{"x":0.0, "y":-4.307, "z":0.48}, "rot":{"x":10, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+    ],
+},
+"LAZ695N_licenseplate_R": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear License Plate",
+        "value":0,
+    },
+
+    "slotType" : "LAZ695N_licenseplate_R",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["licenseplate", ["LAZ695N_enginedoor"],[],{"pos":{"x":0, "y":5.005, "z":1.04}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+    ],
+},
+"LAZ695N_licenseplate_R_eu": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear EU License Plate",
+        "value":0,
+    },
+
+    "slotType" : "LAZ695N_licenseplate_R",
+    "licenseplateFormat": "52-11",
+    "flexbodies": [
+        ["mesh", "[group]:", "nonFlexMaterials"],
+        ["licenseplate-52-11", ["LAZ695N_enginedoor"],[],{"pos":{"x":0, "y":5.005, "z":1.04}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+    ],
+},
+}

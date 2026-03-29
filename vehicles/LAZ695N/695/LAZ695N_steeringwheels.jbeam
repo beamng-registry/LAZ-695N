@@ -1,0 +1,61 @@
+{
+"LAZ695N_steer": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Steering Wheel Late",
+        "value":350,
+    },
+    "slotType" : "LAZ695N_steer",
+       "slots": [
+           ["type", "default", "description"]
+           ["LAZ695N_braid", "", "Steering Wheel Braid"],
+       ],
+    "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_steeringcolumn", ["dash_g", "LAZ695N_body_g"]],
+	],
+    "props": [
+        ["func",     "mesh",          "idRef:", "idX:", "idY:", "baseRotation",            "rotation",            "translation",         "min", "max", "offset", "multiplier"],
+        //steering wheel
+        ["steering"  , "LAZ695N_steer"      , "DA5","DA3","DA17",  {"x":-100, "y":0, "z":0}, {"x":0, "y":0, "z":-1.0}    , {"x":0, "y":0, "z":0}, -900, 900, 0, 0.9],
+        //turn signal stalk
+        ["turnsignal"  , "LAZ695N_signalstalk"      , "DA5","DA3","DA17",  {"x":95, "y":0, "z":0}, {"x":0, "y":0, "z":-25}    , {"x":0, "y":0, "z":0}, -1, 1, 0, 1],
+     ],
+},
+"LAZ695N_steer_early": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Steering Wheel Early",
+        "value":350,
+    },
+    "slotType" : "LAZ695N_steer",
+       "slots": [
+           ["type", "default", "description"]
+           ["LAZ695N_braid", "", "Steering Wheel Braid"],
+       ],
+    "flexbodies": [
+		["mesh", "[group]:", "nonFlexMaterials"],
+		["LAZ695N_steeringcolumn", ["dash_g", "LAZ695N_body_g"]],
+	],
+    "props": [
+        ["func",     "mesh",          "idRef:", "idX:", "idY:", "baseRotation",            "rotation",            "translation",         "min", "max", "offset", "multiplier"],
+        //steering wheel
+        ["steering"  , "LAZ695N_steer_early"      , "DA5","DA3","DA17",  {"x":-100, "y":0, "z":0}, {"x":0, "y":0, "z":-1.0}    , {"x":0, "y":0, "z":0}, -900, 900, 0, 0.9],
+        //turn signal stalk
+        ["turnsignal"  , "LAZ695N_signalstalk"      , "DA5","DA3","DA17",  {"x":95, "y":0, "z":0}, {"x":0, "y":0, "z":-25}    , {"x":0, "y":0, "z":0}, -1, 1, 0, 1],
+     ],
+},
+"LAZ695N_steer_braid": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Beige Braid",
+        "value":350,
+    },
+    "slotType" : "LAZ695N_braid",
+    "props": [
+        ["func",     "mesh",          "idRef:", "idX:", "idY:", "baseRotation",            "rotation",            "translation",         "min", "max", "offset", "multiplier"],
+        //steering wheel
+        ["steering"  , "LAZ695N_braid"      , "DA5","DA3","DA17",  {"x":-100, "y":0, "z":0}, {"x":0, "y":0, "z":-1.0}    , {"x":0, "y":0, "z":0}, -900, 900, 0, 0.9],
+     ],
+},
+}
