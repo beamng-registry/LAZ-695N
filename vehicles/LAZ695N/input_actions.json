@@ -7,6 +7,6 @@
 // sunvisor
 "sunvisorLtoggle":     {"order":24, "onDown":"vehicle.toggle('sunvisorL')", "title":"Left Sunvisor", "desc":"Lowers the left sunvisor."},
 "sunvisorRtoggle":     {"order":25, "onDown":"vehicle.toggle('sunvisorR')", "title":"Right Sunvisor", "desc":"Lowers the right sunvisor."},
-"toggle_kneel":{"order":  12,  "onUp":"controller.getControllerSafe('bus').toggleKneel()", "title": "ui.inputActions.citybus.toggle_kneel.title", "desc": "ui.inputActions.citybus.toggle_kneel.description" },
 "toggle_doors":{"order":  20,  "onUp":"controller.getControllerSafe('bus').toggleDoors()", "title": "ui.inputActions.citybus.toggle_doors.title", "desc": "ui.inputActions.citybus.toggle_doors.description" },
+"toggle_kneel":{"order":  12,  "onUp":"controller.getControllerSafe('bus').toggleKneel()", "title": "ui.inputActions.citybus.toggle_kneel.title", "desc": "ui.inputActions.citybus.toggle_kneel.description" },
 }
