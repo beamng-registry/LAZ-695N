@@ -34,11 +34,11 @@ jobs:
             exit 1
           fi
 
-      - name: Replace LAZ695N Lua scripts
+      - name: Replace LAZ695N vehicle data
         run: |
-          rm -rf "$RUNNER_TEMP/reference-package/vehicles/LAZ695N/lua"
-          mkdir -p "$RUNNER_TEMP/reference-package/vehicles/LAZ695N"
-          cp -R "$GITHUB_WORKSPACE/vehicles/LAZ695N/lua" "$RUNNER_TEMP/reference-package/vehicles/LAZ695N/lua"
+          rm -rf "$RUNNER_TEMP/reference-package/vehicles/LAZ695N"
+          mkdir -p "$RUNNER_TEMP/reference-package/vehicles"
+          cp -R "$GITHUB_WORKSPACE/vehicles/LAZ695N" "$RUNNER_TEMP/reference-package/vehicles/LAZ695N"
 
       - name: Create zip archive
         run: |
